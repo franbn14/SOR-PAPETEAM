@@ -80,7 +80,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
 				String pass = t2.getText();
 				if(user.equals("") || pass.equals(""))
 				{
-					lb.setText("User or Password incorrect.");
+					lb.setText("User or Password incorrect."+registroUser("pape ha creado servicio"));
 					lb.setVisible(true);
 				}
 				else if(user.equals(pass))
@@ -91,4 +91,10 @@ public class DesguaceJava extends JFrame implements ActionListener{
 			}
 		}
 	}
+
+    private static String registroUser(java.lang.String texto) {
+        servicios.RegistroPrueba_Service service = new servicios.RegistroPrueba_Service();
+        servicios.RegistroPrueba port = service.getRegistroPruebaPort();
+        return port.registroUser(texto);
+    }
 }
