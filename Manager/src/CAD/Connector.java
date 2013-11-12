@@ -30,8 +30,8 @@ public class Connector {
         Connection cnt = getConnection();
         Statement st = cnt.createStatement();
         ResultSet rs = st.executeQuery(q);
-        st.close();
-        cnt.close();
+        /*st.close();
+        cnt.close();*/
         return rs;
     }
     
@@ -46,5 +46,11 @@ public class Connector {
         st.close();
         cnt.close();
         return lastID;
+    }
+    
+    public static void close(ResultSet rs) throws ClassNotFoundException, SQLException{
+        Connection cnt = rs.getStatement().getConnection();
+        rs.getStatement().close();
+        cnt.close();
     }
 }

@@ -4,7 +4,10 @@
  */
 package CAD;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  *
@@ -21,6 +24,50 @@ public class ScrapYardCAD {
             System.err.println(e.getMessage());
         }
         return id;
+    }
+    
+    public static Hashtable getByCIF(String cif){
+        Hashtable values = new Hashtable();
+        try {
+            String query = "SELECT usr.id, cif, nombre, usr.password, direccion" +
+                    "FROM Usuario usr, Desguace d WHERE d.id = usr.id AND d.cif = \"" + cif + "\"";
+            ResultSet rs = Connector.query(query);
+            if(rs.next()){
+                values.put("id", rs.getInt("id"));
+                values.put("cif", rs.getString("cif"));
+                values.put("name", rs.getString("nombre"));
+                values.put("password", rs.getString("password"));
+                values.put("address", rs.getString("direccion"));
+            }
+            Connector.close(rs);
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.err.println(e.getMessage());
+        }
+        return values;
+    }
+    
+    public static ArrayList<Hashtable> getAll(){
+        ArrayList<Hashtable> values = new ArrayList<Hashtable>();
+        try {
+            String query = "SELECT usr.id, cif, nombre, usr.password, direccion" +
+                    "FROM Usuario usr, Desguace d WHERE d.id = usr.id";
+            ResultSet rs = Connector.query(query);
+            while(rs.next()){
+                Hashtable ht = new Hashtable();
+                ht.put("id", rs.getInt("id"));
+                ht.put("cif", rs.getString("cif"));
+                ht.put("name", rs.getString("nombre"));
+                ht.put("password", rs.getString("password"));
+                ht.put("address", rs.getString("direccion"));
+                values.add(ht);
+            }
+            Connector.close(rs);
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.err.println(e.getMessage());
+        }
+        return values;
     }
     
     public static void updateCIF(int id, String cif){
