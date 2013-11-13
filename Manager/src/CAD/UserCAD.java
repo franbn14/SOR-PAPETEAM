@@ -44,6 +44,7 @@ public class UserCAD{
         try {
             String query = "SELECT * FROM Usuario WHERE id = " + id;
             ResultSet rs = Connector.query(query);
+            
             if(rs.next()){
                 values.put("name", rs.getString("nombre"));
                 values.put("password", rs.getString("password"));

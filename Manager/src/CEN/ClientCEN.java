@@ -80,7 +80,7 @@ public class ClientCEN extends UserCEN {
         }
     }
     
-    public void updateDOB(Date DOB){
+    public void updateDOB(Date DOB){       
         if(id != -1){
             CAD.ClientCAD.updateDOB(id, DOB);
         }
