@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/alberto/PracticaSOR/Manager/src/CEN/UserCEN.java</file>
+            <file>file:/home/alberto/PracticaSOR/Manager/src/CAD/OfferCAD.java</file>
+            <file>file:/home/alberto/PracticaSOR/Manager/src/gestor/main.java</file>
+            <file>file:/home/alberto/PracticaSOR/Manager/src/CEN/RequestCEN.java</file>
+            <file>file:/home/alberto/PracticaSOR/Manager/src/CEN/OfferCEN.java</file>
+            <file>file:/home/alberto/PracticaSOR/Manager/src/CEN/ScrapYardCEN.java</file>
+            <file>file:/home/alberto/PracticaSOR/Manager/src/CAD/RequestCAD.java</file>
+        </group>
+    </open-files>
 </project-private>

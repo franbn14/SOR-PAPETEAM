@@ -46,6 +46,7 @@ public class UserCAD{
             ResultSet rs = Connector.query(query);
             
             if(rs.next()){
+                values.put("id", rs.getString("id"));
                 values.put("name", rs.getString("nombre"));
                 values.put("password", rs.getString("password"));
                 values.put("address", rs.getString("direccion"));

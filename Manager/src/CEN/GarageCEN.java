@@ -24,13 +24,22 @@ public class GarageCEN extends UserCEN{
         CAD.GarageCAD.create(name, password, address, cif);
     }
     
-    public void getByCIF(String cif){
+    public static GarageCEN getById(int id){
+        Hashtable ht = CAD.GarageCAD.getById(id);
+        
+        GarageCEN garage = new GarageCEN((String) ht.get("name"),(String) ht.get("password"),(String) ht.get("address"),(String) ht.get("cif"));
+        garage.id = id;
+        
+        return garage;
+    }
+    
+    public static GarageCEN getByCIF(String cif){
         Hashtable ht = CAD.GarageCAD.getByCIF(cif);
-        this.id = (int) ht.get("id");
-        this.cif = cif;
-        this.name = (String) ht.get("name");
-        this.address = (String) ht.get("address");
-        this.password = (String) ht.get("password");
+        
+        GarageCEN garage = new GarageCEN((String) ht.get("name"),(String) ht.get("password"),(String) ht.get("address"),cif);
+        garage.id = (int) ht.get("id");
+        
+        return garage;
     }
     
     public static ArrayList<GarageCEN> getAllGarages(){

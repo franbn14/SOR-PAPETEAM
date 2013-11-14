@@ -46,11 +46,14 @@ public abstract class UserCEN {
         return all;
     }
     
-    /*public static UserCEN getByID(int id){
+    public static UserCEN getByID(int id){
         Hashtable ht = CAD.UserCAD.getByID(id);        
-                                
-        return (new UserCEN(id,(String) ht.get("name"), (String) ht.get("address"), (String) ht.get("password")));
-    }*/
+        
+        UserCEN user=new UserCEN((String) ht.get("name"), (String) ht.get("password"), (String) ht.get("address")) {};                 
+        //user.id = ht.get("id");
+        
+        return user;
+    }
     
     public void delete(){
         if(id != -1){
