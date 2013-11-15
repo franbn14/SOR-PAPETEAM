@@ -30,7 +30,7 @@ public class RegistroPrueba_Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://25.203.164.14:8080/SorServices/RegistroPrueba?wsdl");
+            url = new URL("http://localhost:8080/SorServices/RegistroPrueba?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
