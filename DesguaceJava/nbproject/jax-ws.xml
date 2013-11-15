@@ -26,5 +26,33 @@
         </wsimport-option>
       </wsimport-options>
     </client>
+    <client name="RegistroPrueba_1">
+      <wsdl-url>http://25.203.164.14:8080/SorServices/RegistroPrueba?wsdl</wsdl-url>
+      <local-wsdl-file>25.203.164.14_8080/SorServices/RegistroPrueba.wsdl</local-wsdl-file>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://25.203.164.14:8080/SorServices/RegistroPrueba?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
   </clients>
 </jax-ws>
