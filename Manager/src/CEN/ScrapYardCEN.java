@@ -22,7 +22,7 @@ public class ScrapYardCEN extends UserCEN {
     
     @Override
     public void insert(){
-        CAD.ScrapYardCAD.create(name, password, address, cif);
+        this.id=CAD.ScrapYardCAD.create(name, password, address, cif);        
     }
     
     public void getByCIF(String cif){
@@ -32,6 +32,15 @@ public class ScrapYardCEN extends UserCEN {
         this.name = (String) ht.get("name");
         this.address = (String) ht.get("address");
         this.password = (String) ht.get("password");
+    }
+    
+    public static ScrapYardCEN getById(int id) {
+        Hashtable ht = CAD.ScrapYardCAD.getById(id);
+        
+        ScrapYardCEN scrapyard = new ScrapYardCEN((String)ht.get("name"), (String)ht.get("password"), (String)ht.get("address"), (String)ht.get("cif"));        
+        scrapyard.id=id;
+       
+        return scrapyard;
     }
     
     public static ArrayList<ScrapYardCEN> getAllScrapYards(){
@@ -57,4 +66,11 @@ public class ScrapYardCEN extends UserCEN {
             CAD.ScrapYardCAD.updateCIF(id, cif);
         }
     }
+
+    @Override
+    public String toString() {
+        return id + " " + cif + " " +  name + " " + password + " " + address;
+    }
+    
+    
 }

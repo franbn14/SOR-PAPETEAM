@@ -31,7 +31,7 @@ public class OfferCEN {
     public void setAttributes(String description, RequestCEN request, ScrapYardCEN scrapyard) {
         this.description = description;
         this.request = request;
-        this.scrapyard = scrapyard;
+        this.scrapyard = scrapyard;               
     }
     
     public int getCode() {
@@ -96,7 +96,9 @@ public class OfferCEN {
 
             for(Hashtable ht : values){                            
                 OfferCEN offer=new OfferCEN();                
-                offer = new OfferCEN((String)ht.get("description"), RequestCEN.getByCode((int)ht.get("request")), (ScrapYardCEN)ScrapYardCEN.getByID((int)ht.get("scrapyard")));
+                offer = new OfferCEN((String)ht.get("description"), 
+                        RequestCEN.getByCode(Integer.parseInt(ht.get("request").toString())), 
+                        ScrapYardCEN.getById((int)ht.get("scrapyard")));
                 offer.code=(int) ht.get("code");
                 all.add(offer);
             }           

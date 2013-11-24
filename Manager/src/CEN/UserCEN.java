@@ -40,7 +40,7 @@ public abstract class UserCEN {
         ArrayList<UserCEN> all = new ArrayList<UserCEN>();
         for(Hashtable ht : values){
             UserCEN usr = new UserCEN((String) ht.get("name"), (String) ht.get("password"), (String) ht.get("address")) {};
-            usr.id = (int) ht.get("id");
+            usr.id = Integer.parseInt(ht.get("id").toString());
             all.add(usr);
         }
         return all;
@@ -50,7 +50,7 @@ public abstract class UserCEN {
         Hashtable ht = CAD.UserCAD.getByID(id);        
         
         UserCEN user=new UserCEN((String) ht.get("name"), (String) ht.get("password"), (String) ht.get("address")) {};                 
-        //user.id = ht.get("id");
+        user.id = Integer.parseInt(ht.get("id").toString());
         
         return user;
     }
