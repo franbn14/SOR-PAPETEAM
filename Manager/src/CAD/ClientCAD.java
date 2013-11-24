@@ -29,6 +29,29 @@ public class ClientCAD extends UserCAD{
         return id;
     }
     
+    public static Hashtable getById(int id){
+        Hashtable values = new Hashtable();
+        try {
+            String query = "SELECT usr.id, dni, nombre, apellidos, usr.password, direccion, fechaNac " +
+                    "FROM Usuario usr, Cliente c WHERE c.id = usr.id AND c.id = "+id;
+            ResultSet rs = Connector.query(query);
+            if(rs.next()){
+                values.put("id", rs.getInt("id"));
+                values.put("dni", rs.getString("dni"));
+                values.put("name", rs.getString("nombre"));
+                values.put("surname", rs.getString("apellidos"));
+                values.put("password", rs.getString("password"));
+                values.put("address", rs.getString("direccion"));
+                values.put("DOB", rs.getDate("fechaNac"));
+            }
+            Connector.close(rs);
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.err.println(e.getMessage());
+        }
+        return values;
+    }
+    
     public static Hashtable getByDNI(String dni){
         Hashtable values = new Hashtable();
         try {

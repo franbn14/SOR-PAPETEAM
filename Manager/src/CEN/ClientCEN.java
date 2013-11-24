@@ -36,16 +36,22 @@ public class ClientCEN extends UserCEN {
         this.id = CAD.ClientCAD.create(name, surname, password, dni, address, DOB);
     }
     
-    public void getByDNI(String dni){
-        Hashtable ht = CAD.ClientCAD.getByDNI(dni);
-        this.id = (int) ht.get("id");
-        this.dni = dni;
-        this.name = (String) ht.get("name");
-        this.surname = (String) ht.get("surname");
-        this.address = (String) ht.get("address");
-        this.password = (String) ht.get("password");
-        this.DOB = (Date) ht.get("DOB");
+    public static ClientCEN getById(int id) {
+        Hashtable ht = CAD.ClientCAD.getById(id);
+        
+        ClientCEN client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), (String)ht.get("dni"), (String)ht.get("address"), (Date)ht.get("DOB"));        
+        client.id=id;
+        
+        return client;
     }
+    
+    public static ClientCEN getByDNI(String dni){        
+        Hashtable ht = CAD.ClientCAD.getByDNI(dni);
+        
+        ClientCEN client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), dni, (String)ht.get("address"), (Date)ht.get("DOB"));        
+        
+        return client;
+    }   
     
    public static ArrayList<ClientCEN> getAllClients(){
         ArrayList<Hashtable> values = CAD.ClientCAD.getAll();
@@ -80,7 +86,7 @@ public class ClientCEN extends UserCEN {
         }
     }
     
-    public void updateDOB(Date DOB){
+    public void updateDOB(Date DOB){       
         if(id != -1){
             CAD.ClientCAD.updateDOB(id, DOB);
         }
