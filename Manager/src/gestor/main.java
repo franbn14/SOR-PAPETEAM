@@ -20,7 +20,7 @@ public class main {
     public static void main(String[] args) {
         ClientCEN client = new ClientCEN("usuario", "apellido", "pass", "11111111W", "calle falsa", new Date(1991, 11, 14));
         client.insert();
-        client.updateDNI("22222222E");
+        client.updateNIF("22222222E");
         
         ScrapYardCEN sy = new ScrapYardCEN("desguace", "mypass", "perdido", "12345678J");
         sy.insert();
@@ -31,7 +31,7 @@ public class main {
         }
         for(ScrapYardCEN s : ScrapYardCEN.getAllScrapYards()){
             System.out.println(s);
-        }         
+        } 
         
         RequestCEN req=new RequestCEN("Tornillos tipo 8",2,client);
         req.insert();

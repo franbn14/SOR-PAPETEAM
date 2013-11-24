@@ -16,10 +16,10 @@ import java.util.Hashtable;
  */
 public class ClientCAD extends UserCAD{
     
-    public static int create(String name, String surname, String password, String dni, String address, Date DOB){
+    public static int create(String name, String surname, String password, String nif, String address, Date DOB){
         int id = UserCAD.create(name, password, address);
         String date = DOB.getYear() + "-" + DOB.getMonth() + "-" + DOB.getDate();
-        String query = "INSERT INTO Cliente (id, dni, apellidos, fechaNac) VALUES ('"+ id +"', '" + dni + "', '" + surname  + "', '" + date + "')";
+        String query = "INSERT INTO Cliente (id, nif, apellidos, fechaNac) VALUES ('"+ id +"', '" + nif + "', '" + surname  + "', '" + date + "')";
         try {
             Connector.updates(query);
         }
@@ -32,12 +32,12 @@ public class ClientCAD extends UserCAD{
     public static Hashtable getById(int id){
         Hashtable values = new Hashtable();
         try {
-            String query = "SELECT usr.id, dni, nombre, apellidos, usr.password, direccion, fechaNac " +
+            String query = "SELECT usr.id, nif, nombre, apellidos, usr.password, direccion, fechaNac " +
                     "FROM Usuario usr, Cliente c WHERE c.id = usr.id AND c.id = "+id;
             ResultSet rs = Connector.query(query);
             if(rs.next()){
                 values.put("id", rs.getInt("id"));
-                values.put("dni", rs.getString("dni"));
+                values.put("nif", rs.getString("nif"));
                 values.put("name", rs.getString("nombre"));
                 values.put("surname", rs.getString("apellidos"));
                 values.put("password", rs.getString("password"));
@@ -52,15 +52,15 @@ public class ClientCAD extends UserCAD{
         return values;
     }
     
-    public static Hashtable getByDNI(String dni){
+    public static Hashtable getByNIF(String nif){
         Hashtable values = new Hashtable();
         try {
-            String query = "SELECT usr.id, dni, nombre, apellidos, usr.password, direccion, fechaNac " +
-                    "FROM Usuario usr, Cliente c WHERE c.id = usr.id AND c.dni = \"" + dni + "\"";
+            String query = "SELECT usr.id, nif, nombre, apellidos, usr.password, direccion, fechaNac " +
+                    "FROM Usuario usr, Cliente c WHERE c.id = usr.id AND c.nif = \"" + nif + "\"";
             ResultSet rs = Connector.query(query);
             if(rs.next()){
                 values.put("id", rs.getInt("id"));
-                values.put("dni", rs.getString("dni"));
+                values.put("nif", rs.getString("nif"));
                 values.put("name", rs.getString("nombre"));
                 values.put("surname", rs.getString("apellidos"));
                 values.put("password", rs.getString("password"));
@@ -78,13 +78,13 @@ public class ClientCAD extends UserCAD{
     public static ArrayList<Hashtable> getAll(){
         ArrayList<Hashtable> values = new ArrayList<Hashtable>();
         try {
-            String query = "SELECT usr.id, dni, nombre, apellidos, usr.password, direccion, fechaNac " +
+            String query = "SELECT usr.id, nif, nombre, apellidos, usr.password, direccion, fechaNac " +
                     "FROM Usuario usr, Cliente c WHERE c.id = usr.id";
             ResultSet rs = Connector.query(query);
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("id", rs.getInt("id"));
-                ht.put("dni", rs.getString("dni"));
+                ht.put("nif", rs.getString("nif"));
                 ht.put("name", rs.getString("nombre"));
                 ht.put("surname", rs.getString("apellidos"));
                 ht.put("password", rs.getString("password"));
@@ -110,9 +110,9 @@ public class ClientCAD extends UserCAD{
         }
     }
     
-    public static void updateDNI(int id, String dni){
+    public static void updateNIF(int id, String nif){
         try {
-            String query = "UPDATE Cliente SET dni = '" + dni + "' WHERE id = " + id;
+            String query = "UPDATE Cliente SET nif = '" + nif + "' WHERE id = " + id;
             Connector.updates(query);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -123,7 +123,7 @@ public class ClientCAD extends UserCAD{
     public static void updateDOB(int id, Date DOB){
         try {
             String date = DOB.getYear() + "-" + DOB.getMonth() + "-" + DOB.getDate();
-            String query = "UPDATE Cliente SET dni = '" + date + "' WHERE id = " + id;
+            String query = "UPDATE Cliente SET fechaNac = '" + date + "' WHERE id = " + id;
             Connector.updates(query);
         }
         catch (ClassNotFoundException | SQLException e){

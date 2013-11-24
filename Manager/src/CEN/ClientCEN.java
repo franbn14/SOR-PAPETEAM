@@ -14,41 +14,42 @@ import java.util.Hashtable;
  */
 public class ClientCEN extends UserCEN {
     private String surname;
-    private String dni;
+    private String nif;
     private Date DOB;
     
     public ClientCEN(){
         super();
         this.surname = "";
-        this.dni = "";
+        this.nif = "";
         this.DOB = new Date();
     }
     
-    public ClientCEN(String name, String surname, String password, String dni, String address, Date DOB){
+    public ClientCEN(String name, String surname, String password, String nif, String address, Date DOB){
         super(name, password, address);
         this.surname = surname;
-        this.dni = dni;
+        this.nif = nif;
         this.DOB = DOB;
     }
     
     @Override
     public void insert(){
-        this.id = CAD.ClientCAD.create(name, surname, password, dni, address, DOB);        
+        this.id = CAD.ClientCAD.create(name, surname, password, nif, address, DOB);        
     }
     
     public static ClientCEN getById(int id) {
         Hashtable ht = CAD.ClientCAD.getById(id);
         
-        ClientCEN client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), (String)ht.get("dni"), (String)ht.get("address"), (Date)ht.get("DOB"));        
+        ClientCEN client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), (String)ht.get("nif"), (String)ht.get("address"), (Date)ht.get("DOB"));        
         client.id=id;
         
         return client;
     }
     
-    public static ClientCEN getByDNI(String dni){        
-        Hashtable ht = CAD.ClientCAD.getByDNI(dni);
+    public static ClientCEN getByNIF(String nif){        
+        Hashtable ht = CAD.ClientCAD.getByNIF(nif);
         
-        ClientCEN client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), dni, (String)ht.get("address"), (Date)ht.get("DOB"));        
+        ClientCEN client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), nif, (String)ht.get("address"), (Date)ht.get("DOB"));
+        client.id = (int)ht.get("id");
         
         return client;
     }   
@@ -58,17 +59,17 @@ public class ClientCEN extends UserCEN {
         ArrayList<ClientCEN> all =  new ArrayList<>();
         for(Hashtable ht : values){
             ClientCEN c = new ClientCEN((String) ht.get("name"), (String) ht.get("surname"), 
-                    (String) ht.get("password"), (String) ht.get("dni"), (String) ht.get("address"), (Date) ht.get("DOB"));
+                    (String) ht.get("password"), (String) ht.get("nif"), (String) ht.get("address"), (Date) ht.get("DOB"));
             c.id = (int) ht.get("id");
             all.add(c);
         }
         return all;
     }
     
-    public void update(String name, String surname, String password, String dni, String address, Date DOB){
+    public void update(String name, String surname, String password, String nif, String address, Date DOB){
         update(name, password, address);
         if(id != -1){
-            CAD.ClientCAD.updateDNI(id, dni);
+            CAD.ClientCAD.updateNIF(id, nif);
             CAD.ClientCAD.updateSurname(id, surname);
             CAD.ClientCAD.updateDOB(id, DOB);
         }
@@ -80,9 +81,9 @@ public class ClientCEN extends UserCEN {
         }
     }
     
-    public void updateDNI(String dni){
+    public void updateNIF(String nif){
         if(id != -1){
-            CAD.ClientCAD.updateDNI(id, dni);
+            CAD.ClientCAD.updateNIF(id, nif);
         }
     }
     
@@ -100,12 +101,12 @@ public class ClientCEN extends UserCEN {
         this.surname = surname;
     }
 
-    public String getDni() {
-        return dni;
+    public String getNIF() {
+        return nif;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setNIF(String nif) {
+        this.nif = nif;
     }
 
     public Date getDOB() {
@@ -118,6 +119,6 @@ public class ClientCEN extends UserCEN {
     
     @Override
     public String toString(){
-        return id + " " + dni + " " + name + " " + surname + " " + password + " " + address + " " + DOB.toString();
+        return id + " " + nif + " " + name + " " + surname + " " + password + " " + address + " " + DOB.toString();
     }
 }
