@@ -19,12 +19,12 @@ public abstract class UserCEN {
     protected String password;
     protected String address;
     
-    public UserCEN(){
+    /*public UserCEN(){
         this.id = -1;
         this.name = "";
         this.password = "";
         this.address = "";
-    }
+    }*/
 
     public UserCEN(String name, String password, String address) {
         this.id = -1;

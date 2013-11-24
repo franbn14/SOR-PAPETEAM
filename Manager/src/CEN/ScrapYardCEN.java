@@ -23,7 +23,9 @@ public class ScrapYardCEN extends UserCEN {
     
     @Override
     public void insert(){
-        this.id=CAD.ScrapYardCAD.create(name, password, address, cif);        
+        if(id == -1){
+            this.id = CAD.ScrapYardCAD.create(name, password, address, cif);  
+        }
     }
     
     /*public void getByCIF(String cif){
@@ -66,13 +68,26 @@ public class ScrapYardCEN extends UserCEN {
         update(name, password, address);
         if(id != -1){
             CAD.ScrapYardCAD.updateCIF(id, cif);
+            this.name =  name;
+            this.password = password;
+            this.address = address;
+            this.cif = cif;
         }
     }
     
     public void updateCIF(String cif){
         if(id != -1){
             CAD.ScrapYardCAD.updateCIF(id, cif);
+            this.cif = cif;
         }
+    }
+
+    public String getCif() {
+        return cif;
+    }
+
+    public void setCif(String cif) {
+        this.cif = cif;
     }
 
     @Override

@@ -46,18 +46,53 @@ public class main {
         ClientCEN client3 = ClientCEN.getByNIF(client.getNIF());
         System.out.println(client3);
         
+        ClientCEN client4 = new ClientCEN("usuario", "apellido", "pass", "11111112A", "calle falsa", new Date(1991, 11, 14));
+        client4.insert();
+        System.err.println("Si, tiene que salir el error...");
+        
         System.out.println("TODOS LOS CLIENTES: ");
         for(ClientCEN c : ClientCEN.getAllClients()){
             System.out.println(c);
         }
         
-        ClientCEN client4 = new ClientCEN("usuario", "apellido", "pass", "11111112A", "calle falsa", new Date(1991, 11, 14));
-        client4.insert();
-        System.err.println("Si, tiene que salir error...");
-        
         client.delete();
                 
         System.out.println("\n-------------TEST SCRAP YARD ---------------");
+        ScrapYardCEN sy = new ScrapYardCEN("desguace", "pass", "calle falsa", "11111113A");
+        sy.insert();
+        System.out.println(sy);
+        sy.updateName("todo piezas");
+        System.out.println(sy);
+        sy.updatePassword("newPass");
+        System.out.println(sy);
+        sy.updateAddress("calle desconocida");
+        System.out.println(sy);
+        sy.updateCIF("11111113B");
+        System.out.println(sy);
+        sy.update("desguace", "pass", "calle falsa");
+        System.out.println(sy);
+        sy.update("todo piezas", "newPass", "calle desconocida", "11111113A");
+        System.out.println(sy);
+        
+        ScrapYardCEN sy2 = ScrapYardCEN.getById(sy.getId());
+        System.out.println(sy2);
+        
+        ScrapYardCEN sy3 = ScrapYardCEN.getByCIF(sy.getCif());
+        System.out.println(sy3);
+        
+        ScrapYardCEN sy4 = new ScrapYardCEN("desguace", "pass", "calle falsa", "11111113A");
+        sy4.insert();
+        System.err.println("Si, tiene que salir el error...");
+        
+        System.out.println("TODOS LOS CLIENTES: ");
+        for(ScrapYardCEN s : ScrapYardCEN.getAllScrapYards()){
+            System.out.println(s);
+        }
+        
+        sy.delete();
+        
+        
+        
         /*ClientCEN client = new ClientCEN("usuario", "apellido", "pass", "11111111W", "calle falsa", new Date(1991, 11, 14));
         client.insert();
         client.updateNIF("22222222E");
