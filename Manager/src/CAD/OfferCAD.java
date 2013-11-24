@@ -21,6 +21,7 @@ public class OfferCAD {
         int code=-1;
                         
         String query = "INSERT INTO Oferta (descripcion, solicitud, desguace) VALUES ('"+ offer.getDescription()+"', '" + offer.getRequest().getCode() + "', '" + offer.getScrapyard().getId() + "')";
+        System.out.println(query);
         try {
             code = Connector.updates(query);
         }
@@ -40,7 +41,7 @@ public class OfferCAD {
                 request.put("code", rs.getInt("codigo"));
                 request.put("description", rs.getString("descripcion"));
                 request.put("request", rs.getString("solicitud"));
-                request.put("scrapyard", rs.getInt("scrapyard"));
+                request.put("scrapyard", rs.getInt("desguace"));
             }
             Connector.close(rs);
         }
@@ -61,7 +62,7 @@ public class OfferCAD {
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("description", rs.getString("descripcion"));
                 ht.put("request", rs.getString("solicitud"));
-                ht.put("scrapyard", rs.getInt("scrapyard"));
+                ht.put("scrapyard", rs.getInt("desguace"));
                 values.add(ht);
             }
             Connector.close(rs);

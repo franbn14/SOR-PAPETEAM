@@ -33,7 +33,7 @@ public class ClientCEN extends UserCEN {
     
     @Override
     public void insert(){
-        this.id = CAD.ClientCAD.create(name, surname, password, dni, address, DOB);
+        this.id = CAD.ClientCAD.create(name, surname, password, dni, address, DOB);        
     }
     
     public static ClientCEN getById(int id) {

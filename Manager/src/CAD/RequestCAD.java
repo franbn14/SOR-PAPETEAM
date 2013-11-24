@@ -86,6 +86,7 @@ public class RequestCAD {
     public static void delete(int code){
         try {
             String query = "DELETE FROM Solicitud WHERE codigo = " + code;
+            System.out.println(query);
             Connector.updates(query);
         }
         catch (ClassNotFoundException | SQLException e){

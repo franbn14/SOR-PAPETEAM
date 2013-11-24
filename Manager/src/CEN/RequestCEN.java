@@ -24,17 +24,13 @@ public class RequestCEN {
     }
         
     public RequestCEN(String criteria, int amount, ClientCEN client) {        
-        setAttributes(criteria, amount, client, null);                
+        setAttributes(criteria, amount, client);                
     }
     
-    public RequestCEN(String criteria, int amount, GarageCEN garage) {        
-        setAttributes(criteria, amount, null, garage);
-    }
-    
-    public void setAttributes(String criteria, int amount, ClientCEN client, GarageCEN garage) {
+    public void setAttributes(String criteria, int amount, ClientCEN client) {
         this.criteria = criteria;
         this.amount = amount;
-        this.user= (client!=null?client:(garage!=null?garage:null));
+        this.user= client;
         
         if(user==null)
             userError();
@@ -75,11 +71,7 @@ public class RequestCEN {
     public void setUser(ClientCEN user) {
         this.user = user;
     }
-    
-    public void setUser(GarageCEN user) {
-        this.user = user;
-    }
-    
+            
     public void insert() {
         this.code=RequestCAD.insert(this);
     }
@@ -88,8 +80,10 @@ public class RequestCEN {
         Hashtable ht = RequestCAD.getByCode(code); 
         RequestCEN req = new RequestCEN();
         
-        if(!ht.isEmpty()) 
-            req.set((int) ht.get("code"), (String)ht.get("criteria"), (int)ht.get("amount"),(int)ht.get("user"));                  
+        if(!ht.isEmpty()) {
+            req.setAttributes((String)ht.get("criteria"), Integer.parseInt(ht.get("amount").toString()), ClientCEN.getById(Integer.parseInt(ht.get("user").toString())));                  
+            req.code=(int)ht.get("code");
+        }            
         
         return req;
     }
@@ -104,7 +98,8 @@ public class RequestCEN {
             for(Hashtable ht : values){                            
                 RequestCEN req=new RequestCEN();                
                 
-                req.set(Integer.parseInt(ht.get("code").toString()), (String)ht.get("criteria"), Integer.parseInt(ht.get("amount").toString()),Integer.parseInt(ht.get("user").toString()));                                  
+                req.setAttributes((String)ht.get("criteria"), Integer.parseInt(ht.get("amount").toString()),ClientCEN.getById((int)ht.get("user")));                                  
+                req.code=Integer.parseInt(ht.get("code").toString());
                 all.add(req);
             }           
         }        
@@ -112,33 +107,10 @@ public class RequestCEN {
     }
     
     public void update(String criteria, int amount, ClientCEN client) {        
-        setAttributes(criteria, amount, client, null);
+        setAttributes(criteria, amount, client);
         RequestCAD.update(this);
     }
-    
-    public void update(String criteria, int amount, GarageCEN garage) {
-        setAttributes(criteria, amount, null, garage);
-        RequestCAD.update(this);
-    }
-    
-    //Instancia el objeto estableciendo el tipo de usuario correspondiente
-    public void set(int code, String criteria, int amount, int userId) {
-        ClientCEN client = ClientCEN.getById(userId);
-               
-        if(user==null) {
-            GarageCEN garage = GarageCEN.getById(userId);
-            
-            if(garage!=null)
-                this.setAttributes(criteria, amount, null, garage);
-            else
-                userError();
-        }                
-        else            
-            this.setAttributes(criteria, amount, client,null);
-
-        this.code = code;
-    }
-    
+                    
     public void delete() {
         if(code != -1){
             RequestCAD.delete(code);
