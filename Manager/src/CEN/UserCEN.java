@@ -58,6 +58,7 @@ public abstract class UserCEN {
     public void delete(){
         if(id != -1){
             CAD.UserCAD.delete(id);
+            id = -1;
         }
     }
     
@@ -72,18 +73,21 @@ public abstract class UserCEN {
     public void updateName(String name){
         if(id != -1){
             CAD.UserCAD.updateName(id, name);
+            this.name = name;
         }
     }
     
     public void updatePassword(String password){
         if(id != -1){
             CAD.UserCAD.updatePassword(id, password);
+            this.password = password;
         }
     }
     
     public void updateAddress(String address){
         if(id != -1){
             CAD.UserCAD.updateAddress(id, address);
+            this.address = address;
         }
     }
 
