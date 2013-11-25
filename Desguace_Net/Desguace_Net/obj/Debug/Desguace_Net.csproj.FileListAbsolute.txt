@@ -1,0 +1,10 @@
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Desguace_Net.exe.config
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Desguace_Net.exe
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Desguace_Net.pdb
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.csprojResolveAssemblyReference.cache
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.Login.resources
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.Properties.Resources.resources
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.csproj.GenerateResource.Cache
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.exe
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.pdb
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.Registro.resources
