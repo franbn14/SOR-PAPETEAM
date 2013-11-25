@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ServiceModel;
+using Desguace_Net.LoginServicio;
 
 namespace Desguace_Net
 {
@@ -16,7 +18,7 @@ namespace Desguace_Net
         {
             InitializeComponent();
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -27,6 +29,55 @@ namespace Desguace_Net
         {
             Registro re=new Registro();
             re.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String user = textBox1.Text;
+            String pass = textBox2.Text;
+            LoginDesguace l1 = new LoginDesguaceClient();
+         
+            Login_DesRequest r=new Login_DesRequest();
+            Login_DesRequestBody l=new Login_DesRequestBody ();
+            
+            l.cif = user;
+            l.Password = pass;
+            r.Body = l;
+            Login_DesResponse res = new Login_DesResponse();
+            try
+            {
+                res = l1.Login_Des(r);
+
+                String error = res.Body.@return;
+                Error_Pass.Visible = true;
+                if (error == "")
+                {
+                    Error_Pass.Text = "Ok";
+                }
+                else
+                {
+                    Error_Pass.Text = error;
+                }
+
+            }
+            catch (EndpointNotFoundException ex)
+            {
+                Error_Pass.Visible = true;
+                Error_Pass.Text = "Se ha caido el servidor";
+            }
+               
+            
+           
+            
+          
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Es cierto que desea salir?", "", MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) ==
+        DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

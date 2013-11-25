@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.Error_Pass = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -44,6 +45,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -74,6 +76,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(23, 114);
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(180, 20);
             this.textBox2.TabIndex = 4;
             // 
@@ -88,11 +91,23 @@
             this.linkLabel1.Text = "Si no estas registrada. Hazlo ya!";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // Error_Pass
+            // 
+            this.Error_Pass.AutoSize = true;
+            this.Error_Pass.ForeColor = System.Drawing.Color.Red;
+            this.Error_Pass.Location = new System.Drawing.Point(216, 121);
+            this.Error_Pass.Name = "Error_Pass";
+            this.Error_Pass.Size = new System.Drawing.Size(29, 13);
+            this.Error_Pass.TabIndex = 7;
+            this.Error_Pass.Text = "Error";
+            this.Error_Pass.Visible = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(407, 262);
+            this.Controls.Add(this.Error_Pass);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -102,6 +117,7 @@
             this.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.Name = "Login";
             this.Text = "Desguace Solution";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -116,6 +132,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label Error_Pass;
     }
 }
 
