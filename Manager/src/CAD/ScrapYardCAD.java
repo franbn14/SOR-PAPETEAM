@@ -51,7 +51,7 @@ public class ScrapYardCAD {
     public static Hashtable getByCIF(String cif){
         Hashtable values = new Hashtable();
         try {
-            String query = "SELECT usr.id, cif, nombre, usr.password, direccion" +
+            String query = "SELECT usr.id, cif, nombre, usr.password, direccion " +
                     "FROM Usuario usr, Desguace d WHERE d.id = usr.id AND d.cif = \"" + cif + "\"";
             ResultSet rs = Connector.query(query);
             if(rs.next()){

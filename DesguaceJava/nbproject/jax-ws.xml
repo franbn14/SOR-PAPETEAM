@@ -2,9 +2,9 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services/>
   <clients>
-    <client name="RegistroPrueba">
-      <wsdl-url>http://localhost:8080/SorServices/RegistroPrueba?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/SorServices/RegistroPrueba.wsdl</local-wsdl-file>
+    <client name="LoginDesguace">
+      <wsdl-url>http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/Sor_Servicios/LoginDesguace.wsdl</local-wsdl-file>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -17,8 +17,16 @@
           <wsimport-option-value>true</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/SorServices/RegistroPrueba?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xendorsed</wsimport-option-name>

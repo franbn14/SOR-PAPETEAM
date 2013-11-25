@@ -47,9 +47,13 @@ public class ClientCEN extends UserCEN {
     
     public static ClientCEN getByNIF(String nif){        
         Hashtable ht = CAD.ClientCAD.getByNIF(nif);
+        ClientCEN client=null;
+        if(!ht.isEmpty())
+        {
+            client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), nif, (String)ht.get("address"), (Date)ht.get("DOB"));
+            client.id = (int)ht.get("id");
+        }
         
-        ClientCEN client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), nif, (String)ht.get("address"), (Date)ht.get("DOB"));
-        client.id = (int)ht.get("id");
         
         return client;
     }   
