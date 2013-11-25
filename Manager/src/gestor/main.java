@@ -84,57 +84,57 @@ public class main {
         sy4.insert();
         System.err.println("Si, tiene que salir el error...");
         
-        System.out.println("TODOS LOS CLIENTES: ");
+        System.out.println("TODOS LOS DESGUACES: ");
         for(ScrapYardCEN s : ScrapYardCEN.getAllScrapYards()){
             System.out.println(s);
         }
         
         sy.delete();
         
+        System.out.println("\n-------------TEST REQUEST/OFFER ---------------");
         
+        ClientCEN client5 = new ClientCEN("usuario", "apellido", "pass", "11111111W", "calle falsa", new Date(1991, 11, 14));
+        client5.insert();
+        System.out.println(client5);
         
-        /*ClientCEN client = new ClientCEN("usuario", "apellido", "pass", "11111111W", "calle falsa", new Date(1991, 11, 14));
-        client.insert();
-        client.updateNIF("22222222E");
-        
-        ScrapYardCEN sy = new ScrapYardCEN("desguace", "mypass", "perdido", "12345678J");
-        sy.insert();
-        
-        System.out.println("Usuarios: ");
-        for(ClientCEN c : ClientCEN.getAllClients()){
-            System.out.println(c);
-        }
-        for(ScrapYardCEN s : ScrapYardCEN.getAllScrapYards()){
-            System.out.println(s);
-        } 
-        
-        RequestCEN req=new RequestCEN("Tornillos tipo 8",2,client);
+        RequestCEN req = new RequestCEN("Tornillos tipo 8", 2, client5);
         req.insert();
+        System.out.println(req);
         
-        RequestCEN req1=new RequestCEN("Tuercas tipo 6",5,client);
+        ScrapYardCEN sy5 = new ScrapYardCEN("desguace", "pass", "calle falsa", "11111113A");
+        sy5.insert();
+        System.out.println(sy5);
+        req.update("Tornillos tipo 7", 20, client5);
+        System.out.println(req);
+        
+        System.out.println(req);
+        RequestCEN req1 = new RequestCEN("Tuercas tipo 6", 5, client5);
         req1.insert();
-                        
-        OfferCEN offer = new OfferCEN("Una oferta interesante", req, sy);
-        offer.insert();
+        System.out.println(req1); 
         
-        System.out.println("Solicitudes: ");
+        OfferCEN offer = new OfferCEN("Una oferta interesante", req, sy5);
+        offer.insert();
+        System.out.println(offer);
+        offer.update("La mejor oferta", req1, sy5);
+        System.out.println(offer);
+        
+        
+        System.out.println("TODAS LAS SOLICITUDES: ");
         for(RequestCEN r : RequestCEN.getAllRequests()){
             System.out.println(r);
         }
         
-        System.out.println("Ofertas: ");
+        System.out.println("TODAS LAS OFERTAS: ");
         for(OfferCEN o : OfferCEN.getAllOffers()){
             System.out.println(o);
         }
         
-        client.delete();
-                 
-        System.out.println("Usuarios: ");
-        for(ClientCEN c : ClientCEN.getAllClients()){
-            System.out.println(c);
-        }
-        for(ScrapYardCEN s : ScrapYardCEN.getAllScrapYards()){
-            System.out.println(s);
-        } */
+        req.delete();
+        req1.delete();
+        offer.delete();
+        sy5.delete();
+        client5.delete();
+        
+ 
     }
 }

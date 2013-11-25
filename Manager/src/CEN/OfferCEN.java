@@ -21,8 +21,8 @@ public class OfferCEN {
     private RequestCEN request;
     private ScrapYardCEN scrapyard;
 
-    public OfferCEN() {
-    }
+    /*public OfferCEN() {
+    }*/
 
     public OfferCEN(String description, RequestCEN request, ScrapYardCEN scrapyard) {        
         setAttributes(description, request, scrapyard);
@@ -72,7 +72,7 @@ public class OfferCEN {
     }
     
     public void insert() {
-        this.code=OfferCAD.insert(this);
+        this.code = OfferCAD.insert(this);
     }
     
     public static OfferCEN getByCode(int code) {
@@ -95,8 +95,7 @@ public class OfferCEN {
             all = new ArrayList<OfferCEN>();        
 
             for(Hashtable ht : values){                            
-                OfferCEN offer=new OfferCEN();                
-                offer = new OfferCEN((String)ht.get("description"), 
+                OfferCEN offer= new OfferCEN((String)ht.get("description"), 
                         RequestCEN.getByCode(Integer.parseInt(ht.get("request").toString())), 
                         ScrapYardCEN.getById((int)ht.get("scrapyard")));
                 offer.code=(int) ht.get("code");

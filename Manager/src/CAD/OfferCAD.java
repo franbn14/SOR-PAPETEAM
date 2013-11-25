@@ -21,13 +21,14 @@ public class OfferCAD {
         int code=-1;
                         
         String query = "INSERT INTO Oferta (descripcion, solicitud, desguace) VALUES ('"+ offer.getDescription()+"', '" + offer.getRequest().getCode() + "', '" + offer.getScrapyard().getId() + "')";
-        System.out.println(query);
+
         try {
             code = Connector.updates(query);
         }
         catch (ClassNotFoundException | SQLException e){
             System.err.println(e.getMessage());
-        }                
+        }    
+        
         return code;
     }
     
