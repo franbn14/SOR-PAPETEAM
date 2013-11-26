@@ -8,3 +8,4 @@ C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_N
 C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.exe
 C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.pdb
 C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.Registro.resources
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.Inicio.resources

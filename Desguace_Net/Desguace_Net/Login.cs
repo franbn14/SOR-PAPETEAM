@@ -49,13 +49,15 @@ namespace Desguace_Net
                 res = l1.Login_Des(r);
 
                 String error = res.Body.@return;
-                Error_Pass.Visible = true;
+               
                 if (error == "")
                 {
-                    Error_Pass.Text = "Ok";
+                    Inicio i= new Inicio();
+                    i.ShowDialog();
                 }
                 else
                 {
+                    Error_Pass.Visible = true;
                     Error_Pass.Text = error;
                 }
 

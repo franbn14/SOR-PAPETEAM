@@ -39,17 +39,20 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(136, 154);
+            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button1.Location = new System.Drawing.Point(176, 159);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 36);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Entra";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label1.Location = new System.Drawing.Point(24, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 13);
@@ -66,6 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label2.Location = new System.Drawing.Point(28, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
@@ -106,6 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(407, 262);
             this.Controls.Add(this.Error_Pass);
             this.Controls.Add(this.linkLabel1);
@@ -115,6 +120,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Login";
             this.Text = "Desguace Solution";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
