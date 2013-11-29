@@ -19,7 +19,28 @@ namespace Desguace_Net
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Erro_Cif.Visible = false;
+            error_Pass.Visible = false;
 
+            if (Cif_Text.Text == "")
+            {
+                Erro_Cif.Visible = true;
+                Erro_Cif.Text = "Este campo no puede estar vacío";
+            }
+            if (Pass_Text.Text == "")
+            {
+                error_Pass.Visible = true;
+                error_Pass.Text = "Este campo no puede estar vacío";
+            }
+            if (Cif_Text.Text != "" && Pass_Text.Text != "")
+            {
+                Erro_Cif.Visible = false;
+                error_Pass.Visible = false;
+
+                Close();
+            }
         }
+
+  
     }
 }

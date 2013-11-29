@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.Erro_Cif = new System.Windows.Forms.Label();
+            this.error_Pass = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -133,12 +135,36 @@
             this.label5.Text = "Rellena el formulario de registro";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // Erro_Cif
+            // 
+            this.Erro_Cif.AutoSize = true;
+            this.Erro_Cif.ForeColor = System.Drawing.Color.Red;
+            this.Erro_Cif.Location = new System.Drawing.Point(289, 105);
+            this.Erro_Cif.Name = "Erro_Cif";
+            this.Erro_Cif.Size = new System.Drawing.Size(29, 13);
+            this.Erro_Cif.TabIndex = 10;
+            this.Erro_Cif.Text = "Error";
+            this.Erro_Cif.Visible = false;
+            // 
+            // error_Pass
+            // 
+            this.error_Pass.AutoSize = true;
+            this.error_Pass.ForeColor = System.Drawing.Color.Red;
+            this.error_Pass.Location = new System.Drawing.Point(289, 244);
+            this.error_Pass.Name = "error_Pass";
+            this.error_Pass.Size = new System.Drawing.Size(29, 13);
+            this.error_Pass.TabIndex = 11;
+            this.error_Pass.Text = "Error";
+            this.error_Pass.Visible = false;
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(571, 443);
+            this.Controls.Add(this.error_Pass);
+            this.Controls.Add(this.Erro_Cif);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -169,5 +195,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label Erro_Cif;
+        private System.Windows.Forms.Label error_Pass;
     }
 }
