@@ -32,7 +32,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
 		super(titulo);
 		JPanel p1 = new JPanel();
 		p1.setLayout(new FlowLayout());
-		p1.add(new JLabel("User:"));
+		p1.add(new JLabel("CIF:"));
 		p1.add(t1 = new JTextField(25));
 
 		p1.add(new JLabel("Password:"));
@@ -78,23 +78,29 @@ public class DesguaceJava extends JFrame implements ActionListener{
 			{
 				String user = t1.getText();
 				String pass = t2.getText();
-				if(user.equals("") || pass.equals(""))
+                                String error=loginDes(pass, user);
+				if(error.equals(""))
 				{
-					lb.setText("User or Password incorrect."+registroUser("pape ha creado servicio"));
+					lb.setText("ok");
 					lb.setVisible(true);
 				}
-				else if(user.equals(pass))
+				else
 				{
-					lb.setText("User and Password correct!");
+					lb.setText(error);
 					lb.setVisible(true);
 				}
 			}
 		}
 	}
 
-    private static String registroUser(java.lang.String texto) {
-        servicios.RegistroPrueba_Service service = new servicios.RegistroPrueba_Service();
-        servicios.RegistroPrueba port = service.getRegistroPruebaPort();
-        return port.registroUser(texto);
+    private static String loginDes(java.lang.String password, java.lang.String cif) {
+        servicios.LoginDesguace_Service service = new servicios.LoginDesguace_Service();
+        servicios.LoginDesguace port = service.getLoginDesguacePort();
+        return port.loginDes(password, cif);
     }
+
+ 
+
+ 
+
 }

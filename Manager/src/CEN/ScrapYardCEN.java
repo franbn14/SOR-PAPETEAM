@@ -22,16 +22,29 @@ public class ScrapYardCEN extends UserCEN {
     
     @Override
     public void insert(){
-        CAD.ScrapYardCAD.create(name, password, address, cif);
+        this.id=CAD.ScrapYardCAD.create(name, password, address, cif);        
     }
     
-    public void getByCIF(String cif){
+    public static ScrapYardCEN getByCIF(String cif){
         Hashtable ht = CAD.ScrapYardCAD.getByCIF(cif);
-        this.id = (int) ht.get("id");
-        this.cif = cif;
-        this.name = (String) ht.get("name");
-        this.address = (String) ht.get("address");
-        this.password = (String) ht.get("password");
+        ScrapYardCEN scy=null;
+        if(!ht.isEmpty())
+        {
+           scy=new ScrapYardCEN((String) ht.get("name"),(String) ht.get("password"),(String) ht.get("address"), (String) ht.get("cif"));
+           scy.id=(int) ht.get("id");
+        
+        }
+    
+      return scy;
+    }
+    
+    public static ScrapYardCEN getById(int id) {
+        Hashtable ht = CAD.ScrapYardCAD.getById(id);
+        
+        ScrapYardCEN scrapyard = new ScrapYardCEN((String)ht.get("name"), (String)ht.get("password"), (String)ht.get("address"), (String)ht.get("cif"));        
+        scrapyard.id=id;
+       
+        return scrapyard;
     }
     
     public static ArrayList<ScrapYardCEN> getAllScrapYards(){
@@ -57,4 +70,11 @@ public class ScrapYardCEN extends UserCEN {
             CAD.ScrapYardCAD.updateCIF(id, cif);
         }
     }
+
+    @Override
+    public String toString() {
+        return id + " " + cif + " " +  name + " " + password + " " + address;
+    }
+    
+    
 }

@@ -24,9 +24,9 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _LoginDesResponse_QNAME = new QName("http://Servicios/", "Login_DesResponse");
     private final static QName _HelloResponse_QNAME = new QName("http://Servicios/", "helloResponse");
-    private final static QName _RegistroUser_QNAME = new QName("http://Servicios/", "RegistroUser");
-    private final static QName _RegistroUserResponse_QNAME = new QName("http://Servicios/", "RegistroUserResponse");
+    private final static QName _LoginDes_QNAME = new QName("http://Servicios/", "Login_Des");
     private final static QName _Hello_QNAME = new QName("http://Servicios/", "hello");
 
     /**
@@ -45,19 +45,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RegistroUserResponse }
+     * Create an instance of {@link LoginDes }
      * 
      */
-    public RegistroUserResponse createRegistroUserResponse() {
-        return new RegistroUserResponse();
-    }
-
-    /**
-     * Create an instance of {@link RegistroUser }
-     * 
-     */
-    public RegistroUser createRegistroUser() {
-        return new RegistroUser();
+    public LoginDes createLoginDes() {
+        return new LoginDes();
     }
 
     /**
@@ -66,6 +58,23 @@ public class ObjectFactory {
      */
     public HelloResponse createHelloResponse() {
         return new HelloResponse();
+    }
+
+    /**
+     * Create an instance of {@link LoginDesResponse }
+     * 
+     */
+    public LoginDesResponse createLoginDesResponse() {
+        return new LoginDesResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginDesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "Login_DesResponse")
+    public JAXBElement<LoginDesResponse> createLoginDesResponse(LoginDesResponse value) {
+        return new JAXBElement<LoginDesResponse>(_LoginDesResponse_QNAME, LoginDesResponse.class, null, value);
     }
 
     /**
@@ -78,21 +87,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegistroUser }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginDes }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://Servicios/", name = "RegistroUser")
-    public JAXBElement<RegistroUser> createRegistroUser(RegistroUser value) {
-        return new JAXBElement<RegistroUser>(_RegistroUser_QNAME, RegistroUser.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegistroUserResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://Servicios/", name = "RegistroUserResponse")
-    public JAXBElement<RegistroUserResponse> createRegistroUserResponse(RegistroUserResponse value) {
-        return new JAXBElement<RegistroUserResponse>(_RegistroUserResponse_QNAME, RegistroUserResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://Servicios/", name = "Login_Des")
+    public JAXBElement<LoginDes> createLoginDes(LoginDes value) {
+        return new JAXBElement<LoginDes>(_LoginDes_QNAME, LoginDes.class, null, value);
     }
 
     /**
