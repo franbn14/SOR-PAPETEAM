@@ -35,20 +35,14 @@ namespace Desguace_Net
         {
             String user = textBox1.Text;
             String pass = textBox2.Text;
-            LoginDesguace l1 = new LoginDesguaceClient();
+            LoginDesguaceClient l1 = new LoginDesguaceClient();
          
-            Login_DesRequest r=new Login_DesRequest();
-            Login_DesRequestBody l=new Login_DesRequestBody ();
+           
             
-            l.cif = user;
-            l.Password = pass;
-            r.Body = l;
-            Login_DesResponse res = new Login_DesResponse();
             try
             {
-                res = l1.Login_Des(r);
-
-                String error = res.Body.@return;
+                
+                String error =l1.Login_Des(pass, user);
                
                 if (error == "")
                 {

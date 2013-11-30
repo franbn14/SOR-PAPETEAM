@@ -13,6 +13,16 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>RegistroDesguace</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistroCliente</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginClientes</servlet-name>
         <url-pattern>/LoginClientes</url-pattern>
@@ -20,6 +30,14 @@
     <servlet-mapping>
         <servlet-name>LoginDesguace</servlet-name>
         <url-pattern>/LoginDesguace</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistroDesguace</servlet-name>
+        <url-pattern>/RegistroDesguace</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistroCliente</servlet-name>
+        <url-pattern>/RegistroCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

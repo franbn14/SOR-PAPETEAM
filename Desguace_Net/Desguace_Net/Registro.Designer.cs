@@ -75,6 +75,7 @@
             this.Pass_Text.Name = "Pass_Text";
             this.Pass_Text.Size = new System.Drawing.Size(222, 20);
             this.Pass_Text.TabIndex = 3;
+            this.Pass_Text.UseSystemPasswordChar = true;
             // 
             // Dire_Text
             // 

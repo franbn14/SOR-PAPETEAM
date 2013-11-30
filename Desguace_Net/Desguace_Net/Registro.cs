@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ServiceModel;
+using Desguace_Net.RegistroDesguace;
 
 namespace Desguace_Net
 {
@@ -37,10 +39,40 @@ namespace Desguace_Net
                 Erro_Cif.Visible = false;
                 error_Pass.Visible = false;
 
-                Close();
-            }
-        }
+                RegistroDesguaceClient l1 = new RegistroDesguaceClient();
 
-  
+
+                try
+                {
+                    String error = "";
+                    error = l1.Registro(Cif_Text.Text, Nombre_Text.Text, Pass_Text.Text, Dire_Text.Text);
+
+
+                    if (error == "")
+                    {
+                        if (MessageBox.Show("Registro Correcto. Por Favor para acceder Loguese.", "", MessageBoxButtons.OK,
+       MessageBoxIcon.Information) == DialogResult.OK)
+                        {
+                            Close();
+                        }
+                    }
+                    else
+                    {
+                        Erro_Cif.Visible = true;
+                        Erro_Cif.Text = error;
+                    }
+
+                }
+                catch (EndpointNotFoundException ex)
+                {
+
+                    Erro_Cif.Visible = true;
+                    Erro_Cif.Text="Se ha caido el servidor";
+                    
+                }
+            }
+
+
+        }
     }
 }
