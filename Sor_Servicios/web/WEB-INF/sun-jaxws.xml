@@ -4,4 +4,5 @@
   <endpoint implementation="Servicios.LoginDesguace" name="LoginDesguace" url-pattern="/LoginDesguace"/>
   <endpoint implementation="Servicios.RegistroDesguace" name="RegistroDesguace" url-pattern="/RegistroDesguace"/>
   <endpoint implementation="Servicios.RegistroCliente" name="RegistroCliente" url-pattern="/RegistroCliente"/>
+  <endpoint implementation="Servicios.NewWebService" name="NewWebService" url-pattern="/NewWebService"/>
 </endpoints>

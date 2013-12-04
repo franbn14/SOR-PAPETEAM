@@ -23,6 +23,11 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>NewWebService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginClientes</servlet-name>
         <url-pattern>/LoginClientes</url-pattern>
@@ -38,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>RegistroCliente</servlet-name>
         <url-pattern>/RegistroCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewWebService</servlet-name>
+        <url-pattern>/NewWebService</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
