@@ -19,7 +19,7 @@
     <target name="wsimport-client-LoginDesguace" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/LoginDesguace"/>
         <property name="wsdl-LoginDesguace" location="xml-resources/web-service-references/LoginDesguace/wsdl/localhost_8080/Sor_Servicios/LoginDesguace.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginDesguace" destdir="${build.generated.dir}/jax-wsCache/LoginDesguace" wsdl="${wsdl-LoginDesguace}" catalog="catalog.xml" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginDesguace" destdir="${build.generated.dir}/jax-wsCache/LoginDesguace" wsdl="${wsdl-LoginDesguace}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-LoginDesguace}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/LoginDesguace"/>
         </wsimport>
@@ -33,73 +33,5 @@
         <delete dir="${build.generated.dir}/jax-wsCache/LoginDesguace"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
     </target>
-    <target name="wsimport-client-RegistroDesguace" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/RegistroDesguace"/>
-        <property name="wsdl-RegistroDesguace" location="xml-resources/web-service-references/RegistroDesguace/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegistroDesguace" destdir="${build.generated.dir}/jax-wsCache/RegistroDesguace" wsdl="${wsdl-RegistroDesguace}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-RegistroDesguace}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/RegistroDesguace"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/RegistroDesguace">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-RegistroDesguace" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/RegistroDesguace"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-    </target>
-    <target name="wsimport-client-RegistroDesguace_1" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/RegistroDesguace_1"/>
-        <property name="wsdl-RegistroDesguace_1" location="xml-resources/web-service-references/RegistroDesguace_1/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegistroDesguace_1" destdir="${build.generated.dir}/jax-wsCache/RegistroDesguace_1" wsdl="${wsdl-RegistroDesguace_1}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-RegistroDesguace_1}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/RegistroDesguace_1"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/RegistroDesguace_1">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-RegistroDesguace_1" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/RegistroDesguace_1"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-    </target>
-    <target name="wsimport-client-LoginDesguace_1" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/LoginDesguace_1"/>
-        <property name="wsdl-LoginDesguace_1" location="xml-resources/web-service-references/LoginDesguace_1/wsdl/localhost_8080/Sor_Servicios/LoginDesguace.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginDesguace_1" destdir="${build.generated.dir}/jax-wsCache/LoginDesguace_1" wsdl="${wsdl-LoginDesguace_1}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-LoginDesguace_1}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/LoginDesguace_1"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/LoginDesguace_1">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-LoginDesguace_1" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/LoginDesguace_1"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-    </target>
-    <target name="wsimport-client-RegistroDesguace_2" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/RegistroDesguace_2"/>
-        <property name="wsdl-RegistroDesguace_2" location="xml-resources/web-service-references/RegistroDesguace_2/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegistroDesguace_2" destdir="${build.generated.dir}/jax-wsCache/RegistroDesguace_2" wsdl="${wsdl-RegistroDesguace_2}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-RegistroDesguace_2}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/RegistroDesguace_2"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/RegistroDesguace_2">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-RegistroDesguace_2" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/RegistroDesguace_2"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-    </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-LoginDesguace, wsimport-client-RegistroDesguace, wsimport-client-RegistroDesguace_1, wsimport-client-LoginDesguace_1, wsimport-client-RegistroDesguace_2"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-LoginDesguace"/>
 </project>
