@@ -13,9 +13,6 @@
     <service name="RegistroCliente">
       <implementation-class>Servicios.RegistroCliente</implementation-class>
     </service>
-    <service name="NewWebService">
-      <implementation-class>Servicios.NewWebService</implementation-class>
-    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>

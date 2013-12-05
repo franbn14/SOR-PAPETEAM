@@ -47,8 +47,7 @@ namespace Desguace_Net
                 if (error == "")
                 {
                     Inicio i= new Inicio();
-                    i.Show();
-                    Close();
+                    i.ShowDialog();
                 }
                 else
                 {
@@ -71,10 +70,10 @@ namespace Desguace_Net
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-           /* if (MessageBox.Show("¿Es cierto que desea salir?", "", MessageBoxButtons.YesNo,
+            if (MessageBox.Show("¿Es cierto que desea salir?", "", MessageBoxButtons.YesNo,
         MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) ==
         DialogResult.No)
-                e.Cancel = true;*/
+                e.Cancel = true;
         }
     }
 }
