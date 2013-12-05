@@ -23,10 +23,12 @@ import javax.swing.*;
  */
 public class DesguaceJava extends JFrame implements ActionListener{
 
- JButton btn;
+        JButton btn,regbtn;
 	JTextField t1;
 	JLabel lb,img;
 	JPasswordField t2;
+        DesguaceRegistro reg;
+        static JFrame des;
 	public DesguaceJava(String titulo)
 	{
 		super(titulo);
@@ -43,25 +45,36 @@ public class DesguaceJava extends JFrame implements ActionListener{
 		
 		JPanel p2 = new JPanel();
 		p2.setLayout(new FlowLayout());
-		p2.add(btn = new JButton("Submint"));
+		p2.add(btn = new JButton("Submit"));
+                regbtn = new JButton("Registrar ahora!");
+                regbtn.addActionListener(new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        reg.setVisible(true);
+                        reg.setSize(330, 400);
+                        reg.setResizable(false);
+                    }
+                });
+                p2.add(regbtn);
 		
 		JPanel p3 = new JPanel();
 		p3.setLayout(new FlowLayout());
 		p3.add(img = new JLabel());
 		img.setIcon(new ImageIcon(getClass().getResource("Desguace.jpg")));
 		
-        Container c = getContentPane();
-        c.add(BorderLayout.NORTH,p3);
-        c.add(BorderLayout.CENTER,p1);
-        c.add(BorderLayout.SOUTH,p2);
-        
-       
-        btn.addActionListener(this);
+                Container c = getContentPane();
+                c.add(BorderLayout.NORTH,p3);
+                c.add(BorderLayout.CENTER,p1);
+                c.add(BorderLayout.SOUTH,p2);
+                reg = new DesguaceRegistro();
+                reg.setVisible(false);
+                btn.addActionListener(this);
 	}
 	
 	public static void main(String args[])
 	{
-		JFrame des = new DesguaceJava("Desguace-Java");
+		des = new DesguaceJava("Desguace-Java");
 		des.setVisible(true);
 		des.setSize(400, 500);
 		des.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -74,7 +87,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
 		String nameButton = e.getActionCommand();
 		if(e.getSource() instanceof JButton)
 		{
-			if("Submint".equals(nameButton))
+			if("Submit".equals(nameButton))
 			{
 				String user = t1.getText();
 				String pass = t2.getText();
