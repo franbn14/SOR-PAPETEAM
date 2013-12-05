@@ -1,21 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://Servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicios/">
 
-<xs:element name="Login_Des" type="tns:Login_Des" />
+<xs:element name="Login" type="tns:Login" />
 
-<xs:element name="Login_DesResponse" type="tns:Login_DesResponse" />
+<xs:element name="LoginResponse" type="tns:LoginResponse" />
 
 <xs:element name="hello" type="tns:hello" />
 
 <xs:element name="helloResponse" type="tns:helloResponse" />
 
-<xs:complexType name="Login_Des">
+<xs:complexType name="Login">
 <xs:sequence>
 <xs:element name="Password" type="xs:string" minOccurs="0" />
-<xs:element name="cif" type="xs:string" minOccurs="0" />
+<xs:element name="nif_dni" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="Login_DesResponse">
+<xs:complexType name="LoginResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0" />
 </xs:sequence>

@@ -4,8 +4,8 @@
     <system systemId="http://localhost:8080/SorServices/RegistroPrueba?xsd=1" uri="xml-resources/web-service-references/RegistroPrueba/wsdl/localhost_8080/SorServices/RegistroPrueba.xsd_1"/>
     <system systemId="http://localhost:8080/Sor_Servicios/LoginClientes?wsdl" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8080/Sor_Servicios/LoginClientes.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/LoginClientes?xsd=1" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8080/Sor_Servicios/LoginClientes.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" uri="xml-resources/web-service-references/RegistroDesguace_1/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
-    <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?xsd=1" uri="xml-resources/web-service-references/RegistroDesguace_1/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl" uri="xml-resources/web-service-references/LoginDesguace_1/wsdl/localhost_8080/Sor_Servicios/LoginDesguace.wsdl"/>
-    <system systemId="http://localhost:8080/Sor_Servicios/LoginDesguace?xsd=1" uri="xml-resources/web-service-references/LoginDesguace_1/wsdl/localhost_8080/Sor_Servicios/LoginDesguace.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl" uri="xml-resources/web-service-references/LoginDesguace/wsdl/localhost_8080/Sor_Servicios/LoginDesguace.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/LoginDesguace?xsd=1" uri="xml-resources/web-service-references/LoginDesguace/wsdl/localhost_8080/Sor_Servicios/LoginDesguace.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" uri="xml-resources/web-service-references/RegistroDesguace/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?xsd=1" uri="xml-resources/web-service-references/RegistroDesguace/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.xsd_1.xsd"/>
 </catalog>
