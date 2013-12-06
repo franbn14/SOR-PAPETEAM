@@ -40,6 +40,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Erro_Cif = new System.Windows.Forms.Label();
             this.error_Pass = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Pass2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -79,7 +81,7 @@
             // 
             // Dire_Text
             // 
-            this.Dire_Text.Location = new System.Drawing.Point(59, 311);
+            this.Dire_Text.Location = new System.Drawing.Point(59, 348);
             this.Dire_Text.Name = "Dire_Text";
             this.Dire_Text.Size = new System.Drawing.Size(222, 20);
             this.Dire_Text.TabIndex = 4;
@@ -118,7 +120,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label4.Location = new System.Drawing.Point(56, 281);
+            this.label4.Location = new System.Drawing.Point(56, 322);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 8;
@@ -158,12 +160,32 @@
             this.error_Pass.Text = "Error";
             this.error_Pass.Visible = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label6.Location = new System.Drawing.Point(56, 260);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Confirma Password";
+            // 
+            // Pass2
+            // 
+            this.Pass2.Location = new System.Drawing.Point(59, 290);
+            this.Pass2.Name = "Pass2";
+            this.Pass2.Size = new System.Drawing.Size(222, 20);
+            this.Pass2.TabIndex = 12;
+            this.Pass2.UseSystemPasswordChar = true;
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(571, 443);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.Pass2);
             this.Controls.Add(this.error_Pass);
             this.Controls.Add(this.Erro_Cif);
             this.Controls.Add(this.label5);
@@ -198,5 +220,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label Erro_Cif;
         private System.Windows.Forms.Label error_Pass;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox Pass2;
     }
 }

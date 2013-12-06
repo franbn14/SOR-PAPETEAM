@@ -34,8 +34,14 @@ namespace Desguace_Net
                 error_Pass.Visible = true;
                 error_Pass.Text = "Este campo no puede estar vacío";
             }
-            if (Cif_Text.Text != "" && Pass_Text.Text != "")
+            if(Pass_Text.Text!= Pass2.Text)
             {
+                error_Pass.Visible = true;
+                error_Pass.Text = "Los password no coinciden";
+            }
+            if (Cif_Text.Text != "" && Pass_Text.Text != "" && Pass_Text.Text == Pass2.Text)
+            {
+                
                 Erro_Cif.Visible = false;
                 error_Pass.Visible = false;
 

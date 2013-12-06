@@ -12,9 +12,37 @@ namespace Desguace_Net
 {
     public partial class Inicio : Form
     {
-        public Inicio()
+        String userName = "";
+        public Inicio(String user)
         {
+
+            userName = user;
+           
+            
             InitializeComponent();
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+            label1.Text = "Bienvenido "+userName;
+        }
+        private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Es cierto que desea salir?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+          
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

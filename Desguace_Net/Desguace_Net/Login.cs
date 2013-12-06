@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
 using Desguace_Net.LoginServicio;
+using Desguace_Net.DarNombre;
 
 namespace Desguace_Net
 {
@@ -46,8 +47,10 @@ namespace Desguace_Net
                
                 if (error == "")
                 {
-                    Inicio i= new Inicio();
-                    i.ShowDialog();
+                    DarNombreClienteClient c = new DarNombreClienteClient();
+                    Inicio i= new Inicio(c.DarNombreDesguace(user));
+                    i.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -61,10 +64,6 @@ namespace Desguace_Net
                 Error_Pass.Visible = true;
                 Error_Pass.Text = "Se ha caido el servidor";
             }
-               
-            
-           
-            
           
         }
 
