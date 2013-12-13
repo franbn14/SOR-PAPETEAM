@@ -25,7 +25,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
 
         JButton btn,regbtn;
 	JTextField t1;
-	JLabel lb,img;
+	JLabel img,lblError;
 	JPasswordField t2;
         DesguaceRegistro reg;
         MainDesguace mdes;
@@ -33,17 +33,27 @@ public class DesguaceJava extends JFrame implements ActionListener{
 	public DesguaceJava(String titulo)
 	{
 		super(titulo);
+		setResizable(false);
 		JPanel p1 = new JPanel();
-		p1.setLayout(new FlowLayout());
-		p1.add(new JLabel("CIF:"));
+		SpringLayout sl_p1 = new SpringLayout();
+		p1.setLayout(sl_p1);
+		JLabel label = new JLabel("CIF:");
+		sl_p1.putConstraint(SpringLayout.NORTH, label, 11, SpringLayout.NORTH, p1);
+		sl_p1.putConstraint(SpringLayout.WEST, label, 19, SpringLayout.WEST, p1);
+		p1.add(label);
 		p1.add(t1 = new JTextField(25));
+		sl_p1.putConstraint(SpringLayout.NORTH, t1, -6, SpringLayout.NORTH, label);
+		sl_p1.putConstraint(SpringLayout.WEST, t1, 44, SpringLayout.EAST, label);
+		sl_p1.putConstraint(SpringLayout.EAST, t1, -45, SpringLayout.EAST, p1);
 
-		p1.add(new JLabel("Password:"));
+		JLabel label_1 = new JLabel("Password:");
+		sl_p1.putConstraint(SpringLayout.NORTH, label_1, 31, SpringLayout.SOUTH, label);
+		sl_p1.putConstraint(SpringLayout.WEST, label_1, 0, SpringLayout.WEST, label);
+		p1.add(label_1);
 		p1.add(t2 = new JPasswordField(25));
-		p1.add(lb = new JLabel());
-		lb.setVisible(false);
-		lb.setForeground(Color.red);
-		
+		sl_p1.putConstraint(SpringLayout.EAST, t2, 269, SpringLayout.EAST, label_1);
+		sl_p1.putConstraint(SpringLayout.NORTH, t2, -6, SpringLayout.NORTH, label_1);
+		sl_p1.putConstraint(SpringLayout.WEST, t2, 5, SpringLayout.EAST, label_1);
 		JPanel p2 = new JPanel();
 		p2.setLayout(new FlowLayout());
 		p2.add(btn = new JButton("Submit"));
@@ -53,7 +63,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         reg.setVisible(true);
-                        reg.setSize(330, 400);
+                        reg.setSize(440, 400);
                         reg.setResizable(false);
                     }
                 });
@@ -67,6 +77,15 @@ public class DesguaceJava extends JFrame implements ActionListener{
                 Container c = getContentPane();
                 c.add(BorderLayout.NORTH,p3);
                 c.add(BorderLayout.CENTER,p1);
+                
+                lblError = new JLabel("");
+                lblError.setVisible(false);
+                lblError.setForeground(Color.RED);
+                lblError.setHorizontalAlignment(SwingConstants.CENTER);
+                sl_p1.putConstraint(SpringLayout.NORTH, lblError, 23, SpringLayout.SOUTH, t2);
+                sl_p1.putConstraint(SpringLayout.WEST, lblError, 19, SpringLayout.WEST, p1);
+                sl_p1.putConstraint(SpringLayout.EAST, lblError, 24, SpringLayout.EAST, t1);
+                p1.add(lblError);
                 c.add(BorderLayout.SOUTH,p2);
                 reg = new DesguaceRegistro();
                 reg.setVisible(false);
@@ -100,13 +119,13 @@ public class DesguaceJava extends JFrame implements ActionListener{
 					//lb.setText("ok");
 					//lb.setVisible(true);
                                     mdes.setVisible(true);
-                                    mdes.setSize(800,600);
+                                    mdes.setSize(600,500);
                                     des.setVisible(false);
 				}
 				else
 				{
-					lb.setText(error);
-					lb.setVisible(true);
+					lblError.setText(error);
+					lblError.setVisible(true);
 				}
 			}
 		}
