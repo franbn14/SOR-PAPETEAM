@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SpringLayout;
 
 /**
  *
@@ -32,23 +33,53 @@ public class DesguaceRegistro extends JFrame{
     JButton btn;
     public DesguaceRegistro()
     {
+    	setResizable(false);
         JPanel p1 = new JPanel();
         JPanel p2 = new JPanel();
         JPanel p3 = new JPanel();
-        p1.setLayout(new FlowLayout());
-        p1.add(new JLabel("Nombre:"));
+        SpringLayout sl_p1 = new SpringLayout();
+        p1.setLayout(sl_p1);
+        JLabel label = new JLabel("Nombre:");
+        sl_p1.putConstraint(SpringLayout.NORTH, label, 36, SpringLayout.NORTH, p1);
+        sl_p1.putConstraint(SpringLayout.WEST, label, 9, SpringLayout.WEST, p1);
+        p1.add(label);
 	p1.add(t4 = new JTextField(25));
-        p1.add(new JLabel("Direccion:"));
+	sl_p1.putConstraint(SpringLayout.NORTH, t4, -6, SpringLayout.NORTH, label);
+	sl_p1.putConstraint(SpringLayout.WEST, t4, 16, SpringLayout.EAST, label);
+        JLabel label_1 = new JLabel("Direccion:");
+        sl_p1.putConstraint(SpringLayout.NORTH, label_1, 29, SpringLayout.SOUTH, label);
+        sl_p1.putConstraint(SpringLayout.WEST, label_1, 0, SpringLayout.WEST, label);
+        p1.add(label_1);
 	p1.add(t5 = new JTextField(25));
-        p1.add(new JLabel("CIF:"));
+	sl_p1.putConstraint(SpringLayout.NORTH, t5, -6, SpringLayout.NORTH, label_1);
+	sl_p1.putConstraint(SpringLayout.EAST, t5, 0, SpringLayout.EAST, t4);
+        JLabel label_2 = new JLabel("CIF:");
+        sl_p1.putConstraint(SpringLayout.WEST, label_2, 10, SpringLayout.WEST, p1);
+        p1.add(label_2);
         p1.add(t1 = new JTextField(25));
-        p1.add(new JLabel("Password:"));
+        sl_p1.putConstraint(SpringLayout.NORTH, t1, 12, SpringLayout.SOUTH, t5);
+        sl_p1.putConstraint(SpringLayout.NORTH, label_2, 6, SpringLayout.NORTH, t1);
+        sl_p1.putConstraint(SpringLayout.WEST, t1, 0, SpringLayout.WEST, t4);
+        JLabel label_3 = new JLabel("Password:");
+        sl_p1.putConstraint(SpringLayout.NORTH, label_3, 23, SpringLayout.SOUTH, label_2);
+        sl_p1.putConstraint(SpringLayout.WEST, label_3, 0, SpringLayout.WEST, label);
+        p1.add(label_3);
 	p1.add(t2 = new JPasswordField(25));
-        p1.add(new JLabel("Confirm Password:"));
+	sl_p1.putConstraint(SpringLayout.NORTH, t2, -6, SpringLayout.NORTH, label_3);
+	sl_p1.putConstraint(SpringLayout.WEST, t2, 7, SpringLayout.EAST, label_3);
+        JLabel label_4 = new JLabel("Confirm Password:");
+        sl_p1.putConstraint(SpringLayout.SOUTH, label_4, -78, SpringLayout.SOUTH, p1);
+        sl_p1.putConstraint(SpringLayout.WEST, label_4, 10, SpringLayout.WEST, p1);
+        p1.add(label_4);
         p1.add(t3 = new JPasswordField(25));
+        sl_p1.putConstraint(SpringLayout.NORTH, t3, -6, SpringLayout.NORTH, label_4);
+        sl_p1.putConstraint(SpringLayout.WEST, t3, 6, SpringLayout.EAST, label_4);
+        sl_p1.putConstraint(SpringLayout.EAST, t3, -47, SpringLayout.EAST, p1);
         lb1 = new JLabel("Formulario de Registro");
         lb1.setFont(new Font("Tahoma",0,30));
         err = new JLabel();
+        sl_p1.putConstraint(SpringLayout.NORTH, err, 151, SpringLayout.NORTH, p1);
+        sl_p1.putConstraint(SpringLayout.WEST, err, 384, SpringLayout.WEST, p1);
         err.setVisible(false);
         p1.add(err);
         btn = new JButton("Registrar");
