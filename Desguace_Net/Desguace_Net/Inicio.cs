@@ -24,7 +24,7 @@ namespace Desguace_Net
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            label1.Text = "Bienvenido "+userName;
+            Text = "Bienvenido "+userName;
         }
         private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
