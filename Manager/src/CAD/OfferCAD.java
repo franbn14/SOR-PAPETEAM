@@ -17,11 +17,13 @@ import java.util.Hashtable;
  * @author alberto
  */
 public class OfferCAD {
-    public static int insert(OfferCEN offer) {
+    public static int insert(String type, Double size, int sizeUnit, String color, Integer amount, Double price, int request, int scrapyard) {
         int code=-1;
-                        
-        String query = "INSERT INTO Oferta (descripcion, solicitud, desguace) VALUES ('"+ offer.getDescription()+"', '" + offer.getRequest().getCode() + "', '" + offer.getScrapyard().getId() + "')";
-
+        String c = (color == null)? null : "\"" + color + "\"";
+        String query = "INSERT INTO Oferta (tipo, tamaño, tamUnidad, color, cantidad, precio, solicitud, desguace) "
+                + "VALUES ('"+ type +"', " + size + ", " + sizeUnit + ", " + c + ", " + amount + ", " + price + ", " + request + ", " + scrapyard + ");";
+        
+        System.out.println(query);
         try {
             code = Connector.updates(query);
         }
@@ -40,8 +42,13 @@ public class OfferCAD {
             
             if(rs.next()){
                 request.put("code", rs.getInt("codigo"));
-                request.put("description", rs.getString("descripcion"));
-                request.put("request", rs.getString("solicitud"));
+                request.put("type", rs.getString("tipo"));
+                request.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
+                request.put("sizeUnit", rs.getInt("tamUnidad"));
+                request.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
+                request.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
+                request.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
+                request.put("request", rs.getInt("solicitud"));
                 request.put("scrapyard", rs.getInt("desguace"));
             }
             Connector.close(rs);
@@ -61,8 +68,13 @@ public class OfferCAD {
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                ht.put("description", rs.getString("descripcion"));
-                ht.put("request", rs.getString("solicitud"));
+                ht.put("type", rs.getString("tipo"));
+                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
+                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
+                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
+                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
+                ht.put("request", rs.getInt("solicitud"));
                 ht.put("scrapyard", rs.getInt("desguace"));
                 values.add(ht);
             }
@@ -74,10 +86,13 @@ public class OfferCAD {
         return values;
     }
     
-    public static void update(OfferCEN offer) {
+    public static void update(int code, String type, Double size, int sizeUnit, String color, Integer amount, Double price, int request, int scrapyard) {
         try {
-            String query = "UPDATE Oferta SET descripcion = '" + offer.getDescription()+ "', solicitud = '" + 
-                            + offer.getRequest().getCode() + "', desguace = '" + offer.getScrapyard().getId() + "' WHERE codigo = " + offer.getCode();
+            String c = (color == null)? null : "\"" + color + "\"";
+            String query = "UPDATE Oferta SET tipo = \"" + type + "\", tamaño = " + size + ", tamUnidad = " + sizeUnit + ", color = " + c + ", "
+                    + "cantidad = " + amount + ", precio = " + price + ", solicitud = " + request + ", desguace = " + scrapyard + " WHERE codigo = " + code + ";"; 
+            
+            System.out.println(query);
             Connector.updates(query);
         }
         catch (ClassNotFoundException | SQLException e){

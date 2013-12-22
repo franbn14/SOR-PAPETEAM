@@ -38,7 +38,7 @@ public class ClientCEN extends UserCEN {
         }
     }
     
-    public static ClientCEN getById(int id) {
+    public static ClientCEN getByID(int id) {
         Hashtable ht = CAD.ClientCAD.getById(id);
         
         ClientCEN client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), (String)ht.get("nif"), (String)ht.get("address"), (Date)ht.get("DOB"));        

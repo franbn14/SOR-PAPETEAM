@@ -44,7 +44,7 @@ public class ScrapYardCEN extends UserCEN {
         return sy;
     }
     
-    public static ScrapYardCEN getById(int id) {
+    public static ScrapYardCEN getByID(int id) {
         Hashtable ht = CAD.ScrapYardCAD.getById(id);
         
         ScrapYardCEN scrapyard = new ScrapYardCEN((String)ht.get("name"), (String)ht.get("password"), (String)ht.get("address"), (String)ht.get("cif"));        

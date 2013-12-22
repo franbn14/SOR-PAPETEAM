@@ -19,7 +19,31 @@ public class main {
      */
     public static void main(String[] args) {
         
-        System.out.println("-------------TEST CLIENTE---------------");
+        
+        
+        /*ClientCEN client = ClientCEN.getByID(1);
+        //Date dateLine, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoSelec, boolean finished
+        RequestCEN r =  new RequestCEN(new Date(2014, 10, 18), "Tornillos cabeza plana", null, 0, null, 10, 10.6, client, true, true);
+        r.insert();
+        System.out.println(r);
+        ScrapYardCEN sy = ScrapYardCEN.getByID(6);
+        System.out.println(sy);
+        System.out.println(r);
+        //String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard
+        OfferCEN o = new OfferCEN("Tornillos cabeza plana", null, 0, null, 10, 10.6, r, sy);
+        o.insert();
+        System.out.println(o);
+        o.update("Tornillos cabeza rendonda", 6.0, 0, "ff0000", 11, 10.7, r, sy);
+        System.out.println(o);
+        r.delete();
+        o.delete();
+        
+        
+        for(RequestCEN r : RequestCEN.getAllRequests()){
+            System.out.println(r);
+        }*/
+        
+        /*System.out.println("-------------TEST CLIENTE---------------");
         ClientCEN client = new ClientCEN("usuario", "apellido", "pass", "11111111W", "calle falsa", new Date(1991, 11, 14));
         client.insert();
         System.out.println(client);
@@ -133,7 +157,7 @@ public class main {
         req1.delete();
         offer.delete();
         sy5.delete();
-        client5.delete();
+        client5.delete();*/
         
  
     }
