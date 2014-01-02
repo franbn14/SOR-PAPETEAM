@@ -28,7 +28,7 @@ public class ScrapYardCEN extends UserCEN {
         }
     }
     
-<<<<<<< HEAD
+
     public static ScrapYardCEN getByCIF(String cif){
         Hashtable ht = CAD.ScrapYardCAD.getByCIF(cif);
         ScrapYardCEN scy=null;
@@ -40,24 +40,7 @@ public class ScrapYardCEN extends UserCEN {
         }
     
       return scy;
-=======
-    /*public void getByCIF(String cif){
-        Hashtable ht = CAD.ScrapYardCAD.getByCIF(cif);
-        this.id = (int) ht.get("id");
-        this.cif = cif;
-        this.name = (String) ht.get("name");
-        this.address = (String) ht.get("address");
-        this.password = (String) ht.get("password");
-    }*/
-    
-    public static ScrapYardCEN getByCIF(String cif){
-        Hashtable ht = CAD.ScrapYardCAD.getByCIF(cif);
-        ScrapYardCEN sy = new ScrapYardCEN((String) ht.get("name"), (String) ht.get("password"), (String) ht.get("address"), cif);
-        sy.id = (int) ht.get("id");
-        return sy;
->>>>>>> 87adf3bd35c091e0ed6698c43d5bfe265fea8e5f
     }
-    
     public static ScrapYardCEN getByID(int id) {
         Hashtable ht = CAD.ScrapYardCAD.getById(id);
         

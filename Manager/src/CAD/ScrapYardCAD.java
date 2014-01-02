@@ -53,11 +53,9 @@ public class ScrapYardCAD {
         Hashtable values = new Hashtable();
         try {
             String query = "SELECT usr.id, cif, nombre, usr.password, direccion " +
-<<<<<<< HEAD
+
                     "FROM Usuario usr, Desguace d WHERE d.id = usr.id AND d.cif = \"" + cif + "\"";
-=======
-                    "FROM Usuario usr, Desguace d WHERE d.id = usr.id AND d.cif = '" + cif + "'";
->>>>>>> 87adf3bd35c091e0ed6698c43d5bfe265fea8e5f
+
             ResultSet rs = Connector.query(query);
             if(rs.next()){
                 values.put("id", rs.getInt("id"));

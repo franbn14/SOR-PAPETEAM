@@ -4,6 +4,7 @@
  */
 package CEN;
 
+import CAD.ScrapYardCAD;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -22,20 +23,13 @@ public class ScrapYardCEN extends UserCEN {
     
     @Override
     public void insert(){
-        this.id=CAD.ScrapYardCAD.create(name, password, address, cif);        
+        if(id == -1){
+            this.id = CAD.ScrapYardCAD.create(name, password, address, cif);  
+        }
     }
     
-   
-    
-    public static ScrapYardCEN getById(int id) {
-        Hashtable ht = CAD.ScrapYardCAD.getById(id);
-        
-        ScrapYardCEN scrapyard = new ScrapYardCEN((String)ht.get("name"), (String)ht.get("password"), (String)ht.get("address"), (String)ht.get("cif"));        
-        scrapyard.id=id;
-       
-        return scrapyard;
-    }
-     public static ScrapYardCEN getByCIF(String cif){
+
+    public static ScrapYardCEN getByCIF(String cif){
         Hashtable ht = CAD.ScrapYardCAD.getByCIF(cif);
         ScrapYardCEN scy=null;
         if(!ht.isEmpty())
@@ -47,6 +41,15 @@ public class ScrapYardCEN extends UserCEN {
     
       return scy;
     }
+    public static ScrapYardCEN getByID(int id) {
+        Hashtable ht = CAD.ScrapYardCAD.getById(id);
+        
+        ScrapYardCEN scrapyard = new ScrapYardCEN((String)ht.get("name"), (String)ht.get("password"), (String)ht.get("address"), (String)ht.get("cif"));        
+        scrapyard.id=id;
+       
+        return scrapyard;
+    }
+    
     public static ArrayList<ScrapYardCEN> getAllScrapYards(){
         ArrayList<Hashtable> values = CAD.ScrapYardCAD.getAll();
         ArrayList<ScrapYardCEN> all =  new ArrayList<ScrapYardCEN>();
@@ -62,13 +65,26 @@ public class ScrapYardCEN extends UserCEN {
         update(name, password, address);
         if(id != -1){
             CAD.ScrapYardCAD.updateCIF(id, cif);
+            this.name =  name;
+            this.password = password;
+            this.address = address;
+            this.cif = cif;
         }
     }
     
     public void updateCIF(String cif){
         if(id != -1){
             CAD.ScrapYardCAD.updateCIF(id, cif);
+            this.cif = cif;
         }
+    }
+
+    public String getCif() {
+        return cif;
+    }
+
+    public void setCif(String cif) {
+        this.cif = cif;
     }
 
     @Override

@@ -18,15 +18,14 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-<<<<<<< HEAD
+
         
         System.out.println("Usuarios: ");
        ScrapYardCEN cen=ScrapYardCEN.getByCIF("66666666A");
             System.out.println(cen);
         }
     
-=======
-        
+
         
         
         /*ClientCEN client = ClientCEN.getByID(1);
@@ -168,6 +167,5 @@ public class main {
         client5.delete();*/
         
  
->>>>>>> 87adf3bd35c091e0ed6698c43d5bfe265fea8e5f
     }
 

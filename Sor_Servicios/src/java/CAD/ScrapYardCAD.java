@@ -22,6 +22,7 @@ public class ScrapYardCAD {
             Connector.updates(query);
         }
         catch (ClassNotFoundException | SQLException e){
+            UserCAD.delete(id);
             System.err.println(e.getMessage());
         }
         return id;
@@ -52,7 +53,9 @@ public class ScrapYardCAD {
         Hashtable values = new Hashtable();
         try {
             String query = "SELECT usr.id, cif, nombre, usr.password, direccion " +
+
                     "FROM Usuario usr, Desguace d WHERE d.id = usr.id AND d.cif = \"" + cif + "\"";
+
             ResultSet rs = Connector.query(query);
             if(rs.next()){
                 values.put("id", rs.getInt("id"));
