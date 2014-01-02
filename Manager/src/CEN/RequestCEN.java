@@ -8,6 +8,7 @@ package CEN;
 
 import CAD.RequestCAD;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Hashtable;
 
 /**
@@ -16,24 +17,40 @@ import java.util.Hashtable;
  */
 public class RequestCEN {
     private int code;
-    private String criteria;
-    private int amount;
-    private UserCEN user;
+    private Date dateLine;
+    private String type;
+    private Double size;
+    private int sizeUnit;
+    private String color;
+    private Integer amount;
+    private Double maxPrice;
+    private ClientCEN client;
+    private boolean autoElect;
+    private boolean finished;
 
+    private void setAttributes(Date dateLine, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {
+        this.dateLine = dateLine;
+        this.type = type;
+        this.size = size;
+        this.sizeUnit =  sizeUnit;
+        this.color = color;
+        this.amount = amount;
+        this.maxPrice = maxPrice;
+        this.amount = amount;
+        this.client= client;
+        this.autoElect = autoElect;
+        this.finished = finished;
+        
+        if(client == null)
+            userError();
+    }
+    
     public RequestCEN() {
     }
         
-    public RequestCEN(String criteria, int amount, ClientCEN client) {        
-        setAttributes(criteria, amount, client);                
-    }
-    
-    public void setAttributes(String criteria, int amount, ClientCEN client) {
-        this.criteria = criteria;
-        this.amount = amount;
-        this.user= client;
-        
-        if(user==null)
-            userError();
+    public RequestCEN(Date dateLine, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoSelec, boolean finished) {        
+        setAttributes(dateLine, type, size, sizeUnit, color, amount, maxPrice, client, autoSelec, finished);      
+        this.code = -1;
     }
     
     public void userError() {
@@ -44,18 +61,6 @@ public class RequestCEN {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getCriteria() {
-        return criteria;
-    }
-
-    public void setCriteria(String criteria) {
-        this.criteria = criteria;
-    }
-
     public int getAmount() {
         return amount;
     }
@@ -64,24 +69,99 @@ public class RequestCEN {
         this.amount = amount;
     }
 
-    public UserCEN getUser() {
-        return user;
+    public UserCEN getClient() {
+        return client;
     }
 
-    public void setUser(ClientCEN user) {
-        this.user = user;
+    public void setClient(ClientCEN client) {
+        this.client = client;
+    }
+
+    public Date getDateLine() {
+        return dateLine;
+    }
+
+    public void setDateLine(Date dateLine) {
+        this.dateLine = dateLine;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public double getSize() {
+        return size;
+    }
+
+    public void setSize(double size) {
+        this.size = size;
+    }
+
+    public int getSizeUnit() {
+        return sizeUnit;
+    }
+
+    public void setSizeUnit(int sizeUnit) {
+        this.sizeUnit = sizeUnit;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public double getMaxPrice() {
+        return maxPrice;
+    }
+
+    public void setMaxPrice(double maxPrice) {
+        this.maxPrice = maxPrice;
+    }
+
+    public boolean isAutoElect() {
+        return autoElect;
+    }
+
+    public void setAutoElect(boolean autoSelec) {
+        this.autoElect = autoSelec;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
             
     public void insert() {
-        this.code=RequestCAD.insert(this);
+        if(this.code == -1)
+            this.code = RequestCAD.insert(dateLine, type, size, sizeUnit, color, amount, maxPrice,  client.getId(), autoElect, finished);
     }
     
+
     public static RequestCEN getByCode(int code) {
         Hashtable ht = RequestCAD.getByCode(code); 
-        RequestCEN req = new RequestCEN();
+        RequestCEN req = null;
         
         if(!ht.isEmpty()) {
-            req.setAttributes((String)ht.get("criteria"), Integer.parseInt(ht.get("amount").toString()), ClientCEN.getById(Integer.parseInt(ht.get("user").toString())));                  
+            req = new RequestCEN((Date)ht.get("dateLine"), 
+                                 (String)ht.get("type"), 
+                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                 (int)ht.get("sizeUnit"), 
+                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                 ((Double)ht.get("maxPrice") == -1.0)? null : (Double)ht.get("maxPrice"), 
+                                 ClientCEN.getByID((int)ht.get("client")), 
+                                 (boolean)ht.get("autoElect"), 
+                                 (boolean)ht.get("finished"));
             req.code=(int)ht.get("code");
         }            
         
@@ -96,29 +176,38 @@ public class RequestCEN {
             all = new ArrayList<RequestCEN>();            
 
             for(Hashtable ht : values){                            
-                RequestCEN req=new RequestCEN();                
-                
-                req.setAttributes((String)ht.get("criteria"), Integer.parseInt(ht.get("amount").toString()),ClientCEN.getById((int)ht.get("user")));                                  
-                req.code=Integer.parseInt(ht.get("code").toString());
+                RequestCEN req = new RequestCEN((Date)ht.get("dateLine"), 
+                                                (String)ht.get("type"), 
+                                                ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                                (int)ht.get("sizeUnit"), 
+                                                (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                                ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                                ((Double)ht.get("maxPrice") == -1.0)? null : (Double)ht.get("maxPrice"), 
+                                                ClientCEN.getByID((int)ht.get("client")), 
+                                                (boolean)ht.get("autoElect"), 
+                                                (boolean)ht.get("finished"));
+                req.code=(int)ht.get("code");
                 all.add(req);
             }           
         }        
         return all;
     }
     
-    public void update(String criteria, int amount, ClientCEN client) {        
-        setAttributes(criteria, amount, client);
-        RequestCAD.update(this);
+    public void update(Date dateLine, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {        
+        setAttributes(dateLine, type, size, sizeUnit, color, amount, maxPrice, client, autoElect, finished);
+        RequestCAD.update(this.code, dateLine, type, size, sizeUnit, color, amount, maxPrice, client.getId(), autoElect, finished);
     }
                     
     public void delete() {
         if(code != -1){
             RequestCAD.delete(code);
         }
-    }            
+    }           
+    
     
     @Override
     public String toString(){
-        return code + " " + criteria + " " + amount + " " + user.getId();
+        return code + " " + dateLine + " " + type + " " + size + " " + sizeUnit + " " + color  + 
+                " " + amount + " " + maxPrice + " " + client.getId() + " " + autoElect + " " + finished;
     }
 }

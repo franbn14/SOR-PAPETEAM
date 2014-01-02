@@ -18,12 +18,13 @@ public class ClientCAD extends UserCAD{
     
     public static int create(String name, String surname, String password, String nif, String address, Date DOB){
         int id = UserCAD.create(name, password, address);
-        String date = DOB.getYear() + "-" + DOB.getMonth() + "-" + DOB.getDate();
+        String date = DOB.getYear() + "-" + (DOB.getMonth()+1) + "-" + DOB.getDate();
         String query = "INSERT INTO Cliente (id, nif, apellidos, fechaNac) VALUES ('"+ id +"', '" + nif + "', '" + surname  + "', '" + date + "')";
         try {
             Connector.updates(query);
         }
         catch (ClassNotFoundException | SQLException e){
+            UserCAD.delete(id);
             System.err.println(e.getMessage());
         }
         return id;
@@ -42,7 +43,8 @@ public class ClientCAD extends UserCAD{
                 values.put("surname", rs.getString("apellidos"));
                 values.put("password", rs.getString("password"));
                 values.put("address", rs.getString("direccion"));
-                values.put("DOB", rs.getDate("fechaNac"));
+                Date date = new Date(rs.getDate("fechaNac").getYear()+1900, rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate());
+                values.put("DOB", date);
             }
             Connector.close(rs);
         }
@@ -65,7 +67,8 @@ public class ClientCAD extends UserCAD{
                 values.put("surname", rs.getString("apellidos"));
                 values.put("password", rs.getString("password"));
                 values.put("address", rs.getString("direccion"));
-                values.put("DOB", rs.getDate("fechaNac"));
+                Date date = new Date(rs.getDate("fechaNac").getYear()+1900, rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate());
+                values.put("DOB", date);
             }
             Connector.close(rs);
         }
@@ -89,7 +92,8 @@ public class ClientCAD extends UserCAD{
                 ht.put("surname", rs.getString("apellidos"));
                 ht.put("password", rs.getString("password"));
                 ht.put("address", rs.getString("direccion"));
-                ht.put("DOB", rs.getDate("fechaNac"));
+                Date date = new Date(rs.getDate("fechaNac").getYear()+1900, rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate()); 
+                ht.put("DOB", date);
                 values.add(ht);
             }
             Connector.close(rs);
@@ -102,7 +106,7 @@ public class ClientCAD extends UserCAD{
     
     public static void updateSurname(int id, String surname){
         try {
-            String query = "UPDATE Cliente SET surname = '" + surname + "' WHERE id = " + id;
+            String query = "UPDATE Cliente SET apellidos = '" + surname + "' WHERE id = " + id;
             Connector.updates(query);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -122,7 +126,7 @@ public class ClientCAD extends UserCAD{
     
     public static void updateDOB(int id, Date DOB){
         try {
-            String date = DOB.getYear() + "-" + DOB.getMonth() + "-" + DOB.getDate();
+            String date = DOB.getYear() + "-" + (DOB.getMonth()+1) + "-" + DOB.getDate();
             String query = "UPDATE Cliente SET fechaNac = '" + date + "' WHERE id = " + id;
             Connector.updates(query);
         }
