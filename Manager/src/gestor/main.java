@@ -7,6 +7,7 @@ package gestor;
 import CAD.UserCAD;
 import CEN.*;
 import java.util.Date;
+import CAD.UnitsCAD;
 
 /**
  *
@@ -20,12 +21,12 @@ public class main {
     public static void main(String[] args) {
 
         
-        System.out.println("Usuarios: ");
-       ScrapYardCEN cen=ScrapYardCEN.getByCIF("66666666A");
-            System.out.println(cen);
+        
+        for(String s : UnitsCAD.getAll()){
+            System.out.println(s);
         }
     
-
+        System.out.println("\n" + UnitsCAD.getByID(1));
         
         
         /*ClientCEN client = ClientCEN.getByID(1);
@@ -166,6 +167,6 @@ public class main {
         sy5.delete();
         client5.delete();*/
         
- 
     }
+}
 

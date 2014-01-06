@@ -17,7 +17,7 @@ import java.util.Hashtable;
  */
 public class RequestCEN {
     private int code;
-    private Date dateLine;
+    private Date deadline;
     private String type;
     private Double size;
     private int sizeUnit;
@@ -28,8 +28,8 @@ public class RequestCEN {
     private boolean autoElect;
     private boolean finished;
 
-    private void setAttributes(Date dateLine, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {
-        this.dateLine = dateLine;
+    private void setAttributes(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {
+        this.deadline = deadline;
         this.type = type;
         this.size = size;
         this.sizeUnit =  sizeUnit;
@@ -48,8 +48,8 @@ public class RequestCEN {
     public RequestCEN() {
     }
         
-    public RequestCEN(Date dateLine, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoSelec, boolean finished) {        
-        setAttributes(dateLine, type, size, sizeUnit, color, amount, maxPrice, client, autoSelec, finished);      
+    public RequestCEN(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoSelec, boolean finished) {        
+        setAttributes(deadline, type, size, sizeUnit, color, amount, maxPrice, client, autoSelec, finished);      
         this.code = -1;
     }
     
@@ -77,12 +77,12 @@ public class RequestCEN {
         this.client = client;
     }
 
-    public Date getDateLine() {
-        return dateLine;
+    public Date getdeadline() {
+        return deadline;
     }
 
-    public void setDateLine(Date dateLine) {
-        this.dateLine = dateLine;
+    public void setdeadline(Date deadline) {
+        this.deadline = deadline;
     }
 
     public String getType() {
@@ -93,7 +93,7 @@ public class RequestCEN {
         this.type = type;
     }
 
-    public double getSize() {
+    public Double getSize() {
         return size;
     }
 
@@ -105,6 +105,10 @@ public class RequestCEN {
         return sizeUnit;
     }
 
+    public String getSizeUnitString(){
+        return UnitsCEN.getByID(sizeUnit);
+    }
+    
     public void setSizeUnit(int sizeUnit) {
         this.sizeUnit = sizeUnit;
     }
@@ -143,7 +147,7 @@ public class RequestCEN {
             
     public void insert() {
         if(this.code == -1)
-            this.code = RequestCAD.insert(dateLine, type, size, sizeUnit, color, amount, maxPrice,  client.getId(), autoElect, finished);
+            this.code = RequestCAD.insert(deadline, type, size, sizeUnit, color, amount, maxPrice,  client.getId(), autoElect, finished);
     }
     
 
@@ -152,7 +156,7 @@ public class RequestCEN {
         RequestCEN req = null;
         
         if(!ht.isEmpty()) {
-            req = new RequestCEN((Date)ht.get("dateLine"), 
+            req = new RequestCEN((Date)ht.get("deadline"), 
                                  (String)ht.get("type"), 
                                  ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
                                  (int)ht.get("sizeUnit"), 
@@ -176,7 +180,7 @@ public class RequestCEN {
             all = new ArrayList<RequestCEN>();            
 
             for(Hashtable ht : values){                            
-                RequestCEN req = new RequestCEN((Date)ht.get("dateLine"), 
+                RequestCEN req = new RequestCEN((Date)ht.get("deadline"), 
                                                 (String)ht.get("type"), 
                                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
                                                 (int)ht.get("sizeUnit"), 
@@ -193,9 +197,109 @@ public class RequestCEN {
         return all;
     }
     
-    public void update(Date dateLine, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {        
-        setAttributes(dateLine, type, size, sizeUnit, color, amount, maxPrice, client, autoElect, finished);
-        RequestCAD.update(this.code, dateLine, type, size, sizeUnit, color, amount, maxPrice, client.getId(), autoElect, finished);
+    public static ArrayList<RequestCEN> getAllByNIF(String nif){
+        ArrayList<Hashtable> values = RequestCAD.getAllByNIF(nif);
+        ArrayList<RequestCEN> all = null;
+        
+        if(!values.isEmpty()) {
+            all = new ArrayList<RequestCEN>();            
+
+            for(Hashtable ht : values){                            
+                RequestCEN req = new RequestCEN((Date)ht.get("deadline"), 
+                                                (String)ht.get("type"), 
+                                                ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                                (int)ht.get("sizeUnit"), 
+                                                (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                                ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                                ((Double)ht.get("maxPrice") == -1.0)? null : (Double)ht.get("maxPrice"), 
+                                                ClientCEN.getByID((int)ht.get("client")), 
+                                                (boolean)ht.get("autoElect"), 
+                                                (boolean)ht.get("finished"));
+                req.code=(int)ht.get("code");
+                all.add(req);
+            }           
+        }        
+        return all;
+    }
+    
+    public static ArrayList<RequestCEN> getAllFinishedByNIF(String nif){
+        ArrayList<Hashtable> values = RequestCAD.getAllFinishedByNIF(nif);
+        ArrayList<RequestCEN> all = null;
+        
+        if(!values.isEmpty()) {
+            all = new ArrayList<RequestCEN>();            
+
+            for(Hashtable ht : values){                            
+                RequestCEN req = new RequestCEN((Date)ht.get("deadline"), 
+                                                (String)ht.get("type"), 
+                                                ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                                (int)ht.get("sizeUnit"), 
+                                                (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                                ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                                ((Double)ht.get("maxPrice") == -1.0)? null : (Double)ht.get("maxPrice"), 
+                                                ClientCEN.getByID((int)ht.get("client")), 
+                                                (boolean)ht.get("autoElect"), 
+                                                (boolean)ht.get("finished"));
+                req.code=(int)ht.get("code");
+                all.add(req);
+            }           
+        }        
+        return all;
+    }
+    
+    public static ArrayList<RequestCEN> getAllOpenedByNIF(String nif){
+        ArrayList<Hashtable> values = RequestCAD.getAllOpenedByNIF(nif);
+        ArrayList<RequestCEN> all = null;
+        
+        if(!values.isEmpty()) {
+            all = new ArrayList<RequestCEN>();            
+
+            for(Hashtable ht : values){                            
+                RequestCEN req = new RequestCEN((Date)ht.get("deadline"), 
+                                                (String)ht.get("type"), 
+                                                ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                                (int)ht.get("sizeUnit"), 
+                                                (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                                ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                                ((Double)ht.get("maxPrice") == -1.0)? null : (Double)ht.get("maxPrice"), 
+                                                ClientCEN.getByID((int)ht.get("client")), 
+                                                (boolean)ht.get("autoElect"), 
+                                                (boolean)ht.get("finished"));
+                req.code=(int)ht.get("code");
+                all.add(req);
+            }           
+        }        
+        return all;
+    }
+    
+    public static ArrayList<RequestCEN> getAllOpened(){
+        ArrayList<Hashtable> values = RequestCAD.getAllOpened();
+        ArrayList<RequestCEN> all = null;
+        
+        if(!values.isEmpty()) {
+            all = new ArrayList<RequestCEN>();            
+
+            for(Hashtable ht : values){                            
+                RequestCEN req = new RequestCEN((Date)ht.get("deadline"), 
+                                                (String)ht.get("type"), 
+                                                ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                                (int)ht.get("sizeUnit"), 
+                                                (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                                ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                                ((Double)ht.get("maxPrice") == -1.0)? null : (Double)ht.get("maxPrice"), 
+                                                ClientCEN.getByID((int)ht.get("client")), 
+                                                (boolean)ht.get("autoElect"), 
+                                                (boolean)ht.get("finished"));
+                req.code=(int)ht.get("code");
+                all.add(req);
+            }           
+        }        
+        return all;
+    }
+    
+    public void update(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {        
+        setAttributes(deadline, type, size, sizeUnit, color, amount, maxPrice, client, autoElect, finished);
+        RequestCAD.update(this.code, deadline, type, size, sizeUnit, color, amount, maxPrice, client.getId(), autoElect, finished);
     }
                     
     public void delete() {
@@ -207,7 +311,7 @@ public class RequestCEN {
     
     @Override
     public String toString(){
-        return code + " " + dateLine + " " + type + " " + size + " " + sizeUnit + " " + color  + 
+        return code + " " + deadline + " " + type + " " + size + " " + sizeUnit + " " + color  + 
                 " " + amount + " " + maxPrice + " " + client.getId() + " " + autoElect + " " + finished;
     }
 }

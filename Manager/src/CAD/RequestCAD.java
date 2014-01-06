@@ -19,9 +19,9 @@ import java.util.Hashtable;
  * @author alberto
  */
 public class RequestCAD {
-    public static int insert(Date dateLine, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int clientID, boolean autoElec, boolean finished) {
+    public static int insert(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int clientID, boolean autoElec, boolean finished) {
         int code = -1;
-        String date = dateLine.getYear() + "-" + (dateLine.getMonth()+1) + "-" + dateLine.getDate();
+        String date = deadline.getYear() + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
         String c = (color == null)? null : "\"" + color + "\"";
         String query = "INSERT INTO Solicitud (fechaTope, tipo, tamaño, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado) VALUES "+
                     "('" + date + "', \"" + type + "\", " + size + ", " + sizeUnit + ", " + "" + c + ", " + amount + ", " + maxPrice + ", " +
@@ -36,17 +36,7 @@ public class RequestCAD {
         
         return code;
     }
-     /*private int code;
-    private Date dateLine;
-    private String type;
-    private Double size;
-    private int sizeUnit;
-    private String color;
-    private Integer amount;
-    private Double maxPrice;
-    private ClientCEN client;
-    private boolean autoSelec;
-    private boolean finished;*/
+    
     public static Hashtable getByCode(int code){
         Hashtable request = new Hashtable();
         try {
@@ -56,7 +46,7 @@ public class RequestCAD {
             if(rs.next()){
                 request.put("code", rs.getInt("codigo"));
                 Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
-                request.put("dateLine", date);
+                request.put("deadline", date);
                 request.put("type", rs.getString("tipo"));
                 request.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
                 request.put("sizeUnit", rs.getInt("tamUnidad"));
@@ -84,7 +74,7 @@ public class RequestCAD {
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
                 Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
-                ht.put("dateLine", date);
+                ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
                 ht.put("sizeUnit", rs.getInt("tamUnidad"));
@@ -104,9 +94,9 @@ public class RequestCAD {
         return values;
     }            
     
-    public static void update(int code, Date dateLine, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int client, boolean autoElect, boolean finished) {
+    public static void update(int code, Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int client, boolean autoElect, boolean finished) {
         try {
-            String date = dateLine.getYear() + "-" + (dateLine.getMonth()+1) + "-" + dateLine.getDate();
+            String date = deadline.getYear() + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
             String c = (color == null)? null : "\"" + color + "\"";
             String query = "UPDATE Solicitud SET fechaTope = '"+ date +"', tipo = \"" + type + "\", tamaño = "+ size +", "+
                            "tamUnidad = "+ sizeUnit +", color = "+ color +", cantidad = " + amount + ",precioMax = " + maxPrice + ", " +
@@ -127,4 +117,123 @@ public class RequestCAD {
             System.err.println(e.getMessage());
         }
     }
+    
+    public static ArrayList<Hashtable> getAllByNIF(String nif){
+        ArrayList<Hashtable> values = new ArrayList();
+        try {
+            String query = "SELECT s.codigo, s.fechaTope, s.tipo, s.tamaño, s.tamUnidad, s.color, s.cantidad, s.precioMax, s.usuario, s.autoElect, s.finalizado " +
+                           "FROM Solicitud s, Cliente c WHERE s.usuario = c.id and c.nif = '" + nif + "';";
+            ResultSet rs = Connector.query(query);
+            while(rs.next()){
+                Hashtable ht = new Hashtable();
+                ht.put("code", rs.getInt("codigo"));
+                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                ht.put("deadline", date);
+                ht.put("type", rs.getString("tipo"));
+                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
+                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
+                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
+                ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
+                ht.put("autoElect", rs.getBoolean("autoElect"));
+                ht.put("finished", rs.getBoolean("finalizado"));
+                ht.put("client", rs.getInt("usuario"));
+                values.add(ht);
+            }
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.err.println(e.getMessage());
+        }
+        return values;
+    }
+    
+    public static ArrayList<Hashtable> getAllFinishedByNIF(String nif){
+        ArrayList<Hashtable> values = new ArrayList();
+        try {
+            String query = "SELECT s.codigo, s.fechaTope, s.tipo, s.tamaño, s.tamUnidad, s.color, s.cantidad, s.precioMax, s.usuario, s.autoElect, s.finalizado " +
+                           "FROM Solicitud s, Cliente c WHERE s.usuario = c.id and s.finalizado = 1 and c.nif = '" + nif + "';";
+            ResultSet rs = Connector.query(query);
+            while(rs.next()){
+                Hashtable ht = new Hashtable();
+                ht.put("code", rs.getInt("codigo"));
+                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                ht.put("deadline", date);
+                ht.put("type", rs.getString("tipo"));
+                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
+                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
+                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
+                ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
+                ht.put("autoElect", rs.getBoolean("autoElect"));
+                ht.put("finished", rs.getBoolean("finalizado"));
+                ht.put("client", rs.getInt("usuario"));
+                values.add(ht);
+            }
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.err.println(e.getMessage());
+        }
+        return values;
+    } 
+    
+    public static ArrayList<Hashtable> getAllOpenedByNIF(String nif){
+        ArrayList<Hashtable> values = new ArrayList();
+        try {
+            String query = "SELECT s.codigo, s.fechaTope, s.tipo, s.tamaño, s.tamUnidad, s.color, s.cantidad, s.precioMax, s.usuario, s.autoElect, s.finalizado " +
+                           "FROM Solicitud s, Cliente c WHERE s.usuario = c.id and s.finalizado = 0 and c.nif = '" + nif + "';";
+            ResultSet rs = Connector.query(query);
+            while(rs.next()){
+                Hashtable ht = new Hashtable();
+                ht.put("code", rs.getInt("codigo"));
+                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                ht.put("deadline", date);
+                ht.put("type", rs.getString("tipo"));
+                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
+                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
+                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
+                ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
+                ht.put("autoElect", rs.getBoolean("autoElect"));
+                ht.put("finished", rs.getBoolean("finalizado"));
+                ht.put("client", rs.getInt("usuario"));
+                values.add(ht);
+            }
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.err.println(e.getMessage());
+        }
+        return values;
+    } 
+    
+     public static ArrayList<Hashtable> getAllOpened(){
+        ArrayList<Hashtable> values = new ArrayList();
+        try {
+            Date now = new Date();
+            String s_now = (now.getYear()+1900) + "-" + (now.getMonth()+1) + "-" + now.getDate();
+            String query = "SELECT s.codigo, s.fechaTope, s.tipo, s.tamaño, s.tamUnidad, s.color, s.cantidad, s.precioMax, s.usuario, s.autoElect, s.finalizado " +
+                           "FROM Solicitud s WHERE s.finalizado = 0 and s.fechaTope >= '" + s_now + "';";
+            
+            ResultSet rs = Connector.query(query);
+            while(rs.next()){
+                Hashtable ht = new Hashtable();
+                ht.put("code", rs.getInt("codigo"));
+                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                ht.put("deadline", date);
+                ht.put("type", rs.getString("tipo"));
+                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
+                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
+                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
+                ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
+                ht.put("autoElect", rs.getBoolean("autoElect"));
+                ht.put("finished", rs.getBoolean("finalizado"));
+                ht.put("client", rs.getInt("usuario"));
+                values.add(ht);
+            }
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.err.println(e.getMessage());
+        }
+        return values;
+    } 
 }

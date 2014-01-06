@@ -25,11 +25,12 @@ public class OfferCEN {
     private Double price;
     private RequestCEN request;
     private ScrapYardCEN scrapyard;
+    private boolean accepted;
 
     /*public OfferCEN() {
     }*/
 
-    private void setAttributes(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard) {
+    private void setAttributes(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
         this.type = type;
         this.size = size;
         this.sizeUnit = sizeUnit;
@@ -37,11 +38,12 @@ public class OfferCEN {
         this.amount = amount;
         this.price = price;
         this.request = request;
-        this.scrapyard = scrapyard;               
+        this.scrapyard = scrapyard;          
+        this.accepted = accepted;
     }
     
-    public OfferCEN(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard) {        
-        setAttributes(type, size, sizeUnit, color, amount, price, request, scrapyard);
+    public OfferCEN(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
+        setAttributes(type, size, sizeUnit, color, amount, price, request, scrapyard, accepted);
         this.code = -1;
     }     
     
@@ -73,6 +75,10 @@ public class OfferCEN {
         return sizeUnit;
     }
 
+    public String getSizeUnitString(){
+        return UnitsCEN.getByID(sizeUnit);
+    }
+    
     public void setSizeUnit(int sizeUnit) {
         this.sizeUnit = sizeUnit;
     }
@@ -116,6 +122,14 @@ public class OfferCEN {
     public void setScrapyard(ScrapYardCEN scrapyard) {
         this.scrapyard = scrapyard;
     }
+
+    public boolean isAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
+    }
        
     @Override
     public String toString() {
@@ -123,7 +137,7 @@ public class OfferCEN {
     }
     
     public void insert() {
-        this.code = OfferCAD.insert(type, size, sizeUnit, color, amount, price, request.getCode(), scrapyard.getId());
+        this.code = OfferCAD.insert(type, size, sizeUnit, color, amount, price, request.getCode(), scrapyard.getId(), accepted);
     }
     
     /*String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard*/
@@ -140,7 +154,8 @@ public class OfferCEN {
                                  ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
                                  ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
                                  RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")));
+                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
+                                 (boolean)ht.get("accepted"));
             offer.code=(int) ht.get("code");
         }
         
@@ -162,22 +177,120 @@ public class OfferCEN {
                                  ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
                                  ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
                                  RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")));
+                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
+                                 (boolean)ht.get("accepted"));
                 offer.code=(int) ht.get("code");
                 all.add(offer);
             }           
         }        
         return all;
     }
+   
+   public static ArrayList<OfferCEN> getByRequest(int request) {
+        ArrayList<Hashtable> values = OfferCAD.getByRequest(request);
+        ArrayList<OfferCEN> all = null;
+        
+        if(!values.isEmpty()) {
+            all = new ArrayList<OfferCEN>();        
+
+            for(Hashtable ht : values){                            
+                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
+                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                 (int)ht.get("sizeUnit"), 
+                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
+                                 RequestCEN.getByCode((int)ht.get("request")),
+                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
+                                 (boolean)ht.get("accepted"));
+                offer.code=(int) ht.get("code");
+                all.add(offer);
+            }           
+        }        
+        return all;
+    }
+   
+   public static ArrayList<OfferCEN> getByNIF(String nif) {
+        ArrayList<Hashtable> values = OfferCAD.getByNIF(nif);
+        ArrayList<OfferCEN> all = null;
+        
+        if(!values.isEmpty()) {
+            all = new ArrayList<OfferCEN>();        
+
+            for(Hashtable ht : values){                            
+                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
+                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                 (int)ht.get("sizeUnit"), 
+                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
+                                 RequestCEN.getByCode((int)ht.get("request")),
+                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
+                                 (boolean)ht.get("accepted"));
+                offer.code=(int) ht.get("code");
+                all.add(offer);
+            }           
+        }        
+        return all;
+    }
+   
+   public static OfferCEN AutoSelection(RequestCEN r){
+        ArrayList<Hashtable> values = OfferCAD.AutoSelection(r.getType(), r.getSize(), r.getSizeUnit(), r.getColor(), r.getAmount(), r.getMaxPrice(), r.getCode());
+        ArrayList<OfferCEN> all = null;
+        
+        if(!values.isEmpty()) {
+            all = new ArrayList<OfferCEN>();        
+
+            for(Hashtable ht : values){                            
+                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
+                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                 (int)ht.get("sizeUnit"), 
+                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
+                                 RequestCEN.getByCode((int)ht.get("request")),
+                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
+                                 (boolean)ht.get("accepted"));
+                offer.code=(int) ht.get("code");
+                all.add(offer);
+            }           
+        } 
+        if(all == null){
+            return null;
+        }
+        else if(all.isEmpty()){
+            return null;
+        }
+        else if(all.size() == 1){
+            return all.get(0);
+        }
+        else {
+            OfferCEN aux = all.get(0);
+            for(OfferCEN o : all){
+                if(o.getPrice() < aux.getPrice()){
+                    aux = o;
+                }
+            }
+            return aux;
+        }
+   }
+   
+   /*public String getSYEMail(){
+       return OfferCAD.getSYEmail(code);
+   }*/
     
-    public void update(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard) {        
-        setAttributes(type, size, sizeUnit, color, amount, price, request, scrapyard);
-        OfferCAD.update(this.code, type, size, sizeUnit, color, amount, price, request.getCode(), scrapyard.getId());
+    public void update(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
+        setAttributes(type, size, sizeUnit, color, amount, price, request, scrapyard, accepted);
+        OfferCAD.update(this.code, type, size, sizeUnit, color, amount, price, request.getCode(), scrapyard.getId(), accepted);
     }
     
     public void delete() {
         if(code != -1){
             OfferCAD.delete(code);
         }
-    }            
+    }   
+    
+    public static void deleteByRequest(int request){
+        OfferCAD.deleteByRequest(request);
+    }
 }
