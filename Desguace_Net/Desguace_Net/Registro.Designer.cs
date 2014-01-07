@@ -42,6 +42,9 @@
             this.error_Pass = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.Pass2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Email_text = new System.Windows.Forms.TextBox();
+            this.ErrorEmail = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -49,7 +52,7 @@
             this.button1.AutoSize = true;
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(355, 384);
+            this.button1.Location = new System.Drawing.Point(343, 495);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 35);
             this.button1.TabIndex = 0;
@@ -178,12 +181,44 @@
             this.Pass2.TabIndex = 12;
             this.Pass2.UseSystemPasswordChar = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label7.Location = new System.Drawing.Point(56, 388);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Email";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // Email_text
+            // 
+            this.Email_text.Location = new System.Drawing.Point(59, 420);
+            this.Email_text.Name = "Email_text";
+            this.Email_text.Size = new System.Drawing.Size(222, 20);
+            this.Email_text.TabIndex = 15;
+            // 
+            // ErrorEmail
+            // 
+            this.ErrorEmail.AutoSize = true;
+            this.ErrorEmail.ForeColor = System.Drawing.Color.Red;
+            this.ErrorEmail.Location = new System.Drawing.Point(289, 427);
+            this.ErrorEmail.Name = "ErrorEmail";
+            this.ErrorEmail.Size = new System.Drawing.Size(29, 13);
+            this.ErrorEmail.TabIndex = 16;
+            this.ErrorEmail.Text = "Error";
+            this.ErrorEmail.Visible = false;
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(571, 443);
+            this.ClientSize = new System.Drawing.Size(617, 570);
+            this.Controls.Add(this.ErrorEmail);
+            this.Controls.Add(this.Email_text);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Pass2);
             this.Controls.Add(this.error_Pass);
@@ -222,5 +257,8 @@
         private System.Windows.Forms.Label error_Pass;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox Pass2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox Email_text;
+        private System.Windows.Forms.Label ErrorEmail;
     }
 }

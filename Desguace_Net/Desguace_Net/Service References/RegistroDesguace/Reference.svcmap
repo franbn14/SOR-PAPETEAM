@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bcce1b10-c282-42a6-b4ea-3e37a663056a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="35b6e34b-8d0c-4325-8fff-540dab40996e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RegistroDesguace.xsd" MetadataType="Schema" ID="3e5ef282-ac81-4da8-94a7-b09e1bad053e" SourceId="1" SourceUrl="http://localhost:8080/Sor_Servicios/RegistroDesguace?xsd=1" />
-    <MetadataFile FileName="RegistroDesguace.wsdl" MetadataType="Wsdl" ID="08627de2-fe86-4319-b83d-05a218b23194" SourceId="1" SourceUrl="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" />
+    <MetadataFile FileName="RegistroDesguace.xsd" MetadataType="Schema" ID="f0491c91-bbb2-43c3-b8aa-08ffcb282cb8" SourceId="1" SourceUrl="http://localhost:8080/Sor_Servicios/RegistroDesguace?xsd=1" />
+    <MetadataFile FileName="RegistroDesguace.wsdl" MetadataType="Wsdl" ID="3e42f99e-4511-46eb-a089-40b023687e53" SourceId="1" SourceUrl="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

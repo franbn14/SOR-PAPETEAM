@@ -58,14 +58,18 @@ namespace Desguace_Net.RegistroDesguace {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public string Direccion;
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string Email;
+        
         public RegistroRequestBody() {
         }
         
-        public RegistroRequestBody(string Cif, string Nombre, string Password, string Direccion) {
+        public RegistroRequestBody(string Cif, string Nombre, string Password, string Direccion, string Email) {
             this.Cif = Cif;
             this.Nombre = Nombre;
             this.Password = Password;
             this.Direccion = Direccion;
+            this.Email = Email;
         }
     }
     
@@ -135,13 +139,14 @@ namespace Desguace_Net.RegistroDesguace {
             return base.Channel.Registro(request);
         }
         
-        public string Registro(string Cif, string Nombre, string Password, string Direccion) {
+        public string Registro(string Cif, string Nombre, string Password, string Direccion, string Email) {
             Desguace_Net.RegistroDesguace.RegistroRequest inValue = new Desguace_Net.RegistroDesguace.RegistroRequest();
             inValue.Body = new Desguace_Net.RegistroDesguace.RegistroRequestBody();
             inValue.Body.Cif = Cif;
             inValue.Body.Nombre = Nombre;
             inValue.Body.Password = Password;
             inValue.Body.Direccion = Direccion;
+            inValue.Body.Email = Email;
             Desguace_Net.RegistroDesguace.RegistroResponse retVal = ((Desguace_Net.RegistroDesguace.RegistroDesguace)(this)).Registro(inValue);
             return retVal.Body.@return;
         }
@@ -151,13 +156,14 @@ namespace Desguace_Net.RegistroDesguace {
             return base.Channel.RegistroAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Desguace_Net.RegistroDesguace.RegistroResponse> RegistroAsync(string Cif, string Nombre, string Password, string Direccion) {
+        public System.Threading.Tasks.Task<Desguace_Net.RegistroDesguace.RegistroResponse> RegistroAsync(string Cif, string Nombre, string Password, string Direccion, string Email) {
             Desguace_Net.RegistroDesguace.RegistroRequest inValue = new Desguace_Net.RegistroDesguace.RegistroRequest();
             inValue.Body = new Desguace_Net.RegistroDesguace.RegistroRequestBody();
             inValue.Body.Cif = Cif;
             inValue.Body.Nombre = Nombre;
             inValue.Body.Password = Password;
             inValue.Body.Direccion = Direccion;
+            inValue.Body.Email = Email;
             return ((Desguace_Net.RegistroDesguace.RegistroDesguace)(this)).RegistroAsync(inValue);
         }
     }
