@@ -18,7 +18,7 @@ public class Connector {
     static final String driver = "com.mysql.jdbc.Driver";
     static final String url = "jdbc:mysql://localhost/mydb";
     static final String usr = "root";
-    static final String pass = "NF8VGUD5";
+    static final String pass = "root";
     
     private static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName(driver);

@@ -20,6 +20,7 @@ public class ClientCAD extends UserCAD{
         int id = UserCAD.create(name, password, address);
         String date = DOB.getYear() + "-" + DOB.getMonth() + "-" + DOB.getDate();
         String query = "INSERT INTO Cliente (id, nif, apellidos, fechaNac) VALUES ('"+ id +"', '" + nif + "', '" + surname  + "', '" + date + "')";
+        
         try {
             Connector.updates(query);
         }

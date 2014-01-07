@@ -33,5 +33,22 @@
         <delete dir="${build.generated.dir}/jax-wsCache/LoginClientes"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-LoginClientes"/>
+    <target name="wsimport-client-RegistroCliente" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/RegistroCliente"/>
+        <property name="wsdl-RegistroCliente" location="xml-resources/web-service-references/RegistroCliente/wsdl/localhost_8081/Sor_Servicios/RegistroCliente.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegistroCliente" destdir="${build.generated.dir}/jax-wsCache/RegistroCliente" wsdl="${wsdl-RegistroCliente}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8081/Sor_Servicios/RegistroCliente?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-RegistroCliente}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/RegistroCliente"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/RegistroCliente">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-RegistroCliente" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/RegistroCliente"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-LoginClientes, wsimport-client-RegistroCliente"/>
 </project>

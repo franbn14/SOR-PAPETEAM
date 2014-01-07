@@ -6,12 +6,14 @@
 
 package taller;
 
+import CEN.ClientCEN;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -45,8 +47,10 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btLogin = new javax.swing.JButton();
-        tfPass = new javax.swing.JTextField();
         lbTitle = new javax.swing.JLabel();
+        lbError = new javax.swing.JLabel();
+        btRegister = new javax.swing.JButton();
+        tfPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(208, 76, 76));
@@ -68,8 +72,18 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        lbTitle.setText("Login taller");
+        lbTitle.setText("Iniciar sesión");
         lbTitle.setName("lbTitle"); // NOI18N
+
+        lbError.setForeground(new java.awt.Color(222, 41, 41));
+        lbError.setText("   ");
+
+        btRegister.setText("Registrarse");
+        btRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegisterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
@@ -78,7 +92,10 @@ public class Main extends javax.swing.JFrame {
             .addGroup(mainPaneLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbTitle)
+                    .addGroup(mainPaneLayout.createSequentialGroup()
+                        .addComponent(lbTitle)
+                        .addGap(103, 103, 103)
+                        .addComponent(btRegister))
                     .addGroup(mainPaneLayout.createSequentialGroup()
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(mainPaneLayout.createSequentialGroup()
@@ -88,17 +105,20 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(64, 64, 64)))
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfUser)
-                            .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfPass, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))))
+                            .addComponent(tfUser, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(lbError, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfPass)
+                            .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         mainPaneLayout.setVerticalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbTitle)
-                .addGap(31, 31, 31)
+                .addGap(19, 19, 19)
+                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbTitle)
+                    .addComponent(btRegister))
+                .addGap(33, 33, 33)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -106,9 +126,11 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addComponent(btLogin)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lbError)
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,19 +150,29 @@ public class Main extends javax.swing.JFrame {
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         // TODO add your handling code here:
         String user=tfUser.getText();
-        String pass=tfPass.getText();
-        
+        String pass=tfPass.getText();        
+                
         if(user!=null && !user.equals("") && pass!=null && !pass.equals("")) {
-            String error=login(user, pass);
+            String error=login(pass,user);
             
-            if(error.equals(""))
-                System.out.println("Login correcto");
+            if(error.equals("")) {
+                Home home=new Home(user);
+                dispose();
+                home.setVisible(true);
+            }
             else
-                System.err.println(error);
+                lbError.setText("Login incorrecto");
         }        
         else
-            System.err.println("Incorrecto");
+            lbError.setText("No pueden ser vacíos");
     }//GEN-LAST:event_btLoginActionPerformed
+
+    private void btRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegisterActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        Register reg=new Register();        
+        reg.setVisible(true);
+    }//GEN-LAST:event_btRegisterActionPerformed
     
    
     /**
@@ -183,11 +215,13 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLogin;
+    private javax.swing.JButton btRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbError;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JPanel mainPane;
-    private javax.swing.JTextField tfPass;
+    private javax.swing.JPasswordField tfPass;
     private javax.swing.JTextField tfUser;
     // End of variables declaration//GEN-END:variables
 
@@ -196,4 +230,6 @@ public class Main extends javax.swing.JFrame {
         servicios.LoginClientes port = service.getLoginClientesPort();
         return port.login(password, nifDni);
     }
+
+    
 }
