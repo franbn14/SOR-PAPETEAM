@@ -1,0 +1,70 @@
+#login {
+    height: 420px;
+    width: 680px;
+}
+
+#tLogin {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding: 30px;
+    padding-bottom: 0px;
+    width: 80%;
+}
+
+td.login {
+    color: white;
+    font-size: 22px;
+    line-height: 42px;
+    padding-left: 20px;
+    text-shadow: /*text stroke simulation*/
+   -1px -1px 0 #cc9f52,  
+    1px -1px 0 #cc9f52,
+    -1px 1px 0 #cc9f52,
+     1px 1px 0 #cc9f52;
+    font-weight: bold;
+}
+
+td.loginButton {
+    text-align: center;
+}
+
+input.login {
+    width: 200px;
+}
+
+
+#loginReg {
+    border-top: 5px dotted #bc9a63;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+p.loginReg {
+    color: #bc9a63;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align:center;
+    
+}
+
+a.loginReg {
+    color: #ac0505;
+    text-decoration: none;
+}
+
+a.loginReg:visited {
+    color: #ac0505;
+    text-decoration: none;
+}
+
+label.lError {
+    color: #ac0505;
+    font-weight: bold;
+    padding: 20px;
+}
+
+td.lError {
+    text-align: center;
+    padding-top: 20px;
+}

@@ -1,0 +1,63 @@
+section.mainSec {
+	width: 60%;
+	padding: 20px;
+}
+
+label.form {
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	line-height: 28px;
+}
+
+input.form {
+	float: right;
+	width: 42%;
+	padding-right: 8%;
+}
+
+input.formCombo {
+	border: 1px solid #cc9f52;
+    border-radius: 5px;
+    color: #c1ad8c;
+  	float: right;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    height: 25px;
+    text-align: center;    
+    vertical-align:middle;
+    width: 42%;
+}
+
+select.formCombo {
+	width: 7%;
+	float: right;
+	border: 1px solid #cc9f52;
+    border-radius: 5px;
+    color: #c1ad8c;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    height: 28px;
+    text-align: center;    
+    vertical-align:middle;
+    margin-left: 1%;
+}
+
+input.submitButton, button.submitButton{
+	display: inline-block;
+	margin: 15px;
+	width: 100px;
+}
+
+div.buttons {
+	text-align: center;
+}
+
+input.formCechBox {
+	float: right;
+	margin-right: 23%;
+}

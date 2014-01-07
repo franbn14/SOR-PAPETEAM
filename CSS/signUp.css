@@ -1,0 +1,59 @@
+#signIn {
+    display: flex;
+    width: 800px;
+}
+
+input.form, input.formError {
+    margin-left: 40px;
+    width: 300px;
+}
+
+input.formRadio {
+    float: right; 
+    margin-right: 16px;
+}
+
+#signInForm {
+    border-right: 5px dotted #bc9a63;
+    padding: 20px;
+    width: 400px;
+}
+
+p.submitButton {
+    text-align: center;
+}
+
+#info {
+    height: 100%;
+    margin: 20px;
+    margin-top: 80px;
+    width: 300px;
+}
+
+p.info {
+    color: #bc9a63;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: justify;
+}
+
+label.form2 {
+    color: white;
+    display: block;
+    font-size: 16px;
+    text-shadow: /*text stroke simulation*/
+   -1px -1px 0 #cc9f52,  
+    1px -1px 0 #cc9f52,
+    -1px 1px 0 #cc9f52,
+     1px 1px 0 #cc9f52;
+    font-weight: bold;
+}
+
+#typeEnterprise {
+    border: 1px solid #bc9a63;
+    border-radius: 10px;
+    margin-left: 170px;
+    margin-top: -10px;
+    padding: 10px;
+    width: 130px;
+}
