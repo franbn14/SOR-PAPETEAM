@@ -21,12 +21,15 @@ public class main {
     public static void main(String[] args) {
 
         
+        for(OfferCEN o : OfferCEN.getAcceptedByUserID(1)){
+            System.out.println(o);
+        }
         
-        for(String s : UnitsCAD.getAll()){
+        /*for(String s : UnitsCAD.getAll()){
             System.out.println(s);
         }
     
-        System.out.println("\n" + UnitsCAD.getByID(1));
+        System.out.println("\n" + UnitsCAD.getByID(1));*/
         
         
         /*ClientCEN client = ClientCEN.getByID(1);
