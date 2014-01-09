@@ -28,6 +28,21 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>DarIdClientebyNif</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>DarIdDesguacebyCif</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>NewPeticion</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginClientes</servlet-name>
         <url-pattern>/LoginClientes</url-pattern>
@@ -47,6 +62,18 @@
     <servlet-mapping>
         <servlet-name>DarNombreCliente</servlet-name>
         <url-pattern>/DarNombreCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DarIdClientebyNif</servlet-name>
+        <url-pattern>/DarIdClientebyNif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DarIdDesguacebyCif</servlet-name>
+        <url-pattern>/DarIdDesguacebyCif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewPeticion</servlet-name>
+        <url-pattern>/NewPeticion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

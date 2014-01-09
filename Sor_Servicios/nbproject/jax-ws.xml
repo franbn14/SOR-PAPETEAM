@@ -16,6 +16,15 @@
     <service name="DarNombreCliente">
       <implementation-class>Servicios.DarNombreCliente</implementation-class>
     </service>
+    <service name="DarIdClientebyNif">
+      <implementation-class>Servicios.DarIdClientebyNif</implementation-class>
+    </service>
+    <service name="DarIdDesguacebyCif">
+      <implementation-class>Servicios.DarIdDesguacebyCif</implementation-class>
+    </service>
+    <service name="NewPeticion">
+      <implementation-class>Servicios.NewPeticion</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>

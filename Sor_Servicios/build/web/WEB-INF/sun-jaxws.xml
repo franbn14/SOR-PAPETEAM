@@ -5,4 +5,7 @@
   <endpoint implementation="Servicios.RegistroDesguace" name="RegistroDesguace" url-pattern="/RegistroDesguace"/>
   <endpoint implementation="Servicios.RegistroCliente" name="RegistroCliente" url-pattern="/RegistroCliente"/>
   <endpoint implementation="Servicios.DarNombreCliente" name="DarNombreCliente" url-pattern="/DarNombreCliente"/>
+  <endpoint implementation="Servicios.DarIdClientebyNif" name="DarIdClientebyNif" url-pattern="/DarIdClientebyNif"/>
+  <endpoint implementation="Servicios.DarIdDesguacebyCif" name="DarIdDesguacebyCif" url-pattern="/DarIdDesguacebyCif"/>
+  <endpoint implementation="Servicios.NewPeticion" name="NewPeticion" url-pattern="/NewPeticion"/>
 </endpoints>
