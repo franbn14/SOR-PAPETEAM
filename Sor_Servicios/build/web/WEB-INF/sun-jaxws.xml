@@ -8,4 +8,6 @@
   <endpoint implementation="Servicios.DarIdClientebyNif" name="DarIdClientebyNif" url-pattern="/DarIdClientebyNif"/>
   <endpoint implementation="Servicios.DarIdDesguacebyCif" name="DarIdDesguacebyCif" url-pattern="/DarIdDesguacebyCif"/>
   <endpoint implementation="Servicios.NewPeticion" name="NewPeticion" url-pattern="/NewPeticion"/>
+  <endpoint implementation="Servicios.BorrarPeticion" name="BorrarPeticion" url-pattern="/BorrarPeticion"/>
+  <endpoint implementation="Servicios.DarPeticionesNifP" name="DarPeticionesNifP" url-pattern="/DarPeticionesNifP"/>
 </endpoints>

@@ -25,6 +25,12 @@
     <service name="NewPeticion">
       <implementation-class>Servicios.NewPeticion</implementation-class>
     </service>
+    <service name="BorrarPeticion">
+      <implementation-class>Servicios.BorrarPeticion</implementation-class>
+    </service>
+    <service name="DarPeticionesNifP">
+      <implementation-class>Servicios.DarPeticionesNifP</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>

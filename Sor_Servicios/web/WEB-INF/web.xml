@@ -43,6 +43,16 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>BorrarPeticion</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>DarPeticionesNifP</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginClientes</servlet-name>
         <url-pattern>/LoginClientes</url-pattern>
@@ -74,6 +84,14 @@
     <servlet-mapping>
         <servlet-name>NewPeticion</servlet-name>
         <url-pattern>/NewPeticion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BorrarPeticion</servlet-name>
+        <url-pattern>/BorrarPeticion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DarPeticionesNifP</servlet-name>
+        <url-pattern>/DarPeticionesNifP</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
