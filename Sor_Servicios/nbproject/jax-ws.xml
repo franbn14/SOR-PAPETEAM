@@ -31,6 +31,18 @@
     <service name="DarPeticionesNifP">
       <implementation-class>Servicios.DarPeticionesNifP</implementation-class>
     </service>
+    <service name="DarPeticionesNifF">
+      <implementation-class>Servicios.DarPeticionesNifF</implementation-class>
+    </service>
+    <service name="DarUnidades">
+      <implementation-class>Servicios.DarUnidades</implementation-class>
+    </service>
+    <service name="DarOfertasRequest">
+      <implementation-class>Servicios.DarOfertasRequest</implementation-class>
+    </service>
+    <service name="DarOfertasRequestOk">
+      <implementation-class>Servicios.DarOfertasRequestOk</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>

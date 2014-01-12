@@ -6,6 +6,7 @@
 
 package Servicios;
 
+import CEN.OfferCEN;
 import CEN.RequestCEN;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -14,36 +15,22 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 
-
-
 /**
  *
  * @author fran
  */
-
-@WebService(serviceName = "DarPeticionesNifP")
-public class DarPeticionesNifP {
-
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        
-        return "";
-       
-    }
+@WebService(serviceName = "DarOfertasRequest")
+public class DarOfertasRequest {
 
     /**
      * Web service operation
      */
-    
-    @WebMethod(operationName = "DarPeticiones")
-    public String DarPeticiones(@WebParam(name = "nif") String nif) {
-       ArrayList<RequestCEN> requests= new ArrayList<RequestCEN> ();
-       requests=RequestCEN.getAllOpenedByNIF(nif);
+    @WebMethod(operationName = "DarOfertasByR")
+    public String DarOfertasByR(@WebParam(name = "idR") int idR) {
+        ArrayList<OfferCEN> requests= new ArrayList<OfferCEN> ();
+        requests=OfferCEN.getByRequest(idR);
         Gson gson = new GsonBuilder().setDateFormat("MMM dd, yyyy hh:mm:ss a").create();
-            String listaJSON = gson.toJson(requests);
+        String listaJSON = gson.toJson(requests);
         return listaJSON;
     }
 }

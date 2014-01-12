@@ -10,4 +10,8 @@
   <endpoint implementation="Servicios.NewPeticion" name="NewPeticion" url-pattern="/NewPeticion"/>
   <endpoint implementation="Servicios.BorrarPeticion" name="BorrarPeticion" url-pattern="/BorrarPeticion"/>
   <endpoint implementation="Servicios.DarPeticionesNifP" name="DarPeticionesNifP" url-pattern="/DarPeticionesNifP"/>
+  <endpoint implementation="Servicios.DarPeticionesNifF" name="DarPeticionesNifF" url-pattern="/DarPeticionesNifF"/>
+  <endpoint implementation="Servicios.DarUnidades" name="DarUnidades" url-pattern="/DarUnidades"/>
+  <endpoint implementation="Servicios.DarOfertasRequest" name="DarOfertasRequest" url-pattern="/DarOfertasRequest"/>
+  <endpoint implementation="Servicios.DarOfertasRequestOk" name="DarOfertasRequestOk" url-pattern="/DarOfertasRequestOk"/>
 </endpoints>

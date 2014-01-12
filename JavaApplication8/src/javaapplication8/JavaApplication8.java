@@ -24,25 +24,21 @@ public class JavaApplication8 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       
-    
-         String peti;
+      
+      /*   String peti;
          peti=darPeticiones("11111111A");
          System.out.println(peti);
-         ArrayList<RequestCEN> listarequest= new ArrayList<RequestCEN>();
-        Gson gson = new Gson();
-     
-        java.lang.reflect.Type collectionType = new TypeToken<ArrayList<RequestCEN>>(){}.getType();
-        String requeststring= darPeticiones("11111111A");
+         ArrayList<String> listarequest= new ArrayList<String>();
+         Gson gson = new Gson();
+        java.lang.reflect.Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();*/
+        String requeststring= darOfertasByRequestOk(2);
+        System.out.println(requeststring);
+                /*
       if(!requeststring.equals("") && requeststring!=null){
         listarequest = gson.fromJson(requeststring, collectionType);
-        System.out.println(listarequest.get(0).getColor());
-      }
-         
-       
-          
-     
-        
+        System.out.println(listarequest.get(0));
+      }*/
+
     }
 
     private static int getIdDes(java.lang.String nif) {
@@ -61,6 +57,36 @@ public class JavaApplication8 {
         servicios.DarPeticionesNifP_Service service = new servicios.DarPeticionesNifP_Service();
         servicios.DarPeticionesNifP port = service.getDarPeticionesNifPPort();
         return port.darPeticiones(nif);
+    }
+
+    private static String darUnidadId(int id) {
+        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
+        servicios.DarUnidades port = service.getDarUnidadesPort();
+        return port.darUnidadId(id);
+    }
+
+    private static String darUnidadId_1(int id) {
+        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
+        servicios.DarUnidades port = service.getDarUnidadesPort();
+        return port.darUnidadId(id);
+    }
+
+    private static String darTodasUnidades() {
+        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
+        servicios.DarUnidades port = service.getDarUnidadesPort();
+        return port.darTodasUnidades();
+    }
+
+    private static String darOfertasByR(int idR) {
+        servicios.DarOfertasRequest_Service service = new servicios.DarOfertasRequest_Service();
+        servicios.DarOfertasRequest port = service.getDarOfertasRequestPort();
+        return port.darOfertasByR(idR);
+    }
+
+    private static String darOfertasByRequestOk(int idR) {
+        servicios.DarOfertasRequestOk_Service service = new servicios.DarOfertasRequestOk_Service();
+        servicios.DarOfertasRequestOk port = service.getDarOfertasRequestOkPort();
+        return port.darOfertasByRequestOk(idR);
     }
 
  
