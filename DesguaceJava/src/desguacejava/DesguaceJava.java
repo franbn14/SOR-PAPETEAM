@@ -116,8 +116,6 @@ public class DesguaceJava extends JFrame implements ActionListener{
                                 String error=loginDes(pass, user);
 				if(error.equals(""))
 				{
-					//lb.setText("ok");
-					//lb.setVisible(true);
                                     mdes.setVisible(true);
                                     mdes.setSize(600,500);
                                     des.setVisible(false);
@@ -136,9 +134,4 @@ public class DesguaceJava extends JFrame implements ActionListener{
         servicios.LoginDesguace port = service.getLoginDesguacePort();
         return port.loginDes(password, cif);
     }
-
- 
-
- 
-
 }

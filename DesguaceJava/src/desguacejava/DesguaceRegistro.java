@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -29,8 +30,9 @@ public class DesguaceRegistro extends JFrame{
     
     JTextField t1,t4,t5;
     JPasswordField t2,t3;
-    JLabel lb1,err;
+    JLabel lb1;
     JButton btn;
+    private JTextField textField;
     public DesguaceRegistro()
     {
     	setResizable(false);
@@ -75,13 +77,28 @@ public class DesguaceRegistro extends JFrame{
         sl_p1.putConstraint(SpringLayout.NORTH, t3, -6, SpringLayout.NORTH, label_4);
         sl_p1.putConstraint(SpringLayout.WEST, t3, 6, SpringLayout.EAST, label_4);
         sl_p1.putConstraint(SpringLayout.EAST, t3, -47, SpringLayout.EAST, p1);
+        JLabel lblEmail = new JLabel("Email");
+        sl_p1.putConstraint(SpringLayout.NORTH, lblEmail, 20, SpringLayout.SOUTH, label_4);
+        sl_p1.putConstraint(SpringLayout.WEST, lblEmail, 0, SpringLayout.WEST, label);
+        p1.add(lblEmail);
+        
+        textField = new JTextField();
+        sl_p1.putConstraint(SpringLayout.NORTH, textField, 6, SpringLayout.SOUTH, t3);
+        sl_p1.putConstraint(SpringLayout.WEST, textField, 0, SpringLayout.WEST, t4);
+        sl_p1.putConstraint(SpringLayout.EAST, textField, 0, SpringLayout.EAST, t4);
+        p1.add(textField);
+        textField.setColumns(10);
+        
+        final JLabel err = new JLabel("");
+        err.setHorizontalTextPosition(SwingConstants.CENTER);
+        err.setHorizontalAlignment(SwingConstants.CENTER);
+        err.setVisible(false);
+        sl_p1.putConstraint(SpringLayout.WEST, err, 9, SpringLayout.WEST, p1);
+        sl_p1.putConstraint(SpringLayout.SOUTH, err, -10, SpringLayout.SOUTH, p1);
+        sl_p1.putConstraint(SpringLayout.EAST, err, 430, SpringLayout.WEST, p1);
+        p1.add(err);
         lb1 = new JLabel("Formulario de Registro");
         lb1.setFont(new Font("Tahoma",0,30));
-        err = new JLabel();
-        sl_p1.putConstraint(SpringLayout.NORTH, err, 151, SpringLayout.NORTH, p1);
-        sl_p1.putConstraint(SpringLayout.WEST, err, 384, SpringLayout.WEST, p1);
-        err.setVisible(false);
-        p1.add(err);
         btn = new JButton("Registrar");
         btn.addActionListener(new ActionListener() {
 
@@ -136,6 +153,7 @@ public class DesguaceRegistro extends JFrame{
         c.add(BorderLayout.NORTH,p2);
         c.add(BorderLayout.CENTER,p1);
         c.add(BorderLayout.SOUTH,p3);
+        
     }
 
     private static String registro(java.lang.String cif, java.lang.String nombre, java.lang.String password, java.lang.String direccion) {
@@ -143,4 +161,5 @@ public class DesguaceRegistro extends JFrame{
         servicios.RegistroDesguace port = service.getRegistroDesguacePort();
         return port.registro(cif, nombre, password, direccion);
     }
+
 }
