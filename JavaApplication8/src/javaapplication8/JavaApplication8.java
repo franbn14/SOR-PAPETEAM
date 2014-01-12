@@ -31,7 +31,7 @@ public class JavaApplication8 {
          ArrayList<String> listarequest= new ArrayList<String>();
          Gson gson = new Gson();
         java.lang.reflect.Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();*/
-        String requeststring= darOfertasByRequestOk(2);
+        String requeststring= darOfertasSelection(4);
         System.out.println(requeststring);
                 /*
       if(!requeststring.equals("") && requeststring!=null){
@@ -87,6 +87,12 @@ public class JavaApplication8 {
         servicios.DarOfertasRequestOk_Service service = new servicios.DarOfertasRequestOk_Service();
         servicios.DarOfertasRequestOk port = service.getDarOfertasRequestOkPort();
         return port.darOfertasByRequestOk(idR);
+    }
+
+    private static String darOfertasSelection(int idR) {
+        servicios.DarOfertasSeleccionadas_Service service = new servicios.DarOfertasSeleccionadas_Service();
+        servicios.DarOfertasSeleccionadas port = service.getDarOfertasSeleccionadasPort();
+        return port.darOfertasSelection(idR);
     }
 
  

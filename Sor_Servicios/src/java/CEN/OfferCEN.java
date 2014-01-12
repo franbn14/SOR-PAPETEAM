@@ -330,7 +330,7 @@ public class OfferCEN {
         return all;
     }
    
-   public static OfferCEN AutoSelection(RequestCEN r){
+   public static  ArrayList<OfferCEN> AutoSelection(RequestCEN r){
         ArrayList<Hashtable> values = OfferCAD.AutoSelection(r.getType(), r.getSize(), r.getSizeUnit(), r.getColor(), r.getAmount(), r.getMaxPrice(), r.getCode());
         ArrayList<OfferCEN> all = null;
         
@@ -357,17 +357,10 @@ public class OfferCEN {
         else if(all.isEmpty()){
             return null;
         }
-        else if(all.size() == 1){
-            return all.get(0);
-        }
+        
         else {
-            OfferCEN aux = all.get(0);
-            for(OfferCEN o : all){
-                if(o.getPrice() < aux.getPrice()){
-                    aux = o;
-                }
-            }
-            return aux;
+          
+            return all;
         }
    }
    

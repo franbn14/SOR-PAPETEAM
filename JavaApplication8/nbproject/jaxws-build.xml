@@ -135,5 +135,22 @@
         <delete dir="${build.generated.dir}/jax-wsCache/DarOfertasRequestOk"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-DarIdDesguacebyCif, wsimport-client-NewPeticion, wsimport-client-BorrarPeticion, wsimport-client-DarPeticionesNifP, wsimport-client-DarUnidades, wsimport-client-DarOfertasRequest, wsimport-client-DarOfertasRequestOk"/>
+    <target name="wsimport-client-DarOfertasSeleccionadas" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/DarOfertasSeleccionadas"/>
+        <property name="wsdl-DarOfertasSeleccionadas" location="xml-resources/web-service-references/DarOfertasSeleccionadas/wsdl/localhost_8080/Sor_Servicios/DarOfertasSeleccionadas.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarOfertasSeleccionadas" destdir="${build.generated.dir}/jax-wsCache/DarOfertasSeleccionadas" wsdl="${wsdl-DarOfertasSeleccionadas}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Sor_Servicios/DarOfertasSeleccionadas?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-DarOfertasSeleccionadas}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/DarOfertasSeleccionadas"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/DarOfertasSeleccionadas">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-DarOfertasSeleccionadas" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/DarOfertasSeleccionadas"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-DarIdDesguacebyCif, wsimport-client-NewPeticion, wsimport-client-BorrarPeticion, wsimport-client-DarPeticionesNifP, wsimport-client-DarUnidades, wsimport-client-DarOfertasRequest, wsimport-client-DarOfertasRequestOk, wsimport-client-DarOfertasSeleccionadas"/>
 </project>
