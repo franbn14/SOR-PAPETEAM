@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/DarIdDesguacebyCif.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/DarIdDesguacebyCif.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/NewPeticion?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/NewPeticion.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/NewPeticion?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/NewPeticion.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/BorrarPeticion?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/BorrarPeticion.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/BorrarPeticion?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/BorrarPeticion.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarPeticionesNifP?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/DarPeticionesNifP.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarPeticionesNifP?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/DarPeticionesNifP.xsd_1.xsd"/>
+</catalog>
