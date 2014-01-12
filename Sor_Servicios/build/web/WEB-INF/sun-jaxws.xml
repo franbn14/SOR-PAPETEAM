@@ -14,4 +14,8 @@
   <endpoint implementation="Servicios.DarUnidades" name="DarUnidades" url-pattern="/DarUnidades"/>
   <endpoint implementation="Servicios.DarOfertasRequest" name="DarOfertasRequest" url-pattern="/DarOfertasRequest"/>
   <endpoint implementation="Servicios.DarOfertasRequestOk" name="DarOfertasRequestOk" url-pattern="/DarOfertasRequestOk"/>
+  <endpoint implementation="Servicios.DarOfertasRequestOk" name="DarOfertasRequestOk" url-pattern="/DarOfertasRequestOk"/>
+  <endpoint implementation="Servicios.DarOfertasRequest" name="DarOfertasRequest" url-pattern="/DarOfertasRequest"/>
+  <endpoint implementation="Servicios.DarUnidades" name="DarUnidades" url-pattern="/DarUnidades"/>
+  <endpoint implementation="Servicios.DarPeticionesNifF" name="DarPeticionesNifF" url-pattern="/DarPeticionesNifF"/>
 </endpoints>
