@@ -6,8 +6,11 @@
 
 package taller;
 
-import CEN.*;
 import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import CEN.*;
 
 /**
  *
@@ -15,6 +18,8 @@ import java.util.ArrayList;
  */
 public class Home extends javax.swing.JFrame {
 
+    private ArrayList<RequestCEN> requests;
+    private ArrayList<OfferCEN> offers;
     /**
      * Creates new form Home
      */
@@ -22,30 +27,32 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         lbTitle.setText("Bienvenido "+name);
         
-        cbOffers.removeAllItems();
-        ArrayList<OfferCEN> offers = OfferCEN.getAllOffers();
+        requests=new ArrayList<RequestCEN>();
+        offers=new ArrayList<OfferCEN>();
         
-        if(offers!=null)
-            for(OfferCEN o: offers) 
-                cbOffers.addItem(o);           
-        else {
-            cbOffers.addItem("No hay ofertas");
-            cbOffers.setEnabled(false);
+        requestList.removeAll();                
+        requestFList.removeAll();                
+        
+        //Simulación de peticiones y ofertas
+        boolean finished=false;
+        String type;
+        RequestCEN request=new RequestCEN(new Date(),"Tornillos",2.0,1,"Rojo",3,50.0,new ClientCEN("jndfj", name, name, name, name, new Date()),false,false);
+        RequestCEN request2=new RequestCEN(new Date(),"Tuercas",2.0,1,"Rojo",3,50.0,new ClientCEN("jndfj", name, name, name, name, new Date()),false,true);
+        
+        requests.add(request);                
+        requests.add(request2);
+        
+        DefaultListModel model = new DefaultListModel();
+        DefaultListModel model2 = new DefaultListModel();
+        
+        for(RequestCEN req: requests) {
+            if(req.isFinished())
+                model2.addElement(req.getAmount()+" "+req.getType());
+            else
+                model.addElement(req.getAmount()+" "+req.getType());
         }
-            
-        
-        cbRequests.removeAllItems();
-        ArrayList<RequestCEN> requests = RequestCEN.getAllRequests();
-        
-        if(requests!=null) 
-            for(RequestCEN c: requests) 
-                cbRequests.addItem(c);            
-        else {
-            cbRequests.addItem("No hay solicitudes");
-            cbRequests.setEnabled(false);
-        }
-            
-        
+        requestList.setModel(model);
+        requestFList.setModel(model2);
     }
 
     /**
@@ -59,16 +66,22 @@ public class Home extends javax.swing.JFrame {
 
         mainPane = new javax.swing.JPanel();
         lbTitle = new javax.swing.JLabel();
-        cbRequests = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        cbOffers = new javax.swing.JComboBox();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        requestList = new javax.swing.JList();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        offerList = new javax.swing.JList();
+        btAccept = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        requestFList = new javax.swing.JList();
+        lbAccepted = new javax.swing.JLabel();
+        btDecline = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mainPane.setBackground(new java.awt.Color(254, 254, 254));
+        mainPane.setBackground(new java.awt.Color(245, 228, 179));
 
         lbTitle.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         lbTitle.setText("Bienvenido");
@@ -77,27 +90,42 @@ public class Home extends javax.swing.JFrame {
 
         jLabel3.setText("Ofertas recibidas");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        requestList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        requestList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                requestListMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(requestList);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 136, Short.MAX_VALUE)
-        );
+        jScrollPane2.setViewportView(offerList);
+
+        btAccept.setText("Aceptar seleccionadas");
+        btAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAcceptActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Solicitudes finalizadas");
+
+        requestFList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        requestFList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                requestFListMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(requestFList);
+
+        lbAccepted.setText("Aceptadas: ");
+
+        btDecline.setText("Declinar solicitud");
+        btDecline.setEnabled(false);
+        btDecline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDeclineActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
@@ -105,26 +133,30 @@ public class Home extends javax.swing.JFrame {
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPaneLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPaneLayout.createSequentialGroup()
+                        .addComponent(lbTitle)
+                        .addContainerGap())
                     .addGroup(mainPaneLayout.createSequentialGroup()
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addComponent(lbTitle)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(mainPaneLayout.createSequentialGroup()
+                            .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                                .addComponent(jLabel3)))
-                        .addGap(87, 87, 87))
-                    .addGroup(mainPaneLayout.createSequentialGroup()
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbRequests, 0, 180, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbOffers, 0, 180, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(28, 28, 28))))
+                                .addComponent(jLabel1)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(btDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPaneLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btAccept)
+                                    .addComponent(lbAccepted)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPaneLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(91, 91, 91))))))
         );
         mainPaneLayout.setVerticalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,15 +167,22 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbRequests, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbOffers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(mainPaneLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btDecline)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btAccept)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbAccepted)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,6 +201,86 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void requestFListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestFListMouseClicked
+        // TODO add your handling code here:
+
+        requestList.clearSelection();
+        btDecline.setEnabled(false);
+        checkSelection(requestFList,true);
+    }//GEN-LAST:event_requestFListMouseClicked
+
+    private void btAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAcceptActionPerformed
+        // TODO add your handling code here:
+        String text;
+        for(Object value: offerList.getSelectedValues()) {
+            text=lbAccepted.getText();
+            lbAccepted.setText(text+" "+value.toString());
+        }
+    }//GEN-LAST:event_btAcceptActionPerformed
+
+    private void requestListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestListMouseClicked
+        // TODO add your handling code here:
+        requestFList.clearSelection();        
+        btDecline.setEnabled(true);
+        checkSelection(requestList,false);
+    }//GEN-LAST:event_requestListMouseClicked
+
+    private void btDeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeclineActionPerformed
+        // TODO add your handling code here:
+        int index=requestList.getSelectedIndex();
+        
+        if(index>-1) {            
+                       
+        }
+    }//GEN-LAST:event_btDeclineActionPerformed
+
+    private void checkSelection(javax.swing.JList list, boolean finished) {                
+        int index=list.getSelectedIndex();
+        
+        if(index>-1) {
+            /*String selected=requests.get(index);
+            offerList.removeAll();
+            offers.clear();
+            
+            if(selected!=null) {
+                if(!finished) {            
+                    if(index==0) {
+                        offers.add("Offer1");
+                        offers.add("Offer2");
+                    }
+                    else if(index==1) {
+                        offers.add("Offer3");
+                        offers.add("Offer2");
+                        offers.add("Offer1");
+                    }
+                    else if(index==2) {
+                        offers.add("Offer2");
+                    }
+
+                    offerList.setListData(offers.toArray());   
+                }
+                else {
+                    if(index==0) {
+                        offers.add("Offer2");
+                        offers.add("Offer1");
+                    }
+                    else if(index==1) {
+                        offers.add("Offer1");
+                        offers.add("Offer2");
+                        offers.add("Offer3");
+                    }
+                    else if(index==2) {
+                        offers.add("Offer2");
+                    }
+
+                    offerList.setListData(offers.toArray());   
+                }
+            }*/
+        }     
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -196,15 +315,23 @@ public class Home extends javax.swing.JFrame {
             }
         });
     }*/
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cbOffers;
-    private javax.swing.JComboBox cbRequests;
+    private javax.swing.JButton btAccept;
+    private javax.swing.JButton btDecline;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lbAccepted;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JPanel mainPane;
+    private javax.swing.JList offerList;
+    private javax.swing.JList requestFList;
+    private javax.swing.JList requestList;
     // End of variables declaration//GEN-END:variables
 }

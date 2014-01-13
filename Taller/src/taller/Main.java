@@ -6,7 +6,6 @@
 
 package taller;
 
-import CEN.ClientCEN;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -161,7 +160,7 @@ public class Main extends javax.swing.JFrame {
                 home.setVisible(true);
             }
             else
-                lbError.setText("Login incorrecto");
+                lbError.setText(error);
         }        
         else
             lbError.setText("No pueden ser vacíos");
@@ -230,6 +229,4 @@ public class Main extends javax.swing.JFrame {
         servicios.LoginClientes port = service.getLoginClientesPort();
         return port.login(password, nifDni);
     }
-
-    
 }
