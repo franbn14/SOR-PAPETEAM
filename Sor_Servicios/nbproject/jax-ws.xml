@@ -46,6 +46,9 @@
     <service name="DarOfertasSeleccionadas">
       <implementation-class>Servicios.DarOfertasSeleccionadas</implementation-class>
     </service>
+    <service name="AceptarOfertas">
+      <implementation-class>Servicios.AceptarOfertas</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>

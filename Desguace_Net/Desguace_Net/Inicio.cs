@@ -44,5 +44,10 @@ namespace Desguace_Net
         {
             Application.Exit();
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -5,10 +5,11 @@
  */
 
 package Servicios;
+
 import CEN.OfferCEN;
 import CEN.RequestCEN;
-import java.util.ArrayList;
 import java.util.Properties;
+
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -19,41 +20,34 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-
 /**
  *
  * @author fran
  */
-@WebService(serviceName = "BorrarPeticion")
-public class BorrarPeticion {
-
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
+@WebService(serviceName = "AceptarOfertas")
+public class AceptarOfertas {
 
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "Borrar")
-    public void Borrar(@WebParam(name = "id") int id) {
-        RequestCEN r=new RequestCEN();
-        r=r.getByCode(id);
-        //Obtengo las ofertas para avisar a los desguaces que se han rechazado sus ofertas.
-        ArrayList<OfferCEN> ofertasR=OfferCEN.getByRequest(id);
-        if(ofertasR !=null)
-        {
-            		
-                        
-            for(int i=0;i<ofertasR.size();i++)
+    @WebMethod(operationName = "AceptarOfertasDe")
+    public String AceptarOfertasDe(@WebParam(name = "idS") String idS) {
+        //TODO write your implementation code here:
+        
+       if(idS!="" && idS!=null)
+       {
+            String ids[]=idS.split("\\s+");
+            int j=0; 
+            RequestCEN r=new RequestCEN();
+            while(j<ids.length)
             {
+                int id=Integer.parseInt(ids[j]);
+                OfferCEN o=OfferCEN.getByCode(id);
+                o.update(o.getType(),o.getSize(),o.getSizeUnit(),o.getColor(),o.getAmount(),o.getPrice(),o.getRequest(),o.getScrapyard(),true);
+                r=o.getRequest();
+                /**COdigo de avisar con email por compra aceptada*/
                 
-                    /*Codigo de enviar email*/
-                        //Enviamos el email para notificar de el rechazo de las ofertas
-                         try
+                 try
                 {
                     // Propiedades de la conexión
                     Properties props = new Properties();
@@ -69,9 +63,10 @@ public class BorrarPeticion {
                     String str_De = "sorteampape@gmail.com";
                     String str_PwRemitente 	= "NF8VGUD5";
                     
-                    String str_Para 	= ofertasR.get(i).getScrapyard().getEmail();
-                    String str_Asunto = "Rechazo de oferta";
-                    String str_Mensaje = "Lo sentimos su oferta cuya referencia es "+ofertasR.get(i).getCode()+"\n Descripción:"+ofertasR.get(i).getType()+"\n Sobre peticion con: \n Descripción: "+r.getType()+" \nCliente: "+ r.getClient().getName()+"\n Ha sido rechazada";
+                    String str_Para 	= o.getScrapyard().getEmail();
+                    String str_Asunto = "Aceptación oferta -Compra con éxito";
+                    
+                    String str_Mensaje = "Enhorabuena su oferta cuya referencia es "+o.getCode()+"\n Descripción:"+o.getType()+"\n Sobre peticion con: \n Descripción: "+r.getType()+" \nCliente: "+ r.getClient().getName()+"\n Ha sido aceptada \n Por favor envie la mercancía de la oferta al cliente con: \nDireccion: "+r.getClient().getAddress();
                     //Obtenemos los destinatarios
                     String destinos[] = str_Para.split(",");
 
@@ -86,10 +81,10 @@ public class BorrarPeticion {
                     };
                     //Forma 3
 
-                    int j = 0;
-                    while(j<destinos.length){					
-                            receptores[j] = new InternetAddress ( destinos[j] ) ;					
-                            j++;				
+                    int k = 0;
+                    while(k<destinos.length){					
+                            receptores[k] = new InternetAddress ( destinos[k] ) ;					
+                            k++;				
                     }
 
 
@@ -111,10 +106,18 @@ public class BorrarPeticion {
                         e.printStackTrace();
 
                     }
+                
+                /*Fin***/
+
+                 j++;
 
             }
+           // r.update(r.getdeadline(),r.getType(),r.getSize(), r.getSizeUnit(), r.getColor(), r.getAmount(), r.getMaxPrice(), r.getClient(),r.isAutoElect(), true);
+            
+             return "ok";
+       }
         
-        }
-        r.delete();
+       return  "error";
+      
     }
 }

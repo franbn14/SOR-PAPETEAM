@@ -35,7 +35,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(499, 390);
+            this.button1.Location = new System.Drawing.Point(595, 435);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 36);
             this.button1.TabIndex = 1;
@@ -48,7 +48,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(703, 438);
+            this.ClientSize = new System.Drawing.Size(799, 469);
             this.Controls.Add(this.button1);
             this.Name = "Inicio";
             this.Text = "Desguace Solution";

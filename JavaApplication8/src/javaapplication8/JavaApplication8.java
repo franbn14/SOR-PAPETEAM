@@ -31,14 +31,14 @@ public class JavaApplication8 {
          ArrayList<String> listarequest= new ArrayList<String>();
          Gson gson = new Gson();
         java.lang.reflect.Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();*/
-        String requeststring= darOfertasSelection(4);
-        System.out.println(requeststring);
+       // String requeststring= darOfertasSelection(4);
+       // System.out.println(requeststring);
                 /*
       if(!requeststring.equals("") && requeststring!=null){
         listarequest = gson.fromJson(requeststring, collectionType);
         System.out.println(listarequest.get(0));
       }*/
-
+        aceptarOfertasDe("8 7");
     }
 
     private static int getIdDes(java.lang.String nif) {
@@ -93,6 +93,18 @@ public class JavaApplication8 {
         servicios.DarOfertasSeleccionadas_Service service = new servicios.DarOfertasSeleccionadas_Service();
         servicios.DarOfertasSeleccionadas port = service.getDarOfertasSeleccionadasPort();
         return port.darOfertasSelection(idR);
+    }
+
+    private static void borrar(int id) {
+        servicios.BorrarPeticion_Service service = new servicios.BorrarPeticion_Service();
+        servicios.BorrarPeticion port = service.getBorrarPeticionPort();
+        port.borrar(id);
+    }
+
+    private static String aceptarOfertasDe(java.lang.String idS) {
+        servicios.AceptarOfertas_Service service = new servicios.AceptarOfertas_Service();
+        servicios.AceptarOfertas port = service.getAceptarOfertasPort();
+        return port.aceptarOfertasDe(idS);
     }
 
  
