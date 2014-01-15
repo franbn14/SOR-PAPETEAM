@@ -17,13 +17,13 @@ public class ClientCEN extends UserCEN {
     private String nif;
     private Date DOB;
     
-    /*public ClientCEN(){
-        super();
+   /*public ClientCEN(){
+      
         this.surname = "";
         this.nif = "";
         this.DOB = new Date();
-    }*/
-    
+    }
+    */
     public ClientCEN(String name, String surname, String password, String nif, String address, Date DOB){
         super(name, password, address);
         this.surname = surname;

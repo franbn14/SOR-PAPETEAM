@@ -99,7 +99,7 @@ public class RequestCAD {
             String date = deadline.getYear() + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
             String c = (color == null)? null : "\"" + color + "\"";
             String query = "UPDATE Solicitud SET fechaTope = '"+ date +"', tipo = \"" + type + "\", tamaño = "+ size +", "+
-                           "tamUnidad = "+ sizeUnit +", color = "+ color +", cantidad = " + amount + ",precioMax = " + maxPrice + ", " +
+                           "tamUnidad = "+ sizeUnit +", color = "+ c +", cantidad = " + amount + ",precioMax = " + maxPrice + ", " +
                            "usuario = " + client + ", autoElect = " + ((autoElect)?1:0) + ", finalizado = " + ((finished)?1:0) + " WHERE codigo = " + code +";";
             Connector.updates(query);
         }

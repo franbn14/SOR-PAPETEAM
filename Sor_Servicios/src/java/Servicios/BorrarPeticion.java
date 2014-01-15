@@ -5,6 +5,7 @@
  */
 
 package Servicios;
+import CEN.ClientCEN;
 import CEN.OfferCEN;
 import CEN.RequestCEN;
 import java.util.ArrayList;
@@ -71,7 +72,7 @@ public class BorrarPeticion {
                     
                     String str_Para 	= ofertasR.get(i).getScrapyard().getEmail();
                     String str_Asunto = "Rechazo de oferta";
-                    String str_Mensaje = "Lo sentimos su oferta cuya referencia es "+ofertasR.get(i).getCode()+"\n Descripción:"+ofertasR.get(i).getType()+"\n Sobre peticion con: \n Descripción: "+r.getType()+" \nCliente: "+ r.getClient().getName()+"\n Ha sido rechazada";
+                    String str_Mensaje = "Lo sentimos su oferta cuya referencia es "+ofertasR.get(i).getCode()+"\n Descripción:"+ofertasR.get(i).getType()+"\n Sobre peticion con: \n Descripción: "+r.getType()+" \nCliente: "+ r.getClient().getName()+" "+ClientCEN.getByID(r.getClient().getId()).getSurname()+"\n Ha sido rechazada";
                     //Obtenemos los destinatarios
                     String destinos[] = str_Para.split(",");
 
