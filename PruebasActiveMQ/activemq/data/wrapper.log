@@ -1,0 +1,788 @@
+STATUS | wrapper  | 2013/11/02 02:54:42 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/11/02 02:54:42 | Launching a JVM...
+INFO   | jvm 1    | 2013/11/02 02:54:43 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2013/11/02 02:54:43 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2013/11/02 02:54:43 | 
+INFO   | jvm 1    | 2013/11/02 02:54:43 | 
+INFO   | jvm 1    | 2013/11/02 02:54:43 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2013/11/02 02:54:43 |           following files:
+INFO   | jvm 1    | 2013/11/02 02:54:43 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2013/11/02 02:54:43 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2013/11/02 02:54:43 |             libwrapper.dylib
+INFO   | jvm 1    | 2013/11/02 02:54:43 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2013/11/02 02:54:43 |             /Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../bin/macosx
+INFO   | jvm 1    | 2013/11/02 02:54:43 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2013/11/02 02:54:43 |           configuration property.
+INFO   | jvm 1    | 2013/11/02 02:54:43 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2013/11/02 02:54:43 | 
+INFO   | jvm 1    | 2013/11/02 02:54:43 | Java Runtime: Oracle Corporation 1.7.0_09 /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre
+INFO   | jvm 1    | 2013/11/02 02:54:43 |   Heap sizes: current=82752k  free=77077k  max=932096k
+INFO   | jvm 1    | 2013/11/02 02:54:43 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Dhawtio.realm=activemq -Dhawtio.role=admins -Dhawtio.rolePrincipalClasses=org.apache.activemq.jaas.GroupPrincipal -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/macosx/ -Dwrapper.key=MYv1UJPqMzklCUPx -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=41679 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.service=TRUE -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2013/11/02 02:54:43 | Extensions classpath:
+INFO   | jvm 1    | 2013/11/02 02:54:43 |   [../../lib,../../lib/camel,../../lib/optional,../../lib/web,../../lib/extra]
+INFO   | jvm 1    | 2013/11/02 02:54:43 | ACTIVEMQ_HOME: ../..
+INFO   | jvm 1    | 2013/11/02 02:54:43 | ACTIVEMQ_BASE: ../..
+INFO   | jvm 1    | 2013/11/02 02:54:43 | ACTIVEMQ_CONF: ../../conf
+INFO   | jvm 1    | 2013/11/02 02:54:43 | ACTIVEMQ_DATA: ../../data
+INFO   | jvm 1    | 2013/11/02 02:54:43 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2013/11/02 02:54:43 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@4688249c: startup date [Sat Nov 02 02:54:43 CET 2013]; root of context hierarchy
+INFO   | jvm 1    | 2013/11/02 02:54:45 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] started
+INFO   | jvm 1    | 2013/11/02 02:54:45 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/kahadb]
+INFO   | jvm 1    | 2013/11/02 02:54:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:54:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:55:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:55:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:55:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:55:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:55:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:55:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:56:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:56:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:56:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:56:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:56:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:56:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:57:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:57:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:57:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:57:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:57:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:57:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:58:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:58:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:58:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:58:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:58:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:58:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:59:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:59:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:59:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:59:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:59:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 02:59:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:00:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:00:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:00:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:00:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:00:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:00:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:01:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:01:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:01:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:01:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:01:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:01:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:02:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:02:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:02:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:02:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:02:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:02:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:03:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:03:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:03:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:03:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:03:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:03:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:04:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:04:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:04:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:04:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:04:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:04:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:05:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:05:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:05:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:05:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:05:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:05:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:06:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:06:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:06:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:06:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:06:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:06:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:07:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:07:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:07:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:07:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:07:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:07:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:08:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:08:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:08:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:08:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:08:45 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:08:55 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:09:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:09:15 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:09:25 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:09:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:09:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:09:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:10:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:10:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:10:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:10:35 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:10:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:10:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:11:05 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:11:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:11:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:11:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:11:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:11:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:12:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:12:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:12:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:12:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:12:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:12:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:13:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:13:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:13:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:13:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:13:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:13:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:14:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:14:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:14:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:14:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:14:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:14:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:15:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:15:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:15:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:15:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:15:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:15:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:16:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:16:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:16:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:16:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:16:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:16:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:17:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:17:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:17:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:17:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:17:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:17:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:18:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:18:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:18:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:18:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:18:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:18:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:19:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:19:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:19:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:19:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:19:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:19:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:20:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:20:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:20:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:20:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:20:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:20:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:21:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:21:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:21:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:21:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:21:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:21:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:22:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:22:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:22:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:22:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:22:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:22:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:23:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:23:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:23:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:23:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:23:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:23:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:24:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:24:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:24:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:24:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:24:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:24:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:25:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:25:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:25:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:25:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:25:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:25:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:26:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:26:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:26:26 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:26:36 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:26:46 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:26:56 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:27:06 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:27:16 |  INFO | Database ../../data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '../../data/kahadb/lock' could not be locked.
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | KahaDB is version 5
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Recovering from the journal ...
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Recovery replayed 311 operations from the journal in 0.082 seconds.
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-51541-1383359247374-0:1) is starting
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/11/02 03:27:27 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2013/11/02 03:27:28 |  INFO | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/11/02 03:27:28 |  INFO | Connector ws started
+INFO   | jvm 1    | 2013/11/02 03:27:28 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-51541-1383359247374-0:1) started
+INFO   | jvm 1    | 2013/11/02 03:27:28 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2013/11/02 03:27:28 |  INFO | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-)
+INFO   | jvm 1    | 2013/11/02 03:27:28 |  INFO | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal"
+INFO   | jvm 1    | 2013/11/02 03:27:28 |  INFO | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads
+INFO   | jvm 1    | 2013/11/02 03:27:28 |  INFO | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2013/11/02 03:27:29 |  INFO | ActiveMQ WebConsole available at http://localhost:8161/
+INFO   | jvm 1    | 2013/11/02 03:27:29 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+STATUS | wrapper  | 2013/11/02 03:28:58 | TERM trapped.  Shutting down.
+INFO   | jvm 1    | 2013/11/02 03:28:59 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-51541-1383359247374-0:1) is shutting down
+INFO   | jvm 1    | 2013/11/02 03:28:59 |  INFO | Connector openwire stopped
+INFO   | jvm 1    | 2013/11/02 03:28:59 |  INFO | Connector amqp stopped
+INFO   | jvm 1    | 2013/11/02 03:28:59 |  INFO | Connector stomp stopped
+INFO   | jvm 1    | 2013/11/02 03:28:59 |  INFO | Connector mqtt stopped
+INFO   | jvm 1    | 2013/11/02 03:28:59 |  INFO | Connector ws stopped
+INFO   | jvm 1    | 2013/11/02 03:28:59 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped
+INFO   | jvm 1    | 2013/11/02 03:28:59 |  INFO | Stopping async queue tasks
+INFO   | jvm 1    | 2013/11/02 03:28:59 |  INFO | Stopping async topic tasks
+INFO   | jvm 1    | 2013/11/02 03:28:59 |  INFO | Stopped KahaDB
+INFO   | jvm 1    | 2013/11/02 03:29:00 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-51541-1383359247374-0:1) uptime 34 minutes
+INFO   | jvm 1    | 2013/11/02 03:29:00 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-51541-1383359247374-0:1) is shutdown
+INFO   | jvm 1    | 2013/11/02 03:29:00 |  INFO | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@4688249c: startup date [Sat Nov 02 02:54:43 CET 2013]; root of context hierarchy
+INFO   | jvm 1    | 2013/11/02 03:29:00 |  INFO | Destroying Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2013/11/02 03:29:00 |  INFO | Destroying hawtio authentication filter
+STATUS | wrapper  | 2013/11/02 03:29:00 | <-- Wrapper Stopped
+STATUS | wrapper  | 2013/11/13 17:21:49 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/11/13 17:21:49 | Launching a JVM...
+INFO   | jvm 1    | 2013/11/13 17:21:50 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2013/11/13 17:21:50 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2013/11/13 17:21:50 | 
+INFO   | jvm 1    | 2013/11/13 17:21:50 | 
+INFO   | jvm 1    | 2013/11/13 17:21:50 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2013/11/13 17:21:50 |           following files:
+INFO   | jvm 1    | 2013/11/13 17:21:50 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2013/11/13 17:21:50 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2013/11/13 17:21:50 |             libwrapper.dylib
+INFO   | jvm 1    | 2013/11/13 17:21:50 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2013/11/13 17:21:50 |             /Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../bin/macosx
+INFO   | jvm 1    | 2013/11/13 17:21:50 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2013/11/13 17:21:50 |           configuration property.
+INFO   | jvm 1    | 2013/11/13 17:21:50 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2013/11/13 17:21:50 | 
+INFO   | jvm 1    | 2013/11/13 17:21:50 | Java Runtime: Oracle Corporation 1.7.0_09 /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre
+INFO   | jvm 1    | 2013/11/13 17:21:50 |   Heap sizes: current=82112k  free=76453k  max=932096k
+INFO   | jvm 1    | 2013/11/13 17:21:50 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Dhawtio.realm=activemq -Dhawtio.role=admins -Dhawtio.rolePrincipalClasses=org.apache.activemq.jaas.GroupPrincipal -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/macosx/ -Dwrapper.key=2PIu7eV5jcpmBh_q -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=12211 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.service=TRUE -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2013/11/13 17:21:50 | Extensions classpath:
+INFO   | jvm 1    | 2013/11/13 17:21:50 |   [../../lib,../../lib/camel,../../lib/optional,../../lib/web,../../lib/extra]
+INFO   | jvm 1    | 2013/11/13 17:21:50 | ACTIVEMQ_HOME: ../..
+INFO   | jvm 1    | 2013/11/13 17:21:50 | ACTIVEMQ_BASE: ../..
+INFO   | jvm 1    | 2013/11/13 17:21:50 | ACTIVEMQ_CONF: ../../conf
+INFO   | jvm 1    | 2013/11/13 17:21:50 | ACTIVEMQ_DATA: ../../data
+INFO   | jvm 1    | 2013/11/13 17:21:50 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2013/11/13 17:21:51 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@41979448: startup date [Wed Nov 13 17:21:51 CET 2013]; root of context hierarchy
+INFO   | jvm 1    | 2013/11/13 17:21:52 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] started
+INFO   | jvm 1    | 2013/11/13 17:21:52 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/kahadb]
+INFO   | jvm 1    | 2013/11/13 17:21:52 |  INFO | KahaDB is version 5
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Recovering from the journal ...
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Recovery replayed 8481 operations from the journal in 0.342 seconds.
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:veraedu191-159.wi-fi.upv.es-64463-1384359713380-0:1) is starting
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Listening for connections at: tcp://veraedu191-159.wi-fi.upv.es:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Listening for connections at: amqp://veraedu191-159.wi-fi.upv.es:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Listening for connections at: stomp://veraedu191-159.wi-fi.upv.es:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Listening for connections at: mqtt://veraedu191-159.wi-fi.upv.es:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Listening for connections at ws://veraedu191-159.wi-fi.upv.es:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Connector ws started
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:veraedu191-159.wi-fi.upv.es-64463-1384359713380-0:1) started
+INFO   | jvm 1    | 2013/11/13 17:21:53 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2013/11/13 17:21:54 |  INFO | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-)
+INFO   | jvm 1    | 2013/11/13 17:21:54 |  INFO | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal"
+INFO   | jvm 1    | 2013/11/13 17:21:54 |  INFO | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads
+INFO   | jvm 1    | 2013/11/13 17:21:54 |  INFO | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2013/11/13 17:21:54 |  INFO | ActiveMQ WebConsole available at http://localhost:8161/
+INFO   | jvm 1    | 2013/11/13 17:21:54 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2013/11/13 17:24:23 |  WARN | Failed to add Connection ID:veraedu191-159.wi-fi.upv.es-64467-1384359863490-1:1
+INFO   | jvm 1    | 2013/11/13 17:24:23 | javax.jms.InvalidClientIDException: Broker: localhost - Client: anonimo already connected from tcp://127.0.0.1:64466
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.broker.region.RegionBroker.addConnection(RegionBroker.java:243)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.broker.BrokerFilter.addConnection(BrokerFilter.java:92)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.advisory.AdvisoryBroker.addConnection(AdvisoryBroker.java:90)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.broker.BrokerFilter.addConnection(BrokerFilter.java:92)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.broker.BrokerFilter.addConnection(BrokerFilter.java:92)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.broker.MutableBrokerFilter.addConnection(MutableBrokerFilter.java:97)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.broker.TransportConnection.processAddConnection(TransportConnection.java:733)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.broker.jmx.ManagedTransportConnection.processAddConnection(ManagedTransportConnection.java:79)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.command.ConnectionInfo.visit(ConnectionInfo.java:139)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.broker.TransportConnection.service(TransportConnection.java:292)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.broker.TransportConnection$1.onCommand(TransportConnection.java:149)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.transport.MutexTransport.onCommand(MutexTransport.java:50)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.transport.WireFormatNegotiator.onCommand(WireFormatNegotiator.java:113)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.transport.AbstractInactivityMonitor.onCommand(AbstractInactivityMonitor.java:270)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.transport.TransportSupport.doConsume(TransportSupport.java:83)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:214)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:196)
+INFO   | jvm 1    | 2013/11/13 17:24:23 | 	at java.lang.Thread.run(Thread.java:722)
+INFO   | jvm 1    | 2013/11/13 17:24:40 |  WARN | Transport Connection to: tcp://127.0.0.1:64468 failed: java.io.EOFException
+INFO   | jvm 1    | 2013/11/13 17:24:42 |  WARN | Transport Connection to: tcp://127.0.0.1:64466 failed: java.io.EOFException
+INFO   | jvm 1    | 2013/11/13 17:30:33 |  WARN | Transport Connection to: tcp://127.0.0.1:64604 failed: java.io.EOFException
+INFO   | jvm 1    | 2013/11/13 17:30:34 |  WARN | Transport Connection to: tcp://127.0.0.1:64602 failed: java.io.EOFException
+INFO   | jvm 1    | 2013/11/13 17:35:54 |  WARN | Transport Connection to: tcp://127.0.0.1:64606 failed: java.io.EOFException
+INFO   | jvm 1    | 2013/11/13 17:35:56 |  WARN | Transport Connection to: tcp://127.0.0.1:64608 failed: java.io.EOFException
+INFO   | jvm 1    | 2013/11/13 17:38:56 |  WARN | Transport Connection to: tcp://127.0.0.1:64614 failed: java.io.EOFException
+INFO   | jvm 1    | 2013/11/13 17:39:30 |  WARN | Transport Connection to: tcp://127.0.0.1:64611 failed: java.io.EOFException
+INFO   | jvm 1    | 2013/11/13 17:39:32 |  WARN | Transport Connection to: tcp://127.0.0.1:64616 failed: java.io.EOFException
+STATUS | wrapper  | 2013/11/13 20:36:39 | TERM trapped.  Shutting down.
+INFO   | jvm 1    | 2013/11/13 20:36:40 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:veraedu191-159.wi-fi.upv.es-64463-1384359713380-0:1) is shutting down
+INFO   | jvm 1    | 2013/11/13 20:36:40 |  INFO | Connector openwire stopped
+INFO   | jvm 1    | 2013/11/13 20:36:42 |  INFO | Connector amqp stopped
+INFO   | jvm 1    | 2013/11/13 20:36:44 |  INFO | Connector stomp stopped
+INFO   | jvm 1    | 2013/11/13 20:36:46 |  INFO | Connector mqtt stopped
+INFO   | jvm 1    | 2013/11/13 20:36:46 |  INFO | Connector ws stopped
+INFO   | jvm 1    | 2013/11/13 20:36:46 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped
+INFO   | jvm 1    | 2013/11/13 20:36:46 |  INFO | Stopping async queue tasks
+INFO   | jvm 1    | 2013/11/13 20:36:46 |  INFO | Stopping async topic tasks
+INFO   | jvm 1    | 2013/11/13 20:36:46 |  INFO | Stopped KahaDB
+INFO   | jvm 1    | 2013/11/13 20:36:47 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:veraedu191-159.wi-fi.upv.es-64463-1384359713380-0:1) uptime 3 hours 14 minutes
+INFO   | jvm 1    | 2013/11/13 20:36:47 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:veraedu191-159.wi-fi.upv.es-64463-1384359713380-0:1) is shutdown
+INFO   | jvm 1    | 2013/11/13 20:36:47 |  INFO | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@41979448: startup date [Wed Nov 13 17:21:51 CET 2013]; root of context hierarchy
+INFO   | jvm 1    | 2013/11/13 20:36:47 |  INFO | Destroying Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2013/11/13 20:36:47 |  INFO | Destroying hawtio authentication filter
+STATUS | wrapper  | 2013/11/13 20:36:47 | <-- Wrapper Stopped
+STATUS | wrapper  | 2013/12/15 18:00:27 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/12/15 18:00:27 | Launching a JVM...
+INFO   | jvm 1    | 2013/12/15 18:00:32 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2013/12/15 18:00:32 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2013/12/15 18:00:32 | 
+INFO   | jvm 1    | 2013/12/15 18:00:32 | 
+INFO   | jvm 1    | 2013/12/15 18:00:32 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2013/12/15 18:00:32 |           following files:
+INFO   | jvm 1    | 2013/12/15 18:00:32 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2013/12/15 18:00:32 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2013/12/15 18:00:32 |             libwrapper.dylib
+INFO   | jvm 1    | 2013/12/15 18:00:32 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2013/12/15 18:00:32 |             /Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../bin/macosx
+INFO   | jvm 1    | 2013/12/15 18:00:32 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2013/12/15 18:00:32 |           configuration property.
+INFO   | jvm 1    | 2013/12/15 18:00:32 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2013/12/15 18:00:32 | 
+INFO   | jvm 1    | 2013/12/15 18:00:32 | Java Runtime: Oracle Corporation 1.7.0_09 /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre
+INFO   | jvm 1    | 2013/12/15 18:00:32 |   Heap sizes: current=78784k  free=72970k  max=932096k
+INFO   | jvm 1    | 2013/12/15 18:00:32 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Dhawtio.realm=activemq -Dhawtio.role=admins -Dhawtio.rolePrincipalClasses=org.apache.activemq.jaas.GroupPrincipal -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/macosx/ -Dwrapper.key=AC3Q4nNFXj7iUo9l -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=67060 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.service=TRUE -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2013/12/15 18:00:32 | Extensions classpath:
+INFO   | jvm 1    | 2013/12/15 18:00:32 |   [../../lib,../../lib/camel,../../lib/optional,../../lib/web,../../lib/extra]
+INFO   | jvm 1    | 2013/12/15 18:00:32 | ACTIVEMQ_HOME: ../..
+INFO   | jvm 1    | 2013/12/15 18:00:32 | ACTIVEMQ_BASE: ../..
+INFO   | jvm 1    | 2013/12/15 18:00:32 | ACTIVEMQ_CONF: ../../conf
+INFO   | jvm 1    | 2013/12/15 18:00:32 | ACTIVEMQ_DATA: ../../data
+INFO   | jvm 1    | 2013/12/15 18:00:33 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2013/12/15 18:00:34 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@141ba1f1: startup date [Sun Dec 15 18:00:34 CET 2013]; root of context hierarchy
+INFO   | jvm 1    | 2013/12/15 18:00:38 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] started
+INFO   | jvm 1    | 2013/12/15 18:00:38 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/kahadb]
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | KahaDB is version 5
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Recovering from the journal ...
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Recovery replayed 398 operations from the journal in 0.136 seconds.
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-57160-1387126839321-0:1) is starting
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/12/15 18:00:39 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2013/12/15 18:00:40 |  INFO | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2013/12/15 18:00:40 |  INFO | Connector ws started
+INFO   | jvm 1    | 2013/12/15 18:00:40 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-57160-1387126839321-0:1) started
+INFO   | jvm 1    | 2013/12/15 18:00:40 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2013/12/15 18:00:41 |  INFO | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-)
+INFO   | jvm 1    | 2013/12/15 18:00:41 |  INFO | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal"
+INFO   | jvm 1    | 2013/12/15 18:00:41 |  INFO | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads
+INFO   | jvm 1    | 2013/12/15 18:00:41 |  INFO | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2013/12/15 18:00:42 |  INFO | ActiveMQ WebConsole available at http://localhost:8161/
+INFO   | jvm 1    | 2013/12/15 18:00:42 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2013/12/15 18:45:45 |  WARN | Transport Connection to: tcp://127.0.0.1:57574 failed: java.io.EOFException
+INFO   | jvm 1    | 2013/12/15 18:45:46 |  WARN | Transport Connection to: tcp://127.0.0.1:57572 failed: java.io.EOFException
+STATUS | wrapper  | 2013/12/15 18:48:20 | TERM trapped.  Shutting down.
+INFO   | jvm 1    | 2013/12/15 18:48:20 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-57160-1387126839321-0:1) is shutting down
+INFO   | jvm 1    | 2013/12/15 18:48:21 |  INFO | Connector openwire stopped
+INFO   | jvm 1    | 2013/12/15 18:48:22 |  INFO | Connector amqp stopped
+INFO   | jvm 1    | 2013/12/15 18:48:22 |  INFO | Connector stomp stopped
+INFO   | jvm 1    | 2013/12/15 18:48:22 |  INFO | Connector mqtt stopped
+INFO   | jvm 1    | 2013/12/15 18:48:22 |  INFO | Connector ws stopped
+INFO   | jvm 1    | 2013/12/15 18:48:22 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped
+INFO   | jvm 1    | 2013/12/15 18:48:22 |  INFO | Stopping async queue tasks
+INFO   | jvm 1    | 2013/12/15 18:48:22 |  INFO | Stopping async topic tasks
+INFO   | jvm 1    | 2013/12/15 18:48:22 |  INFO | Stopped KahaDB
+INFO   | jvm 1    | 2013/12/15 18:48:23 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-57160-1387126839321-0:1) uptime 47 minutes
+INFO   | jvm 1    | 2013/12/15 18:48:23 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-57160-1387126839321-0:1) is shutdown
+INFO   | jvm 1    | 2013/12/15 18:48:23 |  INFO | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@141ba1f1: startup date [Sun Dec 15 18:00:34 CET 2013]; root of context hierarchy
+INFO   | jvm 1    | 2013/12/15 18:48:23 |  INFO | Destroying Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2013/12/15 18:48:23 |  INFO | Destroying hawtio authentication filter
+STATUS | wrapper  | 2013/12/15 18:48:23 | <-- Wrapper Stopped
+STATUS | wrapper  | 2014/01/04 19:59:07 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2014/01/04 19:59:07 | Launching a JVM...
+INFO   | jvm 1    | 2014/01/04 19:59:08 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2014/01/04 19:59:08 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2014/01/04 19:59:08 | 
+INFO   | jvm 1    | 2014/01/04 19:59:08 | 
+INFO   | jvm 1    | 2014/01/04 19:59:08 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2014/01/04 19:59:09 | 
+INFO   | jvm 1    | 2014/01/04 19:59:09 |           following files:
+INFO   | jvm 1    | 2014/01/04 19:59:09 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2014/01/04 19:59:09 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2014/01/04 19:59:09 |             libwrapper.dylib
+INFO   | jvm 1    | 2014/01/04 19:59:09 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2014/01/04 19:59:09 |             /Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../bin/macosx
+INFO   | jvm 1    | 2014/01/04 19:59:09 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2014/01/04 19:59:09 |           configuration property.
+INFO   | jvm 1    | 2014/01/04 19:59:09 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2014/01/04 19:59:09 | 
+INFO   | jvm 1    | 2014/01/04 19:59:09 | Java Runtime: Oracle Corporation 1.7.0_09 /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre
+INFO   | jvm 1    | 2014/01/04 19:59:09 |   Heap sizes: current=82048k  free=76407k  max=932096k
+INFO   | jvm 1    | 2014/01/04 19:59:09 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Dhawtio.realm=activemq -Dhawtio.role=admins -Dhawtio.rolePrincipalClasses=org.apache.activemq.jaas.GroupPrincipal -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/macosx/ -Dwrapper.key=iUd8krWD2Ze9Id1p -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=15514 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.service=TRUE -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2014/01/04 19:59:09 | Extensions classpath:
+INFO   | jvm 1    | 2014/01/04 19:59:09 |   [../../lib,../../lib/camel,../../lib/optional,../../lib/web,../../lib/extra]
+INFO   | jvm 1    | 2014/01/04 19:59:09 | ACTIVEMQ_HOME: ../..
+INFO   | jvm 1    | 2014/01/04 19:59:09 | ACTIVEMQ_BASE: ../..
+INFO   | jvm 1    | 2014/01/04 19:59:09 | ACTIVEMQ_CONF: ../../conf
+INFO   | jvm 1    | 2014/01/04 19:59:09 | ACTIVEMQ_DATA: ../../data
+INFO   | jvm 1    | 2014/01/04 19:59:10 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2014/01/04 19:59:11 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@2224df87: startup date [Sat Jan 04 19:59:11 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/04 19:59:14 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] started
+INFO   | jvm 1    | 2014/01/04 19:59:14 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/kahadb]
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | KahaDB is version 5
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Recovering from the journal ...
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Recovery replayed 971 operations from the journal in 0.163 seconds.
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-56967-1388861955553-0:1) is starting
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/04 19:59:15 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2014/01/04 19:59:16 |  INFO | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/04 19:59:16 |  INFO | Connector ws started
+INFO   | jvm 1    | 2014/01/04 19:59:16 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-56967-1388861955553-0:1) started
+INFO   | jvm 1    | 2014/01/04 19:59:16 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2014/01/04 19:59:17 |  INFO | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-)
+INFO   | jvm 1    | 2014/01/04 19:59:17 |  INFO | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal"
+INFO   | jvm 1    | 2014/01/04 19:59:18 |  INFO | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads
+INFO   | jvm 1    | 2014/01/04 19:59:18 |  INFO | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2014/01/04 19:59:19 |  INFO | ActiveMQ WebConsole available at http://localhost:8161/
+INFO   | jvm 1    | 2014/01/04 19:59:19 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/04 20:07:37 |  WARN | Transport Connection to: tcp://127.0.0.1:56969 failed: java.io.EOFException
+STATUS | wrapper  | 2014/01/04 20:08:37 | TERM trapped.  Shutting down.
+INFO   | jvm 1    | 2014/01/04 20:08:38 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-56967-1388861955553-0:1) is shutting down
+INFO   | jvm 1    | 2014/01/04 20:08:39 |  INFO | Connector openwire stopped
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Connector amqp stopped
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Connector stomp stopped
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Connector mqtt stopped
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Connector ws stopped
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Stopping async queue tasks
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Stopping async topic tasks
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Stopped KahaDB
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-56967-1388861955553-0:1) uptime 9 minutes
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-56967-1388861955553-0:1) is shutdown
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@2224df87: startup date [Sat Jan 04 19:59:11 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Destroying Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/04 20:08:40 |  INFO | Destroying hawtio authentication filter
+STATUS | wrapper  | 2014/01/04 20:08:41 | <-- Wrapper Stopped
+STATUS | wrapper  | 2014/01/13 21:02:22 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2014/01/13 21:02:23 | Launching a JVM...
+INFO   | jvm 1    | 2014/01/13 21:02:23 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2014/01/13 21:02:23 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2014/01/13 21:02:23 | 
+INFO   | jvm 1    | 2014/01/13 21:02:23 | 
+INFO   | jvm 1    | 2014/01/13 21:02:23 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2014/01/13 21:02:23 |           following files:
+INFO   | jvm 1    | 2014/01/13 21:02:23 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2014/01/13 21:02:23 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2014/01/13 21:02:23 |             libwrapper.dylib
+INFO   | jvm 1    | 2014/01/13 21:02:23 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2014/01/13 21:02:23 |             /Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../bin/macosx
+INFO   | jvm 1    | 2014/01/13 21:02:23 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2014/01/13 21:02:23 |           configuration property.
+INFO   | jvm 1    | 2014/01/13 21:02:23 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2014/01/13 21:02:23 | 
+INFO   | jvm 1    | 2014/01/13 21:02:23 | Java Runtime: Oracle Corporation 1.7.0_09 /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre
+INFO   | jvm 1    | 2014/01/13 21:02:23 |   Heap sizes: current=81344k  free=75735k  max=932096k
+INFO   | jvm 1    | 2014/01/13 21:02:23 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Dhawtio.realm=activemq -Dhawtio.role=admins -Dhawtio.rolePrincipalClasses=org.apache.activemq.jaas.GroupPrincipal -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/macosx/ -Dwrapper.key=KdGpcTWZt0ePXK5U -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=44030 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.service=TRUE -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2014/01/13 21:02:23 | Extensions classpath:
+INFO   | jvm 1    | 2014/01/13 21:02:23 |   [../../lib,../../lib/camel,../../lib/optional,../../lib/web,../../lib/extra]
+INFO   | jvm 1    | 2014/01/13 21:02:23 | ACTIVEMQ_HOME: ../..
+INFO   | jvm 1    | 2014/01/13 21:02:23 | ACTIVEMQ_BASE: ../..
+INFO   | jvm 1    | 2014/01/13 21:02:23 | ACTIVEMQ_CONF: ../../conf
+INFO   | jvm 1    | 2014/01/13 21:02:23 | ACTIVEMQ_DATA: ../../data
+INFO   | jvm 1    | 2014/01/13 21:02:25 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2014/01/13 21:02:25 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@2224df87: startup date [Mon Jan 13 21:02:25 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/13 21:02:27 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] started
+INFO   | jvm 1    | 2014/01/13 21:02:27 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/kahadb]
+INFO   | jvm 1    | 2014/01/13 21:02:28 |  INFO | KahaDB is version 5
+INFO   | jvm 1    | 2014/01/13 21:02:28 |  INFO | Recovering from the journal ...
+INFO   | jvm 1    | 2014/01/13 21:02:28 |  INFO | Recovery replayed 1085 operations from the journal in 0.11 seconds.
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55526-1389643348929-0:1) is starting
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Connector ws started
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55526-1389643348929-0:1) started
+INFO   | jvm 1    | 2014/01/13 21:02:29 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2014/01/13 21:02:30 |  INFO | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-)
+INFO   | jvm 1    | 2014/01/13 21:02:30 |  INFO | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal"
+INFO   | jvm 1    | 2014/01/13 21:02:30 |  INFO | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads
+INFO   | jvm 1    | 2014/01/13 21:02:30 |  INFO | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2014/01/13 21:02:31 |  INFO | ActiveMQ WebConsole available at http://localhost:8161/
+INFO   | jvm 1    | 2014/01/13 21:02:31 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/13 21:13:50 |  WARN | Transport Connection to: tcp://127.0.0.1:55557 failed: java.io.EOFException
+STATUS | wrapper  | 2014/01/13 21:16:14 | TERM trapped.  Shutting down.
+INFO   | jvm 1    | 2014/01/13 21:16:15 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55526-1389643348929-0:1) is shutting down
+INFO   | jvm 1    | 2014/01/13 21:16:15 |  INFO | Connector openwire stopped
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Connector amqp stopped
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Connector stomp stopped
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Connector mqtt stopped
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Connector ws stopped
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Stopping async queue tasks
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Stopping async topic tasks
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Stopped KahaDB
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55526-1389643348929-0:1) uptime 13 minutes
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55526-1389643348929-0:1) is shutdown
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@2224df87: startup date [Mon Jan 13 21:02:25 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Destroying Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/13 21:16:17 |  INFO | Destroying hawtio authentication filter
+STATUS | wrapper  | 2014/01/13 21:16:18 | <-- Wrapper Stopped
+STATUS | wrapper  | 2014/01/13 21:48:40 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2014/01/13 21:48:40 | Launching a JVM...
+INFO   | jvm 1    | 2014/01/13 21:48:41 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2014/01/13 21:48:41 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2014/01/13 21:48:41 | 
+INFO   | jvm 1    | 2014/01/13 21:48:41 | 
+INFO   | jvm 1    | 2014/01/13 21:48:41 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2014/01/13 21:48:41 |           following files:
+INFO   | jvm 1    | 2014/01/13 21:48:41 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2014/01/13 21:48:41 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2014/01/13 21:48:41 |             libwrapper.dylib
+INFO   | jvm 1    | 2014/01/13 21:48:41 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2014/01/13 21:48:41 |             /Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../bin/macosx
+INFO   | jvm 1    | 2014/01/13 21:48:41 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2014/01/13 21:48:41 |           configuration property.
+INFO   | jvm 1    | 2014/01/13 21:48:41 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2014/01/13 21:48:41 | 
+INFO   | jvm 1    | 2014/01/13 21:48:41 | Java Runtime: Oracle Corporation 1.7.0_09 /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre
+INFO   | jvm 1    | 2014/01/13 21:48:41 |   Heap sizes: current=81088k  free=75514k  max=932096k
+INFO   | jvm 1    | 2014/01/13 21:48:41 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Dhawtio.realm=activemq -Dhawtio.role=admins -Dhawtio.rolePrincipalClasses=org.apache.activemq.jaas.GroupPrincipal -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/macosx/ -Dwrapper.key=wBq1z3wOgiCLaX2w -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=44205 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.service=TRUE -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2014/01/13 21:48:41 | Extensions classpath:
+INFO   | jvm 1    | 2014/01/13 21:48:41 |   [../../lib,../../lib/camel,../../lib/optional,../../lib/web,../../lib/extra]
+INFO   | jvm 1    | 2014/01/13 21:48:41 | ACTIVEMQ_HOME: ../..
+INFO   | jvm 1    | 2014/01/13 21:48:41 | ACTIVEMQ_BASE: ../..
+INFO   | jvm 1    | 2014/01/13 21:48:41 | ACTIVEMQ_CONF: ../../conf
+INFO   | jvm 1    | 2014/01/13 21:48:41 | ACTIVEMQ_DATA: ../../data
+INFO   | jvm 1    | 2014/01/13 21:48:41 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2014/01/13 21:48:42 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@22cf2994: startup date [Mon Jan 13 21:48:42 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/13 21:48:43 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] started
+INFO   | jvm 1    | 2014/01/13 21:48:43 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/kahadb]
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | KahaDB is version 5
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Recovering from the journal ...
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Recovery replayed 1252 operations from the journal in 0.116 seconds.
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55567-1389646124220-0:1) is starting
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Connector ws started
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55567-1389646124220-0:1) started
+INFO   | jvm 1    | 2014/01/13 21:48:44 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2014/01/13 21:48:45 |  INFO | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-)
+INFO   | jvm 1    | 2014/01/13 21:48:45 |  INFO | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal"
+INFO   | jvm 1    | 2014/01/13 21:48:45 |  INFO | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads
+INFO   | jvm 1    | 2014/01/13 21:48:45 |  INFO | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2014/01/13 21:48:45 |  INFO | ActiveMQ WebConsole available at http://localhost:8161/
+INFO   | jvm 1    | 2014/01/13 21:48:45 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/13 21:53:37 |  WARN | Transport Connection to: tcp://127.0.0.1:55581 failed: java.io.EOFException
+STATUS | wrapper  | 2014/01/13 21:57:31 | TERM trapped.  Shutting down.
+INFO   | jvm 1    | 2014/01/13 21:57:32 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55567-1389646124220-0:1) is shutting down
+INFO   | jvm 1    | 2014/01/13 21:57:33 |  INFO | Connector openwire stopped
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Connector amqp stopped
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Connector stomp stopped
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Connector mqtt stopped
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Connector ws stopped
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Stopping async queue tasks
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Stopping async topic tasks
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Stopped KahaDB
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55567-1389646124220-0:1) uptime 8 minutes
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55567-1389646124220-0:1) is shutdown
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@22cf2994: startup date [Mon Jan 13 21:48:42 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Destroying Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/13 21:57:34 |  INFO | Destroying hawtio authentication filter
+STATUS | wrapper  | 2014/01/13 21:57:35 | <-- Wrapper Stopped
+STATUS | wrapper  | 2014/01/13 22:25:38 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2014/01/13 22:25:38 | Launching a JVM...
+INFO   | jvm 1    | 2014/01/13 22:25:38 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2014/01/13 22:25:38 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2014/01/13 22:25:38 | 
+INFO   | jvm 1    | 2014/01/13 22:25:38 | 
+INFO   | jvm 1    | 2014/01/13 22:25:38 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2014/01/13 22:25:38 |           following files:
+INFO   | jvm 1    | 2014/01/13 22:25:38 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2014/01/13 22:25:38 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2014/01/13 22:25:38 |             libwrapper.dylib
+INFO   | jvm 1    | 2014/01/13 22:25:38 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2014/01/13 22:25:38 |             /Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../bin/macosx
+INFO   | jvm 1    | 2014/01/13 22:25:38 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2014/01/13 22:25:38 |           configuration property.
+INFO   | jvm 1    | 2014/01/13 22:25:38 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2014/01/13 22:25:38 | 
+INFO   | jvm 1    | 2014/01/13 22:25:38 | Java Runtime: Oracle Corporation 1.7.0_09 /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre
+INFO   | jvm 1    | 2014/01/13 22:25:38 |   Heap sizes: current=81536k  free=75936k  max=932096k
+INFO   | jvm 1    | 2014/01/13 22:25:38 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Dhawtio.realm=activemq -Dhawtio.role=admins -Dhawtio.rolePrincipalClasses=org.apache.activemq.jaas.GroupPrincipal -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/macosx/ -Dwrapper.key=8GQhyjSw41B9Rc84 -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=44465 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.service=TRUE -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2014/01/13 22:25:38 | Extensions classpath:
+INFO   | jvm 1    | 2014/01/13 22:25:38 |   [../../lib,../../lib/camel,../../lib/optional,../../lib/web,../../lib/extra]
+INFO   | jvm 1    | 2014/01/13 22:25:38 | ACTIVEMQ_HOME: ../..
+INFO   | jvm 1    | 2014/01/13 22:25:38 | ACTIVEMQ_BASE: ../..
+INFO   | jvm 1    | 2014/01/13 22:25:38 | ACTIVEMQ_CONF: ../../conf
+INFO   | jvm 1    | 2014/01/13 22:25:38 | ACTIVEMQ_DATA: ../../data
+INFO   | jvm 1    | 2014/01/13 22:25:39 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2014/01/13 22:25:39 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@41979448: startup date [Mon Jan 13 22:25:39 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/13 22:25:40 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] started
+INFO   | jvm 1    | 2014/01/13 22:25:40 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/kahadb]
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | KahaDB is version 5
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Recovering from the journal ...
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Recovery replayed 1359 operations from the journal in 0.128 seconds.
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55784-1389648341525-0:1) is starting
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Connector ws started
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55784-1389648341525-0:1) started
+INFO   | jvm 1    | 2014/01/13 22:25:41 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2014/01/13 22:25:42 |  INFO | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-)
+INFO   | jvm 1    | 2014/01/13 22:25:42 |  INFO | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal"
+INFO   | jvm 1    | 2014/01/13 22:25:42 |  INFO | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads
+INFO   | jvm 1    | 2014/01/13 22:25:42 |  INFO | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2014/01/13 22:25:42 |  INFO | ActiveMQ WebConsole available at http://localhost:8161/
+INFO   | jvm 1    | 2014/01/13 22:25:42 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/13 22:32:41 |  WARN | Transport Connection to: tcp://127.0.0.1:55818 failed: java.io.EOFException
+STATUS | wrapper  | 2014/01/13 22:33:51 | TERM trapped.  Shutting down.
+INFO   | jvm 1    | 2014/01/13 22:33:52 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55784-1389648341525-0:1) is shutting down
+INFO   | jvm 1    | 2014/01/13 22:33:53 |  INFO | Connector openwire stopped
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Connector amqp stopped
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Connector stomp stopped
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Connector mqtt stopped
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Connector ws stopped
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/prj-chat/servers/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Stopping async queue tasks
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Stopping async topic tasks
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Stopped KahaDB
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55784-1389648341525-0:1) uptime 8 minutes
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55784-1389648341525-0:1) is shutdown
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@41979448: startup date [Mon Jan 13 22:25:39 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Destroying Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/13 22:33:54 |  INFO | Destroying hawtio authentication filter
+STATUS | wrapper  | 2014/01/13 22:33:54 | <-- Wrapper Stopped
+STATUS | wrapper  | 2014/01/16 18:47:15 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2014/01/16 18:47:16 | Launching a JVM...
+INFO   | jvm 1    | 2014/01/16 18:47:17 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2014/01/16 18:47:17 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2014/01/16 18:47:17 | 
+INFO   | jvm 1    | 2014/01/16 18:47:17 | 
+INFO   | jvm 1    | 2014/01/16 18:47:17 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2014/01/16 18:47:17 |           following files:
+INFO   | jvm 1    | 2014/01/16 18:47:17 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2014/01/16 18:47:17 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2014/01/16 18:47:17 |             libwrapper.dylib
+INFO   | jvm 1    | 2014/01/16 18:47:17 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2014/01/16 18:47:17 |             /Users/Gustavo/Documents/java-workspace/sor-interfaces-aux/activemq/bin/macosx/../../bin/macosx
+INFO   | jvm 1    | 2014/01/16 18:47:17 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2014/01/16 18:47:17 |           configuration property.
+INFO   | jvm 1    | 2014/01/16 18:47:17 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2014/01/16 18:47:17 | 
+INFO   | jvm 1    | 2014/01/16 18:47:17 | Java Runtime: Oracle Corporation 1.7.0_09 /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre
+INFO   | jvm 1    | 2014/01/16 18:47:17 |   Heap sizes: current=81920k  free=76279k  max=932096k
+INFO   | jvm 1    | 2014/01/16 18:47:17 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Dhawtio.realm=activemq -Dhawtio.role=admins -Dhawtio.rolePrincipalClasses=org.apache.activemq.jaas.GroupPrincipal -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/macosx/ -Dwrapper.key=FbF10IQ428ZitOhu -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=48168 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.service=TRUE -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2014/01/16 18:47:17 | Extensions classpath:
+INFO   | jvm 1    | 2014/01/16 18:47:17 |   [../../lib,../../lib/camel,../../lib/optional,../../lib/web,../../lib/extra]
+INFO   | jvm 1    | 2014/01/16 18:47:17 | ACTIVEMQ_HOME: ../..
+INFO   | jvm 1    | 2014/01/16 18:47:17 | ACTIVEMQ_BASE: ../..
+INFO   | jvm 1    | 2014/01/16 18:47:17 | ACTIVEMQ_CONF: ../../conf
+INFO   | jvm 1    | 2014/01/16 18:47:17 | ACTIVEMQ_DATA: ../../data
+INFO   | jvm 1    | 2014/01/16 18:47:18 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2014/01/16 18:47:18 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@4eb2c566: startup date [Thu Jan 16 18:47:18 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/16 18:47:21 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/sor-interfaces-aux/activemq/bin/macosx/../../data/localhost/tmp_storage] started
+INFO   | jvm 1    | 2014/01/16 18:47:21 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/java-workspace/sor-interfaces-aux/activemq/bin/macosx/../../data/kahadb]
+INFO   | jvm 1    | 2014/01/16 18:47:21 |  INFO | KahaDB is version 5
+INFO   | jvm 1    | 2014/01/16 18:47:21 |  INFO | Recovering from the journal ...
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Recovery replayed 1459 operations from the journal in 0.195 seconds.
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49908-1389894442043-0:1) is starting
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Connector ws started
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49908-1389894442043-0:1) started
+INFO   | jvm 1    | 2014/01/16 18:47:22 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2014/01/16 18:47:23 |  INFO | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-)
+INFO   | jvm 1    | 2014/01/16 18:47:23 |  INFO | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal"
+INFO   | jvm 1    | 2014/01/16 18:47:23 |  INFO | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads
+INFO   | jvm 1    | 2014/01/16 18:47:23 |  INFO | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2014/01/16 18:47:24 |  INFO | ActiveMQ WebConsole available at http://localhost:8161/
+INFO   | jvm 1    | 2014/01/16 18:47:24 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/16 18:53:37 |  WARN | Transport Connection to: tcp://127.0.0.1:49954 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/16 19:00:21 |  WARN | Transport Connection to: tcp://127.0.0.1:49963 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/16 19:02:58 |  WARN | Transport Connection to: tcp://127.0.0.1:49976 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/16 19:04:45 |  WARN | Transport Connection to: tcp://127.0.0.1:49984 failed: java.io.EOFException
+STATUS | wrapper  | 2014/01/16 19:05:22 | TERM trapped.  Shutting down.
+INFO   | jvm 1    | 2014/01/16 19:05:23 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49908-1389894442043-0:1) is shutting down
+INFO   | jvm 1    | 2014/01/16 19:05:24 |  INFO | Connector openwire stopped
+INFO   | jvm 1    | 2014/01/16 19:05:24 |  INFO | Connector amqp stopped
+INFO   | jvm 1    | 2014/01/16 19:05:24 |  INFO | Connector stomp stopped
+INFO   | jvm 1    | 2014/01/16 19:05:24 |  INFO | Connector mqtt stopped
+INFO   | jvm 1    | 2014/01/16 19:05:24 |  INFO | Connector ws stopped
+INFO   | jvm 1    | 2014/01/16 19:05:25 |  INFO | PListStore:[/Users/Gustavo/Documents/java-workspace/sor-interfaces-aux/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped
+INFO   | jvm 1    | 2014/01/16 19:05:25 |  INFO | Stopping async queue tasks
+INFO   | jvm 1    | 2014/01/16 19:05:25 |  INFO | Stopping async topic tasks
+INFO   | jvm 1    | 2014/01/16 19:05:25 |  INFO | Stopped KahaDB
+INFO   | jvm 1    | 2014/01/16 19:05:25 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49908-1389894442043-0:1) uptime 18 minutes
+INFO   | jvm 1    | 2014/01/16 19:05:25 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49908-1389894442043-0:1) is shutdown
+INFO   | jvm 1    | 2014/01/16 19:05:25 |  INFO | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@4eb2c566: startup date [Thu Jan 16 18:47:18 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/16 19:05:25 |  INFO | Destroying Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/16 19:05:25 |  INFO | Destroying hawtio authentication filter
+STATUS | wrapper  | 2014/01/16 19:05:25 | <-- Wrapper Stopped
