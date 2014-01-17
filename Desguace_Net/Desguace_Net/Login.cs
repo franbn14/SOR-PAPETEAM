@@ -47,8 +47,8 @@ namespace Desguace_Net
                
                 if (error == "")
                 {
-                    DarNombreClienteClient c = new DarNombreClienteClient();
-                    Inicio i= new Inicio(c.DarNombreDesguace(user));
+                    
+                    Inicio i= new Inicio(user);
                     i.Show();
                     this.Hide();
                 }
