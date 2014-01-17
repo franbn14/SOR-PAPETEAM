@@ -11,6 +11,8 @@ import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import CEN.*;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.*;
 
 /**
  *
@@ -20,39 +22,20 @@ public class Home extends javax.swing.JFrame {
 
     private ArrayList<RequestCEN> requests;
     private ArrayList<OfferCEN> offers;
+    String user;
     /**
      * Creates new form Home
      */
     public Home(String name) {
         initComponents();
-        lbTitle.setText("Bienvenido "+name);
+        user=name;
+        
+        lbTitle.setText("Bienvenido "+user);
         
         requests=new ArrayList<RequestCEN>();
-        offers=new ArrayList<OfferCEN>();
+        offers=new ArrayList<OfferCEN>();   
         
-        requestList.removeAll();                
-        requestFList.removeAll();                
-        
-        //Simulación de peticiones y ofertas
-        boolean finished=false;
-        String type;
-        RequestCEN request=new RequestCEN(new Date(),"Tornillos",2.0,1,"Rojo",3,50.0,new ClientCEN("jndfj", name, name, name, name, new Date()),false,false);
-        RequestCEN request2=new RequestCEN(new Date(),"Tuercas",2.0,1,"Rojo",3,50.0,new ClientCEN("jndfj", name, name, name, name, new Date()),false,true);
-        
-        requests.add(request);                
-        requests.add(request2);
-        
-        DefaultListModel model = new DefaultListModel();
-        DefaultListModel model2 = new DefaultListModel();
-        
-        for(RequestCEN req: requests) {
-            if(req.isFinished())
-                model2.addElement(req.getAmount()+" "+req.getType());
-            else
-                model.addElement(req.getAmount()+" "+req.getType());
-        }
-        requestList.setModel(model);
-        requestFList.setModel(model2);
+        checkRequests();
     }
 
     /**
@@ -78,6 +61,8 @@ public class Home extends javax.swing.JFrame {
         requestFList = new javax.swing.JList();
         lbAccepted = new javax.swing.JLabel();
         btDecline = new javax.swing.JButton();
+        btNewRequest = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,6 +112,16 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btNewRequest.setText("Nueva solicitud");
+        btNewRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNewRequestActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Ver favoritas");
+        jButton1.setEnabled(false);
+
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
         mainPaneLayout.setHorizontalGroup(
@@ -135,8 +130,11 @@ public class Home extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPaneLayout.createSequentialGroup()
+                        .addComponent(btNewRequest)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(mainPaneLayout.createSequentialGroup()
                         .addComponent(lbTitle)
-                        .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(mainPaneLayout.createSequentialGroup()
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -144,31 +142,32 @@ public class Home extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                            .addComponent(btDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbAccepted))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btAccept)
-                                    .addComponent(lbAccepted)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPaneLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(91, 91, 91))))))
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1))
+                            .addComponent(btAccept)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(91, 91, 91))))
         );
         mainPaneLayout.setVerticalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPaneLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(lbTitle)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(btNewRequest)
+                .addGap(6, 6, 6)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPaneLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -176,13 +175,13 @@ public class Home extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btAccept)
+                            .addComponent(lbAccepted)))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btAccept)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbAccepted)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -206,23 +205,26 @@ public class Home extends javax.swing.JFrame {
 
         requestList.clearSelection();
         btDecline.setEnabled(false);
-        checkSelection(requestFList,true);
+        checkOffers(requestFList);
     }//GEN-LAST:event_requestFListMouseClicked
 
     private void btAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAcceptActionPerformed
         // TODO add your handling code here:
-        String text;
-        for(Object value: offerList.getSelectedValues()) {
-            text=lbAccepted.getText();
-            lbAccepted.setText(text+" "+value.toString());
+        String text="";
+        OfferCEN offer;
+        
+        for(int index: offerList.getSelectedIndices()) {
+            offer=offers.get(index);
+            text+=offer.getCode()+" ";            
         }
+        lbAccepted.setText(text);
     }//GEN-LAST:event_btAcceptActionPerformed
 
     private void requestListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestListMouseClicked
         // TODO add your handling code here:
         requestFList.clearSelection();        
         btDecline.setEnabled(true);
-        checkSelection(requestList,false);
+        checkOffers(requestList);
     }//GEN-LAST:event_requestListMouseClicked
 
     private void btDeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeclineActionPerformed
@@ -230,56 +232,88 @@ public class Home extends javax.swing.JFrame {
         int index=requestList.getSelectedIndex();
         
         if(index>-1) {            
-                       
+            borrar(((RequestCEN)requestList.getSelectedValue()).getCode());
+            checkRequests();
         }
     }//GEN-LAST:event_btDeclineActionPerformed
 
-    private void checkSelection(javax.swing.JList list, boolean finished) {                
+    private void btNewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewRequestActionPerformed
+        // TODO add your handling code here:
+        dispose(); 
+        NewRequest newRequest = new NewRequest(user);
+        newRequest.setVisible(true);
+    }//GEN-LAST:event_btNewRequestActionPerformed
+
+    private void checkOffers(javax.swing.JList list) {                
         int index=list.getSelectedIndex();
         
         if(index>-1) {
-            /*String selected=requests.get(index);
-            offerList.removeAll();
-            offers.clear();
+            RequestCEN selected=(RequestCEN)list.getSelectedValue();
+            offerList.removeAll();            
             
-            if(selected!=null) {
-                if(!finished) {            
-                    if(index==0) {
-                        offers.add("Offer1");
-                        offers.add("Offer2");
-                    }
-                    else if(index==1) {
-                        offers.add("Offer3");
-                        offers.add("Offer2");
-                        offers.add("Offer1");
-                    }
-                    else if(index==2) {
-                        offers.add("Offer2");
-                    }
+           if(selected!=null) {                
+                DefaultListModel model = new DefaultListModel();                
+                String offerString;                                
+                Gson gson = new Gson();
+                java.lang.reflect.Type collectionType = new TypeToken<ArrayList<RequestCEN>>(){}.getType();
+                
+                if(!selected.isFinished())
+                    offerString=darOfertasByR(selected.getCode());
+                else
+                    offerString=darOfertasByRequestOk(selected.getCode());
 
-                    offerList.setListData(offers.toArray());   
+                if(offerString.equals("null") || offerString.equals("")) {
+                    model.addElement("No hay ofertas");
+                    offerList.setEnabled(false);                    
                 }
+                
                 else {
-                    if(index==0) {
-                        offers.add("Offer2");
-                        offers.add("Offer1");
-                    }
-                    else if(index==1) {
-                        offers.add("Offer1");
-                        offers.add("Offer2");
-                        offers.add("Offer3");
-                    }
-                    else if(index==2) {
-                        offers.add("Offer2");
-                    }
+                    offers = gson.fromJson(offerString, collectionType);           
 
-                    offerList.setListData(offers.toArray());   
-                }
-            }*/
+                    if(offers!=null && !offers.isEmpty())  {                
+                        for(OfferCEN offer: offers) 
+                            model.addElement(offer);                                                                        
+                    }                                                            
+                    offerList.setEnabled(true);                    
+                }                                
+                offerList.setModel(model);
+                offerList.clearSelection();
+            }
         }     
     }
     
-    
+    private void checkRequests() {
+        requestList.removeAll();                
+        requestFList.removeAll();                
+                               
+        DefaultListModel model = new DefaultListModel();
+        DefaultListModel model2 = new DefaultListModel();
+        
+        String requestString = darPeticiones(user);
+        String requestString2 = darPeticionesHis(user);
+        
+        Gson gson = new Gson();
+        java.lang.reflect.Type collectionType = new TypeToken<ArrayList<RequestCEN>>(){}.getType();
+
+        if(requestString!=null && !requestString.equals("")){
+            requests = gson.fromJson(requestString, collectionType);           
+            ArrayList<RequestCEN> aux=gson.fromJson(requestString2, collectionType);
+            
+            requests.addAll(aux);
+            
+            if(requests!=null && !requests.isEmpty())  {                
+                
+                for(RequestCEN req: requests) {
+                    if(req.isFinished())
+                        model2.addElement(req);
+                    else
+                        model.addElement(req);
+                }
+                requestList.setModel(model);
+                requestFList.setModel(model2);
+            }
+        }
+    }
     
     /**
      * @param args the command line arguments
@@ -321,6 +355,8 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAccept;
     private javax.swing.JButton btDecline;
+    private javax.swing.JButton btNewRequest;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -334,4 +370,43 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JList requestFList;
     private javax.swing.JList requestList;
     // End of variables declaration//GEN-END:variables
+
+    private static String darPeticiones(java.lang.String nif) {
+        servicios.DarPeticionesNifP_Service service = new servicios.DarPeticionesNifP_Service();
+        servicios.DarPeticionesNifP port = service.getDarPeticionesNifPPort();
+        return port.darPeticiones(nif);
+    }
+
+    private static String darPeticionesHis(java.lang.String nif) {
+        servicios.DarPeticionesNifF_Service service = new servicios.DarPeticionesNifF_Service();
+        servicios.DarPeticionesNifF port = service.getDarPeticionesNifFPort();
+        return port.darPeticionesHis(nif);
+    }
+
+    private static void borrar(int id) {
+        servicios.BorrarPeticion_Service service = new servicios.BorrarPeticion_Service();
+        servicios.BorrarPeticion port = service.getBorrarPeticionPort();
+        port.borrar(id);
+    }
+
+    private static String darOfertasByR(int idR) {
+        servicios.DarOfertasRequest_Service service = new servicios.DarOfertasRequest_Service();
+        servicios.DarOfertasRequest port = service.getDarOfertasRequestPort();
+        return port.darOfertasByR(idR);
+    }
+
+    private static String darOfertasByRequestOk(int idR) {
+        servicios.DarOfertasRequestOk_Service service = new servicios.DarOfertasRequestOk_Service();
+        servicios.DarOfertasRequestOk port = service.getDarOfertasRequestOkPort();
+        return port.darOfertasByRequestOk(idR);
+    }
+
+    private static String darOfertasSelection(int idR) {
+        servicios.DarOfertasSeleccionadas_Service service = new servicios.DarOfertasSeleccionadas_Service();
+        servicios.DarOfertasSeleccionadas port = service.getDarOfertasSeleccionadasPort();
+        return port.darOfertasSelection(idR);
+    }
+    
+    
+    
 }

@@ -132,7 +132,7 @@ public class OfferCEN {
        
     @Override
     public String toString() {
-        return code + " " + type + " " + size + " " + sizeUnit + " " + color + " " + amount + " " + price + " " + request + " " + scrapyard;
+        return amount+" "+type;
     }
     
    

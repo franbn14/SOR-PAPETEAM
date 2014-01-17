@@ -60,6 +60,7 @@ public class Register extends javax.swing.JFrame {
 
         mainPane.setBackground(new java.awt.Color(255, 250, 250));
 
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel1.setText("Registro de nuevo usuario");
 
         jLabel2.setText("NIF/CIF");
@@ -74,7 +75,7 @@ public class Register extends javax.swing.JFrame {
 
         lbDate.setText("Fecha nac.");
 
-        jButton1.setText("Volver al inicio");
+        jButton1.setText("Cancelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -133,9 +134,11 @@ public class Register extends javax.swing.JFrame {
                                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(mainPaneLayout.createSequentialGroup()
                                         .addComponent(btRegister)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(jButton1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 37, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(mainPaneLayout.createSequentialGroup()
                                         .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -145,14 +148,12 @@ public class Register extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lbDateError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(mainPaneLayout.createSequentialGroup()
-                                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jButton1)
-                                            .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(tfName, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                                .addComponent(tfCif, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                                .addComponent(tfAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                                .addComponent(tfSurname, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                                .addComponent(tfPass, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
+                                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(tfName, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                            .addComponent(tfCif, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                            .addComponent(tfAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                            .addComponent(tfSurname, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                            .addComponent(tfPass, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lbCIFError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(mainPaneLayout.createSequentialGroup()
@@ -163,10 +164,8 @@ public class Register extends javax.swing.JFrame {
         mainPaneLayout.setVerticalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPaneLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                .addGap(39, 39, 39)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbTaller)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -200,7 +199,8 @@ public class Register extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btRegister))
+                    .addComponent(btRegister)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -268,10 +268,10 @@ public class Register extends javax.swing.JFrame {
                     System.out.println("IN");                   
                     
                     Date date = null;
-                    dob = day+"-"+month+"-"+year;
+                    dob = year+"-"+month+"-"+day;
                     
                     try {
-                        DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                         formatter.setLenient(false);
                         date = formatter.parse(dob);
                         
@@ -297,7 +297,7 @@ public class Register extends javax.swing.JFrame {
             lbError.setText("Registro incorrecto");*/
         }
         else
-        lbError.setText("No puede haber vacíos");
+            lbError.setText("No puede haber vacíos");
     }//GEN-LAST:event_btRegisterActionPerformed
 
     private void cbTallerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cbTallerStateChanged

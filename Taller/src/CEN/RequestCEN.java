@@ -149,7 +149,6 @@ public class RequestCEN {
     
     @Override
     public String toString(){
-        return code + " " + deadline + " " + type + " " + size + " " + sizeUnit + " " + color  + 
-                " " + amount + " " + maxPrice + " " + client.getId() + " " + autoElect + " " + finished;
+        return amount + " " + type;
     }
 }

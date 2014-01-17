@@ -71,6 +71,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        lbTitle.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         lbTitle.setText("Iniciar sesión");
         lbTitle.setName("lbTitle"); // NOI18N
 

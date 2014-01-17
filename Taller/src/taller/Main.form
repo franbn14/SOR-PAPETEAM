@@ -132,6 +132,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbTitle">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DejaVu Sans" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Iniciar sesi&#xf3;n"/>
             <Property name="name" type="java.lang.String" value="lbTitle" noResource="true"/>
           </Properties>
