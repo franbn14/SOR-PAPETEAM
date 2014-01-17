@@ -5,25 +5,16 @@
         <group>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CEN/OfferCEN.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CAD/Connector.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/BorrarPeticion.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CAD/UserCAD.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CEN/UnitsCEN.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/DarOfertasSeleccionadas.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/DarOfertasRequestOk.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CAD/OfferCAD.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/AceptarOfertas.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/NewPeticion.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/DarPeticionesNifF.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/DarOfertasRequest.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CEN/RequestCEN.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/RegistroCliente.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/DarPeticionesNifP.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CAD/RequestCAD.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CEN/ClientCEN.java</file>
-            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/DarNombreCliente.java</file>
+            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/DarPeticionesNifF.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CEN/UserCEN.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/RegistroDesguace.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CEN/ScrapYardCEN.java</file>
+            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/Servicios/RegistroCliente.java</file>
+            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM/Sor_Servicios/src/java/CEN/RequestCEN.java</file>
         </group>
     </open-files>
 </project-private>
