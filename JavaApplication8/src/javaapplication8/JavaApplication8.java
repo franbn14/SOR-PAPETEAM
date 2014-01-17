@@ -38,7 +38,7 @@ public class JavaApplication8 {
         listarequest = gson.fromJson(requeststring, collectionType);
         System.out.println(listarequest.get(0));
       }*/
-        aceptarOfertasDe("6 7");
+        darPeticiones(null)
        
     }
 

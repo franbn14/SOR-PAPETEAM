@@ -29,7 +29,7 @@ public class DarPeticionesNifF {
     {      
         //DarPeticiones que se hayan finalizado al aceptar alguna oferta
          ArrayList<RequestCEN> requests= new ArrayList<RequestCEN> ();
-       requests=RequestCEN.getAllOpenedByNIF(nif);
+       requests=RequestCEN.getAllFinishedByNIF(nif);
         Gson gson = new GsonBuilder().setDateFormat("MMM dd, yyyy hh:mm:ss a").create();
             String listaJSON = gson.toJson(requests);
         return listaJSON;
