@@ -34,7 +34,7 @@ public class NewPeticion {
      * Web service operation
      */
     @WebMethod(operationName = "Insert")
-    public int Insert(@WebParam(name = "tipo") String tipo, @WebParam(name = "fechaTope") String fechaTope, @WebParam(name = "tamanyo") double tamanyo, @WebParam(name = "tamUnidad") int tamUnidad, @WebParam(name = "color") String color, @WebParam(name = "cantidad") int cantidad, @WebParam(name = "precioMax") double precioMax, @WebParam(name = "usuario") int usuario, @WebParam(name = "autoElect") boolean autoElect, @WebParam(name = "finalizado") boolean finalizado) {
+    public int Insert(@WebParam(name = "tipo") String tipo, @WebParam(name = "fechaTope") String fechaTope, @WebParam(name = "tamanyo") Double tamanyo, @WebParam(name = "tamUnidad") int tamUnidad, @WebParam(name = "color") String color, @WebParam(name = "cantidad") Integer cantidad, @WebParam(name = "precioMax") Double precioMax, @WebParam(name = "usuario") int usuario, @WebParam(name = "autoElect") boolean autoElect, @WebParam(name = "finalizado") boolean finalizado) {
         //TODO write your implementation code here:
         SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd-MM-yyyy");
               String strFecha = fechaTope;
@@ -50,8 +50,9 @@ public class NewPeticion {
 
     }
         ClientCEN cli=ClientCEN.getByID(usuario);
+      
         RequestCEN r=new RequestCEN(fecha,tipo,tamanyo,tamUnidad,color,cantidad,precioMax,cli, autoElect, finalizado);
-                r.insert();
-        return 0;
+        
+        return r.insert();
     }
 }

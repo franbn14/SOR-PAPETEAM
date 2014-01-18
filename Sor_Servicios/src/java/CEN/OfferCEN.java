@@ -257,7 +257,52 @@ public class OfferCEN {
         }        
         return all;
     }
-   
+   public static ArrayList<OfferCEN> getByCIFDesPendientes(String nif) {
+        ArrayList<Hashtable> values = OfferCAD.getByCIFDesPendientes(nif);
+        ArrayList<OfferCEN> all = null;
+        
+        if(!values.isEmpty()) {
+            all = new ArrayList<OfferCEN>();        
+
+            for(Hashtable ht : values){                            
+                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
+                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                 (int)ht.get("sizeUnit"), 
+                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
+                                 RequestCEN.getByCode((int)ht.get("request")),
+                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
+                                 (boolean)ht.get("accepted"));
+                offer.code=(int) ht.get("code");
+                all.add(offer);
+            }           
+        }        
+        return all;
+    }
+    public static ArrayList<OfferCEN> getAcceptedByDesNIF(String nif) {
+        ArrayList<Hashtable> values = OfferCAD.getByCIFDesPendientes(nif);
+        ArrayList<OfferCEN> all = null;
+        
+        if(!values.isEmpty()) {
+            all = new ArrayList<OfferCEN>();        
+
+            for(Hashtable ht : values){                            
+                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
+                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
+                                 (int)ht.get("sizeUnit"), 
+                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
+                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
+                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
+                                 RequestCEN.getByCode((int)ht.get("request")),
+                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
+                                 (boolean)ht.get("accepted"));
+                offer.code=(int) ht.get("code");
+                all.add(offer);
+            }           
+        }        
+        return all;
+    }
    public static ArrayList<OfferCEN> getAcceptedByRequest(int request){
         ArrayList<Hashtable> values = OfferCAD.getAcceptedByRequest(request);
         ArrayList<OfferCEN> all = null;
@@ -281,7 +326,7 @@ public class OfferCEN {
         }        
         return all;
     }
-   
+
    public static ArrayList<OfferCEN>  getAcceptedByUserID(int id ){
         ArrayList<Hashtable> values = OfferCAD.getAcceptedByUserID(id);
         ArrayList<OfferCEN> all = null;

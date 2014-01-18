@@ -81,6 +81,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\DarID\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +113,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\DarID\DarIdDesguacebyCif.wsdl" />
+    <None Include="Service References\DarID\DarIdDesguacebyCif.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DarID\Desguace_Net.DarID.getIdDesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DarID\Desguace_Net.DarID.helloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\DarNombre\DarNombreCliente.wsdl" />
     <None Include="Service References\DarNombre\DarNombreCliente.xsd">
       <SubType>Designer</SubType>
@@ -148,6 +163,7 @@
     <WCFMetadataStorage Include="Service References\DarNombre\" />
     <WCFMetadataStorage Include="Service References\LoginServicio\" />
     <WCFMetadataStorage Include="Service References\RegistroDesguace\" />
+    <WCFMetadataStorage Include="Service References\DarID\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\LoginServicio\configuration91.svcinfo" />
@@ -181,6 +197,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\RegistroDesguace\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DarID\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DarID\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DarID\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
