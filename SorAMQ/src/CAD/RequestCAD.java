@@ -10,9 +10,12 @@ import CEN.ClientCEN;
 import CEN.RequestCEN;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -21,10 +24,12 @@ import java.util.Hashtable;
 public class RequestCAD {
     public static int insert(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int clientID, boolean autoElec, boolean finished) {
         int code = -1;
+         
         String date = deadline.getYear() + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
+        
         String c = (color == null)? null : "\"" + color + "\"";
         String query = "INSERT INTO Solicitud (fechaTope, tipo, tamaño, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado) VALUES "+
-                    "('" + date + "', \"" + type + "\", " + size + ", " + sizeUnit + ", " + "" + c + ", " + amount + ", " + maxPrice + ", " +
+                    "('" + date + "', '" + type + "', " + size + ", " + sizeUnit + ", " + c + ", " + amount + ", " + maxPrice + ", " +
                     clientID + ", " + ((autoElec)?1:0) + ", " + ((finished)?1:0) + ");";
         
         try {

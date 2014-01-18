@@ -33,7 +33,7 @@ public class PruebaAMQ {
             conexion.setParams(desg.getCif()+"p", "servidor", desg.getCif()+"p", desg.getCif()+"p");
             conexion.open();
             ArrayList<OfferCEN> requests= new ArrayList<OfferCEN> ();
-            requests = OfferCEN.getByNIF(desg.getCif());
+            requests = OfferCEN.getByCIFDesPendientes(desg.getCif());
             String listaJSON = gson.toJson(requests);
             conexion.send(listaJSON, 60000);
         }
@@ -50,7 +50,7 @@ public class PruebaAMQ {
             conexion.setParams(desg.getCif()+"f", "servidor", desg.getCif()+"f", desg.getCif()+"f");
             conexion.open();
             ArrayList<OfferCEN> requests= new ArrayList<OfferCEN> ();
-            requests = OfferCEN.getAcceptedByUserNIF(desg.getCif());
+            requests = OfferCEN.getAcceptedByDesNIF(desg.getCif());
             String listaJSON = gson.toJson(requests);
             conexion.send(listaJSON, 60000);
         }
@@ -70,6 +70,9 @@ public class PruebaAMQ {
     
     public static void main(String[] args) {
            PruebaAMQ pr = new PruebaAMQ();
+           System.out.println("aceptadas");
           enviarOfertasAceptadasPorDesguace();
+          System.out.println("pendientes");
+          enviarOfertasPendientesPorDesguace();
     }
 }

@@ -120,7 +120,35 @@ public class OfferCAD {
         ArrayList<Hashtable> values = new ArrayList();
         try {
             String query = "SELECT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
-                            "FROM Oferta o, Solicitud s, Cliente c WHERE o.solicitud = s.codigo and s.usuario = c.id and c.nif = '" + nif + "'" + " and o.aceptada = 0;";
+                            "FROM Oferta o, Solicitud s, Cliente c WHERE o.solicitud = s.codigo and s.usuario = c.id and c.nif = '" + nif + "';";
+            ResultSet rs = Connector.query(query);
+            
+            while(rs.next()){
+                Hashtable ht = new Hashtable();
+                ht.put("code", rs.getInt("codigo"));
+                ht.put("type", rs.getString("tipo"));
+                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
+                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
+                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
+                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
+                ht.put("request", rs.getInt("solicitud"));
+                ht.put("scrapyard", rs.getInt("desguace"));
+                ht.put("accepted", rs.getBoolean("aceptada"));
+                values.add(ht);
+            }
+            Connector.close(rs);
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.err.println(e.getMessage());
+        }
+        return values;
+    }
+     public static ArrayList<Hashtable> getByCIFDesPendientes(String nif){
+        ArrayList<Hashtable> values = new ArrayList();
+        try {
+            String query = "SELECT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
+                            "FROM Oferta o, Solicitud s, Desguace c WHERE o.solicitud = s.codigo and o.desguace = c.id and c.cif = '" + nif + "' and o.aceptada= 0;";
             ResultSet rs = Connector.query(query);
             
             while(rs.next()){
@@ -235,6 +263,34 @@ public class OfferCAD {
         try {
             String query = "SELECT o.* FROM Oferta o, Solicitud s, Cliente c " +
                             "WHERE o.aceptada = 1 and s.usuario = c.id and o.solicitud = s.codigo and c.nif = " + nif + ";";
+            ResultSet rs = Connector.query(query);
+            
+            while(rs.next()){
+                Hashtable ht = new Hashtable();
+                ht.put("code", rs.getInt("codigo"));
+                ht.put("type", rs.getString("tipo"));
+                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
+                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
+                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
+                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
+                ht.put("request", rs.getInt("solicitud"));
+                ht.put("scrapyard", rs.getInt("desguace"));
+                ht.put("accepted", rs.getBoolean("aceptada"));
+                values.add(ht);
+            }
+            Connector.close(rs);
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.err.println(e.getMessage());
+        }
+        return values;
+    }
+     public static ArrayList<Hashtable> getAcceptedByDesNIF(String nif){
+        ArrayList<Hashtable> values = new ArrayList();
+        try {
+            String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
+                            "WHERE o.aceptada = 1 and o.desguace = c.id and o.solicitud = s.codigo and c.cif = '" + nif + "';";
             ResultSet rs = Connector.query(query);
             
             while(rs.next()){

@@ -855,3 +855,64 @@ INFO   | jvm 1    | 2014/01/18 13:29:01 |  WARN | Transport Connection to: tcp:/
 INFO   | jvm 1    | 2014/01/18 13:29:01 |  WARN | Transport Connection to: tcp://127.0.0.1:52982 failed: java.io.EOFException
 INFO   | jvm 1    | 2014/01/18 13:29:01 |  WARN | Transport Connection to: tcp://127.0.0.1:52978 failed: java.io.EOFException
 INFO   | jvm 1    | 2014/01/18 13:29:01 |  WARN | Transport Connection to: tcp://127.0.0.1:52976 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 14:55:39 |  WARN | Transport Connection to: tcp://127.0.0.1:53259 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 14:55:39 |  WARN | Transport Connection to: tcp://127.0.0.1:53257 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 14:55:39 |  WARN | Transport Connection to: tcp://127.0.0.1:53261 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 14:55:39 |  WARN | Transport Connection to: tcp://127.0.0.1:53255 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 14:55:39 |  WARN | Transport Connection to: tcp://127.0.0.1:53253 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 14:59:26 |  WARN | Transport Connection to: tcp://127.0.0.1:53278 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 14:59:26 |  WARN | Transport Connection to: tcp://127.0.0.1:53273 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 14:59:26 |  WARN | Transport Connection to: tcp://127.0.0.1:53265 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 14:59:26 |  WARN | Transport Connection to: tcp://127.0.0.1:53289 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 14:59:26 |  WARN | Transport Connection to: tcp://127.0.0.1:53294 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:05:28 |  WARN | Failed to add Connection ID:MacBook-Pro-de-Gustavo.local-53364-1390053926091-1:1
+INFO   | jvm 1    | 2014/01/18 15:05:28 | javax.jms.InvalidClientIDException: Broker: localhost - Client: servidor/dynamicTopics/66666666Af/66666666Af already connected from tcp://127.0.0.1:53300
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.broker.region.RegionBroker.addConnection(RegionBroker.java:243)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.broker.BrokerFilter.addConnection(BrokerFilter.java:92)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.advisory.AdvisoryBroker.addConnection(AdvisoryBroker.java:90)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.broker.BrokerFilter.addConnection(BrokerFilter.java:92)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.broker.BrokerFilter.addConnection(BrokerFilter.java:92)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.broker.MutableBrokerFilter.addConnection(MutableBrokerFilter.java:97)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.broker.TransportConnection.processAddConnection(TransportConnection.java:733)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.broker.jmx.ManagedTransportConnection.processAddConnection(ManagedTransportConnection.java:79)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.command.ConnectionInfo.visit(ConnectionInfo.java:139)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.broker.TransportConnection.service(TransportConnection.java:292)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.broker.TransportConnection$1.onCommand(TransportConnection.java:149)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.transport.MutexTransport.onCommand(MutexTransport.java:50)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.transport.WireFormatNegotiator.onCommand(WireFormatNegotiator.java:113)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.transport.AbstractInactivityMonitor.onCommand(AbstractInactivityMonitor.java:270)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.transport.TransportSupport.doConsume(TransportSupport.java:83)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:214)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:196)
+INFO   | jvm 1    | 2014/01/18 15:05:28 | 	at java.lang.Thread.run(Thread.java:722)
+INFO   | jvm 1    | 2014/01/18 15:05:59 |  WARN | Transport Connection to: tcp://127.0.0.1:53365 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:06:11 |  WARN | Transport Connection to: tcp://127.0.0.1:53356 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:06:11 |  WARN | Transport Connection to: tcp://127.0.0.1:53340 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:06:11 |  WARN | Transport Connection to: tcp://127.0.0.1:53329 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:06:11 |  WARN | Transport Connection to: tcp://127.0.0.1:53324 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:06:12 |  WARN | Transport Connection to: tcp://127.0.0.1:53308 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:06:12 |  WARN | Transport Connection to: tcp://127.0.0.1:53313 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:06:12 |  WARN | Transport Connection to: tcp://127.0.0.1:53300 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:06:12 |  WARN | Transport Connection to: tcp://127.0.0.1:53332 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:06:12 |  WARN | Transport Connection to: tcp://127.0.0.1:53345 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:06:12 |  WARN | Transport Connection to: tcp://127.0.0.1:53361 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:15:05 |  WARN | Transport Connection to: tcp://127.0.0.1:53431 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:15:06 |  WARN | Transport Connection to: tcp://127.0.0.1:53375 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:15:07 |  WARN | Transport Connection to: tcp://127.0.0.1:53420 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:15:07 |  WARN | Transport Connection to: tcp://127.0.0.1:53399 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:15:07 |  WARN | Transport Connection to: tcp://127.0.0.1:53436 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:15:10 |  WARN | Transport Connection to: tcp://127.0.0.1:53407 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:15:10 |  WARN | Transport Connection to: tcp://127.0.0.1:53388 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:15:11 |  WARN | Transport Connection to: tcp://127.0.0.1:53404 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:15:11 |  WARN | Transport Connection to: tcp://127.0.0.1:53383 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:15:11 |  WARN | Transport Connection to: tcp://127.0.0.1:53415 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:19:21 |  WARN | Transport Connection to: tcp://127.0.0.1:53500 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:19:22 |  WARN | Transport Connection to: tcp://127.0.0.1:53495 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:19:23 |  WARN | Transport Connection to: tcp://127.0.0.1:53450 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:19:23 |  WARN | Transport Connection to: tcp://127.0.0.1:53455 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:19:23 |  WARN | Transport Connection to: tcp://127.0.0.1:53468 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:19:23 |  WARN | Transport Connection to: tcp://127.0.0.1:53445 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:19:23 |  WARN | Transport Connection to: tcp://127.0.0.1:53471 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:19:23 |  WARN | Transport Connection to: tcp://127.0.0.1:53463 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:19:23 |  WARN | Transport Connection to: tcp://127.0.0.1:53484 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/18 15:19:23 |  WARN | Transport Connection to: tcp://127.0.0.1:53479 failed: java.io.EOFException
