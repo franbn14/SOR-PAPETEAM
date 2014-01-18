@@ -44,10 +44,9 @@ public class NewPeticion {
         fecha.setMonth(fecha.getMonth()+1);
 
     } 
+   
     catch (ParseException ex) {
-
         ex.printStackTrace();
-
     }
         ClientCEN cli=ClientCEN.getByID(usuario);
       
