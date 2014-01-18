@@ -6,11 +6,15 @@
 
 package javaapplication8;
 
+import CEN.ClientCEN;
 import CEN.RequestCEN;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
@@ -34,11 +38,15 @@ public class JavaApplication8 {
        // String requeststring= darOfertasSelection(4);
        // System.out.println(requeststring);
                 /*
+     
       if(!requeststring.equals("") && requeststring!=null){
         listarequest = gson.fromJson(requeststring, collectionType);
         System.out.println(listarequest.get(0));
       }*/
-        darPeticiones(null);
+        
+        System.out.println(insert("ruedas anchas", "05-10-2014", 45.0, 12, "verde", 12,45.0,2, false, false));
+        
+       
        
     }
 
@@ -48,12 +56,7 @@ public class JavaApplication8 {
         return port.getIdDes(nif);
     }
 
-    private static int insert(java.lang.String tipo, java.lang.String fechaTope, double tamanyo, int tamUnidad, java.lang.String color, int cantidad, double precioMax, int usuario, boolean autoElect, boolean finalizado) {
-        servicios.NewPeticion_Service service = new servicios.NewPeticion_Service();
-        servicios.NewPeticion port = service.getNewPeticionPort();
-        return port.insert(tipo, fechaTope, tamanyo, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado);
-    }
-
+  
     private static String darPeticiones(java.lang.String nif) {
         servicios.DarPeticionesNifP_Service service = new servicios.DarPeticionesNifP_Service();
         servicios.DarPeticionesNifP port = service.getDarPeticionesNifPPort();
@@ -106,6 +109,12 @@ public class JavaApplication8 {
         servicios.AceptarOfertas_Service service = new servicios.AceptarOfertas_Service();
         servicios.AceptarOfertas port = service.getAceptarOfertasPort();
         return port.aceptarOfertasDe(idS);
+    }
+
+    private static int insert(java.lang.String tipo, java.lang.String fechaTope, double tamanyo, int tamUnidad, java.lang.String color, int cantidad, double precioMax, int usuario, boolean autoElect, boolean finalizado) {
+        servicios.NewPeticion_Service service = new servicios.NewPeticion_Service();
+        servicios.NewPeticion port = service.getNewPeticionPort();
+        return port.insert(tipo, fechaTope, tamanyo, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado);
     }
 
  

@@ -145,9 +145,11 @@ public class RequestCEN {
         this.finished = finished;
     }
             
-    public void insert() {
+    public int insert() {
         if(this.code == -1)
             this.code = RequestCAD.insert(deadline, type, size, sizeUnit, color, amount, maxPrice,  client.getId(), autoElect, finished);
+        return this.code;
+    
     }
     
 
