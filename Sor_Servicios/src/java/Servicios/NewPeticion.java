@@ -41,7 +41,8 @@ public class NewPeticion {
               Date fecha = null;
    try{
         fecha = formatoDelTexto.parse(strFecha);
-        fecha.setMonth(fecha.getMonth()+1);
+        fecha.setMonth(fecha.getMonth());
+        
 
     } 
    
@@ -49,7 +50,7 @@ public class NewPeticion {
         ex.printStackTrace();
     }
         ClientCEN cli=ClientCEN.getByID(usuario);
-      
+    
         RequestCEN r=new RequestCEN(fecha,tipo,tamanyo,tamUnidad,color,cantidad,precioMax,cli, autoElect, finalizado);
         
         return r.insert();

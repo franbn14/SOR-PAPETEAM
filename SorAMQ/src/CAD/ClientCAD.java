@@ -18,7 +18,7 @@ public class ClientCAD extends UserCAD{
     
     public static int create(String name, String surname, String password, String nif, String address, Date DOB){
         int id = UserCAD.create(name, password, address);
-        String date = DOB.getYear() + "-" + (DOB.getMonth()+1) + "-" + DOB.getDate();
+        String date = DOB.getYear()+1900 + "-" + (DOB.getMonth()+1) + "-" + DOB.getDate();
         String query = "INSERT INTO Cliente (id, nif, apellidos, fechaNac) VALUES ('"+ id +"', '" + nif + "', '" + surname  + "', '" + date + "')";
         try {
             Connector.updates(query);
@@ -126,7 +126,7 @@ public class ClientCAD extends UserCAD{
     
     public static void updateDOB(int id, Date DOB){
         try {
-            String date = DOB.getYear() + "-" + (DOB.getMonth()+1) + "-" + DOB.getDate();
+            String date = DOB.getYear()+1900 + "-" + (DOB.getMonth()+1) + "-" + DOB.getDate();
             String query = "UPDATE Cliente SET fechaNac = '" + date + "' WHERE id = " + id;
             Connector.updates(query);
         }

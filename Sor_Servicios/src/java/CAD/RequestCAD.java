@@ -25,7 +25,7 @@ public class RequestCAD {
     public static int insert(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int clientID, boolean autoElec, boolean finished) {
         int code = -1;
          
-        String date = deadline.getYear() + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
+        String date = deadline.getYear()+1900 + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
         
         String c = (color == null)? null : "\"" + color + "\"";
         String query = "INSERT INTO Solicitud (fechaTope, tipo, tamaño, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado) VALUES "+
@@ -101,7 +101,7 @@ public class RequestCAD {
     
     public static void update(int code, Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int client, boolean autoElect, boolean finished) {
         try {
-            String date = deadline.getYear() + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
+            String date = deadline.getYear()+1900 + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
             String c = (color == null)? null : "\"" + color + "\"";
             String query = "UPDATE Solicitud SET fechaTope = '"+ date +"', tipo = \"" + type + "\", tamaño = "+ size +", "+
                            "tamUnidad = "+ sizeUnit +", color = "+ c +", cantidad = " + amount + ",precioMax = " + maxPrice + ", " +
