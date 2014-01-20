@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
-  <endpoint implementation="Servicios.LoginClientes" name="LoginClientes" url-pattern="/LoginClientes"/>
-  <endpoint implementation="Servicios.LoginDesguace" name="LoginDesguace" url-pattern="/LoginDesguace"/>
-  <endpoint implementation="Servicios.RegistroDesguace" name="RegistroDesguace" url-pattern="/RegistroDesguace"/>
-  <endpoint implementation="Servicios.RegistroCliente" name="RegistroCliente" url-pattern="/RegistroCliente"/>
-  <endpoint implementation="Servicios.RegistroDesguace" name="RegistroDesguace" url-pattern="/RegistroDesguace"/>
-  <endpoint implementation="Servicios.RegistroCliente" name="RegistroCliente" url-pattern="/RegistroCliente"/>
-</endpoints>
