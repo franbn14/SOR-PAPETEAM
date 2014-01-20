@@ -1,22 +1,22 @@
-<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://Servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicios/">
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://Servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicios/">
 
-<xs:element name="DarPeticiones" type="tns:DarPeticiones" />
+<xs:element name="GetID" type="tns:GetID" />
 
-<xs:element name="DarPeticionesResponse" type="tns:DarPeticionesResponse" />
+<xs:element name="GetIDResponse" type="tns:GetIDResponse" />
 
 <xs:element name="hello" type="tns:hello" />
 
 <xs:element name="helloResponse" type="tns:helloResponse" />
 
-<xs:complexType name="DarPeticiones">
+<xs:complexType name="GetID">
 <xs:sequence>
 <xs:element name="nif" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="DarPeticionesResponse">
+<xs:complexType name="GetIDResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0" />
+<xs:element name="return" type="xs:int" />
 </xs:sequence>
 </xs:complexType>
 

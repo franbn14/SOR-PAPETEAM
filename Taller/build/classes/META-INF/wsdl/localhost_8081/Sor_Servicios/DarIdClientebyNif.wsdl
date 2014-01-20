@@ -4,31 +4,31 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:8081/Sor_Servicios/DarIdClientebyNif?xsd=1" />
 </xsd:schema>
 </types>
-<message name="GetID">
-<part name="parameters" element="tns:GetID" />
-</message>
-<message name="GetIDResponse">
-<part name="parameters" element="tns:GetIDResponse" />
-</message>
 <message name="hello">
 <part name="parameters" element="tns:hello" />
 </message>
 <message name="helloResponse">
 <part name="parameters" element="tns:helloResponse" />
 </message>
+<message name="GetID">
+<part name="parameters" element="tns:GetID" />
+</message>
+<message name="GetIDResponse">
+<part name="parameters" element="tns:GetIDResponse" />
+</message>
 <portType name="DarIdClientebyNif">
-<operation name="GetID">
-<input wsam:Action="http://Servicios/DarIdClientebyNif/GetIDRequest" message="tns:GetID" />
-<output wsam:Action="http://Servicios/DarIdClientebyNif/GetIDResponse" message="tns:GetIDResponse" />
-</operation>
 <operation name="hello">
 <input wsam:Action="http://Servicios/DarIdClientebyNif/helloRequest" message="tns:hello" />
 <output wsam:Action="http://Servicios/DarIdClientebyNif/helloResponse" message="tns:helloResponse" />
 </operation>
+<operation name="GetID">
+<input wsam:Action="http://Servicios/DarIdClientebyNif/GetIDRequest" message="tns:GetID" />
+<output wsam:Action="http://Servicios/DarIdClientebyNif/GetIDResponse" message="tns:GetIDResponse" />
+</operation>
 </portType>
 <binding name="DarIdClientebyNifPortBinding" type="tns:DarIdClientebyNif">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
-<operation name="GetID">
+<operation name="hello">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -37,7 +37,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="hello">
+<operation name="GetID">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

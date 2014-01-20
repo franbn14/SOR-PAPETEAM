@@ -16,23 +16,6 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-LoginClientes" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/LoginClientes"/>
-        <property name="wsdl-LoginClientes" location="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8081/Sor_Servicios/LoginClientes.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginClientes" destdir="${build.generated.dir}/jax-wsCache/LoginClientes" wsdl="${wsdl-LoginClientes}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8081/Sor_Servicios/LoginClientes?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-LoginClientes}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/LoginClientes"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/LoginClientes">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-LoginClientes" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/LoginClientes"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-    </target>
     <target name="wsimport-client-RegistroCliente" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/RegistroCliente"/>
         <property name="wsdl-RegistroCliente" location="xml-resources/web-service-references/RegistroCliente/wsdl/localhost_8081/Sor_Servicios/RegistroCliente.wsdl"/>
@@ -48,23 +31,6 @@
     </target>
     <target name="wsimport-client-clean-RegistroCliente" depends="-init-project">
         <delete dir="${build.generated.dir}/jax-wsCache/RegistroCliente"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-    </target>
-    <target name="wsimport-client-DarPeticionesNifP" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP"/>
-        <property name="wsdl-DarPeticionesNifP" location="xml-resources/web-service-references/DarPeticionesNifP/wsdl/localhost_8081/Sor_Servicios/DarPeticionesNifP.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP" destdir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP" wsdl="${wsdl-DarPeticionesNifP}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8081/Sor_Servicios/DarPeticionesNifP?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-DarPeticionesNifP}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-DarPeticionesNifP" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
     </target>
     <target name="wsimport-client-DarPeticionesNifF" depends="wsimport-init">
@@ -203,5 +169,22 @@
         <delete dir="${build.generated.dir}/jax-wsCache/DarOfertasSeleccionadas"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-LoginClientes, wsimport-client-RegistroCliente, wsimport-client-DarPeticionesNifP, wsimport-client-DarPeticionesNifF, wsimport-client-NewPeticion, wsimport-client-DarUnidades, wsimport-client-DarIdClientebyNif, wsimport-client-BorrarPeticion, wsimport-client-DarOfertasRequest, wsimport-client-DarOfertasRequestOk, wsimport-client-DarOfertasSeleccionadas"/>
+    <target name="wsimport-client-LoginClientes" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/LoginClientes"/>
+        <property name="wsdl-LoginClientes" location="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8080/Sor_Servicios/LoginClientes.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginClientes" destdir="${build.generated.dir}/jax-wsCache/LoginClientes" wsdl="${wsdl-LoginClientes}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Sor_Servicios/LoginClientes?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-LoginClientes}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/LoginClientes"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/LoginClientes">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-LoginClientes" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/LoginClientes"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-RegistroCliente, wsimport-client-DarPeticionesNifF, wsimport-client-NewPeticion, wsimport-client-DarUnidades, wsimport-client-DarIdClientebyNif, wsimport-client-BorrarPeticion, wsimport-client-DarOfertasRequest, wsimport-client-DarOfertasRequestOk, wsimport-client-DarOfertasSeleccionadas, wsimport-client-LoginClientes"/>
 </project>

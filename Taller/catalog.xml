@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="http://localhost:8081/Sor_Servicios/LoginClientes?wsdl" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8081/Sor_Servicios/LoginClientes.wsdl"/>
-    <system systemId="http://localhost:8081/Sor_Servicios/LoginClientes?xsd=1" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8081/Sor_Servicios/LoginClientes.xsd_1.xsd"/>
     <system systemId="http://localhost:8081/Sor_Servicios/RegistroCliente?wsdl" uri="xml-resources/web-service-references/RegistroCliente/wsdl/localhost_8081/Sor_Servicios/RegistroCliente.wsdl"/>
     <system systemId="http://localhost:8081/Sor_Servicios/RegistroCliente?xsd=1" uri="xml-resources/web-service-references/RegistroCliente/wsdl/localhost_8081/Sor_Servicios/RegistroCliente.xsd_1.xsd"/>
     <system systemId="http://localhost:8081/Sor_Servicios/DarPeticionesNifP?wsdl" uri="xml-resources/web-service-references/DarPeticionesNifP/wsdl/localhost_8081/Sor_Servicios/DarPeticionesNifP.wsdl"/>
@@ -22,4 +20,8 @@
     <system systemId="http://localhost:8081/Sor_Servicios/DarOfertasRequestOk?xsd=1" uri="xml-resources/web-service-references/DarOfertasRequestOk/wsdl/localhost_8081/Sor_Servicios/DarOfertasRequestOk.xsd_1.xsd"/>
     <system systemId="http://localhost:8081/Sor_Servicios/DarOfertasSeleccionadas?wsdl" uri="xml-resources/web-service-references/DarOfertasSeleccionadas/wsdl/localhost_8081/Sor_Servicios/DarOfertasSeleccionadas.wsdl"/>
     <system systemId="http://localhost:8081/Sor_Servicios/DarOfertasSeleccionadas?xsd=1" uri="xml-resources/web-service-references/DarOfertasSeleccionadas/wsdl/localhost_8081/Sor_Servicios/DarOfertasSeleccionadas.xsd_1.xsd"/>
+    <system systemId="http://localhost:8081/Sor_Servicios/LoginClientes?wsdl" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8081/Sor_Servicios/LoginClientes.wsdl"/>
+    <system systemId="http://localhost:8081/Sor_Servicios/LoginClientes?xsd=1" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8081/Sor_Servicios/LoginClientes.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/LoginClientes?wsdl" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8080/Sor_Servicios/LoginClientes.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/LoginClientes?xsd=1" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8080/Sor_Servicios/LoginClientes.xsd_1.xsd"/>
 </catalog>

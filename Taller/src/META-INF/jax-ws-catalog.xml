@@ -22,4 +22,6 @@
     <system systemId="http://localhost:8081/Sor_Servicios/DarOfertasRequestOk?xsd=1" uri="wsdl/localhost_8081/Sor_Servicios/DarOfertasRequestOk.xsd_1.xsd"/>
     <system systemId="http://localhost:8081/Sor_Servicios/DarOfertasSeleccionadas?wsdl" uri="wsdl/localhost_8081/Sor_Servicios/DarOfertasSeleccionadas.wsdl"/>
     <system systemId="http://localhost:8081/Sor_Servicios/DarOfertasSeleccionadas?xsd=1" uri="wsdl/localhost_8081/Sor_Servicios/DarOfertasSeleccionadas.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/LoginClientes?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/LoginClientes.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/LoginClientes?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/LoginClientes.xsd_1.xsd"/>
 </catalog>

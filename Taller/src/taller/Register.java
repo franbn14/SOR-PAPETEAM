@@ -264,14 +264,12 @@ public class Register extends javax.swing.JFrame {
                     dateCorrect=false;
                 }
 
-                if(dateCorrect) {
-                    System.out.println("IN");                   
-                    
+                if(dateCorrect) {                   
                     Date date = null;
                     dob = year+"-"+month+"-"+day;
                     
                     try {
-                        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                        DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                         formatter.setLenient(false);
                         date = formatter.parse(dob);
                         
@@ -400,15 +398,16 @@ public class Register extends javax.swing.JFrame {
          String letters, letter, digits;
          
          if(isTaller) {
-            letter = cif.substring(0);        
+            letter = cif.substring(0,1);        
             letters = "ABCDEFGHJNPQRSUVW";            
-            digits = cif.substring(1, 8);
+            digits = cif.substring(1);
             
          }
          else {
+             System.out.println("AQUI "+cif);
              letter = cif.substring(8);            
              letters="TRWAGMYFPDXBNJZSQVHLCKE";                          
-             digits = cif.substring(0, 7);
+             digits = cif.substring(0, 8);
          }
          
          if (letters.indexOf(letter) == -1) 

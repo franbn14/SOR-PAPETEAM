@@ -381,7 +381,7 @@ public class NewRequest extends javax.swing.JFrame {
             dateString = year+"-"+month+"-"+day;
 
             try {
-                DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                 formatter.setLenient(false);
                 date = formatter.parse(dateString);
 
@@ -397,7 +397,7 @@ public class NewRequest extends javax.swing.JFrame {
     
     public Double checkNumber(String number) {        
         if(number!=null && !number.equals("")) {
-            if(!number.matches("[0-9]+"))
+            if(!number.matches("[0-9]+[.,][0-9]*"))
                 return null;
             else
                 return Double.parseDouble(number);            
