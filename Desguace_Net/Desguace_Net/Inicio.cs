@@ -11,6 +11,7 @@ using System.ServiceModel;
 using Desguace_Net.LoginServicio;
 using Desguace_Net.DarNombre;
 using Desguace_Net.DarID;
+using Apache.NMS.ActiveMQ;
 
 namespace Desguace_Net
 {
@@ -21,7 +22,7 @@ namespace Desguace_Net
         int idDes = 0;
         public Inicio(String user)
         {
-            DarNombreClienteClient c = new DarNombreClienteClient();
+          DarNombreClienteClient c = new DarNombreClienteClient();
             DarIdDesguacebyCifClient id = new DarIdDesguacebyCifClient();
             nif = user;
             idDes = id.getIdDes(user);

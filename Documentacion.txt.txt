@@ -1,0 +1,7 @@
+Configuración de acceso remota a soap
+Para configurar el acceso remoto para poder acceder a url para ip remota tenemos que entrar en la carpeta Web Service References
+Y cada servicio Edit Web Services Attributes y despues le damos a la pestaña Wsimports options y cambiamos de wsldlocation localhost por la ip que desee
+
+Para poder funcionar active mq en .net hemos tenido que instalar un plugin llamado apache.nms.activemq para ello le damos a herramientas/administrador de paquetes de la biblioteca y 
+después le damos a la consola y debemos de poner:
+PM> Install-Package Apache.NMS.ActiveMQ

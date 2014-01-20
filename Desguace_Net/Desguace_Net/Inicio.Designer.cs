@@ -31,12 +31,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ViewPeticiones = new System.Windows.Forms.DataGridView();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AceptarOferta = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AceptarOferta = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ViewPeticiones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -79,6 +79,18 @@
             this.ViewPeticiones.Size = new System.Drawing.Size(407, 392);
             this.ViewPeticiones.TabIndex = 3;
             this.ViewPeticiones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            // 
+            // AceptarOferta
+            // 
+            this.AceptarOferta.DataPropertyName = "Hacer Oferta";
+            this.AceptarOferta.HeaderText = "Aceptar Oferta";
+            this.AceptarOferta.Name = "AceptarOferta";
+            this.AceptarOferta.Text = "Hacer Oferta";
             // 
             // label2
             // 
@@ -124,18 +136,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Mis ofertas Aceptadas";
             // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            // 
-            // AceptarOferta
-            // 
-            this.AceptarOferta.DataPropertyName = "Hacer Oferta";
-            this.AceptarOferta.HeaderText = "Aceptar Oferta";
-            this.AceptarOferta.Name = "AceptarOferta";
-            this.AceptarOferta.Text = "Hacer Oferta";
-            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +150,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Inicio";
             this.Text = "Desguace Solution";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Inicio_FormClosed);
