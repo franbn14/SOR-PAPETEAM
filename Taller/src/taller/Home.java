@@ -300,7 +300,7 @@ public class Home extends javax.swing.JFrame {
         DefaultListModel model = new DefaultListModel();
         DefaultListModel model2 = new DefaultListModel();
         
-        String requestString = darPeticiones(user);
+        String requestString = darPeticionesHis(user);
         String requestString2 = darPeticionesHis(user);
         
         Gson gson = new Gson();
@@ -383,11 +383,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JList requestList;
     // End of variables declaration//GEN-END:variables
 
-    private static String darPeticiones(java.lang.String nif) {
+   /* private static String darPeticiones(java.lang.String nif) {
         servicios.DarPeticionesNifP_Service service = new servicios.DarPeticionesNifP_Service();
         servicios.DarPeticionesNifP port = service.getDarPeticionesNifPPort();
         return port.darPeticiones(nif);
-    }
+    }*/
 
     private static String darPeticionesHis(java.lang.String nif) {
         servicios.DarPeticionesNifF_Service service = new servicios.DarPeticionesNifF_Service();
