@@ -70,9 +70,6 @@ public class PruebaAMQ {
     
     public static void main(String[] args) {
            PruebaAMQ pr = new PruebaAMQ();
-           System.out.println("aceptadas");
-          enviarOfertasAceptadasPorDesguace();
-          System.out.println("pendientes");
-          enviarOfertasPendientesPorDesguace();
+          enviarPeticionesPendientes();
     }
 }

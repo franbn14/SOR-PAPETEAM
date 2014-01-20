@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
@@ -12,6 +13,8 @@ using Desguace_Net.LoginServicio;
 using Desguace_Net.DarNombre;
 using Desguace_Net.DarID;
 using Apache.NMS.ActiveMQ;
+using Apache.NMS;
+
 
 namespace Desguace_Net
 {
@@ -33,6 +36,18 @@ namespace Desguace_Net
         private void Inicio_Load(object sender, EventArgs e)
         {
             Text = "Bienvenido "+userName;
+
+            IConnectionFactory factory = new NMSConnectionFactory(new Uri("tcp://localhost:61616"));
+            Console.WriteLine("Entro");
+            IConnection connection = factory.CreateConnection("", "");
+           
+            ISession session = connection.CreateSession();
+            IDestination destination = session.GetDestination("topic://" + "pendientes");
+            IMessageConsumer consumer = session.CreateConsumer(destination);
+            connection.Start();
+            consumer.Listener += new MessageListener(OnMessage);
+          
+            connection.Close();
         }
         private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -76,6 +91,24 @@ namespace Desguace_Net
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        private static void OnMessage(IMessage message)
+        {
+            try
+            {
+                Console.WriteLine("Median-Server (.NET): Message received");
+                ITextMessage msg = (ITextMessage)message;
+                message.Acknowledge();
+                Console.WriteLine(msg.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("---");
+                Console.WriteLine(ex.InnerException);
+                Console.WriteLine("---");
+                Console.WriteLine(ex.InnerException.Message);
+            }
         }
     }
 }
