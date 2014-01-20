@@ -54,7 +54,7 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(208, 76, 76));
 
-        mainPane.setBackground(new java.awt.Color(247, 247, 247));
+        mainPane.setBackground(new java.awt.Color(245, 228, 179));
         mainPane.setName("mainPane"); // NOI18N
 
         tfUser.setName("tfUser"); // NOI18N
