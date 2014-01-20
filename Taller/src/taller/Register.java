@@ -58,7 +58,7 @@ public class Register extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mainPane.setBackground(new java.awt.Color(255, 250, 250));
+        mainPane.setBackground(new java.awt.Color(245, 228, 179));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel1.setText("Registro de nuevo usuario");
