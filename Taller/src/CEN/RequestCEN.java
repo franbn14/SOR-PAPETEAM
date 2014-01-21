@@ -149,6 +149,15 @@ public class RequestCEN {
     
     @Override
     public String toString(){
-        return amount + " " + type;
+        return ((amount!=null)?amount+" ":"") + type + " " + ((color!=null)?color+" ":"") + 
+                ((size!=null)?size+" "+darUnidadId(sizeUnit)+" ":"");
     }
+
+    private static String darUnidadId(int id) {
+        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
+        servicios.DarUnidades port = service.getDarUnidadesPort();
+        return port.darUnidadId(id);
+    }
+    
+    
 }

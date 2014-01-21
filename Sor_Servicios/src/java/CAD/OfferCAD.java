@@ -325,7 +325,7 @@ public class OfferCAD {
             String q_amount = (amount == null)? null: "o.cantidad = " + amount;
             String q_maxPrice = (maxPrice == null)? null : "o.precio <= " + maxPrice;
             
-            String query = "SELECT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
+            String query = "SELECT DISTINCT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
                         "FROM Oferta o, Solicitud s "
                         + "WHERE solicitud = " + request + " and "
                         + q_type + " and "
@@ -336,7 +336,6 @@ public class OfferCAD {
                         + ((q_maxPrice == null)? "" : q_maxPrice + ";");
 
             ResultSet rs = Connector.query(query);
-            
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
