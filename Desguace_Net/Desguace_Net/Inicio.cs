@@ -15,7 +15,6 @@ using Desguace_Net.DarID;
 using Apache.NMS.ActiveMQ;
 using Apache.NMS;
 
-
 namespace Desguace_Net
 {
     public partial class Inicio : Form
@@ -23,32 +22,44 @@ namespace Desguace_Net
         String userName = "";
         String nif = "";
         int idDes = 0;
+        Services.TopicSubscriber request_subscriber;
         public Inicio(String user)
         {
           DarNombreClienteClient c = new DarNombreClienteClient();
             DarIdDesguacebyCifClient id = new DarIdDesguacebyCifClient();
             nif = user;
             idDes = id.getIdDes(user);
+            
             userName = c.DarNombreDesguace(user);
             InitializeComponent();
+            Text = "Bienvenido " + userName;
+
+            request_subscriber = new Services.TopicSubscriber("pendientes", "tcp://localhost:61616", "pendientesSuscriber");
+                
+                /*TopicSubscriber.MakeSubscriber(
+                 "tcp://localhost:61616",
+                 "pendientesSuscriber",
+                "pendientes");*/
+
+            
+
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            Text = "Bienvenido "+userName;
 
-            IConnectionFactory factory = new NMSConnectionFactory(new Uri("tcp://localhost:61616"));
-            Console.WriteLine("Entro");
-            IConnection connection = factory.CreateConnection("", "");
-           
-            ISession session = connection.CreateSession();
-            IDestination destination = session.GetDestination("topic://" + "pendientes");
-            IMessageConsumer consumer = session.CreateConsumer(destination);
-            connection.Start();
-            consumer.Listener += new MessageListener(OnMessage);
-          
-            connection.Close();
+            //request_subscriber.Start("Request_Pendientes");
+           // request_subscriber.OnMessageReceived += OnMessage;
+            request_subscriber.OnMessageReceived += OnMessage;
+            Console.WriteLine("de");
         }
+
+        void request_subscriber_OnMessageReceived(string message)
+        {
+            textBox1.Text = message;
+            MessageBox.Show(message);   
+        }
+
         private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("¿Es cierto que desea salir?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
@@ -92,23 +103,16 @@ namespace Desguace_Net
         {
 
         }
-        private static void OnMessage(IMessage message)
+        private  void OnMessage(string message)
         {
-            try
-            {
-                Console.WriteLine("Median-Server (.NET): Message received");
-                ITextMessage msg = (ITextMessage)message;
-                message.Acknowledge();
-                Console.WriteLine(msg.Text);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("---");
-                Console.WriteLine(ex.InnerException);
-                Console.WriteLine("---");
-                Console.WriteLine(ex.InnerException.Message);
-            }
+                textBox1.Text = message;
+                MessageBox.Show("entro");
+                Console.WriteLine(message);           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            request_subscriber.OnMessageReceived += request_subscriber_OnMessageReceived;
         }
     }
 }
