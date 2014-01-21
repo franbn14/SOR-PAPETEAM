@@ -1,7 +1,9 @@
 function formFields(){
     var enterprise = false;
+    var scrapyard = true;
     formFields.change = function(entity) {
         enterprise = (entity.value == "enterprise");
+        //scrapyard = document.getElementById("radioButton2").checked;
         formFields.showFields();
     }
     
@@ -17,12 +19,19 @@ function formFields(){
                 fields[i].style.display = "none";
             }
             document.getElementById("typeEnterprise").style.display = "block";
+            if(document.getElementById("radioButton2").checked){
+                document.getElementById("scrapYard").style.display = "block";
+            }
+            else {
+                document.getElementById("scrapYard").style.display = "none";
+            }
         }
         else {
             for(var i  = 0; i < fields.length; i++){
                 fields[i].style.display = "block";
             }
             document.getElementById("typeEnterprise").style.display = "none";
+            document.getElementById("scrapYard").style.display = "none";
         }
     }
 }

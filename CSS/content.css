@@ -1,5 +1,5 @@
 div.area {
-    background-color: #F4F1ED;
+    background-color: white;
 	border: 2px solid #bc9a63;
 	height: 400px;
 	
@@ -44,13 +44,14 @@ div.buttonsFooter{
 
 #showArea {
 	float: right;
+	text-align: center;
 }
 
 button.show {
 	text-align: center;
 }
 
-button.items, button.area {
+button.items, button.area, button.offerButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #fcf8f2;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #fcf8f2;
 	box-shadow:inset 0px 1px 0px 0px #fcf8f2;
@@ -86,19 +87,19 @@ button.items, button.area {
 	text-shadow:1px 1px 0px #cc9f52;
 }
 
-button.items:hover, button.area:hover {
+button.items:hover, button.area:hover, button.offerButton:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bc9a63), color-stop(1, #fae4bd) );
 	background:-moz-linear-gradient( center top, #bc9a63 5%, #fae4bd 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc9a63', endColorstr='#fae4bd');
 	background-color:#eac380;
 }
 
-button.items:active, button.area:active {
+button.items:active, button.area:active, button.offerButton:active {
 	position:relative;
 	top:1px;
 }
 
-button.items {
+button.items, button.offerButton {
 	width:150px;
 }
 
@@ -142,7 +143,7 @@ p.desc {
 	width: 80%;
 }*/
 
-li.desc {
+li.desc, li.feature {
 	display: block;
 	font-size: 16px;
 	font-weight: bold;
@@ -166,6 +167,52 @@ p.num {
 	text-align: center;
 	vertical-align: middle;
 	width: 18%;
+}
+
+div.area {
+	color: #9E855D;
+}
+
+#areaHeader {
+	background-color: #F4F1ED;
+	display: table;
+	height: 18%;
+	text-align: left;
+	width: 100%;
+}
+
+p.areaType {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 26px;
+	width: 100%;
+}
+
+label.ref {
+	/*float:left;*/
+	position: absolute;
+}
+
+/*span.areaRef{
+	width: 20%;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}*/
+
+ul.feature {
+	text-align: left;
+	display: table;
+}
+
+li.feature{
+	display: table-row;
+	vertical-align: center;
+}
+label.feature {
+	font-size: 20px;
+	line-height: 40px;
 }
 
 @media screen and (max-width: 1024px){

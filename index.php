@@ -33,11 +33,13 @@
 	<meta charset="UTF-8">
 	<link type="text/css" href="CSS/general.css" rel="stylesheet"/>
 	<link type="text/css" href="CSS/login.css" rel="stylesheet"/>
+	<script type="text/javascript" src="JavaScript/valFunc.js"></script>
+	<script type="text/javascript" src="JavaScript/valForms.js"></script>
     </head>
     
     <body>
 	<section id="login" class="mainSec">
-	    <form method="post" action="index.php">
+	    <form method="post" action="index.php" onsubmit="return valLogin(this);">
 		<table id="tLogin">
 		    <tr>
 			<td class="login"> Usuario </td>

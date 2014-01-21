@@ -12,7 +12,7 @@ label.form {
 	line-height: 28px;
 }
 
-input.form {
+input.form, input.formError {
 	float: right;
 	width: 42%;
 	padding-right: 8%;
@@ -23,6 +23,21 @@ input.formCombo {
     border-radius: 5px;
     color: #c1ad8c;
   	float: right;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    height: 25px;
+    text-align: center;    
+    vertical-align:middle;
+    width: 42%;
+}
+
+input.formComboError {
+    background-color: #f57a7a;
+    border: 1px solid #af1f0d;
+    border-radius: 5px;
+    color: #af1f0d;
+    float: right;
     font-family: sans-serif;
     font-size: 16px;
     font-weight: bold;

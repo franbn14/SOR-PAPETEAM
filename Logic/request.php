@@ -1,7 +1,11 @@
 <?php
-/**
-* 
-*/
+include_once "Logic/valFunc.php";
+include_once "Logic/exceptions.php";
+include_once "serverConf.php";
+include_once "Logic/client.php";
+include_once "Logic/scrapYard.php";
+include_once "Logic/genFunc.php";
+
 class Request {
 	private $code;
 	private $deadline;
@@ -17,13 +21,13 @@ class Request {
 
 	function __construct($deadline, $type, $size, $sizeUnit, $color, $amount, $maxPrice, $client, $autoElect, $finished) {
 		$this->code = -1;
-		$this->deadline = $deadline;
-		$this->type = $type;
-		$this->size = $size;
+		$this->setDeadline($deadline);
+		$this->setType($type);
+		$this->setSize($size);
 		$this->sizeUnit = $sizeUnit;
-		$this->color = $color;
-		$this->amount = $amount;
-		$this->maxPrice = $maxPrice;
+		$this->setColor($color);
+		$this->setAmount($amount);
+		$this->setMaxPrice($maxPrice);
 		$this->client = $client;
 		$this->autoElect = $autoElect;
 		$this->finished = $finished;
@@ -31,7 +35,10 @@ class Request {
 
 	 public function insert() {
     	if($this->code == -1){
-
+            $sc = new soapclient($GLOBALS['SERVER_LOCATION']."/Sor_Servicios/NewPeticion?wsdl");  
+            $params  = array('tipo'=> $this->type, 'fechaTope' => $this->deadline, 'tamanyo' => $this->size, 'tamUnidad' => $this->sizeUnit, 'color' => $this->color, 
+                'cantidad' => $this->amount, 'precioMax' => $this->maxPrice, 'usuario' => $this->client, 'autoElect' => $this->autoElect, 'finalizado' => $this->finished);
+            $sc->Insert($params);
     	}
     }
 
@@ -53,12 +60,25 @@ class Request {
     	return $this->code;
     }
 
+    public function setCode($code){
+        $this->code = $code;
+    }
+
     public function getDeadline() {
     	return $this->deadline;
     }
 
     public function setDeadline($deadline) {
-    	$this->deadline = $deadline;
+        if(!checkDateFormat($deadline)){
+            throw new RequestException("Error fecha incorrecta", 1);
+        }
+        $date = $deadline;
+        $expr = "/^\d{1,2}\/\d{1,2}\/\d{2,4}$/";
+        if (preg_match($expr, $deadline)){
+            list($day, $month, $year) = split('/', $deadline);
+            $date = "$day-$month-$year";
+        }
+    	$this->deadline = $date;
     }
 
     public function getType() {
@@ -66,6 +86,9 @@ class Request {
     }
 
     public function setType($type) {
+        if(isEmpty($type)){
+            throw new RequestException("Error el campo pieza no puede ser vacio", 2);
+        }
     	$this->type = $type;
     }
 
@@ -74,6 +97,9 @@ class Request {
     }
 
     public function setSize($size) {
+        if(!isEmpty($size) && is_nan($size)){
+            throw new RequestException("Error el campo tamaño debe ser un número", 3);
+        }
     	$this->size = $size;
     }
 
@@ -90,6 +116,9 @@ class Request {
     }
 
     public function setColor($color) {
+        /*if(!isEmpty($color) && !checkColor($color)){
+            throw new RequestException("Error en el formato del campo Color", 4);
+        }*/
     	$this->color = $color;
     }
 
@@ -98,6 +127,9 @@ class Request {
     }
 
     public function setAmount($amount) {
+        if(is_nan($amount)){
+            throw new RequestException("Error el campo cantidad debe ser un número", 5);
+        }
     	$this->amount = $amount;
     }
 
@@ -106,6 +138,10 @@ class Request {
     }
 
     public function setMaxPrice($maxPrice) {
+        if(!isEmpty($maxPrice) && is_nan($maxPrice)){
+            throw new RequestException("Error el campo precio máximo debe ser un número", 6);
+            
+        }
     	$this->maxPrice = $maxPrice;
     }
 
@@ -132,5 +168,61 @@ class Request {
     public function setFinished($finished) {
     	$this->finished = $finished;
     }
+
+    public static function getPendingByNIF($nif){
+        $sc = new soapclient($GLOBALS['SERVER_LOCATION']."/Sor_Servicios/DarPeticionesNifP?wsdl");  
+        $params  = array('nif'=> $nif);
+        $result = json_decode($sc->DarPeticiones($params)->return);
+        $requests = array();
+
+        for ($i=0; $i < count($result); $i++) { 
+            $c = $result[$i]->client;
+
+            $nif = isset($c->nif)? $c->nif : "";
+            $name = isset($c->name)? $c->name : "";
+            $surname = isset($c->surname)? $c->surname : "";
+            $password = isset($c->password)? $c->password : "";
+            $address = isset($c->address)? $c->address : "";
+            $DOB = isset($c->DOB)? $c->DOB : "";
+
+            $client = new Client($nif, $name, $surname, $password, $address, changeDate($DOB));
+            $client->setID($c->id);
+
+            $deadline = isset($result[$i]->deadline)? $result[$i]->deadline : "";
+            $type = isset($result[$i]->type)? $result[$i]->type : "";
+            $size = isset($result[$i]->size)? $result[$i]->size : "";
+            $sizeUnit = isset($result[$i]->sizeUnit)? $result[$i]->sizeUnit : "";
+            $color = isset($result[$i]->color)? $result[$i]->color : "";
+            $amount = isset($result[$i]->amount)? $result[$i]->amount : "";
+            $maxPrice = isset($result[$i]->maxPrice)? $result[$i]->maxPrice : "";
+            $autoElect = isset($result[$i]->autoElect)? $result[$i]->autoElect : "";
+            $finished = isset($result[$i]->finished)? $result[$i]->finished : "";
+
+            $reqAux = new Request(changeDate($deadline), $type, $size, $sizeUnit, $color/*formatColor($color)*/, $amount, $maxPrice, $client, $autoElect, $finished);
+            $reqAux->code = $result[$i]->code;
+
+            array_push($requests, $reqAux);
+        }
+
+        return $requests;
+    }
+
+    public function toStdClass() {
+        $class = new StdClass();
+        $class->code = $this->code;
+        $class->deadline = $this->deadline;
+        $class->type = $this->type;
+        $class->size = $this->size;
+        $class->sizeUnit = $this->sizeUnit;
+        $class->color = $this->color;
+        $class->amount = $this->amount;
+        $class->maxPrice = $this->maxPrice;
+        $class->client = $this->client->toStdClass();
+        $class->autoElect = $this->autoElect;
+        $class->finished = $this->finished;
+        return $class;
+    }
 }
+
+
 ?>

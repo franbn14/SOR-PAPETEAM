@@ -1,5 +1,8 @@
 <?php
 
+include_once "exceptions.php";
+include_once "valFunc.php";
+
 class User {
 	protected $id;
 	protected $name;
@@ -8,8 +11,9 @@ class User {
 
 	protected function __construct($name, $password, $address){
 		$this->id = -1;
-		$this->name = $name;
-		$this->password = $password;
+		//$this->name = $name;
+		$this->setName($name);
+		$this->setPass($password);
 		$this->address = $address;
 	}
 
@@ -44,15 +48,24 @@ class User {
 	}
 
 	public function getID() {
-		return $this->$id;
+		return $this->id;
+	}
+
+	public function setID($id) {
+		$this->id = $id;
 	}
 
 	public function getName() {
-		return $this->$name;
+		return $this->name;
 	}
 
 	public function setName($name) {
-		$this->$name = $name;
+		if(!isEmpty($name)){
+			$this->name = $name;
+		}
+		else {
+			throw new UserException("El nombre no puede estar vacio", 1);
+		}
 	}
 
 	public function getPass() {
@@ -60,7 +73,11 @@ class User {
 	}
 
 	public function setPass($pass) {
-		$this->$password = $pass;
+		if(isEmpty($pass)){
+			throw new UserException("Error el campo contraseña no puede estar vacio", 2);
+			
+		}
+		$this->password = $pass;
 	}
 
 	public function getAddress() {

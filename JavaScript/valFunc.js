@@ -1,3 +1,27 @@
+function checkColor(color){
+   var expr = new RegExp("#(\\d|[ABCDEFabcdef]){6}");
+    if (!expr.test(color)) {
+        return false;
+    }
+    return true; 
+}
+
+function checkDNI(dni){
+    var expr = new RegExp("\\d{8}[A-Z]{1}");
+    if (!expr.test(dni)) {
+        return false;
+    }
+    return true;
+}
+
+function checkCIF(cif){
+    var expr = new RegExp("[ABCDEFGHKLMNPQS]\\d{8}([a-zA-Z]|\\d)");
+    if(!expr.test(cif)){
+        return false;
+    }
+    return true;
+}
+
 function checkEmail(email) {
     var expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (!expr.test(email)) {

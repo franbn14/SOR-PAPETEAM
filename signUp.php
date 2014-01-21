@@ -1,3 +1,42 @@
+<?php
+include_once "Logic/client.php";
+include_once "Logic/scrapYard.php";
+
+$error = false;
+$message = "Se ha producido un error";
+
+if(count($_POST) > 0){
+    $id = $_POST["id"];
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $password = $_POST["pass"];
+    $address = $_POST["address"];
+    $DOB = $_POST["DOB"];
+    $email = $_POST["email"];
+
+    if($_POST["entity"] == "private" || ($_POST["entity"] == "enterprise" && $_POST["typeEnterprise"] == "garage")){
+        try{
+            $c = new Client($id, $name, $surname, $password, $address, $DOB);
+            $c->insert();
+        }
+        catch (Exception $e){
+            $error = true;
+            $message = $e->getMessage();
+        }
+    }
+    else {
+        try {
+            $sy = new ScrapYard($name, $password, $address, $id, $email);
+            $sy->insert();
+        }
+        catch (Exception $e){
+            $error = true;
+            $message = $e->getMessage();
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,17 +47,19 @@
     <script type="application/javascript" src="JavaScript/signUp.js"></script>
     <script type="application/javascript" src="JavaScript/valFunc.js"></script>
     <script type="application/javascript" src="JavaScript/valForms.js"></script>
+    <script type="application/javascript" src="JavaScript/showMessage.js"></script>
+
 </head>
-<body onload="formFields.onloadPage()">
+<body <?php if($error) echo "onload = 'showMessage(\"$message\", \"index.php\")'"; else echo "onload='formFields.onloadPage()'"; ?>>
     <section id="signIn" class="mainSec">
-        <form id="signInForm" method="post" onsubmit="return valSignUp(this);" action="index.php">
+        <form id="signInForm" method="post" onsubmit="/*return valSignUp(this);*/" action="signUp.php">
             <p>
                 <label class="form"> Particular <input id="radioButton" type="radio" name="entity" value="private" checked onchange="formFields.change(this)"></label>
                 <label class="form"> Empresa <input type="radio" name="entity" value="enterprise" onchange="formFields.change(this)"/> </label>
             </p>
             <div id="typeEnterprise">
-                <label class="form2">Desguace <input class="formRadio" type="radio" name="typeEnterprise" checked></label>
-                <label class="form2">Taller <input class="formRadio" type="radio" name="typeEnterprise"></label> 
+                <label class="form2">Desguace <input id="radioButton2" class="formRadio" type="radio" name="typeEnterprise" value="scrapYard" checked onchange="formFields.showFields()"></label>
+                <label class="form2">Taller <input class="formRadio" value="garage" type="radio" name="typeEnterprise" onchange="formFields.showFields()"></label> 
             </div>
             <label name="both">
                 <p class="form">nif/cif: </p>
@@ -27,6 +68,10 @@
             <label name="both">
                 <p class="form">Nombre: </p>
                 <input class="form" type="text" name="name" onfocus="this.className = 'form';"/>
+            </label>
+            <label id="scrapYard">
+                <p class="form">Email: </p>
+                <input class="form" type="text" name="email" onfocus="this.className = 'form';"/>
             </label>
             <label name="enterprise">
                 <p class="form">Apellidos: </p>

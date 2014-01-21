@@ -83,7 +83,7 @@ input.formError {
     border: 1px solid #af1f0d;
     border-radius: 5px;
     color: #af1f0d;
-    display: block;
+    /*display: block;*/
     font-family: sans-serif;
     font-size: 16px;
     font-weight: bold;
