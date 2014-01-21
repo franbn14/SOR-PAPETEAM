@@ -14,7 +14,7 @@ using Desguace_Net.DarNombre;
 using Desguace_Net.DarID;
 using Apache.NMS.ActiveMQ;
 using Apache.NMS;
-
+using Desguace_Net;
 namespace Desguace_Net
 {
     public partial class Inicio : Form
@@ -34,15 +34,23 @@ namespace Desguace_Net
             InitializeComponent();
             Text = "Bienvenido " + userName;
 
-            request_subscriber = new Services.TopicSubscriber("pendientes", "tcp://localhost:61616", "pendientesSuscriber");
-                
+            Services.TopicSubscriber s = new Services.TopicSubscriber("pendientes", "tcp://localhost:61616", "recibidor");
+
+            s.OnMessageReceived += s_OnMessageReceived;
+
+            System.Threading.Thread.Sleep(10000);
+           
+            Console.WriteLine("despues");
                 /*TopicSubscriber.MakeSubscriber(
                  "tcp://localhost:61616",
                  "pendientesSuscriber",
                 "pendientes");*/
-
-            
-
+        }
+         void s_OnMessageReceived(string message)
+        {
+            Console.WriteLine(message);
+            textBox1.Text = message;
+            Console.ReadLine();
         }
 
         private void Inicio_Load(object sender, EventArgs e)
@@ -50,15 +58,12 @@ namespace Desguace_Net
 
             //request_subscriber.Start("Request_Pendientes");
            // request_subscriber.OnMessageReceived += OnMessage;
-            request_subscriber.OnMessageReceived += OnMessage;
-            Console.WriteLine("de");
+            //request_subscriber.OnMessageReceived += OnMessage;
+            //Console.WriteLine("de");
+           
         }
 
-        void request_subscriber_OnMessageReceived(string message)
-        {
-            textBox1.Text = message;
-            MessageBox.Show(message);   
-        }
+       
 
         private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -103,16 +108,11 @@ namespace Desguace_Net
         {
 
         }
-        private  void OnMessage(string message)
-        {
-                textBox1.Text = message;
-                MessageBox.Show("entro");
-                Console.WriteLine(message);           
-        }
+      
 
         private void button2_Click(object sender, EventArgs e)
         {
-            request_subscriber.OnMessageReceived += request_subscriber_OnMessageReceived;
+            
         }
     }
 }
