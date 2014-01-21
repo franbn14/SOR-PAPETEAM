@@ -161,7 +161,7 @@ public class Home extends javax.swing.JFrame {
                                     .addGroup(mainPaneLayout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btFavourite))
+                                        .addComponent(btFavourite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(btAccept)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                         .addGap(91, 91, 91))))
@@ -175,12 +175,12 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(btExit))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(btNewRequest)
-                .addGap(6, 6, 6)
+                .addGap(20, 20, 20)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
                     .addComponent(jLabel3)
+                    .addComponent(jLabel2)
                     .addComponent(btFavourite))
-                .addGap(18, 18, 18)
+                .addGap(4, 4, 4)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPaneLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,11 +202,11 @@ public class Home extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -259,7 +259,14 @@ public class Home extends javax.swing.JFrame {
 
     private void btFavouriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFavouriteActionPerformed
         // TODO add your handling code here:
-        checkOffers(requestList, true);
+        if(btFavourite.getText().equals("Ver favoritas")) {
+            checkOffers(requestList, true);
+            btFavourite.setText("Ver todas");
+        }
+        else {
+            checkOffers(requestList, false);
+            btFavourite.setText("Ver favoritas");
+        }
     }//GEN-LAST:event_btFavouriteActionPerformed
 
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
@@ -281,27 +288,31 @@ public class Home extends javax.swing.JFrame {
                 String offerString;                                
                 Gson gson = new Gson();
                 java.lang.reflect.Type collectionType = new TypeToken<ArrayList<OfferCEN>>(){}.getType();
-                
-                if(!selected.isFinished())
-                    offerString = darOfertasByR(selected.getCode());
-                else if(!selection)
-                    offerString = darOfertasByRequestOk(selected.getCode());
-                else {
-                    offerString = darOfertasSelection(selected.getCode());
-                }
+                                
                     
-
+                if(!selection) {
+                    if(!selected.isFinished())
+                        offerString = darOfertasByR(selected.getCode());
+                    else
+                        offerString = darOfertasByRequestOk(selected.getCode());
+                }
+                else 
+                    offerString = darOfertasSelection(selected.getCode());                
+                
+                btFavourite.setText("Ver favoritas");
+                
                 if(offerString.equals("null") || offerString.equals("")) {
                     model.addElement("No hay ofertas");
-                    offerList.setEnabled(false);                    
+                    offerList.setEnabled(false);           
+                    btFavourite.setEnabled(false);                    
                 }
                 else {
                     Date today=new Date(), requestDate=selected.getdeadline();
                     today.setTime(requestDate.getTime());
                     
-                    if(!requestDate.after(today))
-                        btFavourite.setEnabled(true);
-                    else
+                    if(!requestDate.after(today)) 
+                        btFavourite.setEnabled(true);                    
+                    else 
                         btFavourite.setEnabled(false);
                         
                     offers = gson.fromJson(offerString, collectionType);           

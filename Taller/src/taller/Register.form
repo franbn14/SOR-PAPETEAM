@@ -90,7 +90,7 @@
                                           <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                                           <Component id="btRegister" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btCancel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lbError" min="-2" pref="191" max="-2" attributes="0"/>
                                       </Group>
@@ -150,7 +150,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lbError" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="btRegister" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btCancel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -206,12 +206,12 @@
             <Property name="text" type="java.lang.String" value="Fecha nac."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btCancel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCancelActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btRegister">
@@ -241,16 +241,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="mm"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfMonthFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tfYear">
           <Properties>
             <Property name="text" type="java.lang.String" value="aaaa"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfYearFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tfDay">
           <Properties>
             <Property name="text" type="java.lang.String" value="dd"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfDayFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbCIFError">
           <Properties>

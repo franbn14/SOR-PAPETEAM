@@ -122,10 +122,25 @@ public class NewRequest extends javax.swing.JFrame {
         lbUnitError.setForeground(new java.awt.Color(226, 25, 25));
 
         tfDay.setText("dd");
+        tfDay.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfDayFocusGained(evt);
+            }
+        });
 
         tfMonth.setText("mm");
+        tfMonth.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfMonthFocusGained(evt);
+            }
+        });
 
         tfYear.setText("aaaa");
+        tfYear.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfYearFocusGained(evt);
+            }
+        });
 
         lbSizeError.setForeground(new java.awt.Color(226, 25, 25));
 
@@ -289,7 +304,7 @@ public class NewRequest extends javax.swing.JFrame {
         }       
         
         String color=tfColor.getText();       
-        int unit=cbUnit.getSelectedIndex()-1;
+        Integer unit=cbUnit.getSelectedIndex()-1;
         
         Double amount=checkNumber(tfAmount.getText());
         Double size=checkNumber(tfSize.getText());
@@ -297,26 +312,29 @@ public class NewRequest extends javax.swing.JFrame {
         
         Integer amountInt=null;
         
-        if(amount==null) {
+        if(amount!=null && amount==-1) {
             correct=false;
             lbAmountError.setText("No es número");
         }   
-        else
+        else if(amount!=null)
             amountInt=amount.intValue();
 
-        if(size==null) {
+        if(size!=null && size==-1.0) {
             correct=false;
             lbSizeError.setText("No es número");
         }
-        else if(size!=-1 && unit<0) {
+        else if(size!=null && unit<0) {
             correct=false;
             lbUnitError.setText("Selecciona unidad");        
         }
         
-        if(price==null) {
+        if(price!=null && price==-1.0) {
             correct=false;
             lbPriceError.setText("No es número");
         }
+        
+        if(unit<=-1)
+            unit=null;
         
         if(correct) {
             int id=insert(type, date, size,unit, color, amountInt, price, getID(user), false, false);
@@ -340,6 +358,21 @@ public class NewRequest extends javax.swing.JFrame {
         Home home=new Home(user);
         home.setVisible(true);
     }//GEN-LAST:event_btCancelActionPerformed
+
+    private void tfDayFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDayFocusGained
+        // TODO add your handling code here:
+        tfDay.setText("");
+    }//GEN-LAST:event_tfDayFocusGained
+
+    private void tfMonthFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfMonthFocusGained
+        // TODO add your handling code here:
+        tfMonth.setText("");        
+    }//GEN-LAST:event_tfMonthFocusGained
+
+    private void tfYearFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfYearFocusGained
+        // TODO add your handling code here:
+        tfYear.setText("");
+    }//GEN-LAST:event_tfYearFocusGained
     
     public String checkDate(String day, String month, String year) {
         boolean correct=true;
@@ -381,11 +414,11 @@ public class NewRequest extends javax.swing.JFrame {
     public Double checkNumber(String number) {        
         if(number!=null && !number.equals("")) {
             if(!number.matches("[0-9]+[.,]{0,1}[0-9]*"))
-                return null;
+                return -1.0;
             else
                 return Double.parseDouble(number);            
         }        
-        return -1.0;
+        return null;
     }
     
    /**
@@ -452,13 +485,7 @@ public class NewRequest extends javax.swing.JFrame {
     private javax.swing.JTextField tfType;
     private javax.swing.JTextField tfYear;
     // End of variables declaration//GEN-END:variables
-
-    private static int insert(java.lang.String tipo, java.lang.String fechaTope, double tamanyo, int tamUnidad, java.lang.String color, int cantidad, double precioMax, int usuario, boolean autoElect, boolean finalizado) {
-        servicios.NewPeticion_Service service = new servicios.NewPeticion_Service();
-        servicios.NewPeticion port = service.getNewPeticionPort();
-        return port.insert(tipo, fechaTope, tamanyo, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado);
-    }
-
+    
     private static String darTodasUnidades() {
         servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
         servicios.DarUnidades port = service.getDarUnidadesPort();
@@ -475,6 +502,12 @@ public class NewRequest extends javax.swing.JFrame {
         servicios.DarIdClientebyNif_Service service = new servicios.DarIdClientebyNif_Service();
         servicios.DarIdClientebyNif port = service.getDarIdClientebyNifPort();
         return port.getID(nif);
+    }
+
+    private static int insert(java.lang.String tipo, java.lang.String fechaTope, java.lang.Double tamanyo, int tamUnidad, java.lang.String color, java.lang.Integer cantidad, java.lang.Double precioMax, int usuario, boolean autoElect, boolean finalizado) {
+        servicios.NewPeticion_Service service = new servicios.NewPeticion_Service();
+        servicios.NewPeticion port = service.getNewPeticionPort();
+        return port.insert(tipo, fechaTope, tamanyo, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado);
     }
     
     

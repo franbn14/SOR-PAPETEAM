@@ -271,16 +271,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="dd"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfDayFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tfMonth">
           <Properties>
             <Property name="text" type="java.lang.String" value="mm"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfMonthFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tfYear">
           <Properties>
             <Property name="text" type="java.lang.String" value="aaaa"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfYearFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbSizeError">
           <Properties>

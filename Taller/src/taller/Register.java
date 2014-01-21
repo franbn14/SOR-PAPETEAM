@@ -46,7 +46,7 @@ public class Register extends javax.swing.JFrame {
         lbSuranme = new javax.swing.JLabel();
         tfPass = new javax.swing.JPasswordField();
         lbDate = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btCancel = new javax.swing.JButton();
         btRegister = new javax.swing.JButton();
         lbError = new javax.swing.JLabel();
         cbTaller = new javax.swing.JCheckBox();
@@ -75,10 +75,10 @@ public class Register extends javax.swing.JFrame {
 
         lbDate.setText("Fecha nac.");
 
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btCancel.setText("Cancelar");
+        btCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btCancelActionPerformed(evt);
             }
         });
 
@@ -99,10 +99,25 @@ public class Register extends javax.swing.JFrame {
         });
 
         tfMonth.setText("mm");
+        tfMonth.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfMonthFocusGained(evt);
+            }
+        });
 
         tfYear.setText("aaaa");
+        tfYear.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfYearFocusGained(evt);
+            }
+        });
 
         tfDay.setText("dd");
+        tfDay.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfDayFocusGained(evt);
+            }
+        });
 
         lbCIFError.setForeground(new java.awt.Color(255, 0, 0));
         lbCIFError.setText("    ");
@@ -154,7 +169,7 @@ public class Register extends javax.swing.JFrame {
                                         .addGap(87, 87, 87)
                                         .addComponent(btRegister)
                                         .addGap(12, 12, 12)
-                                        .addComponent(jButton1)
+                                        .addComponent(btCancel)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
@@ -200,7 +215,7 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btRegister)
-                    .addComponent(jButton1))
+                    .addComponent(btCancel))
                 .addContainerGap())
         );
 
@@ -253,17 +268,17 @@ public class Register extends javax.swing.JFrame {
                 String day=tfDay.getText(), month=tfMonth.getText(), year=tfYear.getText();
 
                 if(!day.matches("[0-3][0-9]")) {
-                    lbDateError.setText("Formato incorrecto");
+                    lbDateError.setText("Fecha incorrecta");
                     dateCorrect=false;
                 }
 
                 if(!month.matches("[0-1][0-9]")) {
-                    lbDateError.setText("Formato incorrecto");
+                    lbDateError.setText("Fecha incorrecta");
                     dateCorrect=false;
                 }
 
                 if(!year.matches("[0-9]{4}")) {
-                    lbDateError.setText("Formato incorrecto");
+                    lbDateError.setText("Fecha incorrecta");
                     dateCorrect=false;
                 }
 
@@ -277,7 +292,7 @@ public class Register extends javax.swing.JFrame {
                         date = formatter.parse(dob);
                         
                     } catch (ParseException e) { 
-                         lbDateError.setText("Formato incorrecto");
+                         lbDateError.setText("Fecha incorrecta");
                     }                                                              
                 }
 
@@ -321,12 +336,27 @@ public class Register extends javax.swing.JFrame {
             
     }//GEN-LAST:event_cbTallerStateChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
         // TODO add your handling code here:
         Main main=new Main();
         dispose();
         main.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btCancelActionPerformed
+
+    private void tfDayFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDayFocusGained
+        // TODO add your handling code here:
+        tfDay.setText("");
+    }//GEN-LAST:event_tfDayFocusGained
+
+    private void tfMonthFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfMonthFocusGained
+        // TODO add your handling code here:
+        tfMonth.setText("");        
+    }//GEN-LAST:event_tfMonthFocusGained
+
+    private void tfYearFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfYearFocusGained
+        // TODO add your handling code here:
+        tfYear.setText("");        
+    }//GEN-LAST:event_tfYearFocusGained
 
     
     /**
@@ -365,9 +395,9 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCancel;
     private javax.swing.JButton btRegister;
     private javax.swing.JCheckBox cbTaller;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
