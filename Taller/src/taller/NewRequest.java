@@ -338,11 +338,10 @@ public class NewRequest extends javax.swing.JFrame {
         
         if(correct) {
             int id=insert(type, date, size,unit, color, amountInt, price, getID(user), false, false);
-            
-            if(id==-1 || id==0)
+            System.out.println("ID: "+id);
+            if(id==-1)
                 lbReqError.setText("Error al crear solicitud");
-            else {
-                System.out.println("ID: "+id);
+            else {                
                 dispose();
                 Home home=new Home(user);
                 home.setVisible(true);
@@ -361,17 +360,20 @@ public class NewRequest extends javax.swing.JFrame {
 
     private void tfDayFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDayFocusGained
         // TODO add your handling code here:
-        tfDay.setText("");
+        if(tfDay.getText().equals("dd"))
+            tfDay.setText("");
     }//GEN-LAST:event_tfDayFocusGained
 
     private void tfMonthFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfMonthFocusGained
         // TODO add your handling code here:
-        tfMonth.setText("");        
+        if(tfMonth.getText().equals("mm"))
+            tfMonth.setText("");        
     }//GEN-LAST:event_tfMonthFocusGained
 
     private void tfYearFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfYearFocusGained
         // TODO add your handling code here:
-        tfYear.setText("");
+        if(tfYear.getText().equals("aaaa"))
+            tfYear.setText("");
     }//GEN-LAST:event_tfYearFocusGained
     
     public String checkDate(String day, String month, String year) {
@@ -504,13 +506,11 @@ public class NewRequest extends javax.swing.JFrame {
         return port.getID(nif);
     }
 
-    private static int insert(java.lang.String tipo, java.lang.String fechaTope, java.lang.Double tamanyo, int tamUnidad, java.lang.String color, java.lang.Integer cantidad, java.lang.Double precioMax, int usuario, boolean autoElect, boolean finalizado) {
+    private static int insert(java.lang.String tipo, java.lang.String fechaTope, java.lang.Double tamanyo, java.lang.Integer tamUnidad, java.lang.String color, java.lang.Integer cantidad, java.lang.Double precioMax, int usuario, boolean autoElect, boolean finalizado) {
         servicios.NewPeticion_Service service = new servicios.NewPeticion_Service();
         servicios.NewPeticion port = service.getNewPeticionPort();
         return port.insert(tipo, fechaTope, tamanyo, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado);
-    }
-    
-    
+    }  
 }
 
 

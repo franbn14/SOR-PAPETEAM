@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/LoginClientes?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8081/Sor_Servicios/LoginClientes?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

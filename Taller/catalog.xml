@@ -20,8 +20,8 @@
     <system systemId="http://localhost:8080/Sor_Servicios/AceptarOfertas?xsd=1" uri="xml-resources/web-service-references/AceptarOfertas/wsdl/localhost_8080/Sor_Servicios/AceptarOfertas.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Sor_Servicios/BorrarPeticion?wsdl" uri="xml-resources/web-service-references/BorrarPeticion/wsdl/localhost_8080/Sor_Servicios/BorrarPeticion.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/BorrarPeticion?xsd=1" uri="xml-resources/web-service-references/BorrarPeticion/wsdl/localhost_8080/Sor_Servicios/BorrarPeticion.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/Sor_Servicios/NewPeticion?wsdl" uri="xml-resources/web-service-references/NewPeticion/wsdl/localhost_8080/Sor_Servicios/NewPeticion.wsdl"/>
-    <system systemId="http://localhost:8080/Sor_Servicios/NewPeticion?xsd=1" uri="xml-resources/web-service-references/NewPeticion/wsdl/localhost_8080/Sor_Servicios/NewPeticion.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Sor_Servicios/DarOfertasSeleccionadas?wsdl" uri="xml-resources/web-service-references/DarOfertasSeleccionadas/wsdl/localhost_8080/Sor_Servicios/DarOfertasSeleccionadas.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/DarOfertasSeleccionadas?xsd=1" uri="xml-resources/web-service-references/DarOfertasSeleccionadas/wsdl/localhost_8080/Sor_Servicios/DarOfertasSeleccionadas.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/NewPeticion?wsdl" uri="xml-resources/web-service-references/NewPeticion/wsdl/localhost_8080/Sor_Servicios/NewPeticion.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/NewPeticion?xsd=1" uri="xml-resources/web-service-references/NewPeticion/wsdl/localhost_8080/Sor_Servicios/NewPeticion.xsd_1.xsd"/>
 </catalog>

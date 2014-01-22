@@ -25,7 +25,7 @@
 <xs:element name="tipo" type="xs:string" minOccurs="0" />
 <xs:element name="fechaTope" type="xs:string" minOccurs="0" />
 <xs:element name="tamanyo" type="xs:double" minOccurs="0" />
-<xs:element name="tamUnidad" type="xs:int" />
+<xs:element name="tamUnidad" type="xs:int" minOccurs="0" />
 <xs:element name="color" type="xs:string" minOccurs="0" />
 <xs:element name="cantidad" type="xs:int" minOccurs="0" />
 <xs:element name="precioMax" type="xs:double" minOccurs="0" />

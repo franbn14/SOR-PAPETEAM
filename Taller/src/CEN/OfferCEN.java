@@ -18,7 +18,7 @@ public class OfferCEN {
     private int code;
     private String type;
     private Double size;
-    private int sizeUnit;
+    private Integer sizeUnit;
     private String color;
     private Integer amount;
     private Double price;
@@ -29,7 +29,7 @@ public class OfferCEN {
     /*public OfferCEN() {
     }*/
 
-    private void setAttributes(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
+    private void setAttributes(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
         this.type = type;
         this.size = size;
         this.sizeUnit = sizeUnit;
@@ -41,7 +41,7 @@ public class OfferCEN {
         this.accepted = accepted;
     }
     
-    public OfferCEN(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
+    public OfferCEN(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
         setAttributes(type, size, sizeUnit, color, amount, price, request, scrapyard, accepted);
         this.code = -1;
     }     
@@ -70,7 +70,7 @@ public class OfferCEN {
         this.size = size;
     }
 
-    public int getSizeUnit() {
+    public Integer getSizeUnit() {
         return sizeUnit;
     }
 
@@ -78,7 +78,7 @@ public class OfferCEN {
         return UnitsCEN.getByID(sizeUnit);
     }
     
-    public void setSizeUnit(int sizeUnit) {
+    public void setSizeUnit(Integer sizeUnit) {
         this.sizeUnit = sizeUnit;
     }
 

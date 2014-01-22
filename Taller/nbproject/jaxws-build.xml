@@ -19,7 +19,7 @@
     <target name="wsimport-client-LoginClientes" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/LoginClientes"/>
         <property name="wsdl-LoginClientes" location="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8080/Sor_Servicios/LoginClientes.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginClientes" destdir="${build.generated.dir}/jax-wsCache/LoginClientes" wsdl="${wsdl-LoginClientes}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Sor_Servicios/LoginClientes?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginClientes" destdir="${build.generated.dir}/jax-wsCache/LoginClientes" wsdl="${wsdl-LoginClientes}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8081/Sor_Servicios/LoginClientes?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-LoginClientes}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/LoginClientes"/>
         </wsimport>
