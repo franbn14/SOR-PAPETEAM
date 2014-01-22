@@ -11,13 +11,8 @@ import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import CEN.*;
-<<<<<<< HEAD
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.*;
-=======
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
->>>>>>> 77745aba8873573b304986371074292ad3268110
 
 /**
  *
@@ -55,11 +50,7 @@ public class Home extends javax.swing.JFrame {
         mainPane = new javax.swing.JPanel();
         lbTitle = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-<<<<<<< HEAD
-        jLabel3 = new javax.swing.JLabel();
-=======
         lbOffers = new javax.swing.JLabel();
->>>>>>> 77745aba8873573b304986371074292ad3268110
         jScrollPane1 = new javax.swing.JScrollPane();
         requestList = new javax.swing.JList();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -68,17 +59,10 @@ public class Home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         requestFList = new javax.swing.JList();
-<<<<<<< HEAD
-        lbAccepted = new javax.swing.JLabel();
-        btDecline = new javax.swing.JButton();
-        btNewRequest = new javax.swing.JButton();
-        btFavourite = new javax.swing.JButton();
-=======
         btDecline = new javax.swing.JButton();
         btNewRequest = new javax.swing.JButton();
         btFavourite = new javax.swing.JButton();
         btExit = new javax.swing.JButton();
->>>>>>> 77745aba8873573b304986371074292ad3268110
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,11 +73,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel2.setText("Solicitudes pendientes");
 
-<<<<<<< HEAD
-        jLabel3.setText("Ofertas recibidas");
-=======
         lbOffers.setText("Ofertas recibidas");
->>>>>>> 77745aba8873573b304986371074292ad3268110
 
         requestList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         requestList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,11 +102,6 @@ public class Home extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(requestFList);
 
-<<<<<<< HEAD
-        lbAccepted.setText("Aceptadas: ");
-
-=======
->>>>>>> 77745aba8873573b304986371074292ad3268110
         btDecline.setText("Declinar solicitud");
         btDecline.setEnabled(false);
         btDecline.addActionListener(new java.awt.event.ActionListener() {
@@ -150,8 +125,6 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
-=======
         btExit.setText("Cerrar sesión");
         btExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,45 +132,20 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
->>>>>>> 77745aba8873573b304986371074292ad3268110
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
         mainPaneLayout.setHorizontalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPaneLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-<<<<<<< HEAD
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPaneLayout.createSequentialGroup()
-=======
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPaneLayout.createSequentialGroup()
->>>>>>> 77745aba8873573b304986371074292ad3268110
                         .addComponent(btNewRequest)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(mainPaneLayout.createSequentialGroup()
                         .addComponent(lbTitle)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(mainPaneLayout.createSequentialGroup()
-<<<<<<< HEAD
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                            .addComponent(btDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbAccepted))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btFavourite))
-                            .addComponent(btAccept)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(91, 91, 91))))
-=======
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
@@ -217,38 +165,10 @@ public class Home extends javax.swing.JFrame {
                                 .addComponent(btExit))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
->>>>>>> 77745aba8873573b304986371074292ad3268110
         );
         mainPaneLayout.setVerticalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPaneLayout.createSequentialGroup()
-<<<<<<< HEAD
-                .addGap(24, 24, 24)
-                .addComponent(lbTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(btNewRequest)
-                .addGap(6, 6, 6)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(btFavourite))
-                .addGap(18, 18, 18)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPaneLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btDecline)
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btAccept)
-                            .addComponent(lbAccepted)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27))
-=======
                 .addGap(19, 19, 19)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTitle)
@@ -273,20 +193,14 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btAccept))
->>>>>>> 77745aba8873573b304986371074292ad3268110
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-=======
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
->>>>>>> 77745aba8873573b304986371074292ad3268110
                 .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -302,10 +216,7 @@ public class Home extends javax.swing.JFrame {
 
         requestList.clearSelection();
         btDecline.setEnabled(false);
-<<<<<<< HEAD
-=======
         btFavourite.setEnabled(false);
->>>>>>> 77745aba8873573b304986371074292ad3268110
         checkOffers(requestFList,false);
     }//GEN-LAST:event_requestFListMouseClicked
 
@@ -317,24 +228,15 @@ public class Home extends javax.swing.JFrame {
         for(int index: offerList.getSelectedIndices()) {
             offer=offers.get(index);
             text+=offer.getCode()+" ";            
-<<<<<<< HEAD
-        }
-        lbAccepted.setText(text);
-=======
         }        
         aceptarOfertasDe(text);
         checkRequests();
->>>>>>> 77745aba8873573b304986371074292ad3268110
     }//GEN-LAST:event_btAcceptActionPerformed
 
     private void requestListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestListMouseClicked
         // TODO add your handling code here:
         requestFList.clearSelection();        
-<<<<<<< HEAD
-        btDecline.setEnabled(true);
-=======
         btDecline.setEnabled(true);        
->>>>>>> 77745aba8873573b304986371074292ad3268110
         checkOffers(requestList,false);
     }//GEN-LAST:event_requestListMouseClicked
 
@@ -357,13 +259,6 @@ public class Home extends javax.swing.JFrame {
 
     private void btFavouriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFavouriteActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
-        checkOffers(requestList, true);
-    }//GEN-LAST:event_btFavouriteActionPerformed
-
-    private void checkOffers(javax.swing.JList list, boolean selection) {                
-        int index=list.getSelectedIndex();
-=======
         if(btFavourite.getText().equals("Ver favoritas")) {
             checkOffers(requestList, true);
             btFavourite.setText("Ver todas");
@@ -385,38 +280,15 @@ public class Home extends javax.swing.JFrame {
         int index=list.getSelectedIndex();
         btFavourite.setEnabled(false);
         btFavourite.setText("Ver favoritas");
->>>>>>> 77745aba8873573b304986371074292ad3268110
         
         if(index>-1) {
             RequestCEN selected=(RequestCEN)list.getSelectedValue();
-            offerList.removeAll();            
-<<<<<<< HEAD
+            offerList.removeAll();         
             
-=======
-            System.out.println("Fecha: "+selected.getdeadline());
->>>>>>> 77745aba8873573b304986371074292ad3268110
            if(selected!=null) {                
                 DefaultListModel model = new DefaultListModel();                
                 String offerString;                                
                 Gson gson = new Gson();
-<<<<<<< HEAD
-                java.lang.reflect.Type collectionType = new TypeToken<ArrayList<RequestCEN>>(){}.getType();
-                
-                if(!selected.isFinished())
-                    offerString = darOfertasByR(selected.getCode());
-                else if(!selection)
-                    offerString = darOfertasByRequestOk(selected.getCode());
-                else
-                    offerString = darOfertasSelection(selected.getCode());
-
-                if(offerString.equals("null") || offerString.equals("")) {
-                    model.addElement("No hay ofertas");
-                    offerList.setEnabled(false);                    
-                }
-                else {
-                    offers = gson.fromJson(offerString, collectionType);           
-
-=======
                 java.lang.reflect.Type collectionType = new TypeToken<ArrayList<OfferCEN>>(){}.getType();
                                 
                 lbOffers.setText("Ofertas recibidas");
@@ -446,7 +318,6 @@ public class Home extends javax.swing.JFrame {
                                        
                     offers = gson.fromJson(offerString, collectionType);           
                     
->>>>>>> 77745aba8873573b304986371074292ad3268110
                     if(offers!=null && !offers.isEmpty())  {                
                         for(OfferCEN offer: offers) 
                             model.addElement(offer);                                                                        
@@ -461,47 +332,17 @@ public class Home extends javax.swing.JFrame {
     
     private void checkRequests() {
         requestList.removeAll();                
-<<<<<<< HEAD
-        requestFList.removeAll();                
-=======
         requestFList.removeAll(); 
         requests.clear();
->>>>>>> 77745aba8873573b304986371074292ad3268110
                                
         DefaultListModel model = new DefaultListModel();
         DefaultListModel model2 = new DefaultListModel();
         
-<<<<<<< HEAD
-        String requestString = darPeticionesHis(user);
-=======
         String requestString = darPeticiones(user);
->>>>>>> 77745aba8873573b304986371074292ad3268110
         String requestString2 = darPeticionesHis(user);
         
         Gson gson = new Gson();
         java.lang.reflect.Type collectionType = new TypeToken<ArrayList<RequestCEN>>(){}.getType();
-<<<<<<< HEAD
-
-        if(!requestString.equals("null") && !requestString.equals("")){
-            requests = gson.fromJson(requestString, collectionType);                       
-            ArrayList<RequestCEN> aux=gson.fromJson(requestString2, collectionType);
-            
-            if(aux!=null && !aux.isEmpty())
-                requests.addAll(aux);
-            
-            if(requests!=null && !requests.isEmpty())  {                
-                
-                for(RequestCEN req: requests) {
-                    if(req.isFinished())
-                        model2.addElement(req);
-                    else
-                        model.addElement(req);
-                }
-                requestList.setModel(model);
-                requestFList.setModel(model2);
-            }
-        }
-=======
         ArrayList<RequestCEN> aux;
         
         if(!requestString.equals("null") && !requestString.equals(""))
@@ -523,7 +364,6 @@ public class Home extends javax.swing.JFrame {
             requestList.setModel(model);
             requestFList.setModel(model2);
         }        
->>>>>>> 77745aba8873573b304986371074292ad3268110
     }
     
     /**
@@ -566,26 +406,15 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAccept;
     private javax.swing.JButton btDecline;
-<<<<<<< HEAD
-=======
     private javax.swing.JButton btExit;
->>>>>>> 77745aba8873573b304986371074292ad3268110
     private javax.swing.JButton btFavourite;
     private javax.swing.JButton btNewRequest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-<<<<<<< HEAD
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lbAccepted;
-=======
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbOffers;
->>>>>>> 77745aba8873573b304986371074292ad3268110
     private javax.swing.JLabel lbTitle;
     private javax.swing.JPanel mainPane;
     private javax.swing.JList offerList;
@@ -593,19 +422,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JList requestList;
     // End of variables declaration//GEN-END:variables
 
-<<<<<<< HEAD
-   /* private static String darPeticiones(java.lang.String nif) {
-        servicios.DarPeticionesNifP_Service service = new servicios.DarPeticionesNifP_Service();
-        servicios.DarPeticionesNifP port = service.getDarPeticionesNifPPort();
-        return port.darPeticiones(nif);
-    }*/
-=======
     private static String darPeticiones(java.lang.String nif) {
         servicios.DarPeticionesNifP_Service service = new servicios.DarPeticionesNifP_Service();
         servicios.DarPeticionesNifP port = service.getDarPeticionesNifPPort();
         return port.darPeticiones(nif);
     }
->>>>>>> 77745aba8873573b304986371074292ad3268110
 
     private static String darPeticionesHis(java.lang.String nif) {
         servicios.DarPeticionesNifF_Service service = new servicios.DarPeticionesNifF_Service();
@@ -636,16 +457,10 @@ public class Home extends javax.swing.JFrame {
         servicios.DarOfertasSeleccionadas port = service.getDarOfertasSeleccionadasPort();
         return port.darOfertasSelection(idR);
     }
-<<<<<<< HEAD
-    
-    
-    
-=======
 
     private static String aceptarOfertasDe(java.lang.String idS) {
         servicios.AceptarOfertas_Service service = new servicios.AceptarOfertas_Service();
         servicios.AceptarOfertas port = service.getAceptarOfertasPort();
         return port.aceptarOfertasDe(idS);
     }            
->>>>>>> 77745aba8873573b304986371074292ad3268110
 }

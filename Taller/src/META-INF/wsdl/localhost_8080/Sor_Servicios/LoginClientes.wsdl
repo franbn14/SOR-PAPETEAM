@@ -4,28 +4,12 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:8080/Sor_Servicios/LoginClientes?xsd=1" />
 </xsd:schema>
 </types>
-<<<<<<< HEAD
-<message name="hello">
-<part name="parameters" element="tns:hello" />
-</message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse" />
-</message>
-=======
->>>>>>> 77745aba8873573b304986371074292ad3268110
 <message name="Login">
 <part name="parameters" element="tns:Login" />
 </message>
 <message name="LoginResponse">
 <part name="parameters" element="tns:LoginResponse" />
 </message>
-<<<<<<< HEAD
-<portType name="LoginClientes">
-<operation name="hello">
-<input wsam:Action="http://Servicios/LoginClientes/helloRequest" message="tns:hello" />
-<output wsam:Action="http://Servicios/LoginClientes/helloResponse" message="tns:helloResponse" />
-</operation>
-=======
 <message name="hello">
 <part name="parameters" element="tns:hello" />
 </message>
@@ -33,17 +17,10 @@
 <part name="parameters" element="tns:helloResponse" />
 </message>
 <portType name="LoginClientes">
->>>>>>> 77745aba8873573b304986371074292ad3268110
 <operation name="Login">
 <input wsam:Action="http://Servicios/LoginClientes/LoginRequest" message="tns:Login" />
 <output wsam:Action="http://Servicios/LoginClientes/LoginResponse" message="tns:LoginResponse" />
 </operation>
-<<<<<<< HEAD
-</portType>
-<binding name="LoginClientesPortBinding" type="tns:LoginClientes">
-<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
-<operation name="hello">
-=======
 <operation name="hello">
 <input wsam:Action="http://Servicios/LoginClientes/helloRequest" message="tns:hello" />
 <output wsam:Action="http://Servicios/LoginClientes/helloResponse" message="tns:helloResponse" />
@@ -52,7 +29,6 @@
 <binding name="LoginClientesPortBinding" type="tns:LoginClientes">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
 <operation name="Login">
->>>>>>> 77745aba8873573b304986371074292ad3268110
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -61,11 +37,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<<<<<<< HEAD
-<operation name="Login">
-=======
 <operation name="hello">
->>>>>>> 77745aba8873573b304986371074292ad3268110
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

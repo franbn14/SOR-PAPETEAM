@@ -23,39 +23,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="87" max="32767" attributes="0"/>
-          </Group>
-=======
           <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
->>>>>>> 77745aba8873573b304986371074292ad3268110
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
-          </Group>
-=======
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
->>>>>>> 77745aba8873573b304986371074292ad3268110
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
-<<<<<<< HEAD
-=======
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="b3" green="e4" red="f5" type="rgb"/>
         </Property>
       </Properties>
->>>>>>> 77745aba8873573b304986371074292ad3268110
 
       <Layout>
         <DimensionLayout dim="0">
@@ -63,73 +46,6 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                                          <Component id="tfMonth" min="-2" pref="40" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="tfYear" min="-2" pref="45" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                                  <Component id="tfType" min="-2" pref="150" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="tfDay" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="tfPrice" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btCreate" min="-2" pref="65" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btCancel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lbReqError" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="tfColor" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="tfAmount" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tfSize" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="cbUnit" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lbAmountError" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lbTypeError" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lbSizeError" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lbPriceError" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lbDateError" alignment="1" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Component id="lbUnitError" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-=======
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
@@ -197,7 +113,6 @@
                                   <EmptySpace pref="32" max="32767" attributes="0"/>
                               </Group>
                           </Group>
->>>>>>> 77745aba8873573b304986371074292ad3268110
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -212,60 +127,6 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tfType" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbTypeError" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tfAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="lbAmountError" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfColor" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tfSize" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="cbUnit" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbSizeError" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lbUnitError" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-=======
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tfType" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -296,45 +157,26 @@
                       <Component id="lbUnitError" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
->>>>>>> 77745aba8873573b304986371074292ad3268110
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tfPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbPriceError" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tfMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbDateError" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-=======
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tfDay" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tfMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tfYear" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbDateError" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
->>>>>>> 77745aba8873573b304986371074292ad3268110
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btCreate" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btCancel" alignment="3" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lbReqError" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-=======
                       <Component id="lbReqError" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="39" max="32767" attributes="0"/>
->>>>>>> 77745aba8873573b304986371074292ad3268110
               </Group>
           </Group>
         </DimensionLayout>
@@ -429,34 +271,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="dd"/>
           </Properties>
-<<<<<<< HEAD
-=======
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfDayFocusGained"/>
           </Events>
->>>>>>> 77745aba8873573b304986371074292ad3268110
         </Component>
         <Component class="javax.swing.JTextField" name="tfMonth">
           <Properties>
             <Property name="text" type="java.lang.String" value="mm"/>
           </Properties>
-<<<<<<< HEAD
-=======
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfMonthFocusGained"/>
           </Events>
->>>>>>> 77745aba8873573b304986371074292ad3268110
         </Component>
         <Component class="javax.swing.JTextField" name="tfYear">
           <Properties>
             <Property name="text" type="java.lang.String" value="aaaa"/>
           </Properties>
-<<<<<<< HEAD
-=======
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfYearFocusGained"/>
           </Events>
->>>>>>> 77745aba8873573b304986371074292ad3268110
         </Component>
         <Component class="javax.swing.JLabel" name="lbSizeError">
           <Properties>

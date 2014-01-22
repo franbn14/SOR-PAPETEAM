@@ -8,16 +8,6 @@
 
 <xs:element name="helloResponse" type="tns:helloResponse" />
 
-<<<<<<< HEAD
-<xs:complexType name="Login">
-<xs:sequence>
-<xs:element name="Password" type="xs:string" minOccurs="0" />
-<xs:element name="nif_dni" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="LoginResponse">
-=======
 <xs:complexType name="hello">
 <xs:sequence>
 <xs:element name="name" type="xs:string" minOccurs="0" />
@@ -25,21 +15,11 @@
 </xs:complexType>
 
 <xs:complexType name="helloResponse">
->>>>>>> 77745aba8873573b304986371074292ad3268110
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
-<<<<<<< HEAD
-<xs:complexType name="hello">
-<xs:sequence>
-<xs:element name="name" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="helloResponse">
-=======
 <xs:complexType name="Login">
 <xs:sequence>
 <xs:element name="Password" type="xs:string" minOccurs="0" />
@@ -48,7 +28,6 @@
 </xs:complexType>
 
 <xs:complexType name="LoginResponse">
->>>>>>> 77745aba8873573b304986371074292ad3268110
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0" />
 </xs:sequence>

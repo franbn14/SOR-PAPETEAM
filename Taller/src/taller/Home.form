@@ -23,13 +23,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-=======
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
->>>>>>> 77745aba8873573b304986371074292ad3268110
               <Component id="mainPane" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -53,39 +48,6 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="btNewRequest" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lbTitle" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" pref="198" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane3" alignment="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="btDecline" min="-2" pref="129" max="-2" attributes="0"/>
-                              <Component id="lbAccepted" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="36" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btFavourite" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="btAccept" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" alignment="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-=======
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="btNewRequest" min="-2" max="-2" attributes="0"/>
@@ -120,7 +82,6 @@
                               <Component id="jScrollPane2" min="-2" pref="292" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
->>>>>>> 77745aba8873573b304986371074292ad3268110
                       </Group>
                   </Group>
               </Group>
@@ -129,37 +90,6 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="lbTitle" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
-                  <Component id="btNewRequest" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btFavourite" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btDecline" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane3" min="-2" pref="134" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btAccept" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbAccepted" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="jScrollPane2" min="-2" pref="331" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-=======
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbTitle" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -188,7 +118,6 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btAccept" min="-2" max="-2" attributes="0"/>
->>>>>>> 77745aba8873573b304986371074292ad3268110
               </Group>
           </Group>
         </DimensionLayout>
@@ -207,11 +136,7 @@
             <Property name="text" type="java.lang.String" value="Solicitudes pendientes"/>
           </Properties>
         </Component>
-<<<<<<< HEAD
-        <Component class="javax.swing.JLabel" name="jLabel3">
-=======
         <Component class="javax.swing.JLabel" name="lbOffers">
->>>>>>> 77745aba8873573b304986371074292ad3268110
           <Properties>
             <Property name="text" type="java.lang.String" value="Ofertas recibidas"/>
           </Properties>
@@ -285,14 +210,6 @@
             </Component>
           </SubComponents>
         </Container>
-<<<<<<< HEAD
-        <Component class="javax.swing.JLabel" name="lbAccepted">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Aceptadas: "/>
-          </Properties>
-        </Component>
-=======
->>>>>>> 77745aba8873573b304986371074292ad3268110
         <Component class="javax.swing.JButton" name="btDecline">
           <Properties>
             <Property name="text" type="java.lang.String" value="Declinar solicitud"/>
@@ -319,8 +236,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btFavouriteActionPerformed"/>
           </Events>
         </Component>
-<<<<<<< HEAD
-=======
         <Component class="javax.swing.JButton" name="btExit">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cerrar sesi&#xf3;n"/>
@@ -329,7 +244,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btExitActionPerformed"/>
           </Events>
         </Component>
->>>>>>> 77745aba8873573b304986371074292ad3268110
       </SubComponents>
     </Container>
   </SubComponents>
