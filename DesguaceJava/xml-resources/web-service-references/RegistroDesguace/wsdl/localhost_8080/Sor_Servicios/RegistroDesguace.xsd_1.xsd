@@ -10,6 +10,7 @@
 <xs:element name="Nombre" type="xs:string" minOccurs="0" />
 <xs:element name="Password" type="xs:string" minOccurs="0" />
 <xs:element name="Direccion" type="xs:string" minOccurs="0" />
+<xs:element name="Email" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 

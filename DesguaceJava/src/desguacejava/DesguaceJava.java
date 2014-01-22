@@ -28,7 +28,6 @@ public class DesguaceJava extends JFrame implements ActionListener{
 	JLabel img,lblError;
 	JPasswordField t2;
         DesguaceRegistro reg;
-        MainDesguace mdes;
         static JFrame des;
 	public DesguaceJava(String titulo)
 	{
@@ -64,7 +63,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
                     public void actionPerformed(ActionEvent e) {
                         reg.setVisible(true);
                         reg.setSize(440, 400);
-                        reg.setResizable(false);
+                        reg.setResizable(true);
                     }
                 });
                 p2.add(regbtn);
@@ -89,8 +88,6 @@ public class DesguaceJava extends JFrame implements ActionListener{
                 c.add(BorderLayout.SOUTH,p2);
                 reg = new DesguaceRegistro();
                 reg.setVisible(false);
-                mdes = new MainDesguace();
-                mdes.setVisible(false);
                 btn.addActionListener(this);
 	}
 	
@@ -116,6 +113,9 @@ public class DesguaceJava extends JFrame implements ActionListener{
                                 String error=loginDes(pass, user);
 				if(error.equals(""))
 				{
+                                    MainDesguace mdes;
+                                    mdes = new MainDesguace(t1.getText());
+                                    mdes.setVisible(false);
                                     mdes.setVisible(true);
                                     mdes.setSize(600,500);
                                     des.setVisible(false);

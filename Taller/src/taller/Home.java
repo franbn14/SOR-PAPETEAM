@@ -283,8 +283,8 @@ public class Home extends javax.swing.JFrame {
         
         if(index>-1) {
             RequestCEN selected=(RequestCEN)list.getSelectedValue();
-            offerList.removeAll();            
-            System.out.println("Fecha: "+selected.getdeadline());
+            offerList.removeAll();         
+            
            if(selected!=null) {                
                 DefaultListModel model = new DefaultListModel();                
                 String offerString;                                
