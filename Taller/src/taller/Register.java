@@ -432,12 +432,11 @@ public class Register extends javax.swing.JFrame {
          
          if(isTaller) {
             letter = cif.substring(0,1);        
-            letters = "ABCDEFGHJNPQRSUVW";            
+            letters = "ABCDEFGHKLMNPQS";            
             digits = cif.substring(1);
             
          }
          else {
-             System.out.println("AQUI "+cif);
              letter = cif.substring(8);            
              letters="TRWAGMYFPDXBNJZSQVHLCKE";                          
              digits = cif.substring(0, 8);

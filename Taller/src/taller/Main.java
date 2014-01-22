@@ -53,6 +53,7 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(208, 76, 76));
+        setResizable(false);
 
         mainPane.setBackground(new java.awt.Color(245, 228, 179));
         mainPane.setName("mainPane"); // NOI18N
@@ -230,4 +231,6 @@ public class Main extends javax.swing.JFrame {
         servicios.LoginClientes port = service.getLoginClientesPort();
         return port.login(password, nifDni);
     }
+
+    
 }

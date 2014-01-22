@@ -50,7 +50,7 @@ public class Home extends javax.swing.JFrame {
         mainPane = new javax.swing.JPanel();
         lbTitle = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbOffers = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         requestList = new javax.swing.JList();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -73,7 +73,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel2.setText("Solicitudes pendientes");
 
-        jLabel3.setText("Ofertas recibidas");
+        lbOffers.setText("Ofertas recibidas");
 
         requestList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         requestList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -144,27 +144,26 @@ public class Home extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(mainPaneLayout.createSequentialGroup()
                         .addComponent(lbTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btExit)
-                        .addGap(91, 91, 91))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(mainPaneLayout.createSequentialGroup()
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(btDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3))
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
+                            .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btDecline, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbOffers)
+                                .addGap(81, 81, 81)
                                 .addComponent(btFavourite))
                             .addComponent(btAccept)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(mainPaneLayout.createSequentialGroup()
+                                .addGap(188, 188, 188)
+                                .addComponent(btExit))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
         );
         mainPaneLayout.setVerticalGroup(
@@ -178,7 +177,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(btNewRequest)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lbOffers)
                     .addComponent(btFavourite)
                     .addComponent(jLabel2))
                 .addGap(4, 4, 4)
@@ -191,7 +190,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btAccept))
         );
@@ -200,8 +199,8 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, 0)
                 .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -217,6 +216,7 @@ public class Home extends javax.swing.JFrame {
 
         requestList.clearSelection();
         btDecline.setEnabled(false);
+        btFavourite.setEnabled(false);
         checkOffers(requestFList,false);
     }//GEN-LAST:event_requestFListMouseClicked
 
@@ -278,43 +278,44 @@ public class Home extends javax.swing.JFrame {
 
     private void checkOffers(javax.swing.JList list, boolean selection) {                
         int index=list.getSelectedIndex();
+        btFavourite.setEnabled(false);
+        btFavourite.setText("Ver favoritas");
         
         if(index>-1) {
             RequestCEN selected=(RequestCEN)list.getSelectedValue();
             offerList.removeAll();            
-            
+            System.out.println("Fecha: "+selected.getdeadline());
            if(selected!=null) {                
                 DefaultListModel model = new DefaultListModel();                
                 String offerString;                                
                 Gson gson = new Gson();
                 java.lang.reflect.Type collectionType = new TypeToken<ArrayList<OfferCEN>>(){}.getType();
                                 
-                    
+                lbOffers.setText("Ofertas recibidas");
                 if(!selection) {
-                    if(!selected.isFinished())
-                        offerString = darOfertasByR(selected.getCode());
-                    else
+                    if(!selected.isFinished()) 
+                        offerString = darOfertasByR(selected.getCode());                        
+                    
+                    else {
                         offerString = darOfertasByRequestOk(selected.getCode());
+                        lbOffers.setText("Ofertas aceptadas");
+                    }
                 }
                 else 
                     offerString = darOfertasSelection(selected.getCode());                
-                
-                btFavourite.setText("Ver favoritas");
-                
+                                                
                 if(offerString.equals("null") || offerString.equals("")) {
                     model.addElement("No hay ofertas");
-                    offerList.setEnabled(false);           
-                    btFavourite.setEnabled(false);                    
+                    offerList.setEnabled(false);                                                   
                 }
                 else {
                     Date today=new Date(), requestDate=selected.getdeadline();
                     today.setTime(requestDate.getTime());
                     
-                    if(!requestDate.after(today)) 
-                        btFavourite.setEnabled(true);                    
-                    else 
-                        btFavourite.setEnabled(false);
-                        
+                    if(!selected.isFinished())                         
+                        if(!requestDate.after(today)) 
+                            btFavourite.setEnabled(true);                                                               
+                                       
                     offers = gson.fromJson(offerString, collectionType);           
                     
                     if(offers!=null && !offers.isEmpty())  {                
@@ -331,7 +332,8 @@ public class Home extends javax.swing.JFrame {
     
     private void checkRequests() {
         requestList.removeAll();                
-        requestFList.removeAll();                
+        requestFList.removeAll(); 
+        requests.clear();
                                
         DefaultListModel model = new DefaultListModel();
         DefaultListModel model2 = new DefaultListModel();
@@ -341,26 +343,27 @@ public class Home extends javax.swing.JFrame {
         
         Gson gson = new Gson();
         java.lang.reflect.Type collectionType = new TypeToken<ArrayList<RequestCEN>>(){}.getType();
-
-        if(!requestString.equals("null") && !requestString.equals("")){
+        ArrayList<RequestCEN> aux;
+        
+        if(!requestString.equals("null") && !requestString.equals(""))
             requests = gson.fromJson(requestString, collectionType);                       
-            ArrayList<RequestCEN> aux=gson.fromJson(requestString2, collectionType);
+        
+        if(!requestString2.equals("null") && !requestString2.equals("")) {
+            aux=gson.fromJson(requestString2, collectionType);            
             
-            if(aux!=null && !aux.isEmpty())
+            if(aux!=null)
                 requests.addAll(aux);
-            
-            if(requests!=null && !requests.isEmpty())  {                
-                
-                for(RequestCEN req: requests) {                    
-                    if(req.isFinished())
-                        model2.addElement(req);
-                    else
-                        model.addElement(req);
-                }
-                requestList.setModel(model);
-                requestFList.setModel(model2);
-            }
         }
+        if(requests!=null && !requests.isEmpty())  {                                
+            for(RequestCEN req: requests) {                    
+                if(req.isFinished())
+                    model2.addElement(req);
+                else
+                    model.addElement(req);
+            }
+            requestList.setModel(model);
+            requestFList.setModel(model2);
+        }        
     }
     
     /**
@@ -408,10 +411,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btNewRequest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lbOffers;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JPanel mainPane;
     private javax.swing.JList offerList;

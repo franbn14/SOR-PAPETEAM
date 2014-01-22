@@ -338,7 +338,7 @@ public class NewRequest extends javax.swing.JFrame {
         
         if(correct) {
             int id=insert(type, date, size,unit, color, amountInt, price, getID(user), false, false);
-            System.out.println("ID: "+id);
+
             if(id==-1)
                 lbReqError.setText("Error al crear solicitud");
             else {                
