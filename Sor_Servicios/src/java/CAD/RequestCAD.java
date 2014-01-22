@@ -22,7 +22,7 @@ import java.util.Date;
  * @author alberto
  */
 public class RequestCAD {
-    public static int insert(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int clientID, boolean autoElec, boolean finished) {
+    public static int insert(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  int clientID, boolean autoElec, boolean finished) {
         int code = -1;
          
         String date = deadline.getYear()+1900 + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
@@ -54,7 +54,7 @@ public class RequestCAD {
                 request.put("deadline", date);
                 request.put("type", rs.getString("tipo"));
                 request.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                request.put("sizeUnit", rs.getInt("tamUnidad"));
+                request.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 request.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 request.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 request.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
@@ -82,7 +82,7 @@ public class RequestCAD {
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
@@ -99,9 +99,9 @@ public class RequestCAD {
         return values;
     }            
     
-    public static void update(int code, Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int client, boolean autoElect, boolean finished) {
+    public static void update(int code, Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  int client, boolean autoElect, boolean finished) {
         try {
-            String date = deadline.getYear()+1900 + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
+            String date = deadline.getYear() + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
             String c = (color == null)? null : "\"" + color + "\"";
             String query = "UPDATE Solicitud SET fechaTope = '"+ date +"', tipo = \"" + type + "\", tamaño = "+ size +", "+
                            "tamUnidad = "+ sizeUnit +", color = "+ c +", cantidad = " + amount + ",precioMax = " + maxPrice + ", " +
@@ -136,7 +136,7 @@ public class RequestCAD {
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
@@ -165,7 +165,7 @@ public class RequestCAD {
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
@@ -194,7 +194,7 @@ public class RequestCAD {
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
@@ -226,7 +226,7 @@ public class RequestCAD {
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
