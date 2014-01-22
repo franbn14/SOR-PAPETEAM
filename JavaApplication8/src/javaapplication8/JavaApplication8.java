@@ -44,8 +44,9 @@ public class JavaApplication8 {
         System.out.println(listarequest.get(0));
       }*/
         
-        System.out.println(insert("ruedas anchas", "05-10-2014", 45.0, 12, "verde", 12,45.0,2, false, false));
-        
+        //System.out.println(insert("ruedas anchas", "05-10-2014", 45.0, 12, "verde", 12,45.0,2, false, false));
+       // 
+        System.out.println(darPeticiones("22222222A"));
        
        
     }

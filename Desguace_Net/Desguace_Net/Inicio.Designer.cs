@@ -31,12 +31,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ViewPeticiones = new System.Windows.Forms.DataGridView();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AceptarOferta = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RealizarOferta = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ViewPeticiones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -72,25 +72,13 @@
             this.ViewPeticiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ViewPeticiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Tipo,
-            this.AceptarOferta});
+            this.RealizarOferta});
             this.ViewPeticiones.Cursor = System.Windows.Forms.Cursors.No;
             this.ViewPeticiones.Location = new System.Drawing.Point(26, 88);
             this.ViewPeticiones.Name = "ViewPeticiones";
             this.ViewPeticiones.Size = new System.Drawing.Size(407, 392);
             this.ViewPeticiones.TabIndex = 3;
             this.ViewPeticiones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            // 
-            // AceptarOferta
-            // 
-            this.AceptarOferta.DataPropertyName = "Hacer Oferta";
-            this.AceptarOferta.HeaderText = "Aceptar Oferta";
-            this.AceptarOferta.Name = "AceptarOferta";
-            this.AceptarOferta.Text = "Hacer Oferta";
             // 
             // label2
             // 
@@ -136,6 +124,18 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Mis ofertas Aceptadas";
             // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            // 
+            // RealizarOferta
+            // 
+            this.RealizarOferta.DataPropertyName = "Hacer Oferta";
+            this.RealizarOferta.HeaderText = "Realizar Oferta";
+            this.RealizarOferta.Name = "RealizarOferta";
+            this.RealizarOferta.Text = "Hacer Oferta";
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,9 +170,9 @@
         private System.Windows.Forms.DataGridView ViewPeticiones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewButtonColumn AceptarOferta;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewButtonColumn RealizarOferta;
     }
 }

@@ -84,6 +84,11 @@ public class NewRequest extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+<<<<<<< HEAD
+=======
+        jPanel1.setBackground(new java.awt.Color(245, 228, 179));
+
+>>>>>>> 77745aba8873573b304986371074292ad3268110
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel1.setText("Crear nueva solicitud");
 
@@ -120,10 +125,32 @@ public class NewRequest extends javax.swing.JFrame {
         lbUnitError.setForeground(new java.awt.Color(226, 25, 25));
 
         tfDay.setText("dd");
+<<<<<<< HEAD
 
         tfMonth.setText("mm");
 
         tfYear.setText("aaaa");
+=======
+        tfDay.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfDayFocusGained(evt);
+            }
+        });
+
+        tfMonth.setText("mm");
+        tfMonth.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfMonthFocusGained(evt);
+            }
+        });
+
+        tfYear.setText("aaaa");
+        tfYear.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfYearFocusGained(evt);
+            }
+        });
+>>>>>>> 77745aba8873573b304986371074292ad3268110
 
         lbSizeError.setForeground(new java.awt.Color(226, 25, 25));
 
@@ -145,6 +172,7 @@ public class NewRequest extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -194,6 +222,58 @@ public class NewRequest extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(lbUnitError)))
                         .addGap(39, 39, 39))
+=======
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel8))
+                                .addGap(33, 33, 33)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tfSize, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(tfMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(btCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btCancel)))
+                                    .addComponent(tfAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfType, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tfColor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbAmountError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbTypeError)
+                                            .addComponent(lbUnitError)
+                                            .addComponent(lbPriceError)
+                                            .addComponent(lbSizeError, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(119, 119, 119))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbReqError)
+                                    .addComponent(lbDateError, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(32, Short.MAX_VALUE))))
+>>>>>>> 77745aba8873573b304986371074292ad3268110
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(133, 133, 133))))
@@ -206,6 +286,7 @@ public class NewRequest extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                     .addComponent(lbTypeError)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -241,11 +322,36 @@ public class NewRequest extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbUnitError)
                         .addGap(29, 29, 29)))
+=======
+                    .addComponent(jLabel2)
+                    .addComponent(lbTypeError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(lbAmountError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(lbSizeError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(lbUnitError))
+                .addGap(12, 12, 12)
+>>>>>>> 77745aba8873573b304986371074292ad3268110
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(lbPriceError))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< HEAD
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -260,12 +366,27 @@ public class NewRequest extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbReqError)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(lbDateError, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCreate)
+                    .addComponent(btCancel)
+                    .addComponent(lbReqError))
+                .addContainerGap(39, Short.MAX_VALUE))
+>>>>>>> 77745aba8873573b304986371074292ad3268110
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 87, Short.MAX_VALUE))
@@ -275,6 +396,13 @@ public class NewRequest extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 18, Short.MAX_VALUE))
+=======
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> 77745aba8873573b304986371074292ad3268110
         );
 
         pack();
@@ -300,12 +428,20 @@ public class NewRequest extends javax.swing.JFrame {
         }
         
         if(date==null) {
+<<<<<<< HEAD
             lbDateError.setText("Formato incorrecto");
+=======
+            lbDateError.setText("Fecha incorrecta");
+>>>>>>> 77745aba8873573b304986371074292ad3268110
             correct=false;
         }       
         
         String color=tfColor.getText();       
+<<<<<<< HEAD
         int unit=cbUnit.getSelectedIndex()-1;
+=======
+        Integer unit=cbUnit.getSelectedIndex()-1;
+>>>>>>> 77745aba8873573b304986371074292ad3268110
         
         Double amount=checkNumber(tfAmount.getText());
         Double size=checkNumber(tfSize.getText());
@@ -313,6 +449,7 @@ public class NewRequest extends javax.swing.JFrame {
         
         Integer amountInt=null;
         
+<<<<<<< HEAD
         if(amount==null) {
             correct=false;
             lbAmountError.setText("No es número");
@@ -325,15 +462,34 @@ public class NewRequest extends javax.swing.JFrame {
             lbSizeError.setText("No es número");
         }
         else if(size!=-1 && unit<0) {
+=======
+        if(amount!=null && amount==-1) {
+            correct=false;
+            lbAmountError.setText("No es número");
+        }   
+        else if(amount!=null)
+            amountInt=amount.intValue();
+
+        if(size!=null && size==-1.0) {
+            correct=false;
+            lbSizeError.setText("No es número");
+        }
+        else if(size!=null && unit<0) {
+>>>>>>> 77745aba8873573b304986371074292ad3268110
             correct=false;
             lbUnitError.setText("Selecciona unidad");        
         }
         
+<<<<<<< HEAD
         if(price==null) {
+=======
+        if(price!=null && price==-1.0) {
+>>>>>>> 77745aba8873573b304986371074292ad3268110
             correct=false;
             lbPriceError.setText("No es número");
         }
         
+<<<<<<< HEAD
         if(correct) {
             int id=insert(type, date, size,unit, color, amountInt, price, getID(user), false, false);
             
@@ -341,6 +497,17 @@ public class NewRequest extends javax.swing.JFrame {
                 lbReqError.setText("Error al crear solicitud");
             else {
                 System.out.println("ID: "+id);
+=======
+        if(unit<=-1)
+            unit=null;
+        
+        if(correct) {
+            int id=insert(type, date, size,unit, color, amountInt, price, getID(user), false, false);
+
+            if(id==-1)
+                lbReqError.setText("Error al crear solicitud");
+            else {                
+>>>>>>> 77745aba8873573b304986371074292ad3268110
                 dispose();
                 Home home=new Home(user);
                 home.setVisible(true);
@@ -356,22 +523,54 @@ public class NewRequest extends javax.swing.JFrame {
         Home home=new Home(user);
         home.setVisible(true);
     }//GEN-LAST:event_btCancelActionPerformed
+<<<<<<< HEAD
+=======
+
+    private void tfDayFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDayFocusGained
+        // TODO add your handling code here:
+        if(tfDay.getText().equals("dd"))
+            tfDay.setText("");
+    }//GEN-LAST:event_tfDayFocusGained
+
+    private void tfMonthFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfMonthFocusGained
+        // TODO add your handling code here:
+        if(tfMonth.getText().equals("mm"))
+            tfMonth.setText("");        
+    }//GEN-LAST:event_tfMonthFocusGained
+
+    private void tfYearFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfYearFocusGained
+        // TODO add your handling code here:
+        if(tfYear.getText().equals("aaaa"))
+            tfYear.setText("");
+    }//GEN-LAST:event_tfYearFocusGained
+>>>>>>> 77745aba8873573b304986371074292ad3268110
     
     public String checkDate(String day, String month, String year) {
         boolean correct=true;
         String dateString;
+<<<<<<< HEAD
         
         if(!day.matches("[0-3][0-9]")) {
             lbDateError.setText("Formato incorrecto");
+=======
+
+        if(!day.matches("[0-3][0-9]")) {
+            lbDateError.setText("Fecha incorrecta");
+>>>>>>> 77745aba8873573b304986371074292ad3268110
             correct=false;
         }
 
         if(!month.matches("[0-1][0-9]")) {
+<<<<<<< HEAD
             lbDateError.setText("Formato incorrecto");
+=======
+            lbDateError.setText("Fecha incorrecta");
+>>>>>>> 77745aba8873573b304986371074292ad3268110
             correct=false;
         }
 
         if(!year.matches("[0-9]{4}")) {
+<<<<<<< HEAD
             lbDateError.setText("Formato incorrecto");
             correct=false;
         }
@@ -385,6 +584,20 @@ public class NewRequest extends javax.swing.JFrame {
                 formatter.setLenient(false);
                 date = formatter.parse(dateString);
 
+=======
+            lbDateError.setText("Fecha incorrecta");
+            correct=false;
+        }
+
+        if(correct) {             
+            try {
+                Date date = null;
+                dateString = day+"-"+month+"-"+year;
+                DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                formatter.setLenient(false);
+                
+                date = formatter.parse(dateString);
+>>>>>>> 77745aba8873573b304986371074292ad3268110
                 return dateString;
 
             } catch (ParseException e) {                  
@@ -397,12 +610,21 @@ public class NewRequest extends javax.swing.JFrame {
     
     public Double checkNumber(String number) {        
         if(number!=null && !number.equals("")) {
+<<<<<<< HEAD
             if(!number.matches("[0-9]+[.,][0-9]*"))
                 return null;
             else
                 return Double.parseDouble(number);            
         }        
         return -1.0;
+=======
+            if(!number.matches("[0-9]+[.,]{0,1}[0-9]*"))
+                return -1.0;
+            else
+                return Double.parseDouble(number);            
+        }        
+        return null;
+>>>>>>> 77745aba8873573b304986371074292ad3268110
     }
     
    /**
@@ -469,6 +691,7 @@ public class NewRequest extends javax.swing.JFrame {
     private javax.swing.JTextField tfType;
     private javax.swing.JTextField tfYear;
     // End of variables declaration//GEN-END:variables
+<<<<<<< HEAD
 
     private static int insert(java.lang.String tipo, java.lang.String fechaTope, double tamanyo, int tamUnidad, java.lang.String color, int cantidad, double precioMax, int usuario, boolean autoElect, boolean finalizado) {
         servicios.NewPeticion_Service service = new servicios.NewPeticion_Service();
@@ -476,6 +699,9 @@ public class NewRequest extends javax.swing.JFrame {
         return port.insert(tipo, fechaTope, tamanyo, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado);
     }
 
+=======
+    
+>>>>>>> 77745aba8873573b304986371074292ad3268110
     private static String darTodasUnidades() {
         servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
         servicios.DarUnidades port = service.getDarUnidadesPort();
@@ -493,8 +719,17 @@ public class NewRequest extends javax.swing.JFrame {
         servicios.DarIdClientebyNif port = service.getDarIdClientebyNifPort();
         return port.getID(nif);
     }
+<<<<<<< HEAD
     
     
+=======
+
+    private static int insert(java.lang.String tipo, java.lang.String fechaTope, java.lang.Double tamanyo, java.lang.Integer tamUnidad, java.lang.String color, java.lang.Integer cantidad, java.lang.Double precioMax, int usuario, boolean autoElect, boolean finalizado) {
+        servicios.NewPeticion_Service service = new servicios.NewPeticion_Service();
+        servicios.NewPeticion port = service.getNewPeticionPort();
+        return port.insert(tipo, fechaTope, tamanyo, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado);
+    }  
+>>>>>>> 77745aba8873573b304986371074292ad3268110
 }
 
 

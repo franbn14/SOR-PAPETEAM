@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://Servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicios/">
+
+<xs:element name="Insert" type="tns:Insert" />
+
+<xs:element name="InsertResponse" type="tns:InsertResponse" />
+
+<xs:element name="hello" type="tns:hello" />
+
+<xs:element name="helloResponse" type="tns:helloResponse" />
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Insert">
+<xs:sequence>
+<xs:element name="tipo" type="xs:string" minOccurs="0" />
+<xs:element name="fechaTope" type="xs:string" minOccurs="0" />
+<xs:element name="tamanyo" type="xs:double" minOccurs="0" />
+<xs:element name="tamUnidad" type="xs:int" minOccurs="0" />
+<xs:element name="color" type="xs:string" minOccurs="0" />
+<xs:element name="cantidad" type="xs:int" minOccurs="0" />
+<xs:element name="precioMax" type="xs:double" minOccurs="0" />
+<xs:element name="usuario" type="xs:int" />
+<xs:element name="autoElect" type="xs:boolean" />
+<xs:element name="finalizado" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

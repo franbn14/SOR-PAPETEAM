@@ -43,7 +43,7 @@ public class ClientCAD extends UserCAD{
                 values.put("surname", rs.getString("apellidos"));
                 values.put("password", rs.getString("password"));
                 values.put("address", rs.getString("direccion"));
-                Date date = new Date(rs.getDate("fechaNac").getYear()+1900, rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate());
+                Date date = new Date(rs.getDate("fechaNac").getYear(), rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate());
                 values.put("DOB", date);
             }
             Connector.close(rs);
@@ -67,7 +67,7 @@ public class ClientCAD extends UserCAD{
                 values.put("surname", rs.getString("apellidos"));
                 values.put("password", rs.getString("password"));
                 values.put("address", rs.getString("direccion"));
-                Date date = new Date(rs.getDate("fechaNac").getYear()+1900, rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate());
+                Date date = new Date(rs.getDate("fechaNac").getYear(), rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate());
                 values.put("DOB", date);
             }
             Connector.close(rs);
@@ -92,7 +92,7 @@ public class ClientCAD extends UserCAD{
                 ht.put("surname", rs.getString("apellidos"));
                 ht.put("password", rs.getString("password"));
                 ht.put("address", rs.getString("direccion"));
-                Date date = new Date(rs.getDate("fechaNac").getYear()+1900, rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate()); 
+                Date date = new Date(rs.getDate("fechaNac").getYear(), rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate()); 
                 ht.put("DOB", date);
                 values.add(ht);
             }

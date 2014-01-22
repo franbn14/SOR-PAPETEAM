@@ -22,7 +22,7 @@ import java.util.Date;
  * @author alberto
  */
 public class RequestCAD {
-    public static int insert(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int clientID, boolean autoElec, boolean finished) {
+    public static int insert(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  int clientID, boolean autoElec, boolean finished) {
         int code = -1;
          
         String date = deadline.getYear()+1900 + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
@@ -50,11 +50,11 @@ public class RequestCAD {
             
             if(rs.next()){
                 request.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 request.put("deadline", date);
                 request.put("type", rs.getString("tipo"));
                 request.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                request.put("sizeUnit", rs.getInt("tamUnidad"));
+                request.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 request.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 request.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 request.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
@@ -78,11 +78,11 @@ public class RequestCAD {
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
@@ -99,7 +99,7 @@ public class RequestCAD {
         return values;
     }            
     
-    public static void update(int code, Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  int client, boolean autoElect, boolean finished) {
+    public static void update(int code, Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  int client, boolean autoElect, boolean finished) {
         try {
             String date = deadline.getYear()+1900 + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
             String c = (color == null)? null : "\"" + color + "\"";
@@ -132,11 +132,11 @@ public class RequestCAD {
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
@@ -161,11 +161,11 @@ public class RequestCAD {
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
@@ -190,11 +190,11 @@ public class RequestCAD {
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
@@ -216,17 +216,17 @@ public class RequestCAD {
             Date now = new Date();
             String s_now = (now.getYear()+1900) + "-" + (now.getMonth()+1) + "-" + now.getDate();
             String query = "SELECT s.codigo, s.fechaTope, s.tipo, s.tamaño, s.tamUnidad, s.color, s.cantidad, s.precioMax, s.usuario, s.autoElect, s.finalizado " +
-                           "FROM Solicitud s WHERE s.finalizado = 0 and s.fechaTope >= '" + s_now + "';";
+                           "FROM Solicitud s WHERE s.finalizado = 0 ;";
             
             ResultSet rs = Connector.query(query);
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));

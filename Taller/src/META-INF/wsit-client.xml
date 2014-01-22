@@ -6,4 +6,8 @@
  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="mainclientconfig" 
  >
     <import location="LoginClientes.xml" namespace="http://Servicios/"/>
+<<<<<<< HEAD
+=======
+    <import location="RegistroCliente.xml" namespace="http://Servicios/"/>
+>>>>>>> 77745aba8873573b304986371074292ad3268110
 </definitions>

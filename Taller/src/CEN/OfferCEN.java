@@ -18,7 +18,11 @@ public class OfferCEN {
     private int code;
     private String type;
     private Double size;
+<<<<<<< HEAD
     private int sizeUnit;
+=======
+    private Integer sizeUnit;
+>>>>>>> 77745aba8873573b304986371074292ad3268110
     private String color;
     private Integer amount;
     private Double price;
@@ -29,7 +33,11 @@ public class OfferCEN {
     /*public OfferCEN() {
     }*/
 
+<<<<<<< HEAD
     private void setAttributes(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
+=======
+    private void setAttributes(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
+>>>>>>> 77745aba8873573b304986371074292ad3268110
         this.type = type;
         this.size = size;
         this.sizeUnit = sizeUnit;
@@ -41,7 +49,11 @@ public class OfferCEN {
         this.accepted = accepted;
     }
     
+<<<<<<< HEAD
     public OfferCEN(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
+=======
+    public OfferCEN(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
+>>>>>>> 77745aba8873573b304986371074292ad3268110
         setAttributes(type, size, sizeUnit, color, amount, price, request, scrapyard, accepted);
         this.code = -1;
     }     
@@ -70,7 +82,11 @@ public class OfferCEN {
         this.size = size;
     }
 
+<<<<<<< HEAD
     public int getSizeUnit() {
+=======
+    public Integer getSizeUnit() {
+>>>>>>> 77745aba8873573b304986371074292ad3268110
         return sizeUnit;
     }
 
@@ -78,7 +94,11 @@ public class OfferCEN {
         return UnitsCEN.getByID(sizeUnit);
     }
     
+<<<<<<< HEAD
     public void setSizeUnit(int sizeUnit) {
+=======
+    public void setSizeUnit(Integer sizeUnit) {
+>>>>>>> 77745aba8873573b304986371074292ad3268110
         this.sizeUnit = sizeUnit;
     }
 
@@ -132,8 +152,22 @@ public class OfferCEN {
        
     @Override
     public String toString() {
+<<<<<<< HEAD
         return amount+" "+type;
     }
     
    
+=======
+        return ((amount!=null)?amount+" ":"") + type + " " + ((color!=null)?color+" ":"") + 
+                ((size!=null)?size+" "+darUnidadId(sizeUnit)+" ":"");
+    }
+
+    private static String darUnidadId(int id) {
+        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
+        servicios.DarUnidades port = service.getDarUnidadesPort();
+        return port.darUnidadId(id);
+    }
+    
+    
+>>>>>>> 77745aba8873573b304986371074292ad3268110
 }

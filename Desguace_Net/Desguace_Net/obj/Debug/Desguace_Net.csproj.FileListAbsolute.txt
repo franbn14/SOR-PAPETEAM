@@ -9,3 +9,10 @@ C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_N
 C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.pdb
 C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.Registro.resources
 C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.Inicio.resources
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Apache.NMS.ActiveMQ.dll
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Apache.NMS.dll
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Apache.NMS.pdb
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Apache.NMS.ActiveMQ.pdb
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Apache.NMS.ActiveMQ.xml
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Newtonsoft.Json.dll
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Newtonsoft.Json.xml

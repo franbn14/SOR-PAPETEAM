@@ -1,0 +1,154 @@
+<html>
+<head><title>
+Web Services
+</title></head>
+<body>
+<h1>Web Services</h1>
+<table width='100%' border='1'>
+<tr>
+<td>
+Endpoint
+</td>
+<td>
+Information
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}LoginClientes</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}LoginClientesPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/LoginClientes</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/LoginClientes?wsdl">http://localhost:8081/Sor_Servicios/LoginClientes?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.LoginClientes</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}LoginDesguace</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}LoginDesguacePort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/LoginDesguace</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/LoginDesguace?wsdl">http://localhost:8081/Sor_Servicios/LoginDesguace?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.LoginDesguace</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}RegistroDesguace</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}RegistroDesguacePort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/RegistroDesguace</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/RegistroDesguace?wsdl">http://localhost:8081/Sor_Servicios/RegistroDesguace?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.RegistroDesguace</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}RegistroCliente</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}RegistroClientePort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/RegistroCliente</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/RegistroCliente?wsdl">http://localhost:8081/Sor_Servicios/RegistroCliente?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.RegistroCliente</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}DarNombreCliente</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}DarNombreClientePort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/DarNombreCliente</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/DarNombreCliente?wsdl">http://localhost:8081/Sor_Servicios/DarNombreCliente?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.DarNombreCliente</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}DarIdClientebyNif</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}DarIdClientebyNifPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/DarIdClientebyNif</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/DarIdClientebyNif?wsdl">http://localhost:8081/Sor_Servicios/DarIdClientebyNif?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.DarIdClientebyNif</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}DarIdDesguacebyCif</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}DarIdDesguacebyCifPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/DarIdDesguacebyCif</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/DarIdDesguacebyCif?wsdl">http://localhost:8081/Sor_Servicios/DarIdDesguacebyCif?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.DarIdDesguacebyCif</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}NewPeticion</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}NewPeticionPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/NewPeticion</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/NewPeticion?wsdl">http://localhost:8081/Sor_Servicios/NewPeticion?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.NewPeticion</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}BorrarPeticion</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}BorrarPeticionPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/BorrarPeticion</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/BorrarPeticion?wsdl">http://localhost:8081/Sor_Servicios/BorrarPeticion?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.BorrarPeticion</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}DarPeticionesNifP</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}DarPeticionesNifPPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/DarPeticionesNifP</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/DarPeticionesNifP?wsdl">http://localhost:8081/Sor_Servicios/DarPeticionesNifP?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.DarPeticionesNifP</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}DarPeticionesNifF</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}DarPeticionesNifFPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/DarPeticionesNifF</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/DarPeticionesNifF?wsdl">http://localhost:8081/Sor_Servicios/DarPeticionesNifF?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.DarPeticionesNifF</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}DarUnidades</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}DarUnidadesPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/DarUnidades</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/DarUnidades?wsdl">http://localhost:8081/Sor_Servicios/DarUnidades?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.DarUnidades</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}DarOfertasRequest</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}DarOfertasRequestPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/DarOfertasRequest</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/DarOfertasRequest?wsdl">http://localhost:8081/Sor_Servicios/DarOfertasRequest?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.DarOfertasRequest</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}DarOfertasRequestOk</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}DarOfertasRequestOkPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/DarOfertasRequestOk</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/DarOfertasRequestOk?wsdl">http://localhost:8081/Sor_Servicios/DarOfertasRequestOk?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.DarOfertasRequestOk</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}DarOfertasSeleccionadas</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}DarOfertasSeleccionadasPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/DarOfertasSeleccionadas</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/DarOfertasSeleccionadas?wsdl">http://localhost:8081/Sor_Servicios/DarOfertasSeleccionadas?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.DarOfertasSeleccionadas</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}AceptarOfertas</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}AceptarOfertasPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/AceptarOfertas</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/AceptarOfertas?wsdl">http://localhost:8081/Sor_Servicios/AceptarOfertas?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.AceptarOfertas</td></tr></table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://Servicios/}LoginClientes</td></tr><tr><td>Port Name:</td><td>{http://Servicios/}LoginClientesPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://localhost:8081/Sor_Servicios/LoginClientes</td></tr><tr><td>WSDL:</td><td><a href="http://localhost:8081/Sor_Servicios/LoginClientes?wsdl">http://localhost:8081/Sor_Servicios/LoginClientes?wsdl</a></td></tr><tr><td>Implementation class:</td><td>Servicios.LoginClientes</td></tr></table>
+</td>
+</tr>
+</table>
+</body>
+</html>

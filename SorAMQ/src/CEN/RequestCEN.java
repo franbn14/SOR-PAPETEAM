@@ -20,7 +20,7 @@ public class RequestCEN {
     private Date deadline;
     private String type;
     private Double size;
-    private int sizeUnit;
+    private Integer sizeUnit;
     private String color;
     private Integer amount;
     private Double maxPrice;
@@ -28,7 +28,7 @@ public class RequestCEN {
     private boolean autoElect;
     private boolean finished;
 
-    private void setAttributes(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {
+    private void setAttributes(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {
         this.deadline = deadline;
         this.type = type;
         this.size = size;
@@ -48,7 +48,7 @@ public class RequestCEN {
     public RequestCEN() {
     }
         
-    public RequestCEN(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoSelec, boolean finished) {        
+    public RequestCEN(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoSelec, boolean finished) {        
         setAttributes(deadline, type, size, sizeUnit, color, amount, maxPrice, client, autoSelec, finished);      
         this.code = -1;
     }
@@ -101,7 +101,7 @@ public class RequestCEN {
         this.size = size;
     }
 
-    public int getSizeUnit() {
+    public Integer getSizeUnit() {
         return sizeUnit;
     }
 
@@ -109,7 +109,7 @@ public class RequestCEN {
         return UnitsCEN.getByID(sizeUnit);
     }
     
-    public void setSizeUnit(int sizeUnit) {
+    public void setSizeUnit(Integer sizeUnit) {
         this.sizeUnit = sizeUnit;
     }
 
@@ -121,11 +121,11 @@ public class RequestCEN {
         this.color = color;
     }
 
-    public double getMaxPrice() {
+    public Double getMaxPrice() {
         return maxPrice;
     }
 
-    public void setMaxPrice(double maxPrice) {
+    public void setMaxPrice(Double maxPrice) {
         this.maxPrice = maxPrice;
     }
 
@@ -299,7 +299,7 @@ public class RequestCEN {
         return all;
     }
     
-    public void update(Date deadline, String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {        
+    public void update(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {        
         setAttributes(deadline, type, size, sizeUnit, color, amount, maxPrice, client, autoElect, finished);
         RequestCAD.update(this.code, deadline, type, size, sizeUnit, color, amount, maxPrice, client.getId(), autoElect, finished);
     }
