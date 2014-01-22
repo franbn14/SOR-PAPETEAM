@@ -104,6 +104,11 @@ public class AMQPublisher{
 	public void send(String obj, long timespan)
 	{
 		try {
+                    /*if(session_publisher == null)
+                    {
+                        session_publisher = connection.createTopicSession(false, javax.jms.Session.AUTO_ACKNOWLEDGE);
+                        publisher = session_publisher.createPublisher(topic);
+                    }*/
 			TextMessage msg = (TextMessage)session_publisher.createTextMessage(obj);
                         System.out.println(msg.getText());
 			msg.setStringProperty("channel", channel);
