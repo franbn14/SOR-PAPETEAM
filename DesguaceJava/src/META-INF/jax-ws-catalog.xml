@@ -4,4 +4,6 @@
     <system systemId="http://localhost:8080/Sor_Servicios/LoginClientes?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/LoginClientes.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/LoginDesguace.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/LoginDesguace?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/LoginDesguace.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.xsd_1.xsd"/>
 </catalog>

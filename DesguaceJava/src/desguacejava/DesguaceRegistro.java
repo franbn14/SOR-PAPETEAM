@@ -111,18 +111,71 @@ public class DesguaceRegistro extends JFrame{
                     valido = false;
                     error += "CIF vacio";
                 }
+                else
+                {
+                    String cif = t1.getText();
+                    cif = cif.toUpperCase();
+                    if(cif.length() != 9)
+                        valido = false;
+                    else
+                    {
+                        String letters = "ABCDEFGHKLMNPQS";
+                        String letter = cif.substring(0,1);
+                        String digits = cif.substring(1);
+                        
+                        if(letters.indexOf(letter) == -1)
+                            valido = false;
+                        else
+                        {
+                            if(!digits.matches("[0-9]{8}"))
+                                valido = false;
+                        }
+                    }
+                    
+                    if(!valido)
+                        error += "formato del CIF incorrecto";
+                }
+                
+                if(t2.getText().equals("") && t3.getText().equals(""))
+                {
+                    valido = false;
+                    if(error.equals(""))
+                        error+="los Passwords no pueden ser vacios";
+                    else
+                        error+="\n los Passwords no pueden ser vacios";
+                }
                 if(!t2.getText().equals(t3.getText()))
                 {
                     valido = false;
                     if(error.equals(""))
                         error+="los Passwords no coinciden";
                     else
-                        error+=", los Passwords no coinciden";
+                        error+="\n los Passwords no coinciden";
+                }
+                
+                if(textField.getText().equals(" "))
+                {
+                    valido = false;
+                    if(error.equals(""))
+                        error+="el email no puede ser vacio";
+                    else
+                        error+="\n el email no puede ser vacio";
+                }
+                else
+                {
+                    if(!textField.getText().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"))
+                    {
+                        valido = false;
+                        if(error.equals(""))
+                            error+="formato del email incorrecto. 'ejemplo@ejemplo.com'";
+                        else
+                            error+="\n formato del email incorrecto. 'ejemplo@ejemplo.com'";  
+                    }
                 }
                 
                 if(valido)
                 {
-                    error = registro(t1.getText(), t4.getText(), t2.getText(), t5.getText());
+                    error = registro(t1.getText(), t4.getText(), t2.getText(), t5.getText(), textField.getText());
                     if(error.equals(""))
                     {
                         error = "Registro completado";
@@ -156,10 +209,10 @@ public class DesguaceRegistro extends JFrame{
         
     }
 
-    private static String registro(java.lang.String cif, java.lang.String nombre, java.lang.String password, java.lang.String direccion) {
+    private static String registro(java.lang.String cif, java.lang.String nombre, java.lang.String password, java.lang.String direccion, java.lang.String email) {
         servicios.RegistroDesguace_Service service = new servicios.RegistroDesguace_Service();
         servicios.RegistroDesguace port = service.getRegistroDesguacePort();
-        return port.registro(cif, nombre, password, direccion);
+        return port.registro(cif, nombre, password, direccion, email);
     }
 
 }
