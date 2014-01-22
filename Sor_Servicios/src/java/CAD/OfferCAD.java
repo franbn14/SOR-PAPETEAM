@@ -147,9 +147,10 @@ public class OfferCAD {
      public static ArrayList<Hashtable> getByCIFDesPendientes(String nif){
         ArrayList<Hashtable> values = new ArrayList();
         try {
-            String query = "SELECT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
-                            "FROM Oferta o, Solicitud s, Desguace c WHERE o.solicitud = s.codigo and s.usuario = c.id and c.cif = '" + nif + "' o.aceptada= 0;";
+           String query = "SELECT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
+                            "FROM Oferta o, Solicitud s, Desguace c WHERE o.solicitud = s.codigo and o.desguace = c.id and c.cif = '" + nif + "' and o.aceptada= 0;";
             ResultSet rs = Connector.query(query);
+
             
             while(rs.next()){
                 Hashtable ht = new Hashtable();
@@ -289,8 +290,9 @@ public class OfferCAD {
      public static ArrayList<Hashtable> getAcceptedByDesNIF(String nif){
         ArrayList<Hashtable> values = new ArrayList();
         try {
-            String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
-                            "WHERE o.aceptada = 1 and s.usuario = c.id and o.solicitud = s.codigo and c.cif = " + nif + ";";
+            
+String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
+                            "WHERE o.aceptada = 1 and o.desguace = c.id and o.solicitud = s.codigo and c.cif = '" + nif + "';";
             ResultSet rs = Connector.query(query);
             
             while(rs.next()){

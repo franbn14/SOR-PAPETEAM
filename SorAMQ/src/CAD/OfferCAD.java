@@ -17,7 +17,7 @@ import java.util.Hashtable;
  * @author alberto
  */
 public class OfferCAD {
-    public static int insert(String type, Double size, int sizeUnit, String color, Integer amount, Double price, int request, int scrapyard, boolean accepted) {
+    public static int insert(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, int request, int scrapyard, boolean accepted) {
         int code=-1;
         String c = (color == null)? null : "\"" + color + "\"";
         String query = "INSERT INTO Oferta (tipo, tamaño, tamUnidad, color, cantidad, precio, solicitud, desguace, aceptada) "
@@ -44,7 +44,7 @@ public class OfferCAD {
                 request.put("code", rs.getInt("codigo"));
                 request.put("type", rs.getString("tipo"));
                 request.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                request.put("sizeUnit", rs.getInt("tamUnidad"));
+                request.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 request.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 request.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 request.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -71,7 +71,7 @@ public class OfferCAD {
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -99,7 +99,7 @@ public class OfferCAD {
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -128,7 +128,7 @@ public class OfferCAD {
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -147,16 +147,17 @@ public class OfferCAD {
      public static ArrayList<Hashtable> getByCIFDesPendientes(String nif){
         ArrayList<Hashtable> values = new ArrayList();
         try {
-            String query = "SELECT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
+           String query = "SELECT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
                             "FROM Oferta o, Solicitud s, Desguace c WHERE o.solicitud = s.codigo and o.desguace = c.id and c.cif = '" + nif + "' and o.aceptada= 0;";
             ResultSet rs = Connector.query(query);
+
             
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -184,7 +185,7 @@ public class OfferCAD {
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -212,7 +213,7 @@ public class OfferCAD {
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -241,7 +242,7 @@ public class OfferCAD {
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -270,7 +271,7 @@ public class OfferCAD {
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -289,7 +290,8 @@ public class OfferCAD {
      public static ArrayList<Hashtable> getAcceptedByDesNIF(String nif){
         ArrayList<Hashtable> values = new ArrayList();
         try {
-            String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
+            
+String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
                             "WHERE o.aceptada = 1 and o.desguace = c.id and o.solicitud = s.codigo and c.cif = '" + nif + "';";
             ResultSet rs = Connector.query(query);
             
@@ -298,7 +300,7 @@ public class OfferCAD {
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -315,7 +317,7 @@ public class OfferCAD {
         return values;
     }
     
-     public static ArrayList<Hashtable> AutoSelection(String type, Double size, int sizeUnit, String color, Integer amount, Double maxPrice, int request){
+     public static ArrayList<Hashtable> AutoSelection(String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice, int request){
         ArrayList<Hashtable> values = new ArrayList();
         try {
             String q_type = "(o.tipo like '%" + type + "%' or o.tipo like '%" + type.toUpperCase() + "%' or o.tipo like '%" + type.toLowerCase() + "%')";
@@ -325,7 +327,7 @@ public class OfferCAD {
             String q_amount = (amount == null)? null: "o.cantidad = " + amount;
             String q_maxPrice = (maxPrice == null)? null : "o.precio <= " + maxPrice;
             
-            String query = "SELECT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
+            String query = "SELECT DISTINCT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
                         "FROM Oferta o, Solicitud s "
                         + "WHERE solicitud = " + request + " and "
                         + q_type + " and "
@@ -336,13 +338,12 @@ public class OfferCAD {
                         + ((q_maxPrice == null)? "" : q_maxPrice + ";");
 
             ResultSet rs = Connector.query(query);
-            
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", rs.getInt("tamUnidad"));
+                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
                 ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
                 ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
                 ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
@@ -372,7 +373,7 @@ public class OfferCAD {
         return email;
     }*/
     
-    public static void update(int code, String type, Double size, int sizeUnit, String color, Integer amount, Double price, int request, int scrapyard, boolean accepted) {
+    public static void update(int code, String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, int request, int scrapyard, boolean accepted) {
         try {
             String c = (color == null)? null : "\"" + color + "\"";
             String query = "UPDATE Oferta SET tipo = \"" + type + "\", tamaño = " + size + ", tamUnidad = " + sizeUnit + ", color = " + c + ", "

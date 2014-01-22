@@ -281,7 +281,7 @@ public class OfferCEN {
         return all;
     }
     public static ArrayList<OfferCEN> getAcceptedByDesNIF(String nif) {
-        ArrayList<Hashtable> values = OfferCAD.getByCIFDesPendientes(nif);
+        ArrayList<Hashtable> values = OfferCAD.getAcceptedByDesNIF(nif);
         ArrayList<OfferCEN> all = null;
         
         if(!values.isEmpty()) {

@@ -15,6 +15,7 @@ using Desguace_Net.DarID;
 using Apache.NMS.ActiveMQ;
 using Apache.NMS;
 using Desguace_Net;
+
 namespace Desguace_Net
 {
     public partial class Inicio : Form
@@ -38,19 +39,12 @@ namespace Desguace_Net
 
             s.OnMessageReceived += s_OnMessageReceived;
 
-            System.Threading.Thread.Sleep(10000);
            
-            Console.WriteLine("despues");
-                /*TopicSubscriber.MakeSubscriber(
-                 "tcp://localhost:61616",
-                 "pendientesSuscriber",
-                "pendientes");*/
         }
          void s_OnMessageReceived(string message)
         {
             Console.WriteLine(message);
-            textBox1.Text = message;
-            Console.ReadLine();
+            
         }
 
         private void Inicio_Load(object sender, EventArgs e)

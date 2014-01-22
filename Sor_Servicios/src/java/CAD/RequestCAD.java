@@ -50,7 +50,7 @@ public class RequestCAD {
             
             if(rs.next()){
                 request.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 request.put("deadline", date);
                 request.put("type", rs.getString("tipo"));
                 request.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
@@ -78,7 +78,7 @@ public class RequestCAD {
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
@@ -101,7 +101,7 @@ public class RequestCAD {
     
     public static void update(int code, Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  int client, boolean autoElect, boolean finished) {
         try {
-            String date = deadline.getYear() + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
+            String date = deadline.getYear()+1900 + "-" + (deadline.getMonth()+1) + "-" + deadline.getDate();
             String c = (color == null)? null : "\"" + color + "\"";
             String query = "UPDATE Solicitud SET fechaTope = '"+ date +"', tipo = \"" + type + "\", tamaño = "+ size +", "+
                            "tamUnidad = "+ sizeUnit +", color = "+ c +", cantidad = " + amount + ",precioMax = " + maxPrice + ", " +
@@ -132,7 +132,7 @@ public class RequestCAD {
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
@@ -161,7 +161,7 @@ public class RequestCAD {
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
@@ -190,7 +190,7 @@ public class RequestCAD {
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
@@ -216,13 +216,13 @@ public class RequestCAD {
             Date now = new Date();
             String s_now = (now.getYear()+1900) + "-" + (now.getMonth()+1) + "-" + now.getDate();
             String query = "SELECT s.codigo, s.fechaTope, s.tipo, s.tamaño, s.tamUnidad, s.color, s.cantidad, s.precioMax, s.usuario, s.autoElect, s.finalizado " +
-                           "FROM Solicitud s WHERE s.finalizado = 0 and s.fechaTope >= '" + s_now + "';";
+                           "FROM Solicitud s WHERE s.finalizado = 0 ;";
             
             ResultSet rs = Connector.query(query);
             while(rs.next()){
                 Hashtable ht = new Hashtable();
                 ht.put("code", rs.getInt("codigo"));
-                Date date = new Date(rs.getDate("fechaTope").getYear()+1900, rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+                Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
                 ht.put("deadline", date);
                 ht.put("type", rs.getString("tipo"));
                 ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));

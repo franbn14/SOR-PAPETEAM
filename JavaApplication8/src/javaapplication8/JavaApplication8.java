@@ -46,7 +46,7 @@ public class JavaApplication8 {
         
         //System.out.println(insert("ruedas anchas", "05-10-2014", 45.0, 12, "verde", 12,45.0,2, false, false));
        // 
-        aceptarOfertasDe("1");
+        System.out.println(darPeticiones("22222222A"));
        
        
     }
