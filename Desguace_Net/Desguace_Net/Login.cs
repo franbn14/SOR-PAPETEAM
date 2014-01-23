@@ -70,10 +70,7 @@ namespace Desguace_Net
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Es cierto que desea salir?", "", MessageBoxButtons.YesNo,
-        MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) ==
-        DialogResult.No)
-                e.Cancel = true;
+            
         }
     }
 }
