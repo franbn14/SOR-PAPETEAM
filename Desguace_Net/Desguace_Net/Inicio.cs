@@ -41,9 +41,9 @@ namespace Desguace_Net
             InitializeComponent();
             Text = "Bienvenido " + userName;
 
-             r = new Services.TopicSubscriber("pendientes", "tcp://localhost:61616", "RecibidorRequest"+nif);
-             op = new Services.TopicSubscriber(nif + "p", "tcp://localhost:61616", "RecibidorOfertasPen"+nif);
-             of = new Services.TopicSubscriber(nif + "f", "tcp://localhost:61616", "RecibidorOfertasFin"+nif);
+            r = new Services.TopicSubscriber("pendientes", "tcp://192.168.43.56:61616", "RecibidorRequest" + nif);
+            op = new Services.TopicSubscriber(nif + "p", "tcp://192.168.43.56:61616", "RecibidorOfertasPen" + nif);
+            of = new Services.TopicSubscriber(nif + "f", "tcp://192.168.43.56:61616", "RecibidorOfertasFin" + nif);
             r.OnMessageReceived += r_OnMessageReceived;
             op.OnMessageReceived += op_OnMessageReceived;
             of.OnMessageReceived += of_OnMessageReceived;
@@ -85,12 +85,13 @@ namespace Desguace_Net
         {
 
             dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Request>>(message);
+            ListaRequest.Items.Clear();
             if (json != null)
             {
                 list = new List<Request>(json);
 
                 //ListaRequest = new ListBox();
-                ListaRequest.Items.Clear();
+               
                 ListaRequest.Items.AddRange(list.ToArray());
             
             }
@@ -100,13 +101,14 @@ namespace Desguace_Net
         {
 
             dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Offer>>(message);
+            OfferPList.Items.Clear();
             if (json != null)
             {
                 listOp = new List<Offer>(json);
 
 
                 //ListaRequest = new ListBox();
-                OfferPList.Items.Clear();
+                
                 OfferPList.Items.AddRange(listOp.ToArray());
             }
                 
@@ -115,13 +117,13 @@ namespace Desguace_Net
         {
 
             dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Offer>>(message);
-
+            OfferFList.Items.Clear();
             if (json != null)
             {
                 listOf = new List<Offer>(json);
 
                 //ListaRequest = new ListBox();
-                OfferFList.Items.Clear();
+                
                 OfferFList.Items.AddRange(listOf.ToArray());
             }
             

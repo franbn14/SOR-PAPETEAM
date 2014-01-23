@@ -81,7 +81,7 @@ namespace Desguace_Net
             if (correcto)
             {
                 String oferta = Pieza_Text.Text + "," + Tamaño_Text.Text + "," + UnidadesCom.SelectedIndex + "," + ColorText.Text + "," + Cant_Text.Text + "," + Precio_Text.Text + "," + IdDes + "," + IdRe;
-                Services.TopicPublisher p = new Services.TopicPublisher("OfferDelivery", "tcp://localhost:61616");
+                Services.TopicPublisher p = new Services.TopicPublisher("OfferDelivery", "tcp://192.168.43.56:61616");
                 p.SendMessage(oferta);
                 if (MessageBox.Show("Oferta Enviada", "", MessageBoxButtons.OK,
       MessageBoxIcon.Information) == DialogResult.OK)
