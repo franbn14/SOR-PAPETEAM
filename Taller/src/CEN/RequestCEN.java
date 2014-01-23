@@ -149,8 +149,8 @@ public class RequestCEN {
     
     @Override
     public String toString(){
-        return ((amount!=null)?amount+" ":"") + type + " " + ((color!=null)?color+" ":"") + 
-                ((size!=null)?size+" "+darUnidadId(sizeUnit)+" ":"");
+        return ((amount!=null)?amount+" ":"") + type + ((color!=null)?" | "+color:"") + 
+                ((size!=null)?" | "+size+darUnidadId(sizeUnit)+" ":"") + ((maxPrice!=null)?" | "+maxPrice+"€":"");
     }
 
     private static String darUnidadId(Integer id) {

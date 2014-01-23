@@ -64,6 +64,14 @@ public class Register extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel1.setText("Registro de nuevo usuario");
 
+        tfName.setBackground(new java.awt.Color(252, 247, 232));
+
+        tfCif.setBackground(new java.awt.Color(252, 247, 232));
+
+        tfAddress.setBackground(new java.awt.Color(252, 247, 232));
+
+        tfSurname.setBackground(new java.awt.Color(252, 247, 232));
+
         jLabel2.setText("NIF/CIF");
 
         jLabel3.setText("Nombre");
@@ -74,8 +82,11 @@ public class Register extends javax.swing.JFrame {
 
         lbSuranme.setText("Apellidos");
 
+        tfPass.setBackground(new java.awt.Color(252, 247, 232));
+
         lbDate.setText("Fecha nac.");
 
+        btCancel.setBackground(new java.awt.Color(252, 247, 232));
         btCancel.setText("Cancelar");
         btCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +94,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        btRegister.setBackground(new java.awt.Color(252, 247, 232));
         btRegister.setText("Registrar");
         btRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,6 +111,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        tfMonth.setBackground(new java.awt.Color(252, 247, 232));
         tfMonth.setText("mm");
         tfMonth.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -106,6 +119,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        tfYear.setBackground(new java.awt.Color(252, 247, 232));
         tfYear.setText("aaaa");
         tfYear.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -113,6 +127,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        tfDay.setBackground(new java.awt.Color(252, 247, 232));
         tfDay.setText("dd");
         tfDay.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -133,47 +148,45 @@ public class Register extends javax.swing.JFrame {
             .addGroup(mainPaneLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPaneLayout.createSequentialGroup()
-                        .addComponent(cbTaller)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(mainPaneLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPaneLayout.createSequentialGroup()
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPaneLayout.createSequentialGroup()
-                                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5)
-                                            .addComponent(lbSuranme)
-                                            .addComponent(lbDate))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(mainPaneLayout.createSequentialGroup()
-                                                .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(tfMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(tfName)
-                                                .addComponent(tfCif)
-                                                .addComponent(tfAddress)
-                                                .addComponent(tfSurname)
-                                                .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPaneLayout.createSequentialGroup()
-                                        .addGap(87, 87, 87)
-                                        .addComponent(btRegister)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(btCancel)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPaneLayout.createSequentialGroup()
                                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbDateError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lbCIFError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(lbSuranme)
+                                    .addComponent(lbDate))
+                                .addGap(18, 18, 18)
+                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(mainPaneLayout.createSequentialGroup()
+                                        .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tfMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tfName)
+                                        .addComponent(tfCif)
+                                        .addComponent(tfAddress)
+                                        .addComponent(tfSurname)
+                                        .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPaneLayout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(btRegister)
+                                .addGap(12, 12, 12)
+                                .addComponent(btCancel)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbDateError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbCIFError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(mainPaneLayout.createSequentialGroup()
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbTaller)
+                            .addComponent(jLabel1))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         mainPaneLayout.setVerticalGroup(
@@ -181,11 +194,12 @@ public class Register extends javax.swing.JFrame {
             .addGroup(mainPaneLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbTaller)
+                .addGap(14, 14, 14)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPaneLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lbCIFError)
                         .addGap(115, 115, 115)
                         .addComponent(lbDateError)
@@ -193,7 +207,6 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21))
                     .addGroup(mainPaneLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
@@ -234,7 +247,7 @@ public class Register extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

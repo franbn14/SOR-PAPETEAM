@@ -23,7 +23,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -56,6 +59,7 @@
                                       <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -72,11 +76,7 @@
                                               <Component id="tfYear" min="-2" pref="45" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="tfPrice" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="btCreate" min="-2" pref="65" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="btCancel" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="cbSelection" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="tfAmount" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
                                       <Component id="tfType" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
@@ -86,6 +86,12 @@
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="tfColor" min="-2" pref="150" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                                  <Component id="btCreate" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btCancel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -171,12 +177,25 @@
                       <Component id="lbDateError" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btCreate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btCancel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbReqError" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="lbReqError" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="cbSelection" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btCancel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btCreate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -192,6 +211,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btCreate">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Crear"/>
           </Properties>
           <Events>
@@ -229,17 +251,45 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfType">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfAmount">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfSize">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfPrice">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfColor">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btCancel">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
@@ -269,6 +319,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tfDay">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="dd"/>
           </Properties>
           <Events>
@@ -277,6 +330,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tfMonth">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="mm"/>
           </Properties>
           <Events>
@@ -285,6 +341,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tfYear">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="aaaa"/>
           </Properties>
           <Events>
@@ -305,6 +364,10 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="cbUnit">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="f7" red="fc" type="rgb"/>
+            </Property>
+            <Property name="editable" type="boolean" value="true"/>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
                 <StringItem index="0" value=" "/>
@@ -331,6 +394,16 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="24" green="24" red="e8" type="rgb"/>
             </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cbSelection">
+          <Properties>
+            <Property name="selected" type="boolean" value="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Autoselecci&#xf3;n"/>
           </Properties>
         </Component>
       </SubComponents>
