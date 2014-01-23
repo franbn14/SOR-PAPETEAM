@@ -132,7 +132,21 @@ public class OfferCEN {
        
     @Override
     public String toString() {
-        return amount+" "+type;
+                String salida = "";
+        if(size != null)
+            salida += size + sizeUnit + " | ";
+                
+        if(type != null)
+            salida += type + " | ";
+
+        if(color != null)
+            salida += color + " | ";
+        if(amount != null)
+            salida += amount;
+        if(price != null)
+            salida += " | " + price + "€";
+        
+        return salida;
     }
     
    
