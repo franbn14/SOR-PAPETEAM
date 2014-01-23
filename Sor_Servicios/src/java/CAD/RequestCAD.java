@@ -213,10 +213,8 @@ public class RequestCAD {
      public static ArrayList<Hashtable> getAllOpened(){
         ArrayList<Hashtable> values = new ArrayList();
         try {
-            Date now = new Date();
-            String s_now = (now.getYear()+1900) + "-" + (now.getMonth()+1) + "-" + now.getDate();
             String query = "SELECT s.codigo, s.fechaTope, s.tipo, s.tamaño, s.tamUnidad, s.color, s.cantidad, s.precioMax, s.usuario, s.autoElect, s.finalizado " +
-                           "FROM Solicitud s WHERE s.finalizado = 0 ;";
+                           "FROM Solicitud s WHERE s.finalizado = 0 AND DATE(s.fechaTope) > DATE(NOW());";
             
             ResultSet rs = Connector.query(query);
             while(rs.next()){

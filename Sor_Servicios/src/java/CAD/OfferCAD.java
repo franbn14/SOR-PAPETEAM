@@ -336,6 +336,7 @@ String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
                         + ((q_color == null)? "" : q_color + " and ")
                         + ((q_amount == null)? "" : q_amount + " and ")
                         + ((q_maxPrice == null)? "" : q_maxPrice + ";");
+            System.out.println("QUERY: "+query);
 
             ResultSet rs = Connector.query(query);
             while(rs.next()){
