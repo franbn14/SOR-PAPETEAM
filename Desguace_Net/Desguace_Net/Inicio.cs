@@ -23,7 +23,9 @@ namespace Desguace_Net
         String userName = "";
         String nif = "";
         int idDes = 0;
-        Services.TopicSubscriber request_subscriber;
+        Services.TopicSubscriber s;
+        List<Request> list;
+
         public Inicio(String user)
         {
           DarNombreClienteClient c = new DarNombreClienteClient();
@@ -35,36 +37,53 @@ namespace Desguace_Net
             InitializeComponent();
             Text = "Bienvenido " + userName;
 
-            Services.TopicSubscriber s = new Services.TopicSubscriber("pendientes", "tcp://localhost:61616", "recibidor");
+             s = new Services.TopicSubscriber("pendientes", "tcp://localhost:61616", "recibidor");
 
             s.OnMessageReceived += s_OnMessageReceived;
 
            
         }
-         void s_OnMessageReceived(string message)
+        private void s_OnMessageReceived(string message)
         {
-            Console.WriteLine(message);
             
-        }
 
+            //req = list.ElementAt(0);       
+            cargarRequest(message);
+            Console.WriteLine(message);     
+
+           
+                        
+        }
+        private void cargarRequest(String message)
+        {
+
+            dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Request>>(message);
+            list = new List<Request>(json);
+           // ListaRequest.Items.Clear();
+            RequestP.Rows.Clear();
+            RequestP.Rows.Add(list.ElementAt(0).Type);  
+        
+        }
         private void Inicio_Load(object sender, EventArgs e)
         {
-
-            //request_subscriber.Start("Request_Pendientes");
-           // request_subscriber.OnMessageReceived += OnMessage;
-            //request_subscriber.OnMessageReceived += OnMessage;
-            //Console.WriteLine("de");
-           
+                    
+            Request req = new Request();// list.ElementAt(0);
+            req.Type = "Juanito";
+            Console.WriteLine("Items: " + list.Count);
+             
+           // ListaRequest.Items.Clear();            
+                 
         }
 
+        public void checkList()
+        {
+           
+        }
        
 
         private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Es cierto que desea salir?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            
           
         }
 
@@ -77,18 +96,8 @@ namespace Desguace_Net
         {
             Application.Exit();
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -98,15 +107,23 @@ namespace Desguace_Net
 
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-      
-
-        private void button2_Click(object sender, EventArgs e)
+        private void ListaRequest_SelectedIndexChanged(object sender, EventArgs e)
         {
             
         }
+
+        private void hacerOferta_Click(object sender, EventArgs e)
+        {
+            Request selected = (Request)ListaRequest.SelectedItem;
+
+            if (selected != null)
+            {
+                Console.WriteLine(selected.Code + " " + selected.Type);
+            }
+            else
+                Console.WriteLine("No hay seleccionadas");
+        }
+
+        
     }
 }

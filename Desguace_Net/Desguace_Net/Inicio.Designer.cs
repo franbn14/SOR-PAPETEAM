@@ -30,16 +30,14 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.ViewPeticiones = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.ListaRequest = new System.Windows.Forms.ListBox();
+            this.hacerOferta = new System.Windows.Forms.Button();
+            this.RequestP = new System.Windows.Forms.DataGridView();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RealizarOferta = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.ViewPeticiones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.Hacer_Oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.RequestP)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -66,20 +64,6 @@
             this.label1.Text = "PETICIONES";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // ViewPeticiones
-            // 
-            this.ViewPeticiones.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ViewPeticiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ViewPeticiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tipo,
-            this.RealizarOferta});
-            this.ViewPeticiones.Cursor = System.Windows.Forms.Cursors.No;
-            this.ViewPeticiones.Location = new System.Drawing.Point(26, 88);
-            this.ViewPeticiones.Name = "ViewPeticiones";
-            this.ViewPeticiones.Size = new System.Drawing.Size(407, 392);
-            this.ViewPeticiones.TabIndex = 3;
-            this.ViewPeticiones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -92,27 +76,6 @@
             this.label2.Text = "Mis ofertas Pendientes";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.No;
-            this.dataGridView1.Location = new System.Drawing.Point(461, 88);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(401, 392);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Cursor = System.Windows.Forms.Cursors.No;
-            this.dataGridView2.Location = new System.Drawing.Point(881, 88);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(401, 392);
-            this.dataGridView2.TabIndex = 6;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -124,17 +87,48 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Mis ofertas Aceptadas";
             // 
+            // ListaRequest
+            // 
+            this.ListaRequest.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ListaRequest.FormattingEnabled = true;
+            this.ListaRequest.Location = new System.Drawing.Point(37, 88);
+            this.ListaRequest.Name = "ListaRequest";
+            this.ListaRequest.Size = new System.Drawing.Size(257, 251);
+            this.ListaRequest.TabIndex = 8;
+            this.ListaRequest.SelectedIndexChanged += new System.EventHandler(this.ListaRequest_SelectedIndexChanged);
+            // 
+            // hacerOferta
+            // 
+            this.hacerOferta.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.hacerOferta.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.hacerOferta.Location = new System.Drawing.Point(37, 356);
+            this.hacerOferta.Name = "hacerOferta";
+            this.hacerOferta.Size = new System.Drawing.Size(192, 36);
+            this.hacerOferta.TabIndex = 9;
+            this.hacerOferta.Text = "Hacer oferta";
+            this.hacerOferta.UseVisualStyleBackColor = false;
+            this.hacerOferta.Click += new System.EventHandler(this.hacerOferta_Click);
+            // 
+            // RequestP
+            // 
+            this.RequestP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RequestP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tipo,
+            this.Hacer_Oferta});
+            this.RequestP.Location = new System.Drawing.Point(448, 100);
+            this.RequestP.Name = "RequestP";
+            this.RequestP.Size = new System.Drawing.Size(270, 229);
+            this.RequestP.TabIndex = 10;
+            // 
             // Tipo
             // 
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.Name = "Tipo";
             // 
-            // RealizarOferta
+            // Hacer_Oferta
             // 
-            this.RealizarOferta.DataPropertyName = "Hacer Oferta";
-            this.RealizarOferta.HeaderText = "Realizar Oferta";
-            this.RealizarOferta.Name = "RealizarOferta";
-            this.RealizarOferta.Text = "Hacer Oferta";
+            this.Hacer_Oferta.HeaderText = "HacerOferta";
+            this.Hacer_Oferta.Name = "Hacer_Oferta";
             // 
             // Inicio
             // 
@@ -142,11 +136,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1304, 635);
+            this.Controls.Add(this.RequestP);
+            this.Controls.Add(this.hacerOferta);
+            this.Controls.Add(this.ListaRequest);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.ViewPeticiones);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -155,9 +149,7 @@
             this.Text = "Desguace Solution";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Inicio_FormClosed);
             this.Load += new System.EventHandler(this.Inicio_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ViewPeticiones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RequestP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,12 +159,12 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView ViewPeticiones;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListBox ListaRequest;
+        private System.Windows.Forms.Button hacerOferta;
+        private System.Windows.Forms.DataGridView RequestP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewButtonColumn RealizarOferta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hacer_Oferta;
     }
 }
