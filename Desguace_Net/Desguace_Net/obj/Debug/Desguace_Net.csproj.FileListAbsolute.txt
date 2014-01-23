@@ -16,3 +16,4 @@ C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Apache.NMS
 C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Apache.NMS.ActiveMQ.xml
 C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Newtonsoft.Json.dll
 C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\bin\Debug\Newtonsoft.Json.xml
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\Desguace_Net\obj\Debug\Desguace_Net.Hacer_Oferta.resources

@@ -57,6 +57,12 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="Desguace.cs" />
+    <Compile Include="Hacer_Oferta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hacer_Oferta.Designer.cs">
+      <DependentUpon>Hacer_Oferta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </Compile>
     <Compile Include="TopicPublisher.cs" />
     <Compile Include="TopicSuscriber.cs" />
+    <EmbeddedResource Include="Hacer_Oferta.resx">
+      <DependentUpon>Hacer_Oferta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>

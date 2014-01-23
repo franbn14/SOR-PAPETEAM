@@ -180,7 +180,8 @@ namespace Desguace_Net
 
             if (selected != null)
             {
-                Console.WriteLine(selected.Code + " " + selected.Type);
+                Hacer_Oferta o = new Hacer_Oferta(selected.Code, idDes);
+                o.Show();
             }
             else
                 Console.WriteLine("No hay seleccionadas");
