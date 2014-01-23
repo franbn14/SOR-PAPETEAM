@@ -5136,3 +5136,860 @@ javax.jms.InvalidClientIDException: Broker: localhost - Client: servidor/6666666
 2014-01-22 19:12:30,121 | WARN  | Transport Connection to: tcp://127.0.0.1:51360 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51360@61616
 2014-01-22 19:12:30,121 | WARN  | Transport Connection to: tcp://127.0.0.1:51374 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51374@61616
 2014-01-22 19:12:30,121 | WARN  | Transport Connection to: tcp://127.0.0.1:51384 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51384@61616
+2014-01-22 19:28:00,751 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-59731-1390410674175-0:1) is shutting down | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2014-01-22 19:28:01,394 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2014-01-22 19:28:02,489 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2014-01-22 19:28:04,434 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2014-01-22 19:28:06,422 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2014-01-22 19:28:06,644 | WARN  | 6 threads could not be stopped | org.eclipse.jetty.util.thread.QueuedThreadPool | ActiveMQ ShutdownHook
+2014-01-22 19:28:06,658 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2014-01-22 19:28:07,330 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | ActiveMQ ShutdownHook
+2014-01-22 19:28:07,331 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2014-01-22 19:28:07,344 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2014-01-22 19:28:07,346 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2014-01-22 19:28:07,497 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-59731-1390410674175-0:1) uptime 1 hour 16 minutes | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2014-01-22 19:28:07,498 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-59731-1390410674175-0:1) is shutdown | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2014-01-22 19:28:07,499 | INFO  | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@4c57b1ed: startup date [Wed Jan 22 18:11:10 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | ActiveMQ ShutdownHook
+2014-01-22 19:28:07,629 | INFO  | Destroying Spring FrameworkServlet 'dispatcher' | /admin | ActiveMQ ShutdownHook
+2014-01-22 19:28:07,672 | INFO  | Destroying hawtio authentication filter | io.hawt.web.AuthenticationFilter | ActiveMQ ShutdownHook
+2014-01-23 10:38:14,929 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@4688249c: startup date [Thu Jan 23 10:38:14 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | WrapperSimpleAppMain
+2014-01-23 10:38:18,552 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2014-01-23 10:38:18,625 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 10:38:19,392 | INFO  | KahaDB is version 5 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2014-01-23 10:38:19,541 | INFO  | Recovering from the journal ... | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2014-01-23 10:38:19,552 | INFO  | Recovery replayed 90 operations from the journal in 0.102 seconds. | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2014-01-23 10:38:19,808 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55477-1390469899624-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 10:38:20,046 | INFO  | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 10:38:20,052 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 10:38:20,070 | INFO  | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 10:38:20,071 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 10:38:20,087 | INFO  | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 10:38:20,090 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 10:38:20,108 | INFO  | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 10:38:20,110 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 10:38:20,464 | INFO  | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2014-01-23 10:38:20,465 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 10:38:20,480 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55477-1390469899624-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 10:38:20,481 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 10:38:21,272 | INFO  | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-) | io.hawt.jmx.JmxTreeWatcher | WrapperSimpleAppMain
+2014-01-23 10:38:21,281 | INFO  | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal" | io.hawt.web.AuthenticationFilter | WrapperSimpleAppMain
+2014-01-23 10:38:21,409 | INFO  | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads | io.hawt.web.UploadServlet | WrapperSimpleAppMain
+2014-01-23 10:38:21,439 | INFO  | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml | /hawtio | WrapperSimpleAppMain
+2014-01-23 10:38:21,855 | INFO  | ActiveMQ WebConsole available at http://localhost:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2014-01-23 10:38:21,943 | INFO  | Initializing Spring FrameworkServlet 'dispatcher' | /admin | WrapperSimpleAppMain
+2014-01-23 10:40:51,462 | WARN  | Transport Connection to: tcp://127.0.0.1:55488 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55488@61616
+2014-01-23 10:40:51,464 | WARN  | Transport Connection to: tcp://127.0.0.1:55487 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55487@61616
+2014-01-23 10:41:36,172 | WARN  | Transport Connection to: tcp://127.0.0.1:55494 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55494@61616
+2014-01-23 10:41:36,173 | WARN  | Transport Connection to: tcp://127.0.0.1:55493 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55493@61616
+2014-01-23 10:45:16,958 | WARN  | Transport Connection to: tcp://127.0.0.1:55501 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55501@61616
+2014-01-23 10:45:16,958 | WARN  | Transport Connection to: tcp://127.0.0.1:55500 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55500@61616
+2014-01-23 10:56:27,469 | WARN  | Transport Connection to: tcp://127.0.0.1:55513 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55513@61616
+2014-01-23 10:56:27,469 | WARN  | Transport Connection to: tcp://127.0.0.1:55512 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55512@61616
+2014-01-23 10:56:54,907 | WARN  | Transport Connection to: tcp://127.0.0.1:55517 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55517@61616
+2014-01-23 10:57:37,830 | WARN  | Transport Connection to: tcp://127.0.0.1:55523 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55523@61616
+2014-01-23 10:59:17,253 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55477-1390469899624-0:1) is shutting down | org.apache.activemq.broker.BrokerService | Thread-25
+2014-01-23 10:59:18,077 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | Thread-25
+2014-01-23 10:59:18,666 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | Thread-25
+2014-01-23 10:59:18,729 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | Thread-25
+2014-01-23 10:59:18,745 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | Thread-25
+2014-01-23 10:59:18,813 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | Thread-25
+2014-01-23 10:59:18,858 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | Thread-25
+2014-01-23 10:59:18,859 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-25
+2014-01-23 10:59:18,860 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-25
+2014-01-23 10:59:18,860 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | Thread-25
+2014-01-23 10:59:19,117 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55477-1390469899624-0:1) uptime 21 minutes | org.apache.activemq.broker.BrokerService | Thread-25
+2014-01-23 10:59:19,118 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55477-1390469899624-0:1) is shutdown | org.apache.activemq.broker.BrokerService | Thread-25
+2014-01-23 10:59:19,119 | INFO  | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@4688249c: startup date [Thu Jan 23 10:38:14 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | Thread-25
+2014-01-23 10:59:19,158 | INFO  | Destroying Spring FrameworkServlet 'dispatcher' | /admin | Thread-25
+2014-01-23 10:59:19,164 | INFO  | Destroying hawtio authentication filter | io.hawt.web.AuthenticationFilter | Thread-25
+2014-01-23 10:59:24,733 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@2224df87: startup date [Thu Jan 23 10:59:24 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | WrapperSimpleAppMain
+2014-01-23 10:59:26,135 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2014-01-23 10:59:26,175 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 10:59:26,615 | INFO  | KahaDB is version 5 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2014-01-23 10:59:26,715 | INFO  | Recovering from the journal ... | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2014-01-23 10:59:26,727 | INFO  | Recovery replayed 24 operations from the journal in 0.063 seconds. | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2014-01-23 10:59:26,916 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55528-1390471166768-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 10:59:27,081 | INFO  | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 10:59:27,087 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 10:59:27,098 | INFO  | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 10:59:27,109 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 10:59:27,119 | INFO  | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 10:59:27,122 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 10:59:27,130 | INFO  | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 10:59:27,133 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 10:59:27,372 | INFO  | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2014-01-23 10:59:27,373 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 10:59:27,378 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55528-1390471166768-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 10:59:27,380 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 10:59:27,983 | INFO  | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-) | io.hawt.jmx.JmxTreeWatcher | WrapperSimpleAppMain
+2014-01-23 10:59:27,993 | INFO  | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal" | io.hawt.web.AuthenticationFilter | WrapperSimpleAppMain
+2014-01-23 10:59:28,051 | INFO  | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads | io.hawt.web.UploadServlet | WrapperSimpleAppMain
+2014-01-23 10:59:28,065 | INFO  | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml | /hawtio | WrapperSimpleAppMain
+2014-01-23 10:59:28,320 | INFO  | ActiveMQ WebConsole available at http://localhost:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2014-01-23 10:59:28,363 | INFO  | Initializing Spring FrameworkServlet 'dispatcher' | /admin | WrapperSimpleAppMain
+2014-01-23 10:59:35,586 | WARN  | Transport Connection to: tcp://127.0.0.1:55532 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55532@61616
+2014-01-23 11:01:28,449 | WARN  | Transport Connection to: tcp://127.0.0.1:55810 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55810@61616
+2014-01-23 11:01:28,449 | WARN  | Transport Connection to: tcp://127.0.0.1:55809 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55809@61616
+2014-01-23 11:01:31,400 | WARN  | Transport Connection to: tcp://127.0.0.1:55589 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55589@61616
+2014-01-23 11:01:31,400 | WARN  | Transport Connection to: tcp://127.0.0.1:55538 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55538@61616
+2014-01-23 11:01:31,400 | WARN  | Transport Connection to: tcp://127.0.0.1:55539 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55539@61616
+2014-01-23 11:01:31,400 | WARN  | Transport Connection to: tcp://127.0.0.1:55540 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55540@61616
+2014-01-23 11:01:31,400 | WARN  | Transport Connection to: tcp://127.0.0.1:55564 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55564@61616
+2014-01-23 11:01:31,400 | WARN  | Transport Connection to: tcp://127.0.0.1:55572 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55572@61616
+2014-01-23 11:01:31,400 | WARN  | Transport Connection to: tcp://127.0.0.1:55547 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55547@61616
+2014-01-23 11:01:31,400 | WARN  | Transport Connection to: tcp://127.0.0.1:55558 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55558@61616
+2014-01-23 11:01:31,400 | WARN  | Transport Connection to: tcp://127.0.0.1:55553 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55553@61616
+2014-01-23 11:09:51,495 | WARN  | Transport Connection to: tcp://127.0.0.1:55972 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55972@61616
+2014-01-23 11:09:51,496 | WARN  | Transport Connection to: tcp://127.0.0.1:55923 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55923@61616
+2014-01-23 11:09:51,496 | WARN  | Transport Connection to: tcp://127.0.0.1:55932 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55932@61616
+2014-01-23 11:09:51,496 | WARN  | Transport Connection to: tcp://127.0.0.1:55942 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55942@61616
+2014-01-23 11:09:51,495 | WARN  | Transport Connection to: tcp://127.0.0.1:55922 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55922@61616
+2014-01-23 11:09:51,495 | WARN  | Transport Connection to: tcp://127.0.0.1:55921 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55921@61616
+2014-01-23 11:09:51,495 | WARN  | Transport Connection to: tcp://127.0.0.1:55947 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55947@61616
+2014-01-23 11:09:51,495 | WARN  | Transport Connection to: tcp://127.0.0.1:55937 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55937@61616
+2014-01-23 11:09:51,495 | WARN  | Transport Connection to: tcp://127.0.0.1:55955 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55955@61616
+2014-01-23 11:11:09,295 | WARN  | Transport Connection to: tcp://127.0.0.1:56904 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56904@61616
+2014-01-23 11:11:09,295 | WARN  | Transport Connection to: tcp://127.0.0.1:56905 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56905@61616
+2014-01-23 11:11:39,890 | WARN  | Transport Connection to: tcp://127.0.0.1:56869 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56869@61616
+2014-01-23 11:12:02,587 | WARN  | /admin/ | org.eclipse.jetty.servlet.ServletHandler | qtp1592032558-57
+com.opensymphony.module.sitemesh.factory.FactoryException: Cannot construct Factory : com.opensymphony.module.sitemesh.factory.DefaultFactory: java.lang.IllegalStateException: Cannot load default configuration from jar
+	at com.opensymphony.module.sitemesh.Factory.getInstance(Factory.java:50)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.initContentProcessor(SiteMeshFilter.java:107)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:54)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1291)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:443)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1044)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:372)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:189)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:978)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:367)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:486)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:722)
+
+Root cause:
+java.lang.IllegalStateException: Cannot load default configuration from jar
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.loadSitemeshXML(DefaultFactory.java:158)
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.loadConfig(DefaultFactory.java:85)
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.<init>(DefaultFactory.java:78)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
+	at com.opensymphony.module.sitemesh.Factory.getInstance(Factory.java:47)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.initContentProcessor(SiteMeshFilter.java:107)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:54)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1291)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:443)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1044)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:372)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:189)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:978)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:367)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:486)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:722)
+2014-01-23 11:12:12,894 | WARN  | /admin/ | org.eclipse.jetty.servlet.ServletHandler | qtp1592032558-60
+com.opensymphony.module.sitemesh.factory.FactoryException: Cannot construct Factory : com.opensymphony.module.sitemesh.factory.DefaultFactory: java.lang.IllegalStateException: Cannot load default configuration from jar
+	at com.opensymphony.module.sitemesh.Factory.getInstance(Factory.java:50)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.initContentProcessor(SiteMeshFilter.java:107)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:54)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1291)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:443)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1044)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:372)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:189)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:978)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:367)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:486)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:722)
+
+Root cause:
+java.lang.IllegalStateException: Cannot load default configuration from jar
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.loadSitemeshXML(DefaultFactory.java:158)
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.loadConfig(DefaultFactory.java:85)
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.<init>(DefaultFactory.java:78)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
+	at com.opensymphony.module.sitemesh.Factory.getInstance(Factory.java:47)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.initContentProcessor(SiteMeshFilter.java:107)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:54)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1291)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:443)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1044)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:372)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:189)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:978)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:367)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:486)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:722)
+2014-01-23 11:12:56,725 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@27a897a9: startup date [Thu Jan 23 11:12:56 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | main
+2014-01-23 11:12:58,237 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2014-01-23 11:12:58,283 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2014-01-23 11:12:58,331 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:13:08,336 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:13:18,341 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:13:24,731 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@27a897a9: startup date [Thu Jan 23 11:13:24 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | main
+2014-01-23 11:13:25,904 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2014-01-23 11:13:25,939 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2014-01-23 11:13:25,953 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:13:35,957 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:13:45,962 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:13:55,967 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:14:05,972 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:14:15,976 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:14:25,981 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:14:35,986 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:14:46,002 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:14:56,012 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:15:06,017 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:15:15,639 | WARN  | /admin/ | org.eclipse.jetty.servlet.ServletHandler | qtp1592032558-58
+com.opensymphony.module.sitemesh.factory.FactoryException: Cannot construct Factory : com.opensymphony.module.sitemesh.factory.DefaultFactory: java.lang.IllegalStateException: Cannot load default configuration from jar
+	at com.opensymphony.module.sitemesh.Factory.getInstance(Factory.java:50)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.initContentProcessor(SiteMeshFilter.java:107)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:54)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1291)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:443)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1044)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:372)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:189)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:978)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:367)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:486)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:722)
+
+Root cause:
+java.lang.IllegalStateException: Cannot load default configuration from jar
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.loadSitemeshXML(DefaultFactory.java:158)
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.loadConfig(DefaultFactory.java:85)
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.<init>(DefaultFactory.java:78)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
+	at com.opensymphony.module.sitemesh.Factory.getInstance(Factory.java:47)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.initContentProcessor(SiteMeshFilter.java:107)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:54)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1291)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:443)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1044)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:372)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:189)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:978)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:367)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:486)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:722)
+2014-01-23 11:15:16,020 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:15:26,022 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:15:36,024 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:16:33,421 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@7971f189: startup date [Thu Jan 23 11:16:33 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | main
+2014-01-23 11:16:34,572 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2014-01-23 11:16:34,609 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2014-01-23 11:16:34,624 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:16:44,627 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:16:45,474 | WARN  | /admin/ | org.eclipse.jetty.servlet.ServletHandler | qtp1592032558-57
+com.opensymphony.module.sitemesh.factory.FactoryException: Cannot construct Factory : com.opensymphony.module.sitemesh.factory.DefaultFactory: java.lang.IllegalStateException: Cannot load default configuration from jar
+	at com.opensymphony.module.sitemesh.Factory.getInstance(Factory.java:50)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.initContentProcessor(SiteMeshFilter.java:107)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:54)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1291)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:443)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1044)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:372)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:189)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:978)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:367)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:486)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:722)
+
+Root cause:
+java.lang.IllegalStateException: Cannot load default configuration from jar
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.loadSitemeshXML(DefaultFactory.java:158)
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.loadConfig(DefaultFactory.java:85)
+	at com.opensymphony.module.sitemesh.factory.DefaultFactory.<init>(DefaultFactory.java:78)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
+	at com.opensymphony.module.sitemesh.Factory.getInstance(Factory.java:47)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.initContentProcessor(SiteMeshFilter.java:107)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:54)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1291)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:443)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1044)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:372)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:189)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:978)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:521)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:367)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:486)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:722)
+2014-01-23 11:16:54,632 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:17:04,637 | INFO  | Database /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock is locked... waiting 10 seconds for the database to be unlocked. Reason: java.io.IOException: File '/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb/lock' could not be locked. | org.apache.activemq.store.SharedFileLocker | main
+2014-01-23 11:26:00,654 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-55528-1390471166768-0:1) is shutting down | org.apache.activemq.broker.BrokerService | Thread-27
+2014-01-23 11:32:41,003 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@7971f189: startup date [Thu Jan 23 11:32:40 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | main
+2014-01-23 11:32:43,284 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2014-01-23 11:32:43,344 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2014-01-23 11:32:44,746 | INFO  | KahaDB is version 5 | org.apache.activemq.store.kahadb.MessageDatabase | main
+2014-01-23 11:32:44,924 | INFO  | Recovering from the journal ... | org.apache.activemq.store.kahadb.MessageDatabase | main
+2014-01-23 11:32:44,937 | INFO  | Recovery replayed 179 operations from the journal in 0.1 seconds. | org.apache.activemq.store.kahadb.MessageDatabase | main
+2014-01-23 11:32:45,132 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49349-1390473164974-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2014-01-23 11:32:45,324 | INFO  | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2014-01-23 11:32:45,327 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | main
+2014-01-23 11:32:45,345 | INFO  | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2014-01-23 11:32:45,349 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | main
+2014-01-23 11:32:45,362 | INFO  | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2014-01-23 11:32:45,363 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | main
+2014-01-23 11:32:45,384 | INFO  | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2014-01-23 11:32:45,386 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | main
+2014-01-23 11:32:45,657 | INFO  | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | main
+2014-01-23 11:32:45,657 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | main
+2014-01-23 11:32:45,660 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49349-1390473164974-0:1) started | org.apache.activemq.broker.BrokerService | main
+2014-01-23 11:32:45,661 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
+2014-01-23 11:32:46,293 | INFO  | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-) | io.hawt.jmx.JmxTreeWatcher | main
+2014-01-23 11:32:46,302 | INFO  | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal" | io.hawt.web.AuthenticationFilter | main
+2014-01-23 11:32:46,408 | INFO  | Using file upload directory: /Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/tmp/uploads | io.hawt.web.UploadServlet | main
+2014-01-23 11:32:46,421 | INFO  | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml | /hawtio | main
+2014-01-23 11:32:46,776 | INFO  | ActiveMQ WebConsole available at http://localhost:8161/ | org.apache.activemq.web.WebConsoleStarter | main
+2014-01-23 11:32:46,857 | INFO  | Initializing Spring FrameworkServlet 'dispatcher' | /admin | main
+2014-01-23 11:32:59,194 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49349-1390473164974-0:1) is shutting down | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,334 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,357 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,371 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,394 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,471 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,505 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/AMQFunctions/activemq/data/localhost/tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,506 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,507 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,508 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,917 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49349-1390473164974-0:1) uptime 16.611 seconds | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,918 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49349-1390473164974-0:1) is shutdown | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,918 | INFO  | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@7971f189: startup date [Thu Jan 23 11:32:40 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,963 | INFO  | Destroying Spring FrameworkServlet 'dispatcher' | /admin | ActiveMQ ShutdownHook
+2014-01-23 11:32:59,968 | INFO  | Destroying hawtio authentication filter | io.hawt.web.AuthenticationFilter | ActiveMQ ShutdownHook
+2014-01-23 11:36:56,452 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@22cf2994: startup date [Thu Jan 23 11:36:56 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | WrapperSimpleAppMain
+2014-01-23 11:36:57,742 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2014-01-23 11:36:57,779 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 11:36:58,175 | INFO  | KahaDB is version 5 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2014-01-23 11:36:58,264 | INFO  | Recovering from the journal ... | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2014-01-23 11:36:58,289 | INFO  | Recovery replayed 183 operations from the journal in 0.065 seconds. | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2014-01-23 11:36:58,463 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49464-1390473418328-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 11:36:58,607 | INFO  | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 11:36:58,612 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 11:36:58,620 | INFO  | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 11:36:58,625 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 11:36:58,634 | INFO  | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 11:36:58,639 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 11:36:58,647 | INFO  | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-01-23 11:36:58,649 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 11:36:58,819 | INFO  | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2014-01-23 11:36:58,819 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-01-23 11:36:58,821 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49464-1390473418328-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 11:36:58,822 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-01-23 11:36:59,252 | INFO  | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-) | io.hawt.jmx.JmxTreeWatcher | WrapperSimpleAppMain
+2014-01-23 11:36:59,257 | INFO  | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal" | io.hawt.web.AuthenticationFilter | WrapperSimpleAppMain
+2014-01-23 11:36:59,309 | INFO  | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads | io.hawt.web.UploadServlet | WrapperSimpleAppMain
+2014-01-23 11:36:59,321 | INFO  | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml | /hawtio | WrapperSimpleAppMain
+2014-01-23 11:36:59,566 | INFO  | ActiveMQ WebConsole available at http://localhost:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2014-01-23 11:36:59,602 | INFO  | Initializing Spring FrameworkServlet 'dispatcher' | /admin | WrapperSimpleAppMain
+2014-01-23 11:37:59,804 | WARN  | Transport Connection to: tcp://127.0.0.1:49476 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49476@61616
+2014-01-23 11:38:45,825 | WARN  | Transport Connection to: tcp://127.0.0.1:49486 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49486@61616
+2014-01-23 11:43:18,502 | WARN  | Transport Connection to: tcp://127.0.0.1:49532 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49532@61616
+2014-01-23 11:43:18,502 | WARN  | Transport Connection to: tcp://127.0.0.1:49533 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49533@61616
+2014-01-23 11:44:28,604 | WARN  | Transport Connection to: tcp://127.0.0.1:49603 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49603@61616
+2014-01-23 11:44:28,605 | WARN  | Transport Connection to: tcp://127.0.0.1:49602 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49602@61616
+2014-01-23 11:45:37,833 | WARN  | Transport Connection to: tcp://127.0.0.1:49508 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49508@61616
+2014-01-23 12:10:10,314 | WARN  | Transport Connection to: tcp://127.0.0.1:49869 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49869@61616
+2014-01-23 12:10:10,315 | WARN  | Transport Connection to: tcp://127.0.0.1:49868 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49868@61616
+2014-01-23 12:12:22,429 | WARN  | Transport Connection to: tcp://127.0.0.1:50514 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50514@61616
+2014-01-23 12:12:22,429 | WARN  | Transport Connection to: tcp://127.0.0.1:50513 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50513@61616
+2014-01-23 12:12:41,175 | WARN  | Transport Connection to: tcp://127.0.0.1:49803 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49803@61616
+2014-01-23 12:12:41,176 | WARN  | Transport Connection to: tcp://127.0.0.1:49752 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49752@61616
+2014-01-23 12:12:41,176 | WARN  | Transport Connection to: tcp://127.0.0.1:49753 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49753@61616
+2014-01-23 12:12:41,176 | WARN  | Transport Connection to: tcp://127.0.0.1:49778 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49778@61616
+2014-01-23 12:12:41,176 | WARN  | Transport Connection to: tcp://127.0.0.1:49754 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49754@61616
+2014-01-23 12:12:41,176 | WARN  | Transport Connection to: tcp://127.0.0.1:49770 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49770@61616
+2014-01-23 12:12:41,176 | WARN  | Transport Connection to: tcp://127.0.0.1:49764 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49764@61616
+2014-01-23 12:12:41,176 | WARN  | Transport Connection to: tcp://127.0.0.1:49786 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49786@61616
+2014-01-23 12:12:41,175 | WARN  | Transport Connection to: tcp://127.0.0.1:49775 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:49775@61616
+2014-01-23 12:19:43,346 | WARN  | Transport Connection to: tcp://127.0.0.1:50908 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50908@61616
+2014-01-23 12:19:43,346 | WARN  | Transport Connection to: tcp://127.0.0.1:50909 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50909@61616
+2014-01-23 12:19:46,607 | WARN  | Transport Connection to: tcp://127.0.0.1:50761 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50761@61616
+2014-01-23 12:19:46,608 | WARN  | Transport Connection to: tcp://127.0.0.1:50740 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50740@61616
+2014-01-23 12:19:46,608 | WARN  | Transport Connection to: tcp://127.0.0.1:50766 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50766@61616
+2014-01-23 12:19:46,608 | WARN  | Transport Connection to: tcp://127.0.0.1:50774 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50774@61616
+2014-01-23 12:19:46,607 | WARN  | Transport Connection to: tcp://127.0.0.1:50755 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50755@61616
+2014-01-23 12:19:46,607 | WARN  | Transport Connection to: tcp://127.0.0.1:50742 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50742@61616
+2014-01-23 12:19:46,607 | WARN  | Transport Connection to: tcp://127.0.0.1:50741 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50741@61616
+2014-01-23 12:19:46,607 | WARN  | Transport Connection to: tcp://127.0.0.1:50749 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50749@61616
+2014-01-23 12:19:46,607 | WARN  | Transport Connection to: tcp://127.0.0.1:50791 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50791@61616
+2014-01-23 12:23:38,243 | WARN  | Transport Connection to: tcp://127.0.0.1:51084 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51084@61616
+2014-01-23 12:23:38,243 | WARN  | Transport Connection to: tcp://127.0.0.1:51085 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51085@61616
+2014-01-23 12:24:09,996 | WARN  | Transport Connection to: tcp://127.0.0.1:51981 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51981@61616
+2014-01-23 12:24:09,996 | WARN  | Transport Connection to: tcp://127.0.0.1:51980 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51980@61616
+2014-01-23 12:24:39,656 | WARN  | Transport Connection to: tcp://127.0.0.1:52146 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52146@61616
+2014-01-23 12:24:39,656 | WARN  | Transport Connection to: tcp://127.0.0.1:52149 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52149@61616
+2014-01-23 12:25:15,997 | WARN  | Transport Connection to: tcp://127.0.0.1:51020 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51020@61616
+2014-01-23 12:25:15,997 | WARN  | Transport Connection to: tcp://127.0.0.1:50971 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50971@61616
+2014-01-23 12:25:15,997 | WARN  | Transport Connection to: tcp://127.0.0.1:50969 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50969@61616
+2014-01-23 12:25:15,997 | WARN  | Transport Connection to: tcp://127.0.0.1:50988 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50988@61616
+2014-01-23 12:25:15,997 | WARN  | Transport Connection to: tcp://127.0.0.1:50978 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50978@61616
+2014-01-23 12:25:15,997 | WARN  | Transport Connection to: tcp://127.0.0.1:50995 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50995@61616
+2014-01-23 12:25:15,997 | WARN  | Transport Connection to: tcp://127.0.0.1:50984 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50984@61616
+2014-01-23 12:25:15,997 | WARN  | Transport Connection to: tcp://127.0.0.1:51003 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51003@61616
+2014-01-23 12:25:15,997 | WARN  | Transport Connection to: tcp://127.0.0.1:50970 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50970@61616
+2014-01-23 12:40:18,040 | WARN  | Transport Connection to: tcp://127.0.0.1:52465 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52465@61616
+2014-01-23 12:40:18,040 | WARN  | Transport Connection to: tcp://127.0.0.1:52433 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52433@61616
+2014-01-23 12:40:18,040 | WARN  | Transport Connection to: tcp://127.0.0.1:52432 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52432@61616
+2014-01-23 12:40:18,040 | WARN  | Transport Connection to: tcp://127.0.0.1:52451 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52451@61616
+2014-01-23 12:40:18,040 | WARN  | Transport Connection to: tcp://127.0.0.1:52457 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52457@61616
+2014-01-23 12:40:18,040 | WARN  | Transport Connection to: tcp://127.0.0.1:52431 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52431@61616
+2014-01-23 12:40:18,040 | WARN  | Transport Connection to: tcp://127.0.0.1:52441 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52441@61616
+2014-01-23 12:40:18,040 | WARN  | Transport Connection to: tcp://127.0.0.1:52447 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52447@61616
+2014-01-23 12:40:18,040 | WARN  | Transport Connection to: tcp://127.0.0.1:52482 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52482@61616
+2014-01-23 12:42:23,945 | WARN  | Transport Connection to: tcp://127.0.0.1:52619 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52619@61616
+2014-01-23 12:42:23,945 | WARN  | Transport Connection to: tcp://127.0.0.1:52618 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52618@61616
+2014-01-23 12:42:30,853 | WARN  | Transport Connection to: tcp://127.0.0.1:52554 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52554@61616
+2014-01-23 12:42:30,854 | WARN  | Transport Connection to: tcp://127.0.0.1:52505 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52505@61616
+2014-01-23 12:42:30,854 | WARN  | Transport Connection to: tcp://127.0.0.1:52504 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52504@61616
+2014-01-23 12:42:30,854 | WARN  | Transport Connection to: tcp://127.0.0.1:52503 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52503@61616
+2014-01-23 12:42:30,854 | WARN  | Transport Connection to: tcp://127.0.0.1:52523 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52523@61616
+2014-01-23 12:42:30,854 | WARN  | Transport Connection to: tcp://127.0.0.1:52529 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52529@61616
+2014-01-23 12:42:30,853 | WARN  | Transport Connection to: tcp://127.0.0.1:52517 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52517@61616
+2014-01-23 12:42:30,853 | WARN  | Transport Connection to: tcp://127.0.0.1:52537 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52537@61616
+2014-01-23 12:42:30,853 | WARN  | Transport Connection to: tcp://127.0.0.1:52512 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52512@61616
+2014-01-23 12:43:27,551 | WARN  | Transport Connection to: tcp://127.0.0.1:52898 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52898@61616
+2014-01-23 12:43:27,551 | WARN  | Transport Connection to: tcp://127.0.0.1:52897 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52897@61616
+2014-01-23 12:43:57,058 | WARN  | Transport Connection to: tcp://127.0.0.1:53061 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53061@61616
+2014-01-23 12:43:57,058 | WARN  | Transport Connection to: tcp://127.0.0.1:53060 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53060@61616
+2014-01-23 12:45:14,663 | WARN  | Transport Connection to: tcp://127.0.0.1:52800 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52800@61616
+2014-01-23 12:45:14,663 | WARN  | Transport Connection to: tcp://127.0.0.1:52783 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52783@61616
+2014-01-23 12:45:14,663 | WARN  | Transport Connection to: tcp://127.0.0.1:52782 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52782@61616
+2014-01-23 12:45:14,663 | WARN  | Transport Connection to: tcp://127.0.0.1:52781 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52781@61616
+2014-01-23 12:45:14,663 | WARN  | Transport Connection to: tcp://127.0.0.1:52815 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52815@61616
+2014-01-23 12:45:14,663 | WARN  | Transport Connection to: tcp://127.0.0.1:52796 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52796@61616
+2014-01-23 12:45:14,663 | WARN  | Transport Connection to: tcp://127.0.0.1:52790 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52790@61616
+2014-01-23 12:45:14,663 | WARN  | Transport Connection to: tcp://127.0.0.1:52807 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52807@61616
+2014-01-23 12:45:14,663 | WARN  | Transport Connection to: tcp://127.0.0.1:52832 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52832@61616
+2014-01-23 12:47:15,717 | WARN  | Transport Connection to: tcp://127.0.0.1:53601 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53601@61616
+2014-01-23 12:47:15,717 | WARN  | Transport Connection to: tcp://127.0.0.1:53600 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53600@61616
+2014-01-23 12:48:39,651 | WARN  | Transport Connection to: tcp://192.168.43.252:51657 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///192.168.43.252:51657@61616
+2014-01-23 12:48:39,651 | WARN  | Transport Connection to: tcp://192.168.43.252:51655 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///192.168.43.252:51655@61616
+2014-01-23 12:50:26,579 | WARN  | Transport Connection to: tcp://192.168.43.252:55655 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///192.168.43.252:55655@61616
+2014-01-23 12:50:26,579 | WARN  | Transport Connection to: tcp://192.168.43.252:55657 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///192.168.43.252:55657@61616
+2014-01-23 12:50:56,192 | WARN  | Transport Connection to: tcp://127.0.0.1:54601 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:54601@61616
+2014-01-23 12:50:56,192 | WARN  | Transport Connection to: tcp://127.0.0.1:54602 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:54602@61616
+2014-01-23 12:52:28,006 | WARN  | Transport Connection to: tcp://127.0.0.1:55445 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55445@61616
+2014-01-23 12:52:28,006 | WARN  | Transport Connection to: tcp://127.0.0.1:55444 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55444@61616
+2014-01-23 12:55:54,440 | WARN  | Transport Connection to: tcp://127.0.0.1:56294 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56294@61616
+2014-01-23 12:55:54,440 | WARN  | Transport Connection to: tcp://127.0.0.1:56293 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56293@61616
+2014-01-23 12:56:01,723 | WARN  | Transport Connection to: tcp://127.0.0.1:53536 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53536@61616
+2014-01-23 12:56:01,724 | WARN  | Transport Connection to: tcp://127.0.0.1:53485 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53485@61616
+2014-01-23 12:56:01,724 | WARN  | Transport Connection to: tcp://127.0.0.1:53487 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53487@61616
+2014-01-23 12:56:01,724 | WARN  | Transport Connection to: tcp://127.0.0.1:53486 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53486@61616
+2014-01-23 12:56:01,724 | WARN  | Transport Connection to: tcp://127.0.0.1:53511 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53511@61616
+2014-01-23 12:56:01,724 | WARN  | Transport Connection to: tcp://127.0.0.1:53519 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53519@61616
+2014-01-23 12:56:01,724 | WARN  | Transport Connection to: tcp://127.0.0.1:53494 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53494@61616
+2014-01-23 12:56:01,724 | WARN  | Transport Connection to: tcp://127.0.0.1:53500 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53500@61616
+2014-01-23 12:56:01,723 | WARN  | Transport Connection to: tcp://127.0.0.1:53505 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53505@61616
+2014-01-23 13:13:41,170 | WARN  | Transport Connection to: tcp://127.0.0.1:56647 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56647@61616
+2014-01-23 13:13:41,170 | WARN  | Transport Connection to: tcp://127.0.0.1:56646 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56646@61616
+2014-01-23 13:40:06,007 | INFO  | Connector vm://localhost started | org.apache.activemq.broker.TransportConnector | qtp491651870-49
+2014-01-23 13:41:03,753 | WARN  | Transport Connection to: tcp://127.0.0.1:56843 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56843@61616
+2014-01-23 13:41:03,753 | WARN  | Transport Connection to: tcp://127.0.0.1:56842 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56842@61616
+2014-01-23 13:41:10,007 | WARN  | Transport Connection to: tcp://127.0.0.1:56747 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56747@61616
+2014-01-23 13:41:10,008 | WARN  | Transport Connection to: tcp://127.0.0.1:56728 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56728@61616
+2014-01-23 13:41:10,007 | WARN  | Transport Connection to: tcp://127.0.0.1:56729 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56729@61616
+2014-01-23 13:41:10,007 | WARN  | Transport Connection to: tcp://127.0.0.1:56753 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56753@61616
+2014-01-23 13:41:10,007 | WARN  | Transport Connection to: tcp://127.0.0.1:56741 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56741@61616
+2014-01-23 13:41:10,007 | WARN  | Transport Connection to: tcp://127.0.0.1:56761 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56761@61616
+2014-01-23 13:41:10,007 | WARN  | Transport Connection to: tcp://127.0.0.1:56736 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56736@61616
+2014-01-23 13:41:10,007 | WARN  | Transport Connection to: tcp://127.0.0.1:56727 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56727@61616
+2014-01-23 13:41:10,007 | WARN  | Transport Connection to: tcp://127.0.0.1:56778 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56778@61616
+2014-01-23 13:44:21,199 | WARN  | Transport Connection to: tcp://127.0.0.1:57502 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57502@61616
+2014-01-23 13:44:21,199 | WARN  | Transport Connection to: tcp://127.0.0.1:57449 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57449@61616
+2014-01-23 13:44:21,199 | WARN  | Transport Connection to: tcp://127.0.0.1:57448 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57448@61616
+2014-01-23 13:44:26,595 | WARN  | Transport Connection to: tcp://127.0.0.1:57352 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57352@61616
+2014-01-23 13:44:26,596 | WARN  | Transport Connection to: tcp://127.0.0.1:57333 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57333@61616
+2014-01-23 13:44:26,596 | WARN  | Transport Connection to: tcp://127.0.0.1:57358 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57358@61616
+2014-01-23 13:44:26,595 | WARN  | Transport Connection to: tcp://127.0.0.1:57346 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57346@61616
+2014-01-23 13:44:26,595 | WARN  | Transport Connection to: tcp://127.0.0.1:57334 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57334@61616
+2014-01-23 13:44:26,595 | WARN  | Transport Connection to: tcp://127.0.0.1:57332 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57332@61616
+2014-01-23 13:44:26,595 | WARN  | Transport Connection to: tcp://127.0.0.1:57341 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57341@61616
+2014-01-23 13:44:26,595 | WARN  | Transport Connection to: tcp://127.0.0.1:57366 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57366@61616
+2014-01-23 13:44:26,595 | WARN  | Transport Connection to: tcp://127.0.0.1:57383 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57383@61616
+2014-01-23 15:38:50,183 | WARN  | Transport Connection to: tcp://127.0.0.1:57710 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57710@61616
+2014-01-23 15:38:50,208 | WARN  | Transport Connection to: tcp://127.0.0.1:57691 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57691@61616
+2014-01-23 15:38:50,183 | WARN  | Transport Connection to: tcp://127.0.0.1:57692 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57692@61616
+2014-01-23 15:38:50,183 | WARN  | Transport Connection to: tcp://127.0.0.1:57689 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57689@61616
+2014-01-23 15:38:50,183 | WARN  | Transport Connection to: tcp://127.0.0.1:57690 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57690@61616
+2014-01-23 15:38:50,183 | WARN  | Transport Connection to: tcp://127.0.0.1:57716 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57716@61616
+2014-01-23 15:38:50,183 | WARN  | Transport Connection to: tcp://127.0.0.1:57697 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57697@61616
+2014-01-23 15:38:50,183 | WARN  | Transport Connection to: tcp://127.0.0.1:57724 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57724@61616
+2014-01-23 15:38:50,183 | WARN  | Transport Connection to: tcp://127.0.0.1:57704 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57704@61616
+2014-01-23 15:38:50,183 | WARN  | Transport Connection to: tcp://127.0.0.1:57741 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57741@61616
+2014-01-23 15:38:56,856 | WARN  | Transport Connection to: tcp://127.0.0.1:57969 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57969@61616
+2014-01-23 15:38:56,857 | WARN  | Transport Connection to: tcp://127.0.0.1:57968 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57968@61616
+2014-01-23 15:38:56,856 | WARN  | Transport Connection to: tcp://127.0.0.1:58130 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58130@61616
+2014-01-23 15:42:39,127 | WARN  | Transport Connection to: tcp://127.0.0.1:58331 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58331@61616
+2014-01-23 15:42:39,128 | WARN  | Transport Connection to: tcp://127.0.0.1:58317 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58317@61616
+2014-01-23 15:42:39,128 | WARN  | Transport Connection to: tcp://127.0.0.1:58297 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58297@61616
+2014-01-23 15:42:39,128 | WARN  | Transport Connection to: tcp://127.0.0.1:58296 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58296@61616
+2014-01-23 15:42:39,128 | WARN  | Transport Connection to: tcp://127.0.0.1:58312 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58312@61616
+2014-01-23 15:42:39,128 | WARN  | Transport Connection to: tcp://127.0.0.1:58299 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58299@61616
+2014-01-23 15:42:39,127 | WARN  | Transport Connection to: tcp://127.0.0.1:58306 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58306@61616
+2014-01-23 15:42:39,127 | WARN  | Transport Connection to: tcp://127.0.0.1:58298 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58298@61616
+2014-01-23 15:42:39,127 | WARN  | Transport Connection to: tcp://127.0.0.1:58323 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58323@61616
+2014-01-23 15:42:39,127 | WARN  | Transport Connection to: tcp://127.0.0.1:58348 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58348@61616
+2014-01-23 15:43:44,638 | WARN  | Transport Connection to: tcp://127.0.0.1:58845 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58845@61616
+2014-01-23 15:43:44,638 | WARN  | Transport Connection to: tcp://127.0.0.1:58794 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58794@61616
+2014-01-23 15:43:44,638 | WARN  | Transport Connection to: tcp://127.0.0.1:58813 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58813@61616
+2014-01-23 15:43:44,638 | WARN  | Transport Connection to: tcp://127.0.0.1:58795 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58795@61616
+2014-01-23 15:43:44,638 | WARN  | Transport Connection to: tcp://127.0.0.1:58793 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58793@61616
+2014-01-23 15:43:44,638 | WARN  | Transport Connection to: tcp://127.0.0.1:58807 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58807@61616
+2014-01-23 15:43:44,638 | WARN  | Transport Connection to: tcp://127.0.0.1:58796 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58796@61616
+2014-01-23 15:43:44,638 | WARN  | Transport Connection to: tcp://127.0.0.1:58828 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58828@61616
+2014-01-23 15:43:44,638 | WARN  | Transport Connection to: tcp://127.0.0.1:58803 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58803@61616
+2014-01-23 15:43:44,638 | WARN  | Transport Connection to: tcp://127.0.0.1:58820 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58820@61616
+2014-01-23 15:43:52,012 | WARN  | Transport Connection to: tcp://127.0.0.1:59186 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59186@61616
+2014-01-23 15:43:52,012 | WARN  | Transport Connection to: tcp://127.0.0.1:59134 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59134@61616
+2014-01-23 15:43:52,012 | WARN  | Transport Connection to: tcp://127.0.0.1:59136 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59136@61616
+2014-01-23 15:43:52,012 | WARN  | Transport Connection to: tcp://127.0.0.1:59135 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59135@61616
+2014-01-23 15:43:52,012 | WARN  | Transport Connection to: tcp://127.0.0.1:59137 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59137@61616
+2014-01-23 15:43:52,012 | WARN  | Transport Connection to: tcp://127.0.0.1:59161 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59161@61616
+2014-01-23 15:43:52,012 | WARN  | Transport Connection to: tcp://127.0.0.1:59144 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59144@61616
+2014-01-23 15:43:52,012 | WARN  | Transport Connection to: tcp://127.0.0.1:59169 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59169@61616
+2014-01-23 15:43:52,012 | WARN  | Transport Connection to: tcp://127.0.0.1:59148 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59148@61616
+2014-01-23 15:43:52,012 | WARN  | Transport Connection to: tcp://127.0.0.1:59153 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59153@61616
+2014-01-23 15:45:38,642 | WARN  | Transport Connection to: tcp://127.0.0.1:59219 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59219@61616
+2014-01-23 15:45:38,643 | WARN  | Transport Connection to: tcp://127.0.0.1:59204 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59204@61616
+2014-01-23 15:45:38,643 | WARN  | Transport Connection to: tcp://127.0.0.1:59201 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59201@61616
+2014-01-23 15:45:38,643 | WARN  | Transport Connection to: tcp://127.0.0.1:59202 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59202@61616
+2014-01-23 15:45:38,642 | WARN  | Transport Connection to: tcp://127.0.0.1:59228 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59228@61616
+2014-01-23 15:45:38,642 | WARN  | Transport Connection to: tcp://127.0.0.1:59203 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59203@61616
+2014-01-23 15:45:38,642 | WARN  | Transport Connection to: tcp://127.0.0.1:59236 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59236@61616
+2014-01-23 15:45:38,642 | WARN  | Transport Connection to: tcp://127.0.0.1:59214 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59214@61616
+2014-01-23 15:45:38,642 | WARN  | Transport Connection to: tcp://127.0.0.1:59209 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59209@61616
+2014-01-23 15:45:38,642 | WARN  | Transport Connection to: tcp://127.0.0.1:59253 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59253@61616
+2014-01-23 15:49:12,926 | WARN  | Transport Connection to: tcp://127.0.0.1:59327 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59327@61616
+2014-01-23 15:49:12,926 | WARN  | Transport Connection to: tcp://127.0.0.1:59302 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59302@61616
+2014-01-23 15:49:12,926 | WARN  | Transport Connection to: tcp://127.0.0.1:59278 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59278@61616
+2014-01-23 15:49:12,926 | WARN  | Transport Connection to: tcp://127.0.0.1:59296 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59296@61616
+2014-01-23 15:49:12,926 | WARN  | Transport Connection to: tcp://127.0.0.1:59310 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59310@61616
+2014-01-23 15:49:12,926 | WARN  | Transport Connection to: tcp://127.0.0.1:59284 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59284@61616
+2014-01-23 15:49:12,926 | WARN  | Transport Connection to: tcp://127.0.0.1:59277 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59277@61616
+2014-01-23 15:49:12,926 | WARN  | Transport Connection to: tcp://127.0.0.1:59289 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59289@61616
+2014-01-23 15:49:12,926 | WARN  | Transport Connection to: tcp://127.0.0.1:59276 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59276@61616
+2014-01-23 15:49:12,926 | WARN  | Transport Connection to: tcp://127.0.0.1:59275 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59275@61616
+2014-01-23 15:49:23,971 | WARN  | Transport Connection to: tcp://127.0.0.1:59835 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59835@61616
+2014-01-23 15:49:23,972 | WARN  | Transport Connection to: tcp://127.0.0.1:59815 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59815@61616
+2014-01-23 15:49:23,972 | WARN  | Transport Connection to: tcp://127.0.0.1:59816 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59816@61616
+2014-01-23 15:49:23,971 | WARN  | Transport Connection to: tcp://127.0.0.1:59813 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59813@61616
+2014-01-23 15:49:23,971 | WARN  | Transport Connection to: tcp://127.0.0.1:59821 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59821@61616
+2014-01-23 15:49:23,971 | WARN  | Transport Connection to: tcp://127.0.0.1:59814 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59814@61616
+2014-01-23 15:49:23,971 | WARN  | Transport Connection to: tcp://127.0.0.1:59840 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59840@61616
+2014-01-23 15:49:23,971 | WARN  | Transport Connection to: tcp://127.0.0.1:59829 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59829@61616
+2014-01-23 15:49:23,971 | WARN  | Transport Connection to: tcp://127.0.0.1:59848 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59848@61616
+2014-01-23 15:49:23,971 | WARN  | Transport Connection to: tcp://127.0.0.1:59865 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59865@61616
+2014-01-23 15:49:50,899 | WARN  | Transport Connection to: tcp://127.0.0.1:59928 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59928@61616
+2014-01-23 15:49:50,899 | WARN  | Transport Connection to: tcp://127.0.0.1:59879 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59879@61616
+2014-01-23 15:49:50,899 | WARN  | Transport Connection to: tcp://127.0.0.1:59876 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59876@61616
+2014-01-23 15:49:50,899 | WARN  | Transport Connection to: tcp://127.0.0.1:59878 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59878@61616
+2014-01-23 15:49:50,899 | WARN  | Transport Connection to: tcp://127.0.0.1:59877 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59877@61616
+2014-01-23 15:49:50,899 | WARN  | Transport Connection to: tcp://127.0.0.1:59903 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59903@61616
+2014-01-23 15:49:50,899 | WARN  | Transport Connection to: tcp://127.0.0.1:59895 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59895@61616
+2014-01-23 15:49:50,899 | WARN  | Transport Connection to: tcp://127.0.0.1:59885 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59885@61616
+2014-01-23 15:49:50,899 | WARN  | Transport Connection to: tcp://127.0.0.1:59890 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59890@61616
+2014-01-23 15:49:50,899 | WARN  | Transport Connection to: tcp://127.0.0.1:59911 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59911@61616
+2014-01-23 15:51:46,048 | WARN  | Transport Connection to: tcp://127.0.0.1:60065 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60065@61616
+2014-01-23 15:51:46,048 | WARN  | Transport Connection to: tcp://127.0.0.1:60047 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60047@61616
+2014-01-23 15:51:46,048 | WARN  | Transport Connection to: tcp://127.0.0.1:60071 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60071@61616
+2014-01-23 15:51:46,048 | WARN  | Transport Connection to: tcp://127.0.0.1:60053 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60053@61616
+2014-01-23 15:51:46,048 | WARN  | Transport Connection to: tcp://127.0.0.1:60079 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60079@61616
+2014-01-23 15:51:46,048 | WARN  | Transport Connection to: tcp://127.0.0.1:60045 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60045@61616
+2014-01-23 15:51:46,048 | WARN  | Transport Connection to: tcp://127.0.0.1:60059 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60059@61616
+2014-01-23 15:51:46,048 | WARN  | Transport Connection to: tcp://127.0.0.1:60044 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60044@61616
+2014-01-23 15:51:46,048 | WARN  | Transport Connection to: tcp://127.0.0.1:60046 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60046@61616
+2014-01-23 15:51:46,048 | WARN  | Transport Connection to: tcp://127.0.0.1:60096 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60096@61616
+2014-01-23 15:51:48,990 | WARN  | Transport Connection to: tcp://127.0.0.1:58579 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58579@61616
+2014-01-23 15:51:48,991 | WARN  | Transport Connection to: tcp://127.0.0.1:58469 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58469@61616
+2014-01-23 15:51:48,991 | WARN  | Transport Connection to: tcp://127.0.0.1:58470 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58470@61616
+2014-01-23 15:51:48,990 | WARN  | Transport Connection to: tcp://127.0.0.1:60269 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60269@61616
+2014-01-23 15:51:48,990 | WARN  | Transport Connection to: tcp://127.0.0.1:58909 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58909@61616
+2014-01-23 15:56:33,187 | WARN  | Transport Connection to: tcp://127.0.0.1:60720 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60720@61616
+2014-01-23 15:56:33,187 | WARN  | Transport Connection to: tcp://127.0.0.1:60668 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60668@61616
+2014-01-23 15:56:33,187 | WARN  | Transport Connection to: tcp://127.0.0.1:60670 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60670@61616
+2014-01-23 15:56:33,187 | WARN  | Transport Connection to: tcp://127.0.0.1:60703 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60703@61616
+2014-01-23 15:56:33,187 | WARN  | Transport Connection to: tcp://127.0.0.1:60676 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60676@61616
+2014-01-23 15:56:33,187 | WARN  | Transport Connection to: tcp://127.0.0.1:60680 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60680@61616
+2014-01-23 15:56:33,187 | WARN  | Transport Connection to: tcp://127.0.0.1:60669 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60669@61616
+2014-01-23 15:56:33,187 | WARN  | Transport Connection to: tcp://127.0.0.1:60671 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60671@61616
+2014-01-23 15:56:33,187 | WARN  | Transport Connection to: tcp://127.0.0.1:60695 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60695@61616
+2014-01-23 15:56:33,187 | WARN  | Transport Connection to: tcp://127.0.0.1:60686 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60686@61616
+2014-01-23 15:57:51,195 | WARN  | Transport Connection to: tcp://127.0.0.1:61489 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61489@61616
+2014-01-23 15:57:51,195 | WARN  | Transport Connection to: tcp://127.0.0.1:61440 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61440@61616
+2014-01-23 15:57:51,195 | WARN  | Transport Connection to: tcp://127.0.0.1:61439 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61439@61616
+2014-01-23 15:57:51,195 | WARN  | Transport Connection to: tcp://127.0.0.1:61437 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61437@61616
+2014-01-23 15:57:51,195 | WARN  | Transport Connection to: tcp://127.0.0.1:61453 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61453@61616
+2014-01-23 15:57:51,195 | WARN  | Transport Connection to: tcp://127.0.0.1:61445 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61445@61616
+2014-01-23 15:57:51,195 | WARN  | Transport Connection to: tcp://127.0.0.1:61438 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61438@61616
+2014-01-23 15:57:51,195 | WARN  | Transport Connection to: tcp://127.0.0.1:61464 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61464@61616
+2014-01-23 15:57:51,195 | WARN  | Transport Connection to: tcp://127.0.0.1:61472 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61472@61616
+2014-01-23 15:57:51,195 | WARN  | Transport Connection to: tcp://127.0.0.1:61459 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61459@61616
+2014-01-23 15:57:53,300 | WARN  | Transport Connection to: tcp://127.0.0.1:60852 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60852@61616
+2014-01-23 15:57:53,300 | WARN  | Transport Connection to: tcp://127.0.0.1:60785 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60785@61616
+2014-01-23 15:57:53,300 | WARN  | Transport Connection to: tcp://127.0.0.1:61556 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61556@61616
+2014-01-23 15:57:53,300 | WARN  | Transport Connection to: tcp://127.0.0.1:60784 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:60784@61616
+2014-01-23 16:27:15,264 | WARN  | Transport Connection to: tcp://127.0.0.1:61926 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61926@61616
+2014-01-23 16:27:15,264 | WARN  | Transport Connection to: tcp://127.0.0.1:61876 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61876@61616
+2014-01-23 16:27:15,264 | WARN  | Transport Connection to: tcp://127.0.0.1:61897 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61897@61616
+2014-01-23 16:27:15,264 | WARN  | Transport Connection to: tcp://127.0.0.1:61877 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61877@61616
+2014-01-23 16:27:15,264 | WARN  | Transport Connection to: tcp://127.0.0.1:61909 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61909@61616
+2014-01-23 16:27:15,264 | WARN  | Transport Connection to: tcp://127.0.0.1:61901 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61901@61616
+2014-01-23 16:27:15,264 | WARN  | Transport Connection to: tcp://127.0.0.1:61875 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61875@61616
+2014-01-23 16:27:15,264 | WARN  | Transport Connection to: tcp://127.0.0.1:61874 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61874@61616
+2014-01-23 16:27:15,264 | WARN  | Transport Connection to: tcp://127.0.0.1:61892 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61892@61616
+2014-01-23 16:27:15,264 | WARN  | Transport Connection to: tcp://127.0.0.1:61887 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61887@61616
+2014-01-23 16:27:17,605 | WARN  | Transport Connection to: tcp://127.0.0.1:61992 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61992@61616
+2014-01-23 16:27:17,605 | WARN  | Transport Connection to: tcp://127.0.0.1:62099 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:62099@61616
+2014-01-23 16:27:17,605 | WARN  | Transport Connection to: tcp://127.0.0.1:61991 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:61991@61616
+2014-01-23 16:47:06,498 | WARN  | Transport Connection to: tcp://127.0.0.1:63521 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63521@61616
+2014-01-23 16:47:06,498 | WARN  | Transport Connection to: tcp://127.0.0.1:63578 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63578@61616
+2014-01-23 16:47:06,498 | WARN  | Transport Connection to: tcp://127.0.0.1:63522 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63522@61616
+2014-01-23 16:47:08,494 | WARN  | Transport Connection to: tcp://127.0.0.1:63342 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63342@61616
+2014-01-23 16:47:08,495 | WARN  | Transport Connection to: tcp://127.0.0.1:63291 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63291@61616
+2014-01-23 16:47:08,495 | WARN  | Transport Connection to: tcp://127.0.0.1:63292 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63292@61616
+2014-01-23 16:47:08,495 | WARN  | Transport Connection to: tcp://127.0.0.1:63317 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63317@61616
+2014-01-23 16:47:08,495 | WARN  | Transport Connection to: tcp://127.0.0.1:63293 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63293@61616
+2014-01-23 16:47:08,495 | WARN  | Transport Connection to: tcp://127.0.0.1:63313 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63313@61616
+2014-01-23 16:47:08,494 | WARN  | Transport Connection to: tcp://127.0.0.1:63290 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63290@61616
+2014-01-23 16:47:08,494 | WARN  | Transport Connection to: tcp://127.0.0.1:63309 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63309@61616
+2014-01-23 16:47:08,494 | WARN  | Transport Connection to: tcp://127.0.0.1:63325 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63325@61616
+2014-01-23 16:47:08,494 | WARN  | Transport Connection to: tcp://127.0.0.1:63304 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63304@61616
+2014-01-23 16:49:16,035 | WARN  | Transport Connection to: tcp://127.0.0.1:63897 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63897@61616
+2014-01-23 16:49:16,036 | WARN  | Transport Connection to: tcp://127.0.0.1:63846 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63846@61616
+2014-01-23 16:49:16,035 | WARN  | Transport Connection to: tcp://127.0.0.1:63848 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63848@61616
+2014-01-23 16:49:16,035 | WARN  | Transport Connection to: tcp://127.0.0.1:63845 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63845@61616
+2014-01-23 16:49:16,035 | WARN  | Transport Connection to: tcp://127.0.0.1:63880 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63880@61616
+2014-01-23 16:49:16,035 | WARN  | Transport Connection to: tcp://127.0.0.1:63847 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63847@61616
+2014-01-23 16:49:16,035 | WARN  | Transport Connection to: tcp://127.0.0.1:63870 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63870@61616
+2014-01-23 16:49:16,035 | WARN  | Transport Connection to: tcp://127.0.0.1:63857 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63857@61616
+2014-01-23 16:49:16,035 | WARN  | Transport Connection to: tcp://127.0.0.1:63863 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63863@61616
+2014-01-23 16:49:16,035 | WARN  | Transport Connection to: tcp://127.0.0.1:63872 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63872@61616
+2014-01-23 16:49:20,261 | WARN  | Transport Connection to: tcp://127.0.0.1:64019 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64019@61616
+2014-01-23 16:49:20,261 | WARN  | Transport Connection to: tcp://127.0.0.1:63962 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63962@61616
+2014-01-23 16:49:20,261 | WARN  | Transport Connection to: tcp://127.0.0.1:63963 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:63963@61616
+2014-01-23 16:51:51,666 | WARN  | Transport Connection to: tcp://127.0.0.1:64381 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64381@61616
+2014-01-23 16:51:51,666 | WARN  | Transport Connection to: tcp://127.0.0.1:64330 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64330@61616
+2014-01-23 16:51:51,666 | WARN  | Transport Connection to: tcp://127.0.0.1:64356 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64356@61616
+2014-01-23 16:51:51,666 | WARN  | Transport Connection to: tcp://127.0.0.1:64329 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64329@61616
+2014-01-23 16:51:51,666 | WARN  | Transport Connection to: tcp://127.0.0.1:64346 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64346@61616
+2014-01-23 16:51:51,666 | WARN  | Transport Connection to: tcp://127.0.0.1:64331 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64331@61616
+2014-01-23 16:51:51,666 | WARN  | Transport Connection to: tcp://127.0.0.1:64332 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64332@61616
+2014-01-23 16:51:51,666 | WARN  | Transport Connection to: tcp://127.0.0.1:64341 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64341@61616
+2014-01-23 16:51:51,666 | WARN  | Transport Connection to: tcp://127.0.0.1:64353 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64353@61616
+2014-01-23 16:51:51,666 | WARN  | Transport Connection to: tcp://127.0.0.1:64364 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64364@61616
+2014-01-23 16:52:09,048 | WARN  | Transport Connection to: tcp://127.0.0.1:64458 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64458@61616
+2014-01-23 16:52:09,299 | WARN  | Transport Connection to: tcp://127.0.0.1:64502 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64502@61616
+2014-01-23 16:52:09,048 | WARN  | Transport Connection to: tcp://127.0.0.1:64446 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64446@61616
+2014-01-23 16:53:05,397 | WARN  | Transport Connection to: tcp://127.0.0.1:64622 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64622@61616
+2014-01-23 16:53:05,397 | WARN  | Transport Connection to: tcp://127.0.0.1:64570 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64570@61616
+2014-01-23 16:53:05,397 | WARN  | Transport Connection to: tcp://127.0.0.1:64572 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64572@61616
+2014-01-23 16:53:05,397 | WARN  | Transport Connection to: tcp://127.0.0.1:64573 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64573@61616
+2014-01-23 16:53:05,397 | WARN  | Transport Connection to: tcp://127.0.0.1:64571 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64571@61616
+2014-01-23 16:53:05,397 | WARN  | Transport Connection to: tcp://127.0.0.1:64597 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64597@61616
+2014-01-23 16:53:05,397 | WARN  | Transport Connection to: tcp://127.0.0.1:64587 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64587@61616
+2014-01-23 16:53:05,397 | WARN  | Transport Connection to: tcp://127.0.0.1:64579 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64579@61616
+2014-01-23 16:53:05,397 | WARN  | Transport Connection to: tcp://127.0.0.1:64593 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64593@61616
+2014-01-23 16:53:05,397 | WARN  | Transport Connection to: tcp://127.0.0.1:64605 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64605@61616
+2014-01-23 16:53:08,067 | WARN  | Transport Connection to: tcp://127.0.0.1:64692 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64692@61616
+2014-01-23 16:53:08,093 | WARN  | Transport Connection to: tcp://127.0.0.1:64693 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64693@61616
+2014-01-23 16:53:08,067 | WARN  | Transport Connection to: tcp://127.0.0.1:64748 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:64748@61616
+2014-01-23 17:17:03,358 | WARN  | Failed to add Connection ID:MacBook-Pro-de-Gustavo.local-65161-1390493567112-7:1 | org.apache.activemq.broker.TransportConnection | ActiveMQ Transport: tcp:///127.0.0.1:50126@61616
+javax.jms.InvalidClientIDException: Broker: localhost - Client: 66666666A/OfferDelivery already connected from tcp://127.0.0.1:65223
+	at org.apache.activemq.broker.region.RegionBroker.addConnection(RegionBroker.java:243)
+	at org.apache.activemq.broker.BrokerFilter.addConnection(BrokerFilter.java:92)
+	at org.apache.activemq.advisory.AdvisoryBroker.addConnection(AdvisoryBroker.java:90)
+	at org.apache.activemq.broker.BrokerFilter.addConnection(BrokerFilter.java:92)
+	at org.apache.activemq.broker.BrokerFilter.addConnection(BrokerFilter.java:92)
+	at org.apache.activemq.broker.MutableBrokerFilter.addConnection(MutableBrokerFilter.java:97)
+	at org.apache.activemq.broker.TransportConnection.processAddConnection(TransportConnection.java:733)
+	at org.apache.activemq.broker.jmx.ManagedTransportConnection.processAddConnection(ManagedTransportConnection.java:79)
+	at org.apache.activemq.command.ConnectionInfo.visit(ConnectionInfo.java:139)
+	at org.apache.activemq.broker.TransportConnection.service(TransportConnection.java:292)
+	at org.apache.activemq.broker.TransportConnection$1.onCommand(TransportConnection.java:149)
+	at org.apache.activemq.transport.MutexTransport.onCommand(MutexTransport.java:50)
+	at org.apache.activemq.transport.WireFormatNegotiator.onCommand(WireFormatNegotiator.java:113)
+	at org.apache.activemq.transport.AbstractInactivityMonitor.onCommand(AbstractInactivityMonitor.java:270)
+	at org.apache.activemq.transport.TransportSupport.doConsume(TransportSupport.java:83)
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:214)
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:196)
+	at java.lang.Thread.run(Thread.java:722)
+2014-01-23 17:17:50,972 | WARN  | Transport Connection to: tcp://127.0.0.1:50126 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50126@61616
+2014-01-23 17:17:50,973 | WARN  | Transport Connection to: tcp://127.0.0.1:65163 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65163@61616
+2014-01-23 17:17:50,972 | WARN  | Transport Connection to: tcp://127.0.0.1:65223 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65223@61616
+2014-01-23 17:17:50,972 | WARN  | Transport Connection to: tcp://127.0.0.1:65162 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65162@61616
+2014-01-23 17:19:03,396 | WARN  | Transport Connection to: tcp://127.0.0.1:50539 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50539@61616
+2014-01-23 17:19:03,396 | WARN  | Transport Connection to: tcp://127.0.0.1:50540 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50540@61616
+2014-01-23 17:19:03,417 | WARN  | Transport Connection to: tcp://127.0.0.1:50554 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50554@61616
+2014-01-23 17:25:31,254 | WARN  | Transport Connection to: tcp://127.0.0.1:65076 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65076@61616
+2014-01-23 17:25:31,268 | WARN  | Transport Connection to: tcp://127.0.0.1:65068 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65068@61616
+2014-01-23 17:25:31,254 | WARN  | Transport Connection to: tcp://127.0.0.1:65041 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65041@61616
+2014-01-23 17:25:31,254 | WARN  | Transport Connection to: tcp://127.0.0.1:65043 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65043@61616
+2014-01-23 17:25:31,254 | WARN  | Transport Connection to: tcp://127.0.0.1:65042 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65042@61616
+2014-01-23 17:25:31,254 | WARN  | Transport Connection to: tcp://127.0.0.1:65063 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65063@61616
+2014-01-23 17:25:31,254 | WARN  | Transport Connection to: tcp://127.0.0.1:65044 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65044@61616
+2014-01-23 17:25:31,254 | WARN  | Transport Connection to: tcp://127.0.0.1:65052 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65052@61616
+2014-01-23 17:25:31,254 | WARN  | Transport Connection to: tcp://127.0.0.1:65093 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65093@61616
+2014-01-23 17:25:31,254 | WARN  | Transport Connection to: tcp://127.0.0.1:65060 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:65060@61616
+2014-01-23 17:27:45,933 | WARN  | Transport Connection to: tcp://127.0.0.1:51404 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51404@61616
+2014-01-23 17:27:45,933 | WARN  | Transport Connection to: tcp://127.0.0.1:51403 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51403@61616
+2014-01-23 17:27:45,933 | WARN  | Transport Connection to: tcp://127.0.0.1:51512 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51512@61616
+2014-01-23 17:31:27,261 | WARN  | Transport Connection to: tcp://127.0.0.1:52854 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52854@61616
+2014-01-23 17:31:27,261 | WARN  | Transport Connection to: tcp://127.0.0.1:52804 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52804@61616
+2014-01-23 17:31:27,261 | WARN  | Transport Connection to: tcp://127.0.0.1:52802 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52802@61616
+2014-01-23 17:31:27,261 | WARN  | Transport Connection to: tcp://127.0.0.1:52805 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52805@61616
+2014-01-23 17:31:27,261 | WARN  | Transport Connection to: tcp://127.0.0.1:52803 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52803@61616
+2014-01-23 17:31:27,261 | WARN  | Transport Connection to: tcp://127.0.0.1:52829 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52829@61616
+2014-01-23 17:31:27,261 | WARN  | Transport Connection to: tcp://127.0.0.1:52826 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52826@61616
+2014-01-23 17:31:27,261 | WARN  | Transport Connection to: tcp://127.0.0.1:52822 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52822@61616
+2014-01-23 17:31:27,261 | WARN  | Transport Connection to: tcp://127.0.0.1:52814 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52814@61616
+2014-01-23 17:31:27,261 | WARN  | Transport Connection to: tcp://127.0.0.1:52837 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52837@61616
+2014-01-23 17:31:30,423 | WARN  | Transport Connection to: tcp://127.0.0.1:53603 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53603@61616
+2014-01-23 17:31:30,424 | WARN  | Transport Connection to: tcp://127.0.0.1:52919 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52919@61616
+2014-01-23 17:31:30,423 | WARN  | Transport Connection to: tcp://127.0.0.1:52920 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:52920@61616

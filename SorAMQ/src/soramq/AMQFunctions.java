@@ -11,9 +11,28 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+import org.apache.activemq.ActiveMQConnectionFactory;    
+import javax.jms.Connection;
+import javax.jms.JMSException;
+import javax.jms.Session;
+import javax.jms.Destination;
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.TextMessage;
+import javax.jms.Topic;
+import javax.jms.TopicConnection;
+import javax.jms.TopicConnectionFactory;
+import javax.jms.TopicSession;
+import javax.jms.TopicSubscriber;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.swing.JTable;
 /**
  *
  * @author Gustavo
@@ -129,13 +148,15 @@ public class AMQFunctions extends Thread{
         t1.start();
         t2.start();
         t3.start();
+        
     }
     
     public static void main(String[] args) throws InterruptedException {
         new AMQFunctions().start();
+        new AMQReciver().start();
     }
     
-    class enviarOfertasAceptadasPorDesguace implements Runnable//extends Thread
+    class enviarOfertasAceptadasPorDesguace implements Runnable
     {
         public void run()
         {
@@ -148,7 +169,7 @@ public class AMQFunctions extends Thread{
         }
     }
     
-    class enviarOfertasPendientesPorDesguace implements Runnable//extends Thread
+    class enviarOfertasPendientesPorDesguace implements Runnable
     {
         public void run()
         {
@@ -161,7 +182,7 @@ public class AMQFunctions extends Thread{
         }
     }
     
-    class enviarPeticionesPendientes implements Runnable//extends Thread
+    class enviarPeticionesPendientes implements Runnable
     {
         public void run()
         {
@@ -173,4 +194,107 @@ public class AMQFunctions extends Thread{
             }
         }
     }
+}
+
+class AMQReciver extends Thread implements javax.jms.MessageListener
+{
+    Context context = null;
+	TopicConnectionFactory factory = null;
+	TopicConnection connection = null;
+        Topic topic = null;
+	String factoryName = "ConnectionFactory";
+	TopicSession session_subscriber = null;
+	TopicSubscriber subscriber = null;
+        String destino;
+	String user;
+	String channel;
+	String durablename;
+        JTable innerTable;
+        
+           public void setParams(String destino, String user,String conv, String durname) {
+            this.destino=destino;
+            this.user=user;
+            this.channel=conv;
+            this.durablename=durname;
+        }
+    
+    public void open(String host, String port) {
+		this.open(this.destino, this.user,this.channel, this.durablename, host, port);
+	}
+                
+        public void open(String dname, String user,String conv, String durname, String host, String port) {
+            try {
+                // create the JNDI initial context
+                Properties env = new Properties( );
+                // ActiveMQ
+                env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.activemq.jndi.ActiveMQInitialContextFactory");
+                env.put(Context.PROVIDER_URL, "tcp://"+host+":"+port);
+                context = new InitialContext(env);
+
+                this.destino = "dynamicTopics/"+dname;
+                this.user = user;
+                this.channel = conv;
+                this.durablename = durname;
+
+                // look up the ConnectionFactory
+                factory = (TopicConnectionFactory)context.lookup(factoryName);
+                // look up the Destination
+                topic = (Topic) context.lookup(destino);
+                // create the connection
+                connection = factory.createTopicConnection();
+                // setId
+                connection.setClientID(durablename);
+                connection.start();
+                session_subscriber = connection.createTopicSession(false, javax.jms.Session.AUTO_ACKNOWLEDGE);
+                subscriber = session_subscriber.createDurableSubscriber(topic, durablename);
+                subscriber.setMessageListener(this);
+                
+            }catch (JMSException exception) {
+            exception.printStackTrace();
+        } catch (NamingException exception) {
+            exception.printStackTrace();
+        }
+        }
+        
+        public void close() {
+		try { 
+			    subscriber.close( ); 
+			    session_subscriber.unsubscribe(durablename);
+				connection.close( );
+			    this.factory = null;
+			    this.connection = null;
+			    this.destino = null;
+			    this.session_subscriber = null;
+			    this.subscriber = null;
+	    }catch (javax.jms.JMSException jmse){
+				jmse.printStackTrace( ); 
+		}
+	}
+        
+       @Override
+        public void onMessage(Message message) {
+        try {
+            String oferta = ((TextMessage)message).getText();
+            String[] json = oferta.split(",");
+            OfferCEN insert = new OfferCEN(json[0],
+                    (!json[1].equals(""))?Double.parseDouble(json[1]):null,
+                    (!json[2].equals(""))?Integer.parseInt(json[2]):null,
+                    (!json[3].equals(""))?json[3]:null,
+                    (!json[4].equals(""))?Integer.parseInt(json[4]):null,
+                    (!json[5].equals(""))?Double.parseDouble(json[5]):null,
+                    RequestCEN.getByCode(Integer.parseInt(json[7])),
+                    ScrapYardCEN.getByID(Integer.parseInt(json[6])), true);
+            insert.insert();
+            
+        } catch (JMSException ex) {
+            Logger.getLogger(AMQReciver.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       }
+       
+       public void start()
+       {
+           AMQReciver reciver = new AMQReciver();
+           reciver.setParams("OfferDelivery", "server", "OfferDelivery", "OfferDelivery");
+           reciver.open("localhost", "61616");
+       }
 }

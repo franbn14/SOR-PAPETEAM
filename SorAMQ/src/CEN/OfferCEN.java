@@ -133,7 +133,25 @@ public class OfferCEN {
        
     @Override
     public String toString() {
-        return code + " " + type + " " + size + " " + sizeUnit + " " + color + " " + amount + " " + price + " " + request + " " + scrapyard;
+        String salida = "";
+        if(type != null)
+            salida += type + " | ";
+        if(size != null)
+            salida += size + " | ";
+        if(sizeUnit != null)
+            salida += sizeUnit + " | ";
+        if(color != null)
+            salida += color + " | ";
+        if(amount != null)
+            salida += amount + " | ";
+        if(price != null)
+            salida += price + " | ";
+        if(request != null)
+            salida += request + " | ";
+        if(scrapyard != null)
+            salida += scrapyard;
+        
+        return code + " | " + salida;
     }
     
     public void insert() {
