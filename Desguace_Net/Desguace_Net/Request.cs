@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Desguace_Net.DarUnidadTipo;
 
 namespace Desguace_Net
 {
@@ -88,7 +89,10 @@ namespace Desguace_Net
         
         public override String ToString()
         {
-            return type;
+            DarUnidadesClient c = new DarUnidadesClient();
+            
+            return ((amount != null) ? amount + " " : "") + type +((color != null) ? " | " + color : "") +
+                ((size != null) ? " | " + size + c.DarUnidadId(sizeUnit) : "") + ((maxPrice != null) ? " | " + maxPrice+" €" : "");
         }
 
 
