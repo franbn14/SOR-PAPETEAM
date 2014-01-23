@@ -23,7 +23,6 @@ public class OfferCAD {
         String query = "INSERT INTO Oferta (tipo, tamaño, tamUnidad, color, cantidad, precio, solicitud, desguace, aceptada) "
                 + "VALUES ('"+ type +"', " + size + ", " + sizeUnit + ", " + c + ", " + amount + ", " + price + ", " + request + ", " + scrapyard + ", " + ((accepted)?1:0) + ");";
         
-        System.out.println(query);
         try {
             code = Connector.updates(query);
         }
@@ -330,13 +329,12 @@ String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
             String query = "SELECT DISTINCT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
                         "FROM Oferta o, Solicitud s "
                         + "WHERE solicitud = " + request + " and "
-                        + q_type + " and "
-                        + ((q_size == null)? "" : q_size + " and ")
-                        + ((q_sizeUnit == null)? "" : q_sizeUnit + " and ")
-                        + ((q_color == null)? "" : q_color + " and ")
-                        + ((q_amount == null)? "" : q_amount + " and ")
-                        + ((q_maxPrice == null)? "" : q_maxPrice + ";");
-            System.out.println("QUERY: "+query);
+                        + q_type
+                        + ((q_size == null)? "" : " and " + q_size )
+                        + ((q_sizeUnit == null)? "" : " and " + q_sizeUnit)
+                        + ((q_color == null)? "" : " and " + q_color)
+                        + ((q_amount == null)? "" : " and " + q_amount)
+                        + ((q_maxPrice == null)? "" : " and " + q_maxPrice);
 
             ResultSet rs = Connector.query(query);
             while(rs.next()){

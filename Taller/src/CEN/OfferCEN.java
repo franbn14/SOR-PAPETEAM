@@ -132,8 +132,8 @@ public class OfferCEN {
        
     @Override
     public String toString() {
-        return ((amount!=null)?amount+" ":"") + type + " " + ((color!=null)?color+" ":"") + 
-                ((size!=null)?size+" "+darUnidadId(sizeUnit)+" ":"");
+        return ((amount!=null)?amount+" ":"") + type + ((color!=null)?" | "+color:"") + 
+                ((size!=null)?" | "+size+darUnidadId(sizeUnit)+" ":"") + ((price!=null)?" | "+price+"€":"");
     }
 
     private static String darUnidadId(int id) {

@@ -75,6 +75,7 @@ public class Home extends javax.swing.JFrame {
 
         lbOffers.setText("Ofertas recibidas");
 
+        requestList.setBackground(new java.awt.Color(252, 247, 232));
         requestList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         requestList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,8 +84,10 @@ public class Home extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(requestList);
 
+        offerList.setBackground(new java.awt.Color(252, 247, 232));
         jScrollPane2.setViewportView(offerList);
 
+        btAccept.setBackground(new java.awt.Color(252, 247, 232));
         btAccept.setText("Aceptar seleccionadas");
         btAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +97,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel1.setText("Solicitudes finalizadas");
 
+        requestFList.setBackground(new java.awt.Color(252, 247, 232));
         requestFList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         requestFList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -110,6 +114,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btNewRequest.setBackground(new java.awt.Color(252, 247, 232));
         btNewRequest.setText("Nueva solicitud");
         btNewRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +122,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btFavourite.setBackground(new java.awt.Color(252, 247, 232));
         btFavourite.setText("Ver favoritas");
         btFavourite.setEnabled(false);
         btFavourite.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +131,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btExit.setBackground(new java.awt.Color(252, 247, 232));
         btExit.setText("Cerrar sesión");
         btExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,34 +144,34 @@ public class Home extends javax.swing.JFrame {
         mainPaneLayout.setHorizontalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPaneLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(21, 21, 21)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPaneLayout.createSequentialGroup()
                         .addComponent(btNewRequest)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(mainPaneLayout.createSequentialGroup()
-                        .addComponent(lbTitle)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(mainPaneLayout.createSequentialGroup()
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1)
-                            .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btDecline, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addComponent(lbOffers)
-                                .addGap(81, 81, 81)
-                                .addComponent(btFavourite))
-                            .addComponent(btAccept)
-                            .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addGap(188, 188, 188)
+                                .addComponent(lbTitle)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btExit))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                            .addGroup(mainPaneLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(mainPaneLayout.createSequentialGroup()
+                                        .addComponent(lbOffers, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(47, 47, 47)
+                                        .addComponent(btFavourite, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btAccept)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(26, 26, 26))))
         );
         mainPaneLayout.setVerticalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,9 +180,9 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTitle)
                     .addComponent(btExit))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btNewRequest)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbOffers)
                     .addComponent(btFavourite)
@@ -192,16 +199,15 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btAccept))
+                .addComponent(btAccept)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(mainPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,10 +268,12 @@ public class Home extends javax.swing.JFrame {
         if(btFavourite.getText().equals("Ver favoritas")) {
             checkOffers(requestList, true);
             btFavourite.setText("Ver todas");
+            btFavourite.setEnabled(true);
         }
         else {
             checkOffers(requestList, false);
             btFavourite.setText("Ver favoritas");
+            btFavourite.setEnabled(true);
         }
     }//GEN-LAST:event_btFavouriteActionPerformed
 
@@ -309,12 +317,19 @@ public class Home extends javax.swing.JFrame {
                     offerList.setEnabled(false);                                                   
                 }
                 else {
-                    Date today=new Date(), requestDate=selected.getdeadline();
-                    today.setTime(requestDate.getTime());
-                    
-                    if(!selected.isFinished())                         
-                        if(!requestDate.after(today)) 
-                            btFavourite.setEnabled(true);                                                               
+                    if(selected.isAutoElect())  {
+                        
+                        Date today=new Date(), requestDate=selected.getdeadline();                    
+                        today.setHours(requestDate.getHours());
+                        today.setMinutes(requestDate.getMinutes());
+                        today.setSeconds(requestDate.getSeconds());
+
+                        if(!selected.isFinished())                         
+                            if(!requestDate.after(today)) {
+                                btFavourite.setEnabled(true);                                                               
+                            }
+                                
+                    }                    
                                        
                     offers = gson.fromJson(offerString, collectionType);           
                     

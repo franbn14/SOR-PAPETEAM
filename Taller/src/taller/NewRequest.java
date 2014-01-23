@@ -81,6 +81,8 @@ public class NewRequest extends javax.swing.JFrame {
         lbPriceError = new javax.swing.JLabel();
         lbDateError = new javax.swing.JLabel();
         lbReqError = new javax.swing.JLabel();
+        cbSelection = new javax.swing.JCheckBox();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +91,7 @@ public class NewRequest extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel1.setText("Crear nueva solicitud");
 
+        btCreate.setBackground(new java.awt.Color(252, 247, 232));
         btCreate.setText("Crear");
         btCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +111,17 @@ public class NewRequest extends javax.swing.JFrame {
 
         jLabel7.setText("Tamaño");
 
+        tfType.setBackground(new java.awt.Color(252, 247, 232));
+
+        tfAmount.setBackground(new java.awt.Color(252, 247, 232));
+
+        tfSize.setBackground(new java.awt.Color(252, 247, 232));
+
+        tfPrice.setBackground(new java.awt.Color(252, 247, 232));
+
+        tfColor.setBackground(new java.awt.Color(252, 247, 232));
+
+        btCancel.setBackground(new java.awt.Color(252, 247, 232));
         btCancel.setText("Cancelar");
         btCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +135,7 @@ public class NewRequest extends javax.swing.JFrame {
 
         lbUnitError.setForeground(new java.awt.Color(226, 25, 25));
 
+        tfDay.setBackground(new java.awt.Color(252, 247, 232));
         tfDay.setText("dd");
         tfDay.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -128,6 +143,7 @@ public class NewRequest extends javax.swing.JFrame {
             }
         });
 
+        tfMonth.setBackground(new java.awt.Color(252, 247, 232));
         tfMonth.setText("mm");
         tfMonth.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -135,6 +151,7 @@ public class NewRequest extends javax.swing.JFrame {
             }
         });
 
+        tfYear.setBackground(new java.awt.Color(252, 247, 232));
         tfYear.setText("aaaa");
         tfYear.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -146,6 +163,8 @@ public class NewRequest extends javax.swing.JFrame {
 
         jLabel8.setText("Unidad");
 
+        cbUnit.setBackground(new java.awt.Color(252, 247, 232));
+        cbUnit.setEditable(true);
         cbUnit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         lbPriceError.setForeground(new java.awt.Color(201, 26, 26));
@@ -153,6 +172,10 @@ public class NewRequest extends javax.swing.JFrame {
         lbDateError.setForeground(new java.awt.Color(213, 34, 34));
 
         lbReqError.setForeground(new java.awt.Color(232, 36, 36));
+
+        cbSelection.setSelected(true);
+
+        jLabel9.setText("Autoselección");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -170,7 +193,8 @@ public class NewRequest extends javax.swing.JFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel8))
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
                                 .addGap(33, 33, 33)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,16 +208,18 @@ public class NewRequest extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(btCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(btCancel)))
+                                        .addComponent(cbSelection))
                                     .addComponent(tfAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tfType, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tfColor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tfColor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addComponent(btCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btCancel)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -258,18 +284,29 @@ public class NewRequest extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(lbDateError, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbReqError)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbSelection, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCreate)
                     .addComponent(btCancel)
-                    .addComponent(lbReqError))
-                .addContainerGap(39, Short.MAX_VALUE))
+                    .addComponent(btCreate))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,8 +373,11 @@ public class NewRequest extends javax.swing.JFrame {
         if(unit<=-1)
             unit=null;
         
+        if(color.equals(""))
+            color=null;
+        
         if(correct) {
-            int id=insert(type, date, size,unit, color, amountInt, price, getID(user), false, false);
+            int id=insert(type, date, size,unit, color, amountInt, price, getID(user), cbSelection.isSelected(), false);
 
             if(id==-1)
                 lbReqError.setText("Error al crear solicitud");
@@ -415,7 +455,7 @@ public class NewRequest extends javax.swing.JFrame {
     
     public Double checkNumber(String number) {        
         if(number!=null && !number.equals("")) {
-            if(!number.matches("[0-9]+[.,]{0,1}[0-9]*"))
+            if(!number.matches("[0-9]+([.,][0-9]+)?"))
                 return -1.0;
             else
                 return Double.parseDouble(number);            
@@ -461,6 +501,7 @@ public class NewRequest extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancel;
     private javax.swing.JButton btCreate;
+    private javax.swing.JCheckBox cbSelection;
     private javax.swing.JComboBox cbUnit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -470,6 +511,7 @@ public class NewRequest extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbAmountError;
     private javax.swing.JLabel lbDateError;

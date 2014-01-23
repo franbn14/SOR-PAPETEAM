@@ -8,4 +8,8 @@
     <system systemId="http://localhost:8080/Sor_Servicios/LoginDesguace?xsd=1" uri="xml-resources/web-service-references/LoginDesguace/wsdl/localhost_8080/Sor_Servicios/LoginDesguace.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" uri="xml-resources/web-service-references/RegistroDesguace/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?xsd=1" uri="xml-resources/web-service-references/RegistroDesguace/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarUnidades?wsdl" uri="xml-resources/web-service-references/DarUnidades/wsdl/localhost_8080/Sor_Servicios/DarUnidades.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarUnidades?xsd=1" uri="xml-resources/web-service-references/DarUnidades/wsdl/localhost_8080/Sor_Servicios/DarUnidades.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?wsdl" uri="xml-resources/web-service-references/DarIdDesguacebyCif/wsdl/localhost_8080/Sor_Servicios/DarIdDesguacebyCif.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?xsd=1" uri="xml-resources/web-service-references/DarIdDesguacebyCif/wsdl/localhost_8080/Sor_Servicios/DarIdDesguacebyCif.xsd_1.xsd"/>
 </catalog>

@@ -58,12 +58,14 @@ public class Main extends javax.swing.JFrame {
         mainPane.setBackground(new java.awt.Color(245, 228, 179));
         mainPane.setName("mainPane"); // NOI18N
 
+        tfUser.setBackground(new java.awt.Color(252, 247, 232));
         tfUser.setName("tfUser"); // NOI18N
 
-        jLabel1.setText("Usuario");
+        jLabel1.setText("CIF / NIF");
 
         jLabel2.setText("Contraseña");
 
+        btLogin.setBackground(new java.awt.Color(252, 247, 232));
         btLogin.setText("Entrar");
         btLogin.setName("btLogin"); // NOI18N
         btLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -79,12 +81,15 @@ public class Main extends javax.swing.JFrame {
         lbError.setForeground(new java.awt.Color(222, 41, 41));
         lbError.setText("   ");
 
+        btRegister.setBackground(new java.awt.Color(252, 247, 232));
         btRegister.setText("Registrarse");
         btRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btRegisterActionPerformed(evt);
             }
         });
+
+        tfPass.setBackground(new java.awt.Color(252, 247, 232));
 
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
@@ -115,34 +120,37 @@ public class Main extends javax.swing.JFrame {
         mainPaneLayout.setVerticalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPaneLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTitle)
                     .addComponent(btRegister))
-                .addGap(33, 33, 33)
+                .addGap(29, 29, 29)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btLogin)
                 .addGap(18, 18, 18)
-                .addComponent(lbError)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addComponent(lbError))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

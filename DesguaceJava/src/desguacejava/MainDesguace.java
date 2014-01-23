@@ -5,6 +5,7 @@
 package desguacejava;
 
 import CEN.OfferCEN;
+import CEN.RequestCEN;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.awt.BorderLayout;
@@ -41,16 +42,30 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.JScrollPane;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.media.j3d.J3DBuffer;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+import javax.swing.ListSelectionModel;
+    
+import org.apache.activemq.ActiveMQConnectionFactory;    
+       
 /**
  *
  * @author Gustavo
  */
 public class MainDesguace extends JFrame {
 	private JTable tPeticiones;
-	private JTextField tfOp1,tfOp2;
+	private JTextField tfPieza,tfSize;
         private JTable tOfertas;
-        
-    public MainDesguace(String cif) 
+        private JTextField tfColor;
+        private JTextField tfCantidad;
+        private JTextField tfPrecio;
+        JComboBox cbUnidades;
+        private int rowSelected = -1;
+    public MainDesguace(final String cif) 
     {    
         super("Pantalla Principal del Desguace");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,6 +89,7 @@ public class MainDesguace extends JFrame {
         panelIzq.setLayout(sl_panelIzq);
         
         tPeticiones = new JTable(5,1);
+        tPeticiones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JTableHeader th = (JTableHeader)tPeticiones.getTableHeader();
         tPeticiones.setAutoscrolls(false);
         tPeticiones.setBackground(new Color(250, 250, 210));
@@ -88,12 +104,15 @@ public class MainDesguace extends JFrame {
         TableColumnModel tcm = th.getColumnModel();
         TableColumn tc = tcm.getColumn(0);
         tc.setHeaderValue("Peticiones");
-        JLabel lblOp1 = new JLabel("Opcion 1");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblOp1, 34, SpringLayout.NORTH, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblOp1, 20, SpringLayout.WEST, panelIzq);
-        panelIzq.add(lblOp1);
-        tfOp1 = new JTextField();
+        JLabel lblPieza = new JLabel("Pieza");
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblPieza, 20, SpringLayout.WEST, panelIzq);
+        panelIzq.add(lblPieza);
+        tfPieza = new JTextField();
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfPieza, 6, SpringLayout.SOUTH, lblPieza);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfPieza, 0, SpringLayout.WEST, lblPieza);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfPieza, -21, SpringLayout.EAST, panelIzq);
         tOfertas = new JTable(5,1);
+        tOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JTableHeader th2 = (JTableHeader)tOfertas.getTableHeader();
         tOfertas.setAutoscrolls(false);
         tOfertas.setBackground(new Color(250, 250, 210));
@@ -109,27 +128,129 @@ public class MainDesguace extends JFrame {
         
         JScrollPane srpOfertas = new JScrollPane(tOfertas);        
         srpOfertas.setMinimumSize(new Dimension(23, 220));
-        tfOp2 = new JTextField();
+        tfSize = new JTextField();
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfSize, 0, SpringLayout.WEST, lblPieza);
         spTablas.setLeftComponent(srpPeticiones);
         spTablas.setRightComponent(srpOfertas);
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfOp1, 6, SpringLayout.SOUTH, lblOp1);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfOp1, 20, SpringLayout.WEST, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfOp1, -21, SpringLayout.EAST, panelIzq);
-        panelIzq.add(tfOp1);
-        tfOp1.setColumns(10);
+        panelIzq.add(tfPieza);
+        tfPieza.setColumns(10);
         
-        JLabel lblOp2 = new JLabel("Opcion 2");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblOp2, 32, SpringLayout.SOUTH, tfOp1);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblOp2, 0, SpringLayout.WEST, lblOp1);
-        panelIzq.add(lblOp2);
+        JLabel lblSize = new JLabel("Tama\u00F1o");
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfSize, 6, SpringLayout.SOUTH, lblSize);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblSize, 17, SpringLayout.SOUTH, tfPieza);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblSize, 0, SpringLayout.WEST, lblPieza);
+        panelIzq.add(lblSize);
+        panelIzq.add(tfSize);
+        tfSize.setColumns(10);
         
+        JLabel lblNewOffer = new JLabel("Nueva Oferta");
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfSize, 0, SpringLayout.EAST, lblNewOffer);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblNewOffer, 20, SpringLayout.WEST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblPieza, 18, SpringLayout.SOUTH, lblNewOffer);
+        lblNewOffer.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblNewOffer, 23, SpringLayout.NORTH, panelIzq);
+        panelIzq.add(lblNewOffer);
         
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfOp2, 18, SpringLayout.SOUTH, lblOp2);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfOp2, 0, SpringLayout.WEST, lblOp1);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfOp2, 0, SpringLayout.EAST, tfOp1);
-        panelIzq.add(tfOp2);
-        tfOp2.setColumns(10);
+        cbUnidades = new JComboBox();
+        String ud = darTodasUnidades();
+        Gson gson = new Gson();
+        java.lang.reflect.Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
+        ArrayList<String> uds = gson.fromJson(ud, collectionType);
+        for(String u : uds)
+        {
+            cbUnidades.addItem(u);
+        }
+        cbUnidades.setSelectedIndex(0);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, cbUnidades, 39, SpringLayout.SOUTH, tfPieza);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, cbUnidades, -297, SpringLayout.SOUTH, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfSize, 0, SpringLayout.SOUTH, cbUnidades);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, cbUnidades, -79, SpringLayout.EAST, tfPieza);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, cbUnidades, -21, SpringLayout.EAST, panelIzq);
+        panelIzq.add(cbUnidades);
         
+        JLabel lblColor = new JLabel("Color");
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblColor, 16, SpringLayout.SOUTH, tfSize);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblColor, 0, SpringLayout.WEST, lblPieza);
+        panelIzq.add(lblColor);
+        
+        tfColor = new JTextField();
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfColor, 6, SpringLayout.SOUTH, lblColor);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfColor, 0, SpringLayout.WEST, lblPieza);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfColor, 34, SpringLayout.SOUTH, lblColor);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfColor, 0, SpringLayout.EAST, tfPieza);
+        panelIzq.add(tfColor);
+        tfColor.setColumns(10);
+        
+        JLabel lblCantidad = new JLabel("Cantidad");
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblCantidad, 16, SpringLayout.SOUTH, tfColor);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblCantidad, 0, SpringLayout.WEST, lblPieza);
+        panelIzq.add(lblCantidad);
+        
+        tfCantidad = new JTextField();
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfCantidad, 6, SpringLayout.SOUTH, lblCantidad);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfCantidad, 0, SpringLayout.WEST, lblPieza);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfCantidad, 34, SpringLayout.SOUTH, lblCantidad);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfCantidad, 0, SpringLayout.EAST, tfPieza);
+        panelIzq.add(tfCantidad);
+        tfCantidad.setColumns(10);
+        
+        JLabel lblPrecio = new JLabel("Precio");
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblPrecio, 18, SpringLayout.SOUTH, tfCantidad);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblPrecio, 0, SpringLayout.WEST, lblPieza);
+        panelIzq.add(lblPrecio);
+        
+        tfPrecio = new JTextField();
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfPrecio, 6, SpringLayout.SOUTH, lblPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfPrecio, 0, SpringLayout.WEST, lblPieza);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfPrecio, 34, SpringLayout.SOUTH, lblPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfPrecio, -55, SpringLayout.EAST, tfPieza);
+        panelIzq.add(tfPrecio);
+        tfPrecio.setColumns(10);
+        
+        JLabel lblEuro = new JLabel("\u20AC");
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblEuro, 6, SpringLayout.NORTH, tfPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblEuro, 6, SpringLayout.EAST, tfPrecio);
+        panelIzq.add(lblEuro);
+        
+        JButton btnHacerOferta = new JButton("Hacer Oferta");
+        btnHacerOferta.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rowSelected = tPeticiones.getSelectedRow();
+                boolean enviada = false;
+                if(rowSelected != -1)
+                {
+                    OfferCEN oferta = (OfferCEN) tPeticiones.getValueAt(rowSelected, 0);
+                    int cifid = getIdDes(cif);
+                    String nueva = "";
+                    if(!tfPieza.getText().equals(""))
+                    {
+                       nueva += tfPieza.getText()+",";
+                       if(tfSize.getText().equals(""))
+                       {
+                           nueva += tfSize.getText()+",,"+tfColor.getText()+","+tfCantidad.getText()+","+tfPrecio.getText()+","+cifid+","+oferta.getCode();
+                       }
+                       else
+                       {
+                            nueva += tfSize.getText()+","+cbUnidades.getSelectedIndex()
+                                    +","+tfColor.getText()+","+tfCantidad.getText()+","+tfPrecio.getText()+","+cifid+","+oferta.getCode();
+                       }
+                       
+                        Sender envio = new Sender();
+                        envio.setParams("OfferDelivery", cif, "OfferDelivery", "OfferDelivery");
+                        envio.open();
+                        envio.send(nueva, 60000);
+                        enviada = true;
+                    }
+                }
+            }
+        });
+        
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, btnHacerOferta, 25, SpringLayout.SOUTH, tfPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, btnHacerOferta, 0, SpringLayout.WEST, lblPieza);
+        panelIzq.add(btnHacerOferta);
+                
         Receiver r1 = new Receiver();
         Receiver r2 = new Receiver();
         r1.setTable(tOfertas);
@@ -140,9 +261,19 @@ public class MainDesguace extends JFrame {
         r2.open("localhost", "61616");
     }
 
+    private static String darTodasUnidades() {
+        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
+        servicios.DarUnidades port = service.getDarUnidadesPort();
+        return port.darTodasUnidades();
     }
-    
-       
+
+    private static int getIdDes(java.lang.String nif) {
+        servicios.DarIdDesguacebyCif_Service service = new servicios.DarIdDesguacebyCif_Service();
+        servicios.DarIdDesguacebyCif port = service.getDarIdDesguacebyCifPort();
+        return port.getIdDes(nif);
+    }
+
+    }    
    class Receiver implements javax.jms.MessageListener
    {
         Context context = null;
@@ -235,7 +366,7 @@ public class MainDesguace extends JFrame {
                 int i = 0;
                 for(OfferCEN of : ofertas)
                 {
-                    tm.setValueAt(of.toString(), i, 0);
+                    tm.setValueAt(of, i, 0);
                     i++;
                 }
        }
@@ -244,4 +375,89 @@ public class MainDesguace extends JFrame {
        {
            this.innerTable = t;
        }
+}
+
+class Sender
+{
+	Context context = null;
+	TopicConnectionFactory factory = null;
+	TopicConnection connection = null;
+	String factoryName = "ConnectionFactory";
+	Topic topic = null;
+	TopicSession session_publisher = null;
+	TopicPublisher publisher = null;
+	String destino;
+	String user;
+	String channel;
+	String durablename;
+    
+    public void setParams(String destino, String user,String conv, String durname) {
+            this.destino=destino;
+            this.user=user;
+            this.channel=conv;
+            this.durablename=durname;
+	}
+	
+	public void open() {
+		this.open(this.destino, this.user,this.channel, this.durablename);
+	}
+	
+	public void open(String dname, String user,String conv, String durname) {
+        try {
+            // create the JNDI initial context
+            Properties env = new Properties( );
+            // ActiveMQ
+            env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.activemq.jndi.ActiveMQInitialContextFactory");
+            env.put(Context.PROVIDER_URL, "tcp://localhost:61616");
+            
+            context = new InitialContext(env);
+            
+            this.destino = "dynamicTopics/"+dname;
+            this.user = user;
+            this.channel = conv;
+            this.durablename = durname;
+            
+            // look up the ConnectionFactory
+            factory = (TopicConnectionFactory)context.lookup(factoryName);
+            // look up the Destination
+            topic = (Topic) context.lookup(destino);
+            // create the connection
+            connection = factory.createTopicConnection();
+            // setId
+            connection.setClientID(user+"/"+durablename);
+            // create the sessions
+            session_publisher = connection.createTopicSession(false, javax.jms.Session.AUTO_ACKNOWLEDGE);
+            // create the publisher
+            publisher = session_publisher.createPublisher(topic);
+        }
+        catch (JMSException exception) {
+            exception.printStackTrace();
+        } catch (NamingException exception) {
+            exception.printStackTrace();
+        }
+	}
+        
+        public void close() {
+		try {  
+			    publisher.close();
+				connection.close( );
+			    this.factory = null;
+			    this.connection = null;
+			    this.destino = null;
+			    this.session_publisher = null;
+			    this.publisher = null;
+	    }catch (javax.jms.JMSException jmse){
+				jmse.printStackTrace( ); 
+		}
+	}
+	
+	public void send(String obj, long timespan)
+	{
+        try {
+            TextMessage msg = (TextMessage)session_publisher.createTextMessage(obj);
+            publisher.publish(msg,javax.jms.DeliveryMode.PERSISTENT, javax.jms.ObjectMessage.DEFAULT_PRIORITY,timespan);
+        } catch (JMSException ex) {
+            Logger.getLogger(Sender.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
 }
