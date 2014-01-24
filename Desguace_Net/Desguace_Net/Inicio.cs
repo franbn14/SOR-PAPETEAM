@@ -15,6 +15,7 @@ using Desguace_Net.DarID;
 using Apache.NMS.ActiveMQ;
 using Apache.NMS;
 using Desguace_Net;
+using System.Threading;
 
 namespace Desguace_Net
 {
@@ -23,9 +24,12 @@ namespace Desguace_Net
         String userName = "";
         String nif = "";
         int idDes = 0;
-        Services.TopicSubscriber s;
+        Services.TopicSubscriber r;
+        Services.TopicSubscriber op;
+        Services.TopicSubscriber of;
         List<Request> list;
-
+        List<Offer> listOp;
+        List<Offer> listOf;
         public Inicio(String user)
         {
           DarNombreClienteClient c = new DarNombreClienteClient();
@@ -37,39 +41,99 @@ namespace Desguace_Net
             InitializeComponent();
             Text = "Bienvenido " + userName;
 
-             s = new Services.TopicSubscriber("pendientes", "tcp://localhost:61616", "recibidor");
-
-            s.OnMessageReceived += s_OnMessageReceived;
+            r = new Services.TopicSubscriber("pendientes", "tcp://192.168.43.56:61616", "RecibidorRequest" + nif);
+            op = new Services.TopicSubscriber(nif + "p", "tcp://192.168.43.56:61616", "RecibidorOfertasPen" + nif);
+            of = new Services.TopicSubscriber(nif + "f", "tcp://192.168.43.56:61616", "RecibidorOfertasFin" + nif);
+            r.OnMessageReceived += r_OnMessageReceived;
+            op.OnMessageReceived += op_OnMessageReceived;
+            of.OnMessageReceived += of_OnMessageReceived;
 
            
         }
-        private void s_OnMessageReceived(string message)
+        private void r_OnMessageReceived(string message)
         {
             
 
             //req = list.ElementAt(0);       
-            cargarRequest(message);
-            Console.WriteLine(message);     
-
-           
-                        
+            //cargarRequest(message);
+            Invoke(new Action(() => cargarRequest(message)));
+            
+     
         }
+        private void op_OnMessageReceived(string message)
+        {
+
+
+            
+            Invoke(new Action(() => cargarOfferPen(message)));
+            
+
+
+        }
+        private void of_OnMessageReceived(string message)
+        {
+
+
+          
+            Invoke(new Action(() => cargarOfferF(message)));
+
+
+
+        }
+       
         private void cargarRequest(String message)
         {
 
             dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Request>>(message);
-            list = new List<Request>(json);
-           // ListaRequest.Items.Clear();
-            RequestP.Rows.Clear();
-            RequestP.Rows.Add(list.ElementAt(0).Type);  
-        
+            ListaRequest.Items.Clear();
+            if (json != null)
+            {
+                list = new List<Request>(json);
+
+                //ListaRequest = new ListBox();
+               
+                ListaRequest.Items.AddRange(list.ToArray());
+            
+            }
+            
+        }
+        private void cargarOfferPen(String message)
+        {
+
+            dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Offer>>(message);
+            OfferPList.Items.Clear();
+            if (json != null)
+            {
+                listOp = new List<Offer>(json);
+
+
+                //ListaRequest = new ListBox();
+                
+                OfferPList.Items.AddRange(listOp.ToArray());
+            }
+                
+        }
+        private void cargarOfferF(String message)
+        {
+
+            dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Offer>>(message);
+            OfferFList.Items.Clear();
+            if (json != null)
+            {
+                listOf = new List<Offer>(json);
+
+                //ListaRequest = new ListBox();
+                
+                OfferFList.Items.AddRange(listOf.ToArray());
+            }
+            
         }
         private void Inicio_Load(object sender, EventArgs e)
         {
                     
-            Request req = new Request();// list.ElementAt(0);
-            req.Type = "Juanito";
-            Console.WriteLine("Items: " + list.Count);
+           
+            //list.ElementAt(0);
+            //Console.WriteLine("Items: " + list.Count);
              
            // ListaRequest.Items.Clear();            
                  
@@ -118,7 +182,8 @@ namespace Desguace_Net
 
             if (selected != null)
             {
-                Console.WriteLine(selected.Code + " " + selected.Type);
+                Hacer_Oferta o = new Hacer_Oferta(selected.Code, idDes);
+                o.Show();
             }
             else
                 Console.WriteLine("No hay seleccionadas");

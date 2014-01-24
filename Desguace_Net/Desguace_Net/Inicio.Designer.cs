@@ -34,10 +34,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ListaRequest = new System.Windows.Forms.ListBox();
             this.hacerOferta = new System.Windows.Forms.Button();
-            this.RequestP = new System.Windows.Forms.DataGridView();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hacer_Oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.RequestP)).BeginInit();
+            this.OfferPList = new System.Windows.Forms.ListBox();
+            this.OfferFList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // button1
@@ -90,10 +88,14 @@
             // ListaRequest
             // 
             this.ListaRequest.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ListaRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.ListaRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ListaRequest.FormattingEnabled = true;
+            this.ListaRequest.HorizontalScrollbar = true;
+            this.ListaRequest.ItemHeight = 17;
             this.ListaRequest.Location = new System.Drawing.Point(37, 88);
             this.ListaRequest.Name = "ListaRequest";
-            this.ListaRequest.Size = new System.Drawing.Size(257, 251);
+            this.ListaRequest.Size = new System.Drawing.Size(375, 259);
             this.ListaRequest.TabIndex = 8;
             this.ListaRequest.SelectedIndexChanged += new System.EventHandler(this.ListaRequest_SelectedIndexChanged);
             // 
@@ -109,26 +111,31 @@
             this.hacerOferta.UseVisualStyleBackColor = false;
             this.hacerOferta.Click += new System.EventHandler(this.hacerOferta_Click);
             // 
-            // RequestP
+            // OfferPList
             // 
-            this.RequestP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RequestP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tipo,
-            this.Hacer_Oferta});
-            this.RequestP.Location = new System.Drawing.Point(448, 100);
-            this.RequestP.Name = "RequestP";
-            this.RequestP.Size = new System.Drawing.Size(270, 229);
-            this.RequestP.TabIndex = 10;
+            this.OfferPList.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.OfferPList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.OfferPList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.OfferPList.FormattingEnabled = true;
+            this.OfferPList.HorizontalScrollbar = true;
+            this.OfferPList.ItemHeight = 17;
+            this.OfferPList.Location = new System.Drawing.Point(445, 88);
+            this.OfferPList.Name = "OfferPList";
+            this.OfferPList.Size = new System.Drawing.Size(375, 259);
+            this.OfferPList.TabIndex = 10;
             // 
-            // Tipo
+            // OfferFList
             // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            // 
-            // Hacer_Oferta
-            // 
-            this.Hacer_Oferta.HeaderText = "HacerOferta";
-            this.Hacer_Oferta.Name = "Hacer_Oferta";
+            this.OfferFList.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.OfferFList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.OfferFList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.OfferFList.FormattingEnabled = true;
+            this.OfferFList.HorizontalScrollbar = true;
+            this.OfferFList.ItemHeight = 17;
+            this.OfferFList.Location = new System.Drawing.Point(871, 88);
+            this.OfferFList.Name = "OfferFList";
+            this.OfferFList.Size = new System.Drawing.Size(375, 259);
+            this.OfferFList.TabIndex = 11;
             // 
             // Inicio
             // 
@@ -136,7 +143,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1304, 635);
-            this.Controls.Add(this.RequestP);
+            this.Controls.Add(this.OfferFList);
+            this.Controls.Add(this.OfferPList);
             this.Controls.Add(this.hacerOferta);
             this.Controls.Add(this.ListaRequest);
             this.Controls.Add(this.label3);
@@ -149,7 +157,6 @@
             this.Text = "Desguace Solution";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Inicio_FormClosed);
             this.Load += new System.EventHandler(this.Inicio_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.RequestP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,8 +170,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox ListaRequest;
         private System.Windows.Forms.Button hacerOferta;
-        private System.Windows.Forms.DataGridView RequestP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hacer_Oferta;
+        private System.Windows.Forms.ListBox OfferPList;
+        private System.Windows.Forms.ListBox OfferFList;
     }
 }

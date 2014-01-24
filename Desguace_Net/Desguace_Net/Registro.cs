@@ -40,7 +40,7 @@ namespace Desguace_Net
             string cadena = "ABCDEFGHKLMNPQS";
             if (cadena.IndexOf(firstChar) == -1) return false;
             string digits = cif.Substring(1, 8);
-            return Regex.IsMatch(digits, "[0-9]{8}");
+            return Regex.IsMatch(digits, @"^[0-9]{8}$");
          
         }
 

@@ -26759,3 +26759,197 @@ INFO   | jvm 1    | 2014/01/23 17:31:27 |  WARN | Transport Connection to: tcp:/
 INFO   | jvm 1    | 2014/01/23 17:31:30 |  WARN | Transport Connection to: tcp://127.0.0.1:53603 failed: java.io.EOFException
 INFO   | jvm 1    | 2014/01/23 17:31:30 |  WARN | Transport Connection to: tcp://127.0.0.1:52919 failed: java.io.EOFException
 INFO   | jvm 1    | 2014/01/23 17:31:30 |  WARN | Transport Connection to: tcp://127.0.0.1:52920 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 18:37:14 |  WARN | Transport Connection to: tcp://127.0.0.1:54128 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 18:37:14 |  WARN | Transport Connection to: tcp://127.0.0.1:54074 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 18:37:14 |  WARN | Transport Connection to: tcp://127.0.0.1:54075 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 18:37:14 |  WARN | Transport Connection to: tcp://127.0.0.1:54073 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 18:37:14 |  WARN | Transport Connection to: tcp://127.0.0.1:54099 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 18:37:14 |  WARN | Transport Connection to: tcp://127.0.0.1:54111 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 18:37:14 |  WARN | Transport Connection to: tcp://127.0.0.1:54096 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 18:37:14 |  WARN | Transport Connection to: tcp://127.0.0.1:54100 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 18:37:14 |  WARN | Transport Connection to: tcp://127.0.0.1:54104 failed: java.io.EOFException
+STATUS | wrapper  | 2014/01/23 18:41:55 | TERM trapped.  Shutting down.
+INFO   | jvm 1    | 2014/01/23 18:41:56 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49464-1390473418328-0:1) is shutting down
+INFO   | jvm 1    | 2014/01/23 18:41:57 |  INFO | Connector openwire stopped
+INFO   | jvm 1    | 2014/01/23 18:41:58 |  INFO | Connector amqp stopped
+INFO   | jvm 1    | 2014/01/23 18:41:59 |  INFO | Connector stomp stopped
+INFO   | jvm 1    | 2014/01/23 18:42:01 |  INFO | Connector mqtt stopped
+INFO   | jvm 1    | 2014/01/23 18:42:02 |  WARN | 5 threads could not be stopped
+INFO   | jvm 1    | 2014/01/23 18:42:02 |  INFO | Connector ws stopped
+INFO   | jvm 1    | 2014/01/23 18:42:02 |  INFO | Connector vm://localhost stopped
+INFO   | jvm 1    | 2014/01/23 18:42:03 |  INFO | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped
+INFO   | jvm 1    | 2014/01/23 18:42:03 |  INFO | Stopping async queue tasks
+INFO   | jvm 1    | 2014/01/23 18:42:03 |  INFO | Stopping async topic tasks
+INFO   | jvm 1    | 2014/01/23 18:42:03 |  INFO | Stopped KahaDB
+INFO   | jvm 1    | 2014/01/23 18:42:04 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49464-1390473418328-0:1) uptime 7 hours 5 minutes
+INFO   | jvm 1    | 2014/01/23 18:42:04 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-49464-1390473418328-0:1) is shutdown
+INFO   | jvm 1    | 2014/01/23 18:42:04 |  INFO | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@22cf2994: startup date [Thu Jan 23 11:36:56 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/23 18:42:04 |  INFO | Destroying Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/23 18:42:04 |  INFO | Destroying hawtio authentication filter
+STATUS | wrapper  | 2014/01/23 18:42:05 | <-- Wrapper Stopped
+STATUS | wrapper  | 2014/01/23 20:42:36 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2014/01/23 20:42:37 | Launching a JVM...
+INFO   | jvm 1    | 2014/01/23 20:42:38 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2014/01/23 20:42:38 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2014/01/23 20:42:38 | 
+INFO   | jvm 1    | 2014/01/23 20:42:38 | 
+INFO   | jvm 1    | 2014/01/23 20:42:38 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2014/01/23 20:42:38 |           following files:
+INFO   | jvm 1    | 2014/01/23 20:42:38 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2014/01/23 20:42:38 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2014/01/23 20:42:38 |             libwrapper.dylib
+INFO   | jvm 1    | 2014/01/23 20:42:38 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2014/01/23 20:42:38 |             /Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../bin/macosx
+INFO   | jvm 1    | 2014/01/23 20:42:38 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2014/01/23 20:42:38 |           configuration property.
+INFO   | jvm 1    | 2014/01/23 20:42:38 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2014/01/23 20:42:38 | 
+INFO   | jvm 1    | 2014/01/23 20:42:38 | Java Runtime: Oracle Corporation 1.7.0_09 /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre
+INFO   | jvm 1    | 2014/01/23 20:42:38 |   Heap sizes: current=83200k  free=77541k  max=932096k
+INFO   | jvm 1    | 2014/01/23 20:42:38 |     JVM args: -Dactivemq.home=../.. -Dactivemq.base=../.. -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStorePassword=password -Djavax.net.ssl.keyStore=../../conf/broker.ks -Djavax.net.ssl.trustStore=../../conf/broker.ts -Dcom.sun.management.jmxremote -Dorg.apache.activemq.UseDedicatedTaskRunner=true -Djava.util.logging.config.file=logging.properties -Dactivemq.conf=../../conf -Dactivemq.data=../../data -Dhawtio.realm=activemq -Dhawtio.role=admins -Dhawtio.rolePrincipalClasses=org.apache.activemq.jaas.GroupPrincipal -Djava.security.auth.login.config=../../conf/login.config -Xmx1024m -Djava.library.path=../../bin/macosx/ -Dwrapper.key=Qk4PX_dC6xQg0OE2 -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=4053 -Dwrapper.version=3.2.3 -Dwrapper.native_library=wrapper -Dwrapper.service=TRUE -Dwrapper.cpu.timeout=10 -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2014/01/23 20:42:38 | Extensions classpath:
+INFO   | jvm 1    | 2014/01/23 20:42:38 |   [../../lib,../../lib/camel,../../lib/optional,../../lib/web,../../lib/extra]
+INFO   | jvm 1    | 2014/01/23 20:42:38 | ACTIVEMQ_HOME: ../..
+INFO   | jvm 1    | 2014/01/23 20:42:38 | ACTIVEMQ_BASE: ../..
+INFO   | jvm 1    | 2014/01/23 20:42:38 | ACTIVEMQ_CONF: ../../conf
+INFO   | jvm 1    | 2014/01/23 20:42:38 | ACTIVEMQ_DATA: ../../data
+INFO   | jvm 1    | 2014/01/23 20:42:39 | Loading message broker from: xbean:activemq.xml
+INFO   | jvm 1    | 2014/01/23 20:42:40 |  INFO | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@22cf2994: startup date [Thu Jan 23 20:42:39 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/23 20:42:43 |  INFO | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/localhost/tmp_storage] started
+INFO   | jvm 1    | 2014/01/23 20:42:44 |  INFO | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/kahadb]
+INFO   | jvm 1    | 2014/01/23 20:42:44 |  INFO | KahaDB is version 5
+INFO   | jvm 1    | 2014/01/23 20:42:44 |  INFO | Recovering from the journal ...
+INFO   | jvm 1    | 2014/01/23 20:42:44 |  INFO | Recovery replayed 67 operations from the journal in 0.178 seconds.
+INFO   | jvm 1    | 2014/01/23 20:42:45 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-54416-1390506164754-0:1) is starting
+INFO   | jvm 1    | 2014/01/23 20:42:45 |  INFO | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/23 20:42:45 |  INFO | Connector openwire started
+INFO   | jvm 1    | 2014/01/23 20:42:45 |  INFO | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/23 20:42:45 |  INFO | Connector amqp started
+INFO   | jvm 1    | 2014/01/23 20:42:45 |  INFO | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/23 20:42:45 |  INFO | Connector stomp started
+INFO   | jvm 1    | 2014/01/23 20:42:45 |  INFO | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/23 20:42:45 |  INFO | Connector mqtt started
+INFO   | jvm 1    | 2014/01/23 20:42:46 |  INFO | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+INFO   | jvm 1    | 2014/01/23 20:42:46 |  INFO | Connector ws started
+INFO   | jvm 1    | 2014/01/23 20:42:46 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-54416-1390506164754-0:1) started
+INFO   | jvm 1    | 2014/01/23 20:42:46 |  INFO | For help or more information please see: http://activemq.apache.org
+INFO   | jvm 1    | 2014/01/23 20:42:47 |  INFO | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-)
+INFO   | jvm 1    | 2014/01/23 20:42:47 |  INFO | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal"
+INFO   | jvm 1    | 2014/01/23 20:42:47 |  INFO | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads
+INFO   | jvm 1    | 2014/01/23 20:42:47 |  INFO | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml
+INFO   | jvm 1    | 2014/01/23 20:42:48 |  INFO | ActiveMQ WebConsole available at http://localhost:8161/
+INFO   | jvm 1    | 2014/01/23 20:42:48 |  INFO | Initializing Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/23 20:45:55 |  WARN | Transport Connection to: tcp://127.0.0.1:54479 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:45:55 |  WARN | Transport Connection to: tcp://127.0.0.1:54485 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:45:55 |  WARN | Transport Connection to: tcp://127.0.0.1:54502 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:45:55 |  WARN | Transport Connection to: tcp://127.0.0.1:54447 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:45:55 |  WARN | Transport Connection to: tcp://127.0.0.1:54448 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:45:55 |  WARN | Transport Connection to: tcp://127.0.0.1:54469 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:45:55 |  WARN | Transport Connection to: tcp://127.0.0.1:54450 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:45:55 |  WARN | Transport Connection to: tcp://127.0.0.1:54449 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:45:55 |  WARN | Transport Connection to: tcp://127.0.0.1:54474 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:45:55 |  WARN | Transport Connection to: tcp://127.0.0.1:54473 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:21 |  WARN | Transport Connection to: tcp://127.0.0.1:55069 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:21 |  WARN | Transport Connection to: tcp://127.0.0.1:55067 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:21 |  WARN | Transport Connection to: tcp://127.0.0.1:55068 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:52 |  WARN | Transport Connection to: tcp://127.0.0.1:55350 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:52 |  WARN | Transport Connection to: tcp://127.0.0.1:55295 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:52 |  WARN | Transport Connection to: tcp://127.0.0.1:55298 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:52 |  WARN | Transport Connection to: tcp://127.0.0.1:55297 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:52 |  WARN | Transport Connection to: tcp://127.0.0.1:55315 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:52 |  WARN | Transport Connection to: tcp://127.0.0.1:55319 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:52 |  WARN | Transport Connection to: tcp://127.0.0.1:55323 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:52 |  WARN | Transport Connection to: tcp://127.0.0.1:55324 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:52 |  WARN | Transport Connection to: tcp://127.0.0.1:55333 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:46:52 |  WARN | Transport Connection to: tcp://127.0.0.1:55296 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:09 |  WARN | Transport Connection to: tcp://127.0.0.1:56088 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:09 |  WARN | Transport Connection to: tcp://127.0.0.1:55806 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:09 |  WARN | Transport Connection to: tcp://127.0.0.1:55807 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:09 |  WARN | Transport Connection to: tcp://127.0.0.1:55808 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:12 |  WARN | Transport Connection to: tcp://127.0.0.1:55739 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:12 |  WARN | Transport Connection to: tcp://127.0.0.1:55686 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:12 |  WARN | Transport Connection to: tcp://127.0.0.1:55685 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:12 |  WARN | Transport Connection to: tcp://127.0.0.1:55684 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:12 |  WARN | Transport Connection to: tcp://127.0.0.1:55710 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:12 |  WARN | Transport Connection to: tcp://127.0.0.1:55712 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:12 |  WARN | Transport Connection to: tcp://127.0.0.1:55687 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:12 |  WARN | Transport Connection to: tcp://127.0.0.1:55716 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:12 |  WARN | Transport Connection to: tcp://127.0.0.1:55722 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 20:51:12 |  WARN | Transport Connection to: tcp://127.0.0.1:55708 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:00:31 |  WARN | Transport Connection to: tcp://127.0.0.1:56583 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:00:31 |  WARN | Transport Connection to: tcp://127.0.0.1:56581 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:00:31 |  WARN | Transport Connection to: tcp://127.0.0.1:56582 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:02:18 |  WARN | Transport Connection to: tcp://127.0.0.1:58746 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:02:18 |  WARN | Transport Connection to: tcp://127.0.0.1:58747 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:02:18 |  WARN | Transport Connection to: tcp://127.0.0.1:58748 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:02:43 |  WARN | Transport Connection to: tcp://127.0.0.1:59263 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:02:43 |  WARN | Transport Connection to: tcp://127.0.0.1:59261 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:02:43 |  WARN | Transport Connection to: tcp://127.0.0.1:59262 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:07:35 |  WARN | Transport Connection to: tcp://127.0.0.1:56481 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:07:35 |  WARN | Transport Connection to: tcp://127.0.0.1:56452 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:07:35 |  WARN | Transport Connection to: tcp://127.0.0.1:56453 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:07:35 |  WARN | Transport Connection to: tcp://127.0.0.1:56454 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:07:35 |  WARN | Transport Connection to: tcp://127.0.0.1:56474 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:07:35 |  WARN | Transport Connection to: tcp://127.0.0.1:56455 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:07:35 |  WARN | Transport Connection to: tcp://127.0.0.1:56485 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:07:35 |  WARN | Transport Connection to: tcp://127.0.0.1:56493 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:07:35 |  WARN | Transport Connection to: tcp://127.0.0.1:56478 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:07:35 |  WARN | Transport Connection to: tcp://127.0.0.1:56510 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:08:48 |  WARN | Transport Connection to: tcp://127.0.0.1:60053 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:08:48 |  WARN | Transport Connection to: tcp://127.0.0.1:60051 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:08:48 |  WARN | Transport Connection to: tcp://127.0.0.1:60052 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:09:07 |  WARN | Transport Connection to: tcp://127.0.0.1:61074 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:09:07 |  WARN | Transport Connection to: tcp://127.0.0.1:61072 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:09:07 |  WARN | Transport Connection to: tcp://127.0.0.1:61073 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:11:12 |  WARN | Transport Connection to: tcp://127.0.0.1:61373 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:11:13 |  WARN | Transport Connection to: tcp://127.0.0.1:61371 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:11:13 |  WARN | Transport Connection to: tcp://127.0.0.1:61372 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:09 |  WARN | Transport Connection to: tcp://127.0.0.1:62166 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:09 |  WARN | Transport Connection to: tcp://127.0.0.1:62149 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:09 |  WARN | Transport Connection to: tcp://127.0.0.1:62163 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:13 |  WARN | Transport Connection to: tcp://127.0.0.1:60713 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:13 |  WARN | Transport Connection to: tcp://127.0.0.1:60681 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:13 |  WARN | Transport Connection to: tcp://127.0.0.1:60679 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:13 |  WARN | Transport Connection to: tcp://127.0.0.1:60678 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:13 |  WARN | Transport Connection to: tcp://127.0.0.1:60705 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:13 |  WARN | Transport Connection to: tcp://127.0.0.1:60680 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:13 |  WARN | Transport Connection to: tcp://127.0.0.1:60699 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:13 |  WARN | Transport Connection to: tcp://127.0.0.1:60694 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:13 |  WARN | Transport Connection to: tcp://127.0.0.1:60688 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:13:13 |  WARN | Transport Connection to: tcp://127.0.0.1:60730 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:15:42 |  WARN | Transport Connection to: tcp://127.0.0.1:62367 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:15:42 |  WARN | Transport Connection to: tcp://127.0.0.1:62368 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:15:42 |  WARN | Transport Connection to: tcp://127.0.0.1:62366 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:17:10 |  WARN | Transport Connection to: tcp://127.0.0.1:63212 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:17:10 |  WARN | Transport Connection to: tcp://127.0.0.1:63210 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:17:10 |  WARN | Transport Connection to: tcp://127.0.0.1:63211 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:22 |  WARN | Transport Connection to: tcp://127.0.0.1:63405 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:22 |  WARN | Transport Connection to: tcp://127.0.0.1:63406 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:22 |  WARN | Transport Connection to: tcp://127.0.0.1:63407 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:26 |  WARN | Transport Connection to: tcp://127.0.0.1:62301 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:26 |  WARN | Transport Connection to: tcp://127.0.0.1:62250 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:26 |  WARN | Transport Connection to: tcp://127.0.0.1:62249 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:26 |  WARN | Transport Connection to: tcp://127.0.0.1:62251 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:26 |  WARN | Transport Connection to: tcp://127.0.0.1:62252 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:26 |  WARN | Transport Connection to: tcp://127.0.0.1:62276 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:26 |  WARN | Transport Connection to: tcp://127.0.0.1:62271 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:26 |  WARN | Transport Connection to: tcp://127.0.0.1:62266 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:26 |  WARN | Transport Connection to: tcp://127.0.0.1:62261 failed: java.io.EOFException
+INFO   | jvm 1    | 2014/01/23 21:19:26 |  WARN | Transport Connection to: tcp://127.0.0.1:62284 failed: java.io.EOFException
+STATUS | wrapper  | 2014/01/23 21:20:16 | TERM trapped.  Shutting down.
+INFO   | jvm 1    | 2014/01/23 21:20:17 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-54416-1390506164754-0:1) is shutting down
+INFO   | jvm 1    | 2014/01/23 21:20:18 |  INFO | Connector openwire stopped
+INFO   | jvm 1    | 2014/01/23 21:20:20 |  INFO | Connector amqp stopped
+INFO   | jvm 1    | 2014/01/23 21:20:22 |  INFO | Connector stomp stopped
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | Connector mqtt stopped
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | Connector ws stopped
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | Stopping async queue tasks
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | Stopping async topic tasks
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | Stopped KahaDB
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-54416-1390506164754-0:1) uptime 37 minutes
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-54416-1390506164754-0:1) is shutdown
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@22cf2994: startup date [Thu Jan 23 20:42:39 CET 2014]; root of context hierarchy
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | Destroying Spring FrameworkServlet 'dispatcher'
+INFO   | jvm 1    | 2014/01/23 21:20:24 |  INFO | Destroying hawtio authentication filter
+STATUS | wrapper  | 2014/01/23 21:20:25 | <-- Wrapper Stopped

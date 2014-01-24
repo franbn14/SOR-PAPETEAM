@@ -5,24 +5,18 @@
 package desguacejava;
 
 import CEN.OfferCEN;
-import CEN.RequestCEN;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JSplitPane;
 import javax.swing.SpringLayout;
-import java.awt.ComponentOrientation;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -35,22 +29,16 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.JScrollPane;
 import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import javax.media.j3d.J3DBuffer;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.ListSelectionModel;
     
-import org.apache.activemq.ActiveMQConnectionFactory;    
        
 /**
  *
@@ -58,13 +46,15 @@ import org.apache.activemq.ActiveMQConnectionFactory;
  */
 public class MainDesguace extends JFrame {
 	private JTable tPeticiones;
-	private JTextField tfPieza,tfSize;
+	private JTextField tfPieza;
         private JTable tOfertas;
+        private JTable tOfertasAceptadas;
         private JTextField tfColor;
         private JTextField tfCantidad;
         private JTextField tfPrecio;
-        JComboBox cbUnidades;
         private int rowSelected = -1;
+        private JTextField tfSize;
+        private JComboBox cbUnidades;
     public MainDesguace(final String cif) 
     {    
         super("Pantalla Principal del Desguace");
@@ -100,7 +90,7 @@ public class MainDesguace extends JFrame {
         tPeticiones.setAutoCreateRowSorter(true);
         tPeticiones.setAutoCreateColumnsFromModel(false);
         JScrollPane srpPeticiones = new JScrollPane(tPeticiones);
-        srpPeticiones.setMinimumSize(new Dimension(23, 220));
+        srpPeticiones.setMinimumSize(new Dimension(23, 150));
         TableColumnModel tcm = th.getColumnModel();
         TableColumn tc = tcm.getColumn(0);
         tc.setHeaderValue("Peticiones");
@@ -124,52 +114,51 @@ public class MainDesguace extends JFrame {
         tOfertas.setAutoCreateColumnsFromModel(false);  
         TableColumnModel tcm2 = th2.getColumnModel();
         TableColumn tc2 = tcm2.getColumn(0);
-        tc2.setHeaderValue("Ofertas");
+        tc2.setHeaderValue("Ofertas Pendientes");
+        
+        tOfertasAceptadas = new JTable(5,1);
+        tOfertasAceptadas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        JTableHeader th3 = (JTableHeader)tOfertasAceptadas.getTableHeader();
+        tOfertasAceptadas.setAutoscrolls(false);
+        tOfertasAceptadas.setBackground(new Color(250, 250, 210));
+        tOfertasAceptadas.setForeground(new Color(100, 149, 237));
+        tOfertasAceptadas.setShowVerticalLines(false);
+        tOfertasAceptadas.setGridColor(Color.LIGHT_GRAY);
+        tOfertasAceptadas.setCellSelectionEnabled(true);
+        tOfertasAceptadas.setAutoCreateRowSorter(true);
+        tOfertasAceptadas.setAutoCreateColumnsFromModel(false);  
+        TableColumnModel tcm3 = th3.getColumnModel();
+        TableColumn tc3 = tcm3.getColumn(0);
+        tc3.setHeaderValue("Ofertas Aceptadas");
         
         JScrollPane srpOfertas = new JScrollPane(tOfertas);        
-        srpOfertas.setMinimumSize(new Dimension(23, 220));
-        tfSize = new JTextField();
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfSize, 0, SpringLayout.WEST, lblPieza);
+        srpOfertas.setMinimumSize(new Dimension(23, 180));
+        JScrollPane srpOfertasAceptadas = new JScrollPane(tOfertasAceptadas);
+        srpOfertasAceptadas.setMinimumSize(new Dimension(23, 150));
+        
         spTablas.setLeftComponent(srpPeticiones);
-        spTablas.setRightComponent(srpOfertas);
+        JSplitPane spOfertas = new JSplitPane();
+        spOfertas.setOrientation(JSplitPane.VERTICAL_SPLIT);
+        spOfertas.setLeftComponent(srpOfertas);
+        spOfertas.setRightComponent(srpOfertasAceptadas);
+        spTablas.setRightComponent(spOfertas);
         panelIzq.add(tfPieza);
         tfPieza.setColumns(10);
         
         JLabel lblSize = new JLabel("Tama\u00F1o");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfSize, 6, SpringLayout.SOUTH, lblSize);
         sl_panelIzq.putConstraint(SpringLayout.NORTH, lblSize, 17, SpringLayout.SOUTH, tfPieza);
         sl_panelIzq.putConstraint(SpringLayout.WEST, lblSize, 0, SpringLayout.WEST, lblPieza);
         panelIzq.add(lblSize);
-        panelIzq.add(tfSize);
-        tfSize.setColumns(10);
         
         JLabel lblNewOffer = new JLabel("Nueva Oferta");
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfSize, 0, SpringLayout.EAST, lblNewOffer);
         sl_panelIzq.putConstraint(SpringLayout.WEST, lblNewOffer, 20, SpringLayout.WEST, panelIzq);
         sl_panelIzq.putConstraint(SpringLayout.NORTH, lblPieza, 18, SpringLayout.SOUTH, lblNewOffer);
         lblNewOffer.setFont(new Font("Lucida Grande", Font.BOLD, 16));
         sl_panelIzq.putConstraint(SpringLayout.NORTH, lblNewOffer, 23, SpringLayout.NORTH, panelIzq);
         panelIzq.add(lblNewOffer);
         
-        cbUnidades = new JComboBox();
-        String ud = darTodasUnidades();
-        Gson gson = new Gson();
-        java.lang.reflect.Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
-        ArrayList<String> uds = gson.fromJson(ud, collectionType);
-        for(String u : uds)
-        {
-            cbUnidades.addItem(u);
-        }
-        cbUnidades.setSelectedIndex(0);
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, cbUnidades, 39, SpringLayout.SOUTH, tfPieza);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, cbUnidades, -297, SpringLayout.SOUTH, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfSize, 0, SpringLayout.SOUTH, cbUnidades);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, cbUnidades, -79, SpringLayout.EAST, tfPieza);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, cbUnidades, -21, SpringLayout.EAST, panelIzq);
-        panelIzq.add(cbUnidades);
-        
         JLabel lblColor = new JLabel("Color");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblColor, 16, SpringLayout.SOUTH, tfSize);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblColor, 50, SpringLayout.SOUTH, lblSize);
         sl_panelIzq.putConstraint(SpringLayout.WEST, lblColor, 0, SpringLayout.WEST, lblPieza);
         panelIzq.add(lblColor);
         
@@ -239,7 +228,7 @@ public class MainDesguace extends JFrame {
                        
                         Sender envio = new Sender();
                         envio.setParams("OfferDelivery", cif, "OfferDelivery", "OfferDelivery");
-                        envio.open();
+                        envio.open("localhost", "61616");
                         envio.send(nueva, 60000);
                         enviada = true;
                     }
@@ -250,21 +239,42 @@ public class MainDesguace extends JFrame {
         sl_panelIzq.putConstraint(SpringLayout.NORTH, btnHacerOferta, 25, SpringLayout.SOUTH, tfPrecio);
         sl_panelIzq.putConstraint(SpringLayout.WEST, btnHacerOferta, 0, SpringLayout.WEST, lblPieza);
         panelIzq.add(btnHacerOferta);
+        
+        tfSize = new JTextField();
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfSize, 4, SpringLayout.SOUTH, lblSize);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfSize, 20, SpringLayout.WEST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfSize, -108, SpringLayout.EAST, panelIzq);
+        panelIzq.add(tfSize);
+        tfSize.setColumns(10);
+        
+        cbUnidades = new JComboBox();
+        String ud = darTodasUnidades();
+        Gson gson = new Gson();
+        java.lang.reflect.Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
+        ArrayList<String> uds = gson.fromJson(ud, collectionType);
+        for(String u : uds)
+        {
+            cbUnidades.addItem(u);
+        }
+        cbUnidades.setSelectedIndex(0);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, cbUnidades, -27, SpringLayout.SOUTH, tfSize);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, cbUnidades, 6, SpringLayout.EAST, tfSize);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, cbUnidades, 1, SpringLayout.SOUTH, tfSize);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, cbUnidades, 0, SpringLayout.EAST, tfPieza);
+        panelIzq.add(cbUnidades);
                 
         Receiver r1 = new Receiver();
         Receiver r2 = new Receiver();
+        Receiver r3 = new Receiver();
         r1.setTable(tOfertas);
         r2.setTable(tPeticiones);
+        r3.setTable(tOfertasAceptadas);
         r1.setParams(cif+"p", "servidor", cif+"p", cif+"p");
         r1.open("localhost", "61616");
         r2.setParams("pendientes", "servidor", "pendientes", "pendientes");
         r2.open("localhost", "61616");
-    }
-
-    private static String darTodasUnidades() {
-        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
-        servicios.DarUnidades port = service.getDarUnidadesPort();
-        return port.darTodasUnidades();
+        r3.setParams(cif+"f", "servidor", cif+"f", cif+"f");
+        r3.open("localhost", "61616");    
     }
 
     private static int getIdDes(java.lang.String nif) {
@@ -273,6 +283,12 @@ public class MainDesguace extends JFrame {
         return port.getIdDes(nif);
     }
 
+    private static String darTodasUnidades() {
+        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
+        servicios.DarUnidades port = service.getDarUnidadesPort();
+        return port.darTodasUnidades();
+    }
+    
     }    
    class Receiver implements javax.jms.MessageListener
    {
@@ -362,12 +378,24 @@ public class MainDesguace extends JFrame {
                 Gson gson = new Gson();
                 java.lang.reflect.Type collectionType = new TypeToken<ArrayList<OfferCEN>>(){}.getType();
                 ArrayList<OfferCEN> ofertas = gson.fromJson(offers, collectionType);
-                DefaultTableModel tm = ((DefaultTableModel)innerTable.getModel());
-                int i = 0;
-                for(OfferCEN of : ofertas)
+                
+                if(ofertas != null)
                 {
-                    tm.setValueAt(of, i, 0);
-                    i++;
+                    DefaultTableModel tm = ((DefaultTableModel)innerTable.getModel());
+                    int i = 0;
+                    for(OfferCEN of : ofertas)
+                    {
+                        tm.setValueAt(of, i, 0);
+                        i++;
+                    }
+                }
+                else
+                {
+                    DefaultTableModel tm = ((DefaultTableModel)innerTable.getModel());
+                    for(int i = 0; i < tm.getRowCount(); i++)
+                    {
+                        tm.setValueAt("", i, 0);
+                    }
                 }
        }
        
@@ -398,17 +426,17 @@ class Sender
             this.durablename=durname;
 	}
 	
-	public void open() {
-		this.open(this.destino, this.user,this.channel, this.durablename);
+	public void open(String host, String port) {
+		this.open(this.destino, this.user,this.channel, this.durablename,host,port);
 	}
 	
-	public void open(String dname, String user,String conv, String durname) {
+	public void open(String dname, String user,String conv, String durname, String host, String port) {
         try {
             // create the JNDI initial context
             Properties env = new Properties( );
             // ActiveMQ
             env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.activemq.jndi.ActiveMQInitialContextFactory");
-            env.put(Context.PROVIDER_URL, "tcp://localhost:61616");
+            env.put(Context.PROVIDER_URL, "tcp://"+host+":"+port);
             
             context = new InitialContext(env);
             
