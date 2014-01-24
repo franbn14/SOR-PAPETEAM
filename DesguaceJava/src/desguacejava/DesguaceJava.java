@@ -117,7 +117,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
                                     mdes = new MainDesguace(t1.getText());
                                     mdes.setVisible(false);
                                     mdes.setVisible(true);
-                                    mdes.setSize(600,500);
+                                    mdes.setSize(700,600);
                                     des.setVisible(false);
 				}
 				else

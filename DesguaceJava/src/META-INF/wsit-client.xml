@@ -6,4 +6,7 @@
  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="mainclientconfig" 
  >
     <import location="LoginDesguace.xml" namespace="http://Servicios/"/>
+    <import location="RegistroDesguace.xml" namespace="http://Servicios/"/>
+    <import location="DarUnidades.xml" namespace="http://Servicios/"/>
+    <import location="DarIdDesguacebyCif.xml" namespace="http://Servicios/"/>
 </definitions>
