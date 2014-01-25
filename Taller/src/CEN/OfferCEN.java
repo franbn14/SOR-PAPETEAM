@@ -32,18 +32,12 @@ public class OfferCEN implements Comparable<OfferCEN> {
      
     @Override
     public int compareTo(OfferCEN offer) {
-        if(price<offer.price) 
-            if(amount>offer.amount)
-                return -1;
-            else
-                return 1;
-        else if(price==offer.price)
-            if(amount>offer.amount)
-                return -1;
-            else
-                return 0;
-        else
-            return 1;
+       if(price<offer.price) 
+           return -1;
+       else if(price==offer.price)
+           return 0;
+       else
+           return 1;
     }
         
     public boolean equals(OfferCEN offer) {
