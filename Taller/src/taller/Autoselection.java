@@ -85,11 +85,16 @@ public class Autoselection {
             
     }
     
-    public void getBest() {      
+    public String getBest() {      
+        String accepted="";
         ArrayList<OfferCEN> first=new ArrayList<OfferCEN>();        
         solution(first,-1);
         
         System.out.println("Mejor: "+best.size()+" ofertas de "+totalAmount(best)+" cantidades y "+totalPrice(best)+" precio");
+        for(OfferCEN offer: best)
+            accepted+=offer.getCode()+" ";
+        
+        return accepted;
     }
     
 }
