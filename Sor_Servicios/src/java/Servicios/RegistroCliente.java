@@ -26,7 +26,7 @@ public class RegistroCliente {
      * Web service operation
      */ 
     @WebMethod(operationName = "Registro_Cli")
-    public String Registro_Cli(@WebParam(name = "Nif") String Nif, @WebParam(name = "Nombre") String Nombre, @WebParam(name = "Direccion") String Direccion, @WebParam(name = "Password") String Password, @WebParam(name = "Apellidos") String Apellidos, @WebParam(name = "Fecha") String Fecha) {
+    public String Registro_Cli(@WebParam(name = "Nif") String Nif, @WebParam(name = "Nombre") String Nombre, @WebParam(name = "Direccion") String Direccion, @WebParam(name = "Password") String Password, @WebParam(name = "Apellidos") String Apellidos, @WebParam(name = "Fecha") String Fecha, @WebParam(name = "Email") String email) {
          String error="";
          ClientCEN cli=ClientCEN.getByNIF(Nif);
         if(cli!=null)
@@ -46,7 +46,7 @@ public class RegistroCliente {
         ex.printStackTrace();
 
     }
-           ClientCEN cli2=new ClientCEN(Nombre,Apellidos,Password,Nif,Direccion,fecha);
+           ClientCEN cli2=new ClientCEN(Nombre,Apellidos,Password,Nif,Direccion,fecha, email);
            cli2.insert();
            
                 }

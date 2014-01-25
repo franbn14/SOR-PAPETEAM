@@ -6,9 +6,11 @@ package CAD;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  *
@@ -16,8 +18,44 @@ import java.util.Hashtable;
  */
 public class ClientCAD extends UserCAD{
     
-    public static int create(String name, String surname, String password, String nif, String address, Date DOB){
-        int id = UserCAD.create(name, password, address);
+    private static HashMap toHashMap(ResultSet rs) throws SQLException, ParseException{
+        HashMap hm = new HashMap();
+         if(rs.next()){
+            hm.put("id", rs.getInt("id"));
+            hm.put("nif", rs.getString("nif"));
+            hm.put("name", rs.getString("nombre"));
+            hm.put("surname", rs.getString("apellidos"));
+            hm.put("password", rs.getString("password"));
+            hm.put("address", rs.getString("direccion"));
+            //Date date = new Date(rs.getDate("fechaNac").getYear(), rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate());
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaNac").toString());
+            hm.put("DOB", date);
+            hm.put("email", rs.getString("email"));
+        }
+        return hm;
+    }
+    
+    private static ArrayList<HashMap> toHashMapArray(ResultSet rs) throws SQLException, ParseException{
+        ArrayList<HashMap> values = new ArrayList<>();
+        while(rs.next()){
+            HashMap hm = new HashMap();
+            hm.put("id", rs.getInt("id"));
+            hm.put("nif", rs.getString("nif"));
+            hm.put("name", rs.getString("nombre"));
+            hm.put("surname", rs.getString("apellidos"));
+            hm.put("password", rs.getString("password"));
+            hm.put("address", rs.getString("direccion"));
+            //Date date = new Date(rs.getDate("fechaNac").getYear(), rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate()); 
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaNac").toString());
+            hm.put("DOB", date);
+            hm.put("email", rs.getString("email"));
+            values.add(hm);
+        }
+        return values;
+    }
+    
+    public static int create(String name, String surname, String password, String nif, String address, Date DOB, String email){
+        int id = UserCAD.create(name, password, address, email);
         String date = DOB.getYear()+1900 + "-" + (DOB.getMonth()+1) + "-" + DOB.getDate();
         String query = "INSERT INTO Cliente (id, nif, apellidos, fechaNac) VALUES ('"+ id +"', '" + nif + "', '" + surname  + "', '" + date + "')";
         try {
@@ -30,75 +68,47 @@ public class ClientCAD extends UserCAD{
         return id;
     }
     
-    public static Hashtable getById(int id){
-        Hashtable values = new Hashtable();
+    public static HashMap getById(int id){
+        HashMap values = null;
         try {
-            String query = "SELECT usr.id, nif, nombre, apellidos, usr.password, direccion, fechaNac " +
+            String query = "SELECT usr.id, nif, nombre, apellidos, usr.password, direccion, fechaNac, email " +
                     "FROM Usuario usr, Cliente c WHERE c.id = usr.id AND c.id = "+id;
             ResultSet rs = Connector.query(query);
-            if(rs.next()){
-                values.put("id", rs.getInt("id"));
-                values.put("nif", rs.getString("nif"));
-                values.put("name", rs.getString("nombre"));
-                values.put("surname", rs.getString("apellidos"));
-                values.put("password", rs.getString("password"));
-                values.put("address", rs.getString("direccion"));
-                Date date = new Date(rs.getDate("fechaNac").getYear(), rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate());
-                values.put("DOB", date);
-            }
+            values = toHashMap(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
         return values;
     }
     
-    public static Hashtable getByNIF(String nif){
-        Hashtable values = new Hashtable();
+    public static HashMap getByNIF(String nif){
+        HashMap values = new HashMap();
         try {
-            String query = "SELECT usr.id, nif, nombre, apellidos, usr.password, direccion, fechaNac " +
+            String query = "SELECT usr.id, nif, nombre, apellidos, usr.password, direccion, fechaNac, email " +
                     "FROM Usuario usr, Cliente c WHERE c.id = usr.id AND c.nif = \"" + nif + "\"";
+            System.out.println(query);
             ResultSet rs = Connector.query(query);
-            if(rs.next()){
-                values.put("id", rs.getInt("id"));
-                values.put("nif", rs.getString("nif"));
-                values.put("name", rs.getString("nombre"));
-                values.put("surname", rs.getString("apellidos"));
-                values.put("password", rs.getString("password"));
-                values.put("address", rs.getString("direccion"));
-                Date date = new Date(rs.getDate("fechaNac").getYear(), rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate());
-                values.put("DOB", date);
-            }
+            values = toHashMap(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
         return values;
     }
     
-    public static ArrayList<Hashtable> getAll(){
-        ArrayList<Hashtable> values = new ArrayList<Hashtable>();
+    public static ArrayList<HashMap> getAll(){
+        ArrayList<HashMap> values = new ArrayList<HashMap>();
         try {
-            String query = "SELECT usr.id, nif, nombre, apellidos, usr.password, direccion, fechaNac " +
+            String query = "SELECT usr.id, nif, nombre, apellidos, usr.password, direccion, fechaNac, email " +
                     "FROM Usuario usr, Cliente c WHERE c.id = usr.id";
             ResultSet rs = Connector.query(query);
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("id", rs.getInt("id"));
-                ht.put("nif", rs.getString("nif"));
-                ht.put("name", rs.getString("nombre"));
-                ht.put("surname", rs.getString("apellidos"));
-                ht.put("password", rs.getString("password"));
-                ht.put("address", rs.getString("direccion"));
-                Date date = new Date(rs.getDate("fechaNac").getYear(), rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate()); 
-                ht.put("DOB", date);
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
         return values;

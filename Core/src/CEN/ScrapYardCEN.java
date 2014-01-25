@@ -6,7 +6,8 @@ package CEN;
 
 import CAD.ScrapYardCAD;
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.HashMap;
 
 /**
  *
@@ -15,12 +16,27 @@ import java.util.Hashtable;
 public class ScrapYardCEN extends UserCEN {
     
     private String cif;
-    private String email;
+    
+    private static ScrapYardCEN HashMap2ScrapYardCEN(HashMap hm){
+        ScrapYardCEN scy = null;
+        if(!hm.isEmpty()) {
+           scy=new ScrapYardCEN((String) hm.get("name"),(String) hm.get("password"),(String) hm.get("address"), (String) hm.get("cif"), (String)hm.get("email"));
+           scy.id=(int) hm.get("id");
+        }
+        return scy;
+    }
+    
+    private static ArrayList<ScrapYardCEN> HashMapArray2ScrapYardCENArray(ArrayList<HashMap> array){
+        ArrayList<ScrapYardCEN> sys = new ArrayList<>();
+        for(HashMap hm : array){
+            sys.add(HashMap2ScrapYardCEN(hm));
+        }
+        return sys;
+    }
     
     public ScrapYardCEN(String name, String password, String address, String cif, String email){
-        super(name, password, address);
+        super(name, password, address, email);
         this.cif = cif;
-        this.email = email;
     }
     
     @Override
@@ -32,41 +48,23 @@ public class ScrapYardCEN extends UserCEN {
     
 
     public static ScrapYardCEN getByCIF(String cif){
-        Hashtable ht = CAD.ScrapYardCAD.getByCIF(cif);
-        ScrapYardCEN scy=null;
-        if(!ht.isEmpty()) {
-           scy=new ScrapYardCEN((String) ht.get("name"),(String) ht.get("password"),(String) ht.get("address"), (String) ht.get("cif"), (String)ht.get("email"));
-           scy.id=(int) ht.get("id");
-        
-        }
-    
-      return scy;
+        HashMap hm = CAD.ScrapYardCAD.getByCIF(cif);
+        return HashMap2ScrapYardCEN(hm);
     }
     public static ScrapYardCEN getByID(int id) {
-        Hashtable ht = CAD.ScrapYardCAD.getById(id);
-        
-        ScrapYardCEN scrapyard = new ScrapYardCEN((String)ht.get("name"), (String)ht.get("password"), (String)ht.get("address"), (String)ht.get("cif"), (String)ht.get("email"));        
-        scrapyard.id=id;
-       
-        return scrapyard;
+        HashMap hm = CAD.ScrapYardCAD.getById(id);
+        return HashMap2ScrapYardCEN(hm);
     }
     
     public static ArrayList<ScrapYardCEN> getAllScrapYards(){
-        ArrayList<Hashtable> values = CAD.ScrapYardCAD.getAll();
-        ArrayList<ScrapYardCEN> all =  new ArrayList<ScrapYardCEN>();
-        for(Hashtable ht : values){
-            ScrapYardCEN sy = new ScrapYardCEN((String) ht.get("name"), (String) ht.get("password"), (String) ht.get("address"), (String) ht.get("cif"), (String)ht.get("email"));
-            sy.id = (int) ht.get("id");
-            all.add(sy);
-        }
-        return all;
+        ArrayList<HashMap> values = CAD.ScrapYardCAD.getAll();
+        return HashMapArray2ScrapYardCENArray(values);
     }
     
     public void update(String name, String password, String address, String cif, String email){
-        update(name, password, address);
+        update(name, password, address, email);
         if(id != -1){
             CAD.ScrapYardCAD.updateCIF(id, cif);
-            CAD.ScrapYardCAD.updateEmail(id, email);
             this.name =  name;
             this.password = password;
             this.address = address;
@@ -81,13 +79,6 @@ public class ScrapYardCEN extends UserCEN {
             this.cif = cif;
         }
     }
-    
-    public void updateEmail(String email){
-        if(id != -1){
-            CAD.ScrapYardCAD.updateEmail(id, email);
-            this.email = email;
-        }
-    }
 
     public String getCif() {
         return cif;
@@ -95,14 +86,6 @@ public class ScrapYardCEN extends UserCEN {
 
     public void setCif(String cif) {
         this.cif = cif;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     @Override

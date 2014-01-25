@@ -1,10 +1,9 @@
 package CAD;
 
-import CEN.UserCEN;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /*
  * To change this template, choose Tools | Templates
@@ -17,9 +16,36 @@ import java.util.Hashtable;
  */
 
 public class UserCAD{    
-    protected static int create (String name, String pass, String address){
+    
+    private static HashMap toHashMap(ResultSet rs) throws SQLException{
+        HashMap hm = new HashMap();
+        if(rs.next()){
+            hm.put("id", rs.getString("id"));
+            hm.put("name", rs.getString("nombre"));
+            hm.put("password", rs.getString("password"));
+            hm.put("address", rs.getString("direccion"));
+            hm.put("email", rs.getString("email"));
+        }
+        return hm;
+    }
+    
+    private static ArrayList<HashMap> toHashMapArray (ResultSet rs) throws SQLException{
+        ArrayList<HashMap> values = new ArrayList<>();
+        while(rs.next()){
+            HashMap hm = new HashMap();
+            hm.put("id", rs.getInt("id"));
+            hm.put("name", rs.getString("nombre"));
+            hm.put("password", rs.getString("password"));
+            hm.put("address", rs.getString("direccion"));
+            hm.put("email", rs.getString("email"));
+            values.add(hm);
+        }
+        return values;
+    }
+    
+    protected static int create (String name, String pass, String address, String email){
         int id = -1;
-        String query = "INSERT INTO Usuario (nombre, password, direccion) VALUES ('"+ name +"', '" + pass + "', '" + address + "')";
+        String query = "INSERT INTO Usuario (nombre, password, direccion, email) VALUES ('"+ name +"', '" + pass + "', '" + address + "', '" + email + "')";
         try {
             id = Connector.updates(query);
         }
@@ -39,18 +65,12 @@ public class UserCAD{
         }
     }
     
-    public static Hashtable getByID(int id){
-        Hashtable values = new Hashtable();
+    public static HashMap getByID(int id){
+        HashMap values = null;
         try {
             String query = "SELECT * FROM Usuario WHERE id = " + id;
             ResultSet rs = Connector.query(query);
-            
-            if(rs.next()){
-                values.put("id", rs.getString("id"));
-                values.put("name", rs.getString("nombre"));
-                values.put("password", rs.getString("password"));
-                values.put("address", rs.getString("direccion"));
-            }
+            values = toHashMap(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -59,19 +79,12 @@ public class UserCAD{
         return values;
     }
     
-    public static ArrayList<Hashtable> getAll(){
-        ArrayList<Hashtable> values = new ArrayList();
+    public static ArrayList<HashMap> getAll(){
+        ArrayList<HashMap> values = null;
         try {
             String query = "SELECT * FROM Usuario";
             ResultSet rs = Connector.query(query);
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("id", rs.getInt("id"));
-                ht.put("name", rs.getString("nombre"));
-                ht.put("password", rs.getString("password"));
-                ht.put("address", rs.getString("direccion"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -103,6 +116,16 @@ public class UserCAD{
     public static void updateAddress(int id, String address) {
         try {
             String query = "UPDATE Usuario SET direccion = '" + address + "' WHERE id = " + id;
+            Connector.updates(query);
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+    
+    public static void updateEmail(int id, String email){
+        try {
+            String query = "UPDATE Usuario SET email = '" + email + "' WHERE id = " + id;
             Connector.updates(query);
         }
         catch (ClassNotFoundException | SQLException e){

@@ -7,9 +7,8 @@
 package CEN;
 
 import CAD.OfferCAD;
-import CAD.RequestCAD;
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  *
@@ -27,9 +26,6 @@ public class OfferCEN {
     private ScrapYardCEN scrapyard;
     private boolean accepted;
 
-    /*public OfferCEN() {
-    }*/
-
     private void setAttributes(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
         this.type = type;
         this.size = size;
@@ -40,6 +36,34 @@ public class OfferCEN {
         this.request = request;
         this.scrapyard = scrapyard;          
         this.accepted = accepted;
+    }
+    
+    private static OfferCEN HashMap2OfferCEN(HashMap hm){
+        OfferCEN offer=null;
+        if(!hm.isEmpty()) {
+            offer = new OfferCEN((String)hm.get("type"), 
+                                 (Double)hm.get("size"), 
+                                 (int)hm.get("sizeUnit"), 
+                                 (String)hm.get("color"), 
+                                 (Integer)hm.get("amount"), 
+                                 (Double)hm.get("price"), 
+                                 RequestCEN.getByCode((int)hm.get("request")),
+                                 ScrapYardCEN.getByID((int)hm.get("scrapyard")),
+                                 (boolean)hm.get("accepted"));
+            offer.code=(int) hm.get("code");
+        }
+        return offer;
+    }
+    
+    private static ArrayList<OfferCEN> HashMapArra2OfferCENArray(ArrayList<HashMap> array){
+        ArrayList<OfferCEN> offers = null;
+        if(!array.isEmpty()){
+            offers = new ArrayList<OfferCEN>();
+            for(HashMap hm : array){
+                offers.add(HashMap2OfferCEN(hm));
+            }
+        }
+        return offers;
     }
     
     public OfferCEN(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
@@ -143,270 +167,61 @@ public class OfferCEN {
     /*String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard*/
     
     public static OfferCEN getByCode(int code) {
-        Hashtable ht = OfferCAD.getByCode(code);         
-        OfferCEN offer=null;
-        
-        if(!ht.isEmpty()) {
-            offer = new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-            offer.code=(int) ht.get("code");
-        }
-        
-        return offer;
+        HashMap hm = OfferCAD.getByCode(code);         
+        return HashMap2OfferCEN(hm);
     }
     
    public static ArrayList<OfferCEN> getAllOffers() {
-        ArrayList<Hashtable> values = OfferCAD.getAll();
-        ArrayList<OfferCEN> all = null;
-        
-        if(!values.isEmpty()) {
-            all = new ArrayList<OfferCEN>();        
-
-            for(Hashtable ht : values){                            
-                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-                offer.code=(int) ht.get("code");
-                all.add(offer);
-            }           
-        }        
-        return all;
+        ArrayList<HashMap> values = OfferCAD.getAll();
+        return HashMapArra2OfferCENArray(values);
     }
    
    public static ArrayList<OfferCEN> getByRequest(int request) {
-        ArrayList<Hashtable> values = OfferCAD.getByRequest(request);
-        ArrayList<OfferCEN> all = null;
-        
-        if(!values.isEmpty()) {
-            all = new ArrayList<OfferCEN>();        
-
-            for(Hashtable ht : values){                            
-                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-                offer.code=(int) ht.get("code");
-                all.add(offer);
-            }           
-        }        
-        return all;
+        ArrayList<HashMap> values = OfferCAD.getByRequest(request);
+        return HashMapArra2OfferCENArray(values);
     }
    
    public static ArrayList<OfferCEN> getByNIF(String nif) {
-        ArrayList<Hashtable> values = OfferCAD.getByNIF(nif);
-        ArrayList<OfferCEN> all = null;
-        
-        if(!values.isEmpty()) {
-            all = new ArrayList<OfferCEN>();        
-
-            for(Hashtable ht : values){                            
-                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-                offer.code=(int) ht.get("code");
-                all.add(offer);
-            }           
-        }        
-        return all;
+        ArrayList<HashMap> values = OfferCAD.getByNIF(nif);
+        return HashMapArra2OfferCENArray(values);
     }
    
    public static ArrayList<OfferCEN> getAllAccepted() {
-        ArrayList<Hashtable> values = OfferCAD.getAllAccepted();
-        ArrayList<OfferCEN> all = null;
-        
-        if(!values.isEmpty()) {
-            all = new ArrayList<OfferCEN>();        
-
-            for(Hashtable ht : values){                            
-                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-                offer.code=(int) ht.get("code");
-                all.add(offer);
-            }           
-        }        
-        return all;
+        ArrayList<HashMap> values = OfferCAD.getAllAccepted();
+        return HashMapArra2OfferCENArray(values);
     }
    public static ArrayList<OfferCEN> getByCIFDesPendientes(String nif) {
-        ArrayList<Hashtable> values = OfferCAD.getByCIFDesPendientes(nif);
-        ArrayList<OfferCEN> all = null;
-        
-        if(!values.isEmpty()) {
-            all = new ArrayList<OfferCEN>();        
-
-            for(Hashtable ht : values){                            
-                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-                offer.code=(int) ht.get("code");
-                all.add(offer);
-            }           
-        }        
-        return all;
+        ArrayList<HashMap> values = OfferCAD.getByCIFDesPendientes(nif);
+        return HashMapArra2OfferCENArray(values);
     }
     public static ArrayList<OfferCEN> getAcceptedByDesNIF(String nif) {
-        ArrayList<Hashtable> values = OfferCAD.getAcceptedByDesNIF(nif);
-        ArrayList<OfferCEN> all = null;
-        
-        if(!values.isEmpty()) {
-            all = new ArrayList<OfferCEN>();        
-
-            for(Hashtable ht : values){                            
-                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-                offer.code=(int) ht.get("code");
-                all.add(offer);
-            }           
-        }        
-        return all;
+        ArrayList<HashMap> values = OfferCAD.getAcceptedByDesNIF(nif);
+        return HashMapArra2OfferCENArray(values);
     }
    public static ArrayList<OfferCEN> getAcceptedByRequest(int request){
-        ArrayList<Hashtable> values = OfferCAD.getAcceptedByRequest(request);
-        ArrayList<OfferCEN> all = null;
-        
-        if(!values.isEmpty()) {
-            all = new ArrayList<OfferCEN>();        
-
-            for(Hashtable ht : values){                            
-                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-                offer.code=(int) ht.get("code");
-                all.add(offer);
-            }           
-        }        
-        return all;
+        ArrayList<HashMap> values = OfferCAD.getAcceptedByRequest(request);
+        return HashMapArra2OfferCENArray(values);
     }
 
    public static ArrayList<OfferCEN>  getAcceptedByUserID(int id ){
-        ArrayList<Hashtable> values = OfferCAD.getAcceptedByUserID(id);
-        ArrayList<OfferCEN> all = null;
-        
-        if(!values.isEmpty()) {
-            all = new ArrayList<OfferCEN>();        
-
-            for(Hashtable ht : values){                            
-                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-                offer.code=(int) ht.get("code");
-                all.add(offer);
-            }           
-        }        
-        return all;
+        ArrayList<HashMap> values = OfferCAD.getAcceptedByUserID(id);
+        return HashMapArra2OfferCENArray(values);
     }
    
      public static ArrayList<OfferCEN>  getAcceptedByUserNIF(String nif ){
-        ArrayList<Hashtable> values = OfferCAD.getAcceptedByUserNIF(nif);
-        ArrayList<OfferCEN> all = null;
-        
-        if(!values.isEmpty()) {
-            all = new ArrayList<OfferCEN>();        
-
-            for(Hashtable ht : values){                            
-                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-                offer.code=(int) ht.get("code");
-                all.add(offer);
-            }           
-        }        
-        return all;
+        ArrayList<HashMap> values = OfferCAD.getAcceptedByUserNIF(nif);
+        return HashMapArra2OfferCENArray(values);
     }
    
    public static  ArrayList<OfferCEN> AutoSelection(RequestCEN r){
-        ArrayList<Hashtable> values = OfferCAD.AutoSelection(r.getType(), r.getSize(), r.getSizeUnit(), r.getColor(), r.getAmount(), r.getMaxPrice(), r.getCode());
-        ArrayList<OfferCEN> all = null;
-        
-        if(!values.isEmpty()) {
-            all = new ArrayList<OfferCEN>();        
-
-            for(Hashtable ht : values){                            
-                OfferCEN offer= new OfferCEN((String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("price") == -1.0)? null : (Double)ht.get("price"), 
-                                 RequestCEN.getByCode((int)ht.get("request")),
-                                 ScrapYardCEN.getByID((int)ht.get("scrapyard")),
-                                 (boolean)ht.get("accepted"));
-                offer.code=(int) ht.get("code");
-                all.add(offer);
-            }           
-        } 
-        if(all == null){
+        ArrayList<HashMap> values = OfferCAD.AutoSelection(r.getType(), r.getSize(), r.getSizeUnit(), r.getColor(), r.getAmount(), r.getMaxPrice(), r.getCode());
+        ArrayList<OfferCEN> all = HashMapArra2OfferCENArray(values);
+        if(all == null)
             return null;
-        }
-        else if(all.isEmpty()){
+        else if(all.isEmpty())
             return null;
-        }
-        
-        else {
-          
+        else 
             return all;
-        }
    }
    
    /*public String getSYEMail(){

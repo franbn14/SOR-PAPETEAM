@@ -41,7 +41,7 @@ public class AceptarOfertas {
             String ids[]=idS.split("\\s+");
             int j=0; 
             RequestCEN r=new RequestCEN();
-             ClientCEN cli=new ClientCEN("", "", "", "", "", null);
+             ClientCEN cli=new ClientCEN("", "", "", "", "", null, "");
             while(j<ids.length)
             {
                 int id=Integer.parseInt(ids[j]);

@@ -7,17 +7,45 @@ package CAD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  *
  * @author esteve
  */
 public class ScrapYardCAD {
+    private static HashMap toHashMap(ResultSet rs) throws SQLException{
+        HashMap hm = new HashMap();
+        if(rs.next()){
+            hm.put("id", rs.getInt("id"));
+            hm.put("cif", rs.getString("cif"));
+            hm.put("name", rs.getString("nombre"));                
+            hm.put("password", rs.getString("password"));
+            hm.put("address", rs.getString("direccion"));                
+            hm.put("email", rs.getString("email"));
+        }
+        return hm;
+    }
+    
+    private static ArrayList<HashMap> toHashMapArray(ResultSet rs) throws SQLException {
+        ArrayList<HashMap> values =  new ArrayList<>();
+        while(rs.next()){
+            HashMap hm = new HashMap();
+            hm.put("id", rs.getInt("id"));
+            hm.put("cif", rs.getString("cif"));
+            hm.put("name", rs.getString("nombre"));
+            hm.put("password", rs.getString("password"));
+            hm.put("address", rs.getString("direccion"));
+            hm.put("email", rs.getString("email"));
+            values.add(hm);
+        }
+        return values;
+    }
+    
     public static int create(String name, String password, String address, String cif, String email){
-        int id = UserCAD.create(name, password, address);
+        int id = UserCAD.create(name, password, address, email);
         
-        String query = "INSERT INTO Desguace (id, cif, email) VALUES ('"+ id +"', '" + cif + "', '" + email + "')";
+        String query = "INSERT INTO Desguace (id, cif) VALUES ('"+ id +"', '" + cif + "')";
         try {
             Connector.updates(query);
         }
@@ -28,20 +56,13 @@ public class ScrapYardCAD {
         return id;
     }
     
-    public static Hashtable getById(int id){
-        Hashtable values = new Hashtable();
+    public static HashMap getById(int id){
+        HashMap values = null;
         try {
             String query = "SELECT usr.id, cif, nombre, direccion, usr.password, email " +
                     "FROM Usuario usr, Desguace d WHERE d.id = usr.id AND d.id = "+id;
             ResultSet rs = Connector.query(query);
-            if(rs.next()){
-                values.put("id", rs.getInt("id"));
-                values.put("cif", rs.getString("cif"));
-                values.put("name", rs.getString("nombre"));                
-                values.put("password", rs.getString("password"));
-                values.put("address", rs.getString("direccion"));                
-                values.put("email", rs.getString("email"));
-            }
+            values = toHashMap(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -50,22 +71,13 @@ public class ScrapYardCAD {
         return values;
     }
     
-    public static Hashtable getByCIF(String cif){
-        Hashtable values = new Hashtable();
+    public static HashMap getByCIF(String cif){
+        HashMap values = null;
         try {
             String query = "SELECT usr.id, cif, nombre, usr.password, direccion, email " +
-
                     "FROM Usuario usr, Desguace d WHERE d.id = usr.id AND d.cif = \"" + cif + "\"";
-
             ResultSet rs = Connector.query(query);
-            if(rs.next()){
-                values.put("id", rs.getInt("id"));
-                values.put("cif", rs.getString("cif"));
-                values.put("name", rs.getString("nombre"));
-                values.put("password", rs.getString("password"));
-                values.put("address", rs.getString("direccion"));
-                values.put("email", rs.getString("email"));
-            }
+            values = toHashMap(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -74,22 +86,13 @@ public class ScrapYardCAD {
         return values;
     }
     
-    public static ArrayList<Hashtable> getAll(){
-        ArrayList<Hashtable> values = new ArrayList<Hashtable>();
+    public static ArrayList<HashMap> getAll(){
+        ArrayList<HashMap> values = new ArrayList<HashMap>();
         try {
             String query = "SELECT usr.id, cif, nombre, usr.password, direccion, email " +
                     "FROM Usuario usr, Desguace d WHERE d.id = usr.id";
             ResultSet rs = Connector.query(query);
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("id", rs.getInt("id"));
-                ht.put("cif", rs.getString("cif"));
-                ht.put("name", rs.getString("nombre"));
-                ht.put("password", rs.getString("password"));
-                ht.put("address", rs.getString("direccion"));
-                ht.put("email", rs.getString("email"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -101,16 +104,6 @@ public class ScrapYardCAD {
     public static void updateCIF(int id, String cif){
         try {
             String query = "UPDATE Desguace SET cif = '" + cif + "' WHERE id = " + id;
-            Connector.updates(query);
-        }
-        catch (ClassNotFoundException | SQLException e){
-            System.err.println(e.getMessage());
-        }
-    }
-    
-    public static void updateEmail(int id, String email){
-        try {
-            String query = "UPDATE Desguace SET email = '" + email + "' WHERE id = " + id;
             Connector.updates(query);
         }
         catch (ClassNotFoundException | SQLException e){
