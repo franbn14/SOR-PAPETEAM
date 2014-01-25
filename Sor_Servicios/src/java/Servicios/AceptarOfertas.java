@@ -118,7 +118,7 @@ public class AceptarOfertas {
             }
             r=RequestCEN.getByCode(r.getCode());
         
-           r.update(r.getdeadline(),r.getType(),r.getSize(), r.getSizeUnit(), r.getColor(), r.getAmount(), r.getMaxPrice(),cli,r.isAutoElect(), true);
+           r.update(r.getdeadline(),r.getType(),r.getSize(), r.getSizeUnit(), r.getColor(), r.getAmount(), r.getMaxPrice(),cli,r.isAutoElect(), true, r.isExpired());
            //Ahora vamos hacer una pasada sobre el resto de ofertas de este petición para borrarlas y mandar email de rechazo
            ArrayList<OfferCEN> ofertas =OfferCEN.getByRequest(r.getCode());
            for(int l=0;l<ofertas.size();l++)
