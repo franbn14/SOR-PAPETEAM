@@ -14,7 +14,7 @@ import java.util.Hashtable;
  *
  * @author alberto
  */
-public class OfferCEN {
+public class OfferCEN implements Comparable<OfferCEN> {
     private int code;
     private String type;
     private Double size;
@@ -29,6 +29,43 @@ public class OfferCEN {
     /*public OfferCEN() {
     }*/
 
+     
+    @Override
+    public int compareTo(OfferCEN offer) {
+        if(price<offer.price) 
+            if(amount>offer.amount)
+                return -1;
+            else
+                return 1;
+        else if(price==offer.price)
+            if(amount>offer.amount)
+                return -1;
+            else
+                return 0;
+        else
+            return 1;
+    }
+        
+    public boolean equals(OfferCEN offer) {
+        if (offer == null) {
+            return false;
+        }
+        if (getClass() != offer.getClass()) {
+            return false;
+        }
+        final OfferCEN other = (OfferCEN) offer;
+        if (this.price != other.price) {
+            return false;
+        }
+        if (this.amount != other.amount) {                
+            return false;
+        }
+        if(this.color != other.color)
+            return false;
+        return true;
+    }
+
+    
     private void setAttributes(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
         this.type = type;
         this.size = size;

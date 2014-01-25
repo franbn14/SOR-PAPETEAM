@@ -87,7 +87,7 @@
     <target name="wsimport-client-DarPeticionesNifP" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP"/>
         <property name="wsdl-DarPeticionesNifP" location="xml-resources/web-service-references/DarPeticionesNifP/wsdl/localhost_8080/Sor_Servicios/DarPeticionesNifP.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP" destdir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP" wsdl="${wsdl-DarPeticionesNifP}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://192.168.43.56:8080/Sor_Servicios/DarPeticionesNifP?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP" destdir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP" wsdl="${wsdl-DarPeticionesNifP}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Sor_Servicios/DarPeticionesNifP?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-DarPeticionesNifP}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/DarPeticionesNifP"/>
         </wsimport>
@@ -121,7 +121,7 @@
     <target name="wsimport-client-DarOfertasRequest" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/DarOfertasRequest"/>
         <property name="wsdl-DarOfertasRequest" location="xml-resources/web-service-references/DarOfertasRequest/wsdl/localhost_8080/Sor_Servicios/DarOfertasRequest.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarOfertasRequest" destdir="${build.generated.dir}/jax-wsCache/DarOfertasRequest" wsdl="${wsdl-DarOfertasRequest}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://192.168.43.56:8080/Sor_Servicios/DarOfertasRequest?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarOfertasRequest" destdir="${build.generated.dir}/jax-wsCache/DarOfertasRequest" wsdl="${wsdl-DarOfertasRequest}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Sor_Servicios/DarOfertasRequest?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-DarOfertasRequest}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/DarOfertasRequest"/>
         </wsimport>

@@ -59,7 +59,6 @@ public class Home extends javax.swing.JFrame {
         requestFList = new javax.swing.JList();
         btDecline = new javax.swing.JButton();
         btNewRequest = new javax.swing.JButton();
-        btFavourite = new javax.swing.JButton();
         btExit = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         requestList = new javax.swing.JList();
@@ -112,15 +111,6 @@ public class Home extends javax.swing.JFrame {
         btNewRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNewRequestActionPerformed(evt);
-            }
-        });
-
-        btFavourite.setBackground(new java.awt.Color(252, 247, 232));
-        btFavourite.setText("Ver favoritas");
-        btFavourite.setEnabled(false);
-        btFavourite.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btFavouriteActionPerformed(evt);
             }
         });
 
@@ -183,10 +173,7 @@ public class Home extends javax.swing.JFrame {
                                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
                                         .addGap(12, 12, 12)))
                                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(mainPaneLayout.createSequentialGroup()
-                                        .addComponent(lbOffers, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(47, 47, 47)
-                                        .addComponent(btFavourite, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbOffers, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btAccept)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(26, 26, 26))))
@@ -203,7 +190,6 @@ public class Home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbOffers)
-                    .addComponent(btFavourite)
                     .addComponent(jLabel2)
                     .addComponent(btRefresh))
                 .addGap(4, 4, 4)
@@ -293,24 +279,8 @@ public class Home extends javax.swing.JFrame {
         checkRequests();
     }//GEN-LAST:event_btRefreshActionPerformed
 
-    private void btFavouriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFavouriteActionPerformed
-        // TODO add your handling code here:
-        if(btFavourite.getText().equals("Ver favoritas")) {
-            checkOffers(requestList, true);
-            btFavourite.setText("Ver todas");
-            btFavourite.setEnabled(true);
-        }
-        else {
-            checkOffers(requestList, false);
-            btFavourite.setText("Ver favoritas");
-            btFavourite.setEnabled(true);
-        }
-    }//GEN-LAST:event_btFavouriteActionPerformed
-
     private void checkOffers(javax.swing.JList list, boolean selection) {                
         int index=list.getSelectedIndex();
-        btFavourite.setEnabled(false);
-        btFavourite.setText("Ver favoritas");
         
         if(index>-1) {
             RequestCEN selected=(RequestCEN)list.getSelectedValue();
@@ -349,7 +319,7 @@ public class Home extends javax.swing.JFrame {
 
                         if(!selected.isFinished())                         
                             if(!requestDate.after(today)) {
-                                btFavourite.setEnabled(true);                                                               
+                                
                             }
                                 
                     }                    
@@ -445,7 +415,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btAccept;
     private javax.swing.JButton btDecline;
     private javax.swing.JButton btExit;
-    private javax.swing.JButton btFavourite;
     private javax.swing.JButton btNewRequest;
     private javax.swing.JButton btRefresh;
     private javax.swing.JLabel jLabel1;

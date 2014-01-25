@@ -81,11 +81,7 @@
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lbOffers" min="-2" pref="128" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                          <Component id="btFavourite" min="-2" pref="117" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="lbOffers" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
                                       <Component id="btAccept" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jScrollPane2" alignment="0" min="-2" pref="292" max="-2" attributes="0"/>
                                   </Group>
@@ -110,7 +106,6 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbOffers" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btFavourite" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -226,18 +221,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNewRequestActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btFavourite">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e8" green="f7" red="fc" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Ver favoritas"/>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btFavouriteActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btExit">
