@@ -19,7 +19,6 @@ public class ClientCEN extends UserCEN {
     
     private static ClientCEN HashMap2ClientCEN(HashMap hm){
         ClientCEN client = new ClientCEN((String)hm.get("name"), (String)hm.get("surname"), (String)hm.get("password"), (String)hm.get("nif"), (String)hm.get("address"), (Date)hm.get("DOB"), (String)hm.get("email"));        
-        System.out.println(hm.get("id"));
         client.id = (int)hm.get("id");
         return client;
     }

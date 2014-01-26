@@ -14,7 +14,7 @@ import java.util.HashMap;
  *
  * @author alberto
  */
-public class OfferCEN {
+public class OfferCEN implements Comparable<OfferCEN>{
     private int code;
     private String type;
     private Double size;
@@ -64,6 +64,35 @@ public class OfferCEN {
             }
         }
         return offers;
+    }
+    
+    @Override
+    public int compareTo(OfferCEN offer) {
+       if(price<offer.price) 
+           return -1;
+       else if(price==offer.price)
+           return 0;
+       else
+           return 1;
+    }
+        
+    public boolean equals(OfferCEN offer) {
+        if (offer == null) {
+            return false;
+        }
+        if (getClass() != offer.getClass()) {
+            return false;
+        }
+        final OfferCEN other = (OfferCEN) offer;
+        if (this.price != other.price) {
+            return false;
+        }
+        if (this.amount != other.amount) {                
+            return false;
+        }
+        if(this.color != other.color)
+            return false;
+        return true;
     }
     
     public OfferCEN(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
@@ -242,4 +271,6 @@ public class OfferCEN {
     public static void deleteByRequest(int request){
         OfferCAD.deleteByRequest(request);
     }
+    
+    
 }
