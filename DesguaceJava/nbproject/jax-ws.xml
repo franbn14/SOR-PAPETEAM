@@ -18,7 +18,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/LoginDesguace?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -46,7 +46,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/RegistroDesguace?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -74,7 +74,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/DarUnidades?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/Sor_Servicios/DarUnidades?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -102,7 +102,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/DarIdDesguacebyCif?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

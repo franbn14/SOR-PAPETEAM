@@ -49,7 +49,7 @@ import javax.swing.ListSelectionModel;
  */
 public class MainDesguace extends JFrame {
 	private JTable tPeticiones;
-	private JTextField tfPieza;
+	private JTextField tfDescripcion;
         private JTable tOfertas;
         private JTable tOfertasAceptadas;
         private JTextField tfColor;
@@ -58,6 +58,10 @@ public class MainDesguace extends JFrame {
         private int rowSelected = -1;
         private JTextField tfSize;
         private JComboBox cbUnidades;
+        private JLabel lblerrSize;
+        private JLabel lblerrAmt;
+        private JLabel lblerrPrecio;
+        private JLabel lblPieza;
     public MainDesguace(final String cif) 
     {    
         super("Pantalla Principal del Desguace");
@@ -97,13 +101,14 @@ public class MainDesguace extends JFrame {
         TableColumnModel tcm = th.getColumnModel();
         TableColumn tc = tcm.getColumn(0);
         tc.setHeaderValue("Peticiones");
-        JLabel lblPieza = new JLabel("Pieza");
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblPieza, 20, SpringLayout.WEST, panelIzq);
-        panelIzq.add(lblPieza);
-        tfPieza = new JTextField();
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfPieza, 6, SpringLayout.SOUTH, lblPieza);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfPieza, 0, SpringLayout.WEST, lblPieza);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfPieza, -21, SpringLayout.EAST, panelIzq);
+        JLabel lblDescripcion = new JLabel("Descripci\u00F3n");
+        panelIzq.add(lblDescripcion);
+        tfDescripcion = new JTextField();
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfDescripcion, 110, SpringLayout.NORTH, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfDescripcion, 20, SpringLayout.WEST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfDescripcion, -21, SpringLayout.EAST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblDescripcion, 0, SpringLayout.WEST, tfDescripcion);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, lblDescripcion, -6, SpringLayout.NORTH, tfDescripcion);
         tOfertas = new JTable(5,1);
         tOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JTableHeader th2 = (JTableHeader)tOfertas.getTableHeader();
@@ -145,81 +150,82 @@ public class MainDesguace extends JFrame {
         spOfertas.setLeftComponent(srpOfertas);
         spOfertas.setRightComponent(srpOfertasAceptadas);
         spTablas.setRightComponent(spOfertas);
-        panelIzq.add(tfPieza);
-        tfPieza.setColumns(10);
+        panelIzq.add(tfDescripcion);
+        tfDescripcion.setColumns(10);
         
         JLabel lblSize = new JLabel("Tama\u00F1o");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblSize, 17, SpringLayout.SOUTH, tfPieza);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblSize, 0, SpringLayout.WEST, lblPieza);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblSize, 18, SpringLayout.SOUTH, tfDescripcion);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblSize, 0, SpringLayout.WEST, lblDescripcion);
         panelIzq.add(lblSize);
         
         JLabel lblNewOffer = new JLabel("Nueva Oferta");
         sl_panelIzq.putConstraint(SpringLayout.WEST, lblNewOffer, 20, SpringLayout.WEST, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblPieza, 18, SpringLayout.SOUTH, lblNewOffer);
         lblNewOffer.setFont(new Font("Lucida Grande", Font.BOLD, 16));
         sl_panelIzq.putConstraint(SpringLayout.NORTH, lblNewOffer, 23, SpringLayout.NORTH, panelIzq);
         panelIzq.add(lblNewOffer);
         
         JLabel lblColor = new JLabel("Color");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblColor, 50, SpringLayout.SOUTH, lblSize);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblColor, 0, SpringLayout.WEST, lblPieza);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblColor, 0, SpringLayout.WEST, lblDescripcion);
         panelIzq.add(lblColor);
         
         tfColor = new JTextField();
         sl_panelIzq.putConstraint(SpringLayout.NORTH, tfColor, 6, SpringLayout.SOUTH, lblColor);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfColor, 0, SpringLayout.WEST, lblPieza);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfColor, 34, SpringLayout.SOUTH, lblColor);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfColor, 0, SpringLayout.EAST, tfPieza);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfColor, 20, SpringLayout.WEST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfColor, -213, SpringLayout.SOUTH, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfColor, -21, SpringLayout.EAST, panelIzq);
         panelIzq.add(tfColor);
         tfColor.setColumns(10);
         
         JLabel lblCantidad = new JLabel("Cantidad");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblCantidad, 16, SpringLayout.SOUTH, tfColor);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblCantidad, 0, SpringLayout.WEST, lblPieza);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblCantidad, 12, SpringLayout.SOUTH, tfColor);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblCantidad, 0, SpringLayout.WEST, lblDescripcion);
         panelIzq.add(lblCantidad);
         
         tfCantidad = new JTextField();
         sl_panelIzq.putConstraint(SpringLayout.NORTH, tfCantidad, 6, SpringLayout.SOUTH, lblCantidad);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfCantidad, 0, SpringLayout.WEST, lblPieza);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfCantidad, 34, SpringLayout.SOUTH, lblCantidad);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfCantidad, 0, SpringLayout.EAST, tfPieza);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfCantidad, 20, SpringLayout.WEST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfCantidad, -21, SpringLayout.EAST, panelIzq);
         panelIzq.add(tfCantidad);
         tfCantidad.setColumns(10);
         
         JLabel lblPrecio = new JLabel("Precio");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblPrecio, 18, SpringLayout.SOUTH, tfCantidad);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblPrecio, 0, SpringLayout.WEST, lblPieza);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, lblPrecio, -112, SpringLayout.SOUTH, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfCantidad, -23, SpringLayout.NORTH, lblPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblPrecio, 20, SpringLayout.WEST, panelIzq);
         panelIzq.add(lblPrecio);
         
         tfPrecio = new JTextField();
         sl_panelIzq.putConstraint(SpringLayout.NORTH, tfPrecio, 6, SpringLayout.SOUTH, lblPrecio);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfPrecio, 0, SpringLayout.WEST, lblPieza);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfPrecio, 34, SpringLayout.SOUTH, lblPrecio);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfPrecio, -55, SpringLayout.EAST, tfPieza);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfPrecio, 20, SpringLayout.WEST, panelIzq);
         panelIzq.add(tfPrecio);
         tfPrecio.setColumns(10);
         
         JLabel lblEuro = new JLabel("\u20AC");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblEuro, 6, SpringLayout.NORTH, tfPrecio);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblEuro, 6, SpringLayout.EAST, tfPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblEuro, 51, SpringLayout.SOUTH, tfCantidad);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblEuro, 160, SpringLayout.WEST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfPrecio, -6, SpringLayout.WEST, lblEuro);
         panelIzq.add(lblEuro);
         
         JButton btnHacerOferta = new JButton("Hacer Oferta");
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfPrecio, -28, SpringLayout.NORTH, btnHacerOferta);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, btnHacerOferta, 0, SpringLayout.WEST, lblDescripcion);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, btnHacerOferta, -21, SpringLayout.SOUTH, panelIzq);
         btnHacerOferta.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 
                 rowSelected = tPeticiones.getSelectedRow();
-                boolean enviada = false;
+                boolean enviada = false,enviar = true;
                 if(rowSelected != -1)
                 {
                     OfferCEN oferta = (OfferCEN) tPeticiones.getValueAt(rowSelected, 0);
+                    lblPieza.setText(oferta.getType());
                     int cifid = getIdDes(cif);
                     String nueva = "";
-                    if(!tfPieza.getText().equals(""))
+                    if(!tfPrecio.getText().equals(""))
                     {
-                       nueva += tfPieza.getText()+",";
+                       nueva += tfDescripcion.getText()+",";
                         Double amt = checkNumber(tfCantidad.getText());
                         Double prz = checkNumber(tfPrecio.getText());
                        if(tfSize.getText().equals(""))
@@ -229,33 +235,75 @@ public class MainDesguace extends JFrame {
                        else
                        {
                            Double sz = checkNumber(tfSize.getText());
-                            nueva += ((sz!=-1 && sz!=null)?sz:"")+","+cbUnidades.getSelectedIndex()+",";
+                           if(sz == -1)
+                           {
+                               lblerrSize.setText("El tamaño debe ser un numero");
+                               enviar = false;
+                           }
+                           else
+                                nueva += ((sz!=null)?sz:"")+","+cbUnidades.getSelectedIndex()+",";
                        }
                        
-                       nueva += tfColor.getText()+","+((amt!=-1 && amt!=null)?amt.intValue():"")+","+((prz!=-1 && prz!=null)?prz:"")+","+cifid+","+oferta.getCode();
-                        Sender envio = new Sender();
-                        envio.setParams("OfferDelivery", cif, "OfferDelivery", "OfferDelivery");
-                        envio.open("192.168.43.56", "61616");
-                        envio.send(nueva, 60000);
-                        envio.close();
-                        enviada = true;
-                    }   
+                       if(amt == -1)
+                       {
+                           lblerrAmt.setText("La cantidad debe ser un numero");
+                           enviar = false;
+                       }
+                       else
+                           nueva += tfColor.getText()+","+((amt!=null)?amt.intValue():"")+",";
+                       
+                       if(prz == -1)
+                       {
+                           lblerrPrecio.setText("El precio debe ser un numero");
+                           enviar = false;
+                       }
+                       else
+                            nueva += prz+","+cifid+","+oferta.getCode();
+                       
+                       if(enviar)
+                       {
+                            Sender envio = new Sender();
+                            envio.setParams("OfferDelivery", cif, "OfferDelivery", "OfferDelivery");
+                            //envio.open("192.168.43.56", "61616");
+                            envio.open("localhost", "61616");
+                            envio.send(nueva, 60000);
+                            envio.close();
+                            enviada = true;
+                       }
+                    }
+                    else
+                    {
+                        lblerrPrecio.setText("El precio no puede estar vacio.");
+                    }
+                    
+                    if(enviada)
+                    {
+                        lblPieza.setText(" ");
+                        lblerrAmt.setText(" ");
+                        lblerrPrecio.setText(" ");
+                        lblerrSize.setText(" ");
+                        tfDescripcion.setText("");
+                        tfCantidad.setText("");
+                        tfColor.setText("");
+                        tfPrecio.setText("");
+                        tfSize.setText("");
+                    }
                 }
             }
         });
-        
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, btnHacerOferta, 25, SpringLayout.SOUTH, tfPrecio);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, btnHacerOferta, 0, SpringLayout.WEST, lblPieza);
         panelIzq.add(btnHacerOferta);
         
         tfSize = new JTextField();
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfSize, 4, SpringLayout.SOUTH, lblSize);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfSize, 6, SpringLayout.SOUTH, lblSize);
         sl_panelIzq.putConstraint(SpringLayout.WEST, tfSize, 20, SpringLayout.WEST, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfSize, -108, SpringLayout.EAST, panelIzq);
         panelIzq.add(tfSize);
         tfSize.setColumns(10);
         
         cbUnidades = new JComboBox();
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, cbUnidades, 41, SpringLayout.SOUTH, tfDescripcion);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfSize, -6, SpringLayout.WEST, cbUnidades);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, cbUnidades, 128, SpringLayout.WEST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, cbUnidades, 0, SpringLayout.EAST, tfDescripcion);
         String ud = darTodasUnidades();
         Gson gson = new Gson();
         java.lang.reflect.Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
@@ -265,11 +313,41 @@ public class MainDesguace extends JFrame {
             cbUnidades.addItem(u);
         }
         cbUnidades.setSelectedIndex(0);
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, cbUnidades, -27, SpringLayout.SOUTH, tfSize);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, cbUnidades, 6, SpringLayout.EAST, tfSize);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, cbUnidades, 1, SpringLayout.SOUTH, tfSize);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, cbUnidades, 0, SpringLayout.EAST, tfPieza);
         panelIzq.add(cbUnidades);
+        
+        JLabel lblConcepto = new JLabel("Concepto:");
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblConcepto, 24, SpringLayout.WEST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblConcepto, 17, SpringLayout.SOUTH, lblNewOffer);
+        panelIzq.add(lblConcepto);
+        
+        lblPieza = new JLabel(" ");
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblPieza, 0, SpringLayout.NORTH, lblConcepto);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblPieza, 18, SpringLayout.EAST, lblConcepto);
+        panelIzq.add(lblPieza);
+        
+        lblerrSize = new JLabel(" ");
+        lblerrSize.setForeground(Color.RED);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblerrSize, 212, SpringLayout.NORTH, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, cbUnidades, -5, SpringLayout.NORTH, lblerrSize);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblColor, 6, SpringLayout.SOUTH, lblerrSize);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblerrSize, 0, SpringLayout.WEST, lblDescripcion);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, lblerrSize, 0, SpringLayout.EAST, tfDescripcion);
+        panelIzq.add(lblerrSize);
+        
+        lblerrAmt = new JLabel(" ");
+        lblerrAmt.setForeground(Color.RED);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblerrAmt, -22, SpringLayout.NORTH, lblPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblerrAmt, 0, SpringLayout.WEST, lblDescripcion);
+        sl_panelIzq.putConstraint(SpringLayout.SOUTH, lblerrAmt, -6, SpringLayout.NORTH, lblPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, lblerrAmt, 0, SpringLayout.EAST, tfDescripcion);
+        panelIzq.add(lblerrAmt);
+        
+        lblerrPrecio = new JLabel(" ");
+        lblerrPrecio.setForeground(Color.RED);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblerrPrecio, 6, SpringLayout.SOUTH, tfPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblerrPrecio, 0, SpringLayout.WEST, lblDescripcion);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, lblerrPrecio, 0, SpringLayout.EAST, tfDescripcion);
+        panelIzq.add(lblerrPrecio);
                 
         Receiver r1 = new Receiver();
         Receiver r2 = new Receiver();
@@ -278,11 +356,14 @@ public class MainDesguace extends JFrame {
         r2.setTable(tPeticiones);
         r3.setTable(tOfertasAceptadas);
         r1.setParams(cif+"p", "servidor", cif+"p", cif+"p");
-        r1.open("192.168.43.56", "61616");
+        //r1.open("192.168.43.56", "61616");
+        r1.open("localhost", "61616");
         r2.setParams("pendientes", "servidor", "pendientes", "pendientes");
-        r2.open("192.168.43.56", "61616");
+        //r2.open("192.168.43.56", "61616");
+        r2.open("localhost", "61616");
         r3.setParams(cif+"f", "servidor", cif+"f", cif+"f");
-        r3.open("192.168.43.56", "61616");    
+        //r3.open("192.168.43.56", "61616"); 
+        r3.open("localhost", "61616");
     }
 
     private static int getIdDes(java.lang.String nif) {
@@ -306,7 +387,6 @@ public class MainDesguace extends JFrame {
         }
         return null;
     }
-    
     }    
    class Receiver implements javax.jms.MessageListener
    {
