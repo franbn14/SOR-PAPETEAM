@@ -7,7 +7,7 @@ using Desguace_Net.DarUnidadTipo;
 
 namespace Desguace_Net
 {
-    class Request
+    public class Request
     {
         private int code;
 
@@ -86,12 +86,18 @@ namespace Desguace_Net
             get { return finished; }
             set { finished = value; }
         }
-        
+        private bool expired;
+
+        public bool Expired
+        {
+            get { return expired; }
+            set { expired = value; }
+        }
         public override String ToString()
         {
             DarUnidadesClient c = new DarUnidadesClient();
-            
-            return ((amount != null) ? amount + " " : "") + type +((color != null) ? " | " + color : "") +
+
+            return ((amount != null) ? amount + " " : "") + type + ((color != null) ? " | " + color : "") +
                 ((size != null) ? " | " + size + c.DarUnidadId(sizeUnit) : "") + ((maxPrice != null) ? " | " + maxPrice+" €" : "");
         }
 
