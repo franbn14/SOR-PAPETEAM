@@ -90,7 +90,7 @@ public class ScrapYardCEN extends UserCEN {
 
     @Override
     public String toString() {
-        return id + " " + cif + " " +  name + " " + password + " " + address;
+        return id + " " + cif + " " +  name + " " + password + " " + address + " " + email;
     }
     
     

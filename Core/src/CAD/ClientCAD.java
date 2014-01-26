@@ -92,7 +92,6 @@ public class ClientCAD extends UserCAD{
         try {
             String query = "SELECT usr.id, nif, nombre, apellidos, usr.password, direccion, fechaNac, email " +
                     "FROM Usuario usr, Cliente c WHERE c.id = usr.id AND c.nif = \"" + nif + "\"";
-            System.out.println(query);
             ResultSet rs = Connector.query(query);
             values = toHashMap(rs);
             Connector.close(rs);
