@@ -8,9 +8,11 @@ package CAD;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  *
@@ -18,18 +20,20 @@ import java.util.Date;
  */
 public class RequestCAD {
     
-    private static Hashtable toHashtable(ResultSet rs) throws SQLException{
-        Hashtable request = new Hashtable();
+    private static HashMap toHashMap(ResultSet rs) throws SQLException, ParseException{
+        HashMap request = new HashMap();
         if(rs.next()){
             request.put("code", rs.getInt("codigo"));
-            Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+            Date date = null;
+            if(rs.getDate("fechaTope") != null)
+                date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaTope").toString());
             request.put("deadline", date);
             request.put("type", rs.getString("tipo"));
-            request.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-            request.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-            request.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
-            request.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-            request.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
+            request.put("size", (Double)rs.getObject("tamaño"));
+            request.put("sizeUnit", (Integer)rs.getObject("tamUnidad"));
+            request.put("color", rs.getString("color"));
+            request.put("amount", (Integer)rs.getObject("cantidad"));
+            request.put("maxPrice", (Double) rs.getObject("precioMax"));
             request.put("autoElect", rs.getBoolean("autoElect"));
             request.put("finished", rs.getBoolean("finalizado"));
             request.put("client", rs.getInt("usuario"));
@@ -38,24 +42,27 @@ public class RequestCAD {
         return request;
     }
     
-    private static ArrayList<Hashtable> toHashtableArray(ResultSet rs) throws SQLException {
-        ArrayList<Hashtable> values = new ArrayList();
+    private static ArrayList<HashMap> toHashMapArray(ResultSet rs) throws SQLException, ParseException {
+        ArrayList<HashMap> values = new ArrayList();
         while(rs.next()){
-            Hashtable ht = new Hashtable();
-            ht.put("code", rs.getInt("codigo"));
-            Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
-            ht.put("deadline", date);
-            ht.put("type", rs.getString("tipo"));
-            ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-            ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-            ht.put("color", (rs.getString("color") == null)? "null" : rs.getString("color"));
-            ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-            ht.put("maxPrice", ((Double) rs.getObject("precioMax") == null)? -1.0 : (Double) rs.getObject("precioMax"));
-            ht.put("autoElect", rs.getBoolean("autoElect"));
-            ht.put("finished", rs.getBoolean("finalizado"));
-            ht.put("client", rs.getInt("usuario"));
-            ht.put("expired", rs.getBoolean("caducado"));
-            values.add(ht);
+            HashMap hm = new HashMap();
+            hm.put("code", rs.getInt("codigo"));
+            //Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
+            Date date = null;
+            if(rs.getDate("fechaTope") != null)
+                date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaTope").toString());
+            hm.put("deadline", date);
+            hm.put("type", rs.getString("tipo"));
+            hm.put("size", (Double)rs.getObject("tamaño"));
+            hm.put("sizeUnit",(Integer)rs.getObject("tamUnidad"));
+            hm.put("color", rs.getString("color"));
+            hm.put("amount", (Integer)rs.getObject("cantidad"));
+            hm.put("maxPrice", (Double) rs.getObject("precioMax"));
+            hm.put("autoElect", rs.getBoolean("autoElect"));
+            hm.put("finished", rs.getBoolean("finalizado"));
+            hm.put("client", rs.getInt("usuario"));
+            hm.put("expired", rs.getBoolean("caducado"));
+            values.add(hm);
         }
         return values;
     }
@@ -80,28 +87,28 @@ public class RequestCAD {
         return code;
     }
     
-    public static Hashtable getByCode(int code){
-        Hashtable request = new Hashtable();
+    public static HashMap getByCode(int code){
+        HashMap request = new HashMap();
         try {
             String query = "SELECT * FROM Solicitud WHERE codigo = " + code;
             ResultSet rs = Connector.query(query);
-            request = toHashtable(rs);
+            request = toHashMap(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
         return request;
     }
     
-    public static ArrayList<Hashtable> getAll(){
-        ArrayList<Hashtable> requests = new ArrayList();
+    public static ArrayList<HashMap> getAll(){
+        ArrayList<HashMap> requests = new ArrayList();
         try {
             String query = "SELECT * FROM Solicitud";
             ResultSet rs = Connector.query(query);
-            requests = toHashtableArray(rs);
+            requests = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
         return requests;
@@ -132,83 +139,89 @@ public class RequestCAD {
         }
     }
     
-    public static ArrayList<Hashtable> getAllByNIF(String nif){
-        ArrayList<Hashtable> requests = new ArrayList();
+    public static ArrayList<HashMap> getAllByNIF(String nif){
+        ArrayList<HashMap> requests = new ArrayList();
         try {
             String query = "SELECT s.* FROM Solicitud s, Cliente c WHERE s.usuario = c.id and c.nif = '" + nif + "';";
             ResultSet rs = Connector.query(query);
-            requests = toHashtableArray(rs);
+            requests = toHashMapArray(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
         return requests;
     }
     
-    public static ArrayList<Hashtable> getAllFinishedByNIF(String nif){
-        ArrayList<Hashtable> requests = new ArrayList();
+    public static ArrayList<HashMap> getAllFinishedByNIF(String nif){
+        ArrayList<HashMap> requests = new ArrayList();
         try {
             String query = "SELECT s.* FROM Solicitud s, Cliente c WHERE s.usuario = c.id and s.finalizado = 1 and c.nif = '" + nif + "';";
             ResultSet rs = Connector.query(query);
-            requests = toHashtableArray(rs);
+            requests = toHashMapArray(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
         return requests;
     } 
     
-    public static ArrayList<Hashtable> getAllOpenedByNIF(String nif){
-        ArrayList<Hashtable> requests = new ArrayList();
+    public static ArrayList<HashMap> getAllOpenedByNIF(String nif){
+        ArrayList<HashMap> requests = new ArrayList();
         try {
             String query = "SELECT s.* FROM Solicitud s, Cliente c WHERE s.usuario = c.id and s.finalizado = 0 and c.nif = '" + nif + "';";
             ResultSet rs = Connector.query(query);
-            requests = toHashtableArray(rs);
+            requests = toHashMapArray(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
         return requests;
     } 
     
-     public static ArrayList<Hashtable> getAllOpened(){
-        ArrayList<Hashtable> requests = new ArrayList();
+     public static ArrayList<HashMap> getAllOpened(){
+        ArrayList<HashMap> requests = new ArrayList();
         try {
             /*String query = "SELECT s.codigo, s.fechaTope, s.tipo, s.tamaño, s.tamUnidad, s.color, s.cantidad, s.precioMax, s.usuario, s.autoElect, s.finalizado " +
                            "FROM Solicitud s WHERE s.finalizado = 0 AND DATE(s.fechaTope) > DATE(NOW());";*/
             
-            String query = "SELECT * FROM Solicitud WHERE finalizado = 0 AND caducado = 1;";
+            String query = "SELECT * FROM Solicitud WHERE finalizado = 0 AND caducado = 0;";
             
             ResultSet rs = Connector.query(query);
-            requests = toHashtableArray(rs);
+            requests = toHashMapArray(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
         return requests;
     } 
      
-     public static ArrayList<Hashtable> getAllExpired(){
-        ArrayList<Hashtable> requests = new ArrayList();
+     public static ArrayList<HashMap> getAllExpired(){
+        ArrayList<HashMap> requests = new ArrayList();
         try {
             String query = "SELECT * FROM Solicitud WHERE caducado = 1;";
             
             ResultSet rs = Connector.query(query);
-            requests = toHashtableArray(rs);
+            requests = toHashMapArray(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
         return requests;
     } 
      
-    public static void updateExpired(){
+    public static ArrayList<HashMap> getExpired(){
+        ArrayList<HashMap> expired = null;
         try {
-            String query = "UPDATE Solicitud SET caducado = 1 WHERE DATE(fechaTope) < DATE(NOW());";
+            String query = "SELECT * FROM Solicitud WHERE finalizado = 0 AND DATE(fechaTope) < DATE(NOW());";
+            ResultSet rs = Connector.query(query);
+            expired = toHashMapArray(rs);
+            
+            query = "UPDATE Solicitud SET caducado = 1 WHERE DATE(fechaTope) < DATE(NOW());";
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | ParseException e){
             System.err.println(e.getMessage());
         }
+        return expired;
     }
 }

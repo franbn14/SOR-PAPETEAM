@@ -1,7 +1,7 @@
 package CEN;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /*
  * To change this template, choose Tools | Templates
@@ -18,41 +18,40 @@ public abstract class UserCEN {
     protected String name;
     protected String password;
     protected String address;
-    
-    /*public UserCEN(){
-        this.id = -1;
-        this.name = "";
-        this.password = "";
-        this.address = "";
-    }*/
+    protected String email;
+   
+    private static UserCEN HashMap2UserCER(HashMap hm){
+        UserCEN user = new UserCEN((String) hm.get("name"), (String) hm.get("password"), (String) hm.get("address"), (String) hm.get("email")) {};                 
+        user.id = Integer.parseInt(hm.get("id").toString());
+        return user;
+    }
+     
+    private static ArrayList<UserCEN> HashMapArray2UserCENArray(ArrayList<HashMap> array){
+        ArrayList<UserCEN> users =  new ArrayList<>();
+        for(HashMap hm : array){
+            users.add(HashMap2UserCER(hm));
+        }
+        return users;
+    }
 
-    public UserCEN(String name, String password, String address) {
+    public UserCEN(String name, String password, String address, String email) {
         this.id = -1;
         this.name = name;
         this.password = password;
         this.address = address;
+        this.email = email;
     }
     
     public void insert(){}
     
     public static ArrayList<UserCEN> getAllUsers(){
-        ArrayList<Hashtable> values = CAD.UserCAD.getAll();
-        ArrayList<UserCEN> all = new ArrayList<UserCEN>();
-        for(Hashtable ht : values){
-            UserCEN usr = new UserCEN((String) ht.get("name"), (String) ht.get("password"), (String) ht.get("address")) {};
-            usr.id = Integer.parseInt(ht.get("id").toString());
-            all.add(usr);
-        }
-        return all;
+        ArrayList<HashMap> values = CAD.UserCAD.getAll();
+        return HashMapArray2UserCENArray(values);
     }
     
     public static UserCEN getByID(int id){
-        Hashtable ht = CAD.UserCAD.getByID(id);        
-        
-        UserCEN user=new UserCEN((String) ht.get("name"), (String) ht.get("password"), (String) ht.get("address")) {};                 
-        user.id = Integer.parseInt(ht.get("id").toString());
-        
-        return user;
+        HashMap hm = CAD.UserCAD.getByID(id);        
+        return HashMap2UserCER(hm);
     }
     
     public void delete(){
@@ -62,12 +61,11 @@ public abstract class UserCEN {
         }
     }
     
-    public void update(String name, String password, String address){
-        if(id != -1){
-            CAD.UserCAD.updateName(id, name);
-            CAD.UserCAD.updatePassword(id, password);
-            CAD.UserCAD.updateAddress(id, address);
-        }
+    public void update(String name, String password, String address, String email){
+        updateName(name);
+        updatePassword(password);
+        updateAddress(address);
+        updateEmail(email);
     }
     
     public void updateName(String name){
@@ -88,6 +86,13 @@ public abstract class UserCEN {
         if(id != -1){
             CAD.UserCAD.updateAddress(id, address);
             this.address = address;
+        }
+    }
+    
+    public void updateEmail(String email){
+        if(id != -1){
+            CAD.UserCAD.updateEmail(id, email);
+            this.email = email;
         }
     }
 
@@ -117,6 +122,14 @@ public abstract class UserCEN {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
     
     @Override

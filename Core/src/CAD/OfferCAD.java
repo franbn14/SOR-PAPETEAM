@@ -10,13 +10,51 @@ import CEN.OfferCEN;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.HashMap;
 
 /**
  *
  * @author alberto
  */
 public class OfferCAD {
+    
+    private static HashMap toHashMap(ResultSet rs) throws SQLException{
+        HashMap offer = new HashMap();
+        if(rs.next()){
+            offer.put("code", rs.getInt("codigo"));
+            offer.put("type", rs.getString("tipo"));
+            offer.put("size", (Double)rs.getObject("tamaño"));
+            offer.put("sizeUnit", (Integer)rs.getObject("tamUnidad"));
+            offer.put("color", rs.getString("color"));
+            offer.put("amount", (Integer)rs.getObject("cantidad"));
+            offer.put("price", (Double) rs.getObject("precio"));
+            offer.put("request", rs.getInt("solicitud"));
+            offer.put("scrapyard", rs.getInt("desguace"));
+            offer.put("accepted", rs.getBoolean("aceptada"));
+        }
+        return offer;
+    }
+    
+    private static ArrayList<HashMap> toHashMapArray(ResultSet rs) throws SQLException{
+        ArrayList<HashMap> offers =  new ArrayList<HashMap>();
+        while(rs.next()){
+            HashMap hm = new HashMap();
+            hm.put("code", rs.getInt("codigo"));
+            hm.put("type", rs.getString("tipo"));
+            hm.put("size", (Double)rs.getObject("tamaño"));
+            hm.put("sizeUnit", (Integer)rs.getObject("tamUnidad"));
+            hm.put("color", rs.getString("color"));
+            hm.put("amount", (Integer)rs.getObject("cantidad"));
+            hm.put("price", (Double) rs.getObject("precio"));
+            hm.put("request", rs.getInt("solicitud"));
+            hm.put("scrapyard", rs.getInt("desguace"));
+            hm.put("accepted", rs.getBoolean("aceptada"));
+            offers.add(hm);
+        }
+        return offers;
+    }
+    
     public static int insert(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, int request, int scrapyard, boolean accepted) {
         int code=-1;
         String c = (color == null)? null : "\"" + color + "\"";
@@ -33,52 +71,27 @@ public class OfferCAD {
         return code;
     }
     
-    public static Hashtable getByCode(int code){
-        Hashtable request = new Hashtable();
+    public static HashMap getByCode(int code){
+        HashMap offer = null;
         try {
             String query = "SELECT * FROM Oferta WHERE codigo = " + code;
             ResultSet rs = Connector.query(query);
-            
-            if(rs.next()){
-                request.put("code", rs.getInt("codigo"));
-                request.put("type", rs.getString("tipo"));
-                request.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                request.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                request.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                request.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                request.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                request.put("request", rs.getInt("solicitud"));
-                request.put("scrapyard", rs.getInt("desguace"));
-                request.put("accepted", rs.getBoolean("aceptada"));
-            }
+            offer = toHashMap(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
             System.err.println(e.getMessage());
         }
-        return request;
+        return offer;
     }
     
-    public static ArrayList<Hashtable> getAll(){
-        ArrayList<Hashtable> values = new ArrayList();
+    public static ArrayList<HashMap> getAll(){
+        ArrayList<HashMap> values = new ArrayList();
         try {
             String query = "SELECT * FROM Oferta";
             ResultSet rs = Connector.query(query);
             
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("code", rs.getInt("codigo"));
-                ht.put("type", rs.getString("tipo"));
-                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                ht.put("request", rs.getInt("solicitud"));
-                ht.put("scrapyard", rs.getInt("desguace"));
-                ht.put("accepted", rs.getBoolean("aceptada"));
-                values.add(ht);
-            }
+            
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -87,26 +100,12 @@ public class OfferCAD {
         return values;
     }
     
-    public static ArrayList<Hashtable> getByRequest(int request){
-        ArrayList<Hashtable> values = new ArrayList();
+    public static ArrayList<HashMap> getByRequest(int request){
+        ArrayList<HashMap> values = null;
         try {
             String query = "SELECT * FROM Oferta WHERE solicitud = " + request + ";";
             ResultSet rs = Connector.query(query);
-            
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("code", rs.getInt("codigo"));
-                ht.put("type", rs.getString("tipo"));
-                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                ht.put("request", rs.getInt("solicitud"));
-                ht.put("scrapyard", rs.getInt("desguace"));
-                ht.put("accepted", rs.getBoolean("aceptada"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -115,27 +114,13 @@ public class OfferCAD {
         return values;
     }
     
-    public static ArrayList<Hashtable> getByNIF(String nif){
-        ArrayList<Hashtable> values = new ArrayList();
+    public static ArrayList<HashMap> getByNIF(String nif){
+        ArrayList<HashMap> values = new ArrayList();
         try {
             String query = "SELECT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
                             "FROM Oferta o, Solicitud s, Cliente c WHERE o.solicitud = s.codigo and s.usuario = c.id and c.nif = '" + nif + "';";
             ResultSet rs = Connector.query(query);
-            
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("code", rs.getInt("codigo"));
-                ht.put("type", rs.getString("tipo"));
-                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                ht.put("request", rs.getInt("solicitud"));
-                ht.put("scrapyard", rs.getInt("desguace"));
-                ht.put("accepted", rs.getBoolean("aceptada"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs); 
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -143,28 +128,13 @@ public class OfferCAD {
         }
         return values;
     }
-     public static ArrayList<Hashtable> getByCIFDesPendientes(String nif){
-        ArrayList<Hashtable> values = new ArrayList();
+     public static ArrayList<HashMap> getByCIFDesPendientes(String nif){
+        ArrayList<HashMap> values = new ArrayList();
         try {
            String query = "SELECT o.codigo, o.tipo, o.tamaño, o.tamUnidad, o.color, o.cantidad, o.precio, o.solicitud, o.desguace, o.aceptada " +
                             "FROM Oferta o, Solicitud s, Desguace c WHERE o.solicitud = s.codigo and o.desguace = c.id and c.cif = '" + nif + "' and o.aceptada= 0;";
             ResultSet rs = Connector.query(query);
-
-            
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("code", rs.getInt("codigo"));
-                ht.put("type", rs.getString("tipo"));
-                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                ht.put("request", rs.getInt("solicitud"));
-                ht.put("scrapyard", rs.getInt("desguace"));
-                ht.put("accepted", rs.getBoolean("aceptada"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -173,26 +143,12 @@ public class OfferCAD {
         return values;
     }
     
-    public static ArrayList<Hashtable> getAllAccepted(){
-        ArrayList<Hashtable> values = new ArrayList();
+    public static ArrayList<HashMap> getAllAccepted(){
+        ArrayList<HashMap> values = new ArrayList();
         try {
             String query = "SELECT * FROM Oferta WHERE aceptada = 1;";
             ResultSet rs = Connector.query(query);
-            
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("code", rs.getInt("codigo"));
-                ht.put("type", rs.getString("tipo"));
-                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                ht.put("request", rs.getInt("solicitud"));
-                ht.put("scrapyard", rs.getInt("desguace"));
-                ht.put("accepted", rs.getBoolean("aceptada"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -201,26 +157,12 @@ public class OfferCAD {
         return values;
     }
     
-    public static ArrayList<Hashtable> getAcceptedByRequest(int request){
-        ArrayList<Hashtable> values = new ArrayList();
+    public static ArrayList<HashMap> getAcceptedByRequest(int request){
+        ArrayList<HashMap> values = new ArrayList();
         try {
             String query = "SELECT * FROM Oferta WHERE aceptada = 1 and solicitud = " + request + ";";
             ResultSet rs = Connector.query(query);
-            
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("code", rs.getInt("codigo"));
-                ht.put("type", rs.getString("tipo"));
-                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                ht.put("request", rs.getInt("solicitud"));
-                ht.put("scrapyard", rs.getInt("desguace"));
-                ht.put("accepted", rs.getBoolean("aceptada"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -229,27 +171,13 @@ public class OfferCAD {
         return values;
     }
     
-    public static ArrayList<Hashtable> getAcceptedByUserID(int id ){
-        ArrayList<Hashtable> values = new ArrayList();
+    public static ArrayList<HashMap> getAcceptedByUserID(int id ){
+        ArrayList<HashMap> values = new ArrayList();
         try {
             String query = "SELECT o.* FROM Oferta o, Solicitud s, Cliente c " +
                             "WHERE o.aceptada = 1 and s.usuario = c.id and o.solicitud = s.codigo and c.id = " + id + ";";
             ResultSet rs = Connector.query(query);
-            
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("code", rs.getInt("codigo"));
-                ht.put("type", rs.getString("tipo"));
-                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                ht.put("request", rs.getInt("solicitud"));
-                ht.put("scrapyard", rs.getInt("desguace"));
-                ht.put("accepted", rs.getBoolean("aceptada"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -258,27 +186,13 @@ public class OfferCAD {
         return values;
     }
     
-    public static ArrayList<Hashtable> getAcceptedByUserNIF(String nif){
-        ArrayList<Hashtable> values = new ArrayList();
+    public static ArrayList<HashMap> getAcceptedByUserNIF(String nif){
+        ArrayList<HashMap> values = new ArrayList();
         try {
             String query = "SELECT o.* FROM Oferta o, Solicitud s, Cliente c " +
                             "WHERE o.aceptada = 1 and s.usuario = c.id and o.solicitud = s.codigo and c.nif = " + nif + ";";
             ResultSet rs = Connector.query(query);
-            
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("code", rs.getInt("codigo"));
-                ht.put("type", rs.getString("tipo"));
-                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                ht.put("request", rs.getInt("solicitud"));
-                ht.put("scrapyard", rs.getInt("desguace"));
-                ht.put("accepted", rs.getBoolean("aceptada"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -286,28 +200,14 @@ public class OfferCAD {
         }
         return values;
     }
-     public static ArrayList<Hashtable> getAcceptedByDesNIF(String nif){
-        ArrayList<Hashtable> values = new ArrayList();
+     public static ArrayList<HashMap> getAcceptedByDesNIF(String nif){
+        ArrayList<HashMap> values = new ArrayList();
         try {
             
-String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
+            String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
                             "WHERE o.aceptada = 1 and o.desguace = c.id and o.solicitud = s.codigo and c.cif = '" + nif + "';";
             ResultSet rs = Connector.query(query);
-            
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("code", rs.getInt("codigo"));
-                ht.put("type", rs.getString("tipo"));
-                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                ht.put("request", rs.getInt("solicitud"));
-                ht.put("scrapyard", rs.getInt("desguace"));
-                ht.put("accepted", rs.getBoolean("aceptada"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
@@ -316,8 +216,8 @@ String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
         return values;
     }
     
-     public static ArrayList<Hashtable> AutoSelection(String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice, int request){
-        ArrayList<Hashtable> values = new ArrayList();
+     public static ArrayList<HashMap> AutoSelection(String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice, int request){
+        ArrayList<HashMap> values = new ArrayList();
         try {
             String q_type = "(o.tipo like '%" + type + "%' or o.tipo like '%" + type.toUpperCase() + "%' or o.tipo like '%" + type.toLowerCase() + "%')";
             String q_size = (size == null)? null : "o.tamaño = " + size;
@@ -337,20 +237,7 @@ String query = "SELECT o.* FROM Oferta o, Solicitud s, Desguace c " +
                         + ((q_maxPrice == null)? "" : " and " + q_maxPrice);
 
             ResultSet rs = Connector.query(query);
-            while(rs.next()){
-                Hashtable ht = new Hashtable();
-                ht.put("code", rs.getInt("codigo"));
-                ht.put("type", rs.getString("tipo"));
-                ht.put("size", ((Double)rs.getObject("tamaño") == null)? -1 : (Double)rs.getObject("tamaño"));
-                ht.put("sizeUnit", ((Integer)rs.getObject("tamUnidad") == null)? -1: (Integer)rs.getObject("tamUnidad"));
-                ht.put("color",(rs.getString("color") == null)? "null" : rs.getString("color"));
-                ht.put("amount", ((Integer)rs.getObject("cantidad") == null)? -1 : (Integer)rs.getObject("cantidad"));
-                ht.put("price", ((Double) rs.getObject("precio") == null)? -1.0 : (Double) rs.getObject("precio"));
-                ht.put("request", rs.getInt("solicitud"));
-                ht.put("scrapyard", rs.getInt("desguace"));
-                ht.put("accepted", rs.getBoolean("aceptada"));
-                values.add(ht);
-            }
+            values = toHashMapArray(rs);
             Connector.close(rs);
         }
         catch (ClassNotFoundException | SQLException e){
