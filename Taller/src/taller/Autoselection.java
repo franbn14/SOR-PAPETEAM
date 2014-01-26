@@ -27,10 +27,10 @@ public class Autoselection {
         finalPrice=request.getMaxPrice();
         
         Collections.sort(offers);
-        System.out.print("Despues: ");
+        /*System.out.print("Despues: ");
         for(OfferCEN o: offers)
             System.out.print(o.getPrice()+" ");
-        System.out.println("");
+        System.out.println("");*/
     }
     
     public double totalPrice(ArrayList<OfferCEN> list) {
@@ -90,7 +90,7 @@ public class Autoselection {
         ArrayList<OfferCEN> first=new ArrayList<OfferCEN>();        
         solution(first,-1);
         
-        System.out.println("Mejor: "+best.size()+" ofertas de "+totalAmount(best)+" cantidades y "+totalPrice(best)+" precio");
+        //System.out.println("Mejor: "+best.size()+" ofertas de "+totalAmount(best)+" cantidades y "+totalPrice(best)+" precio");
         for(OfferCEN offer: best)
             accepted+=offer.getCode()+" ";
         

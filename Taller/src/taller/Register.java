@@ -55,6 +55,8 @@ public class Register extends javax.swing.JFrame {
         tfDay = new javax.swing.JTextField();
         lbCIFError = new javax.swing.JLabel();
         lbDateError = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tfEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -141,6 +143,8 @@ public class Register extends javax.swing.JFrame {
         lbDateError.setForeground(new java.awt.Color(233, 26, 26));
         lbDateError.setText("  ");
 
+        jLabel6.setText("Email");
+
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
         mainPaneLayout.setHorizontalGroup(
@@ -159,19 +163,19 @@ public class Register extends javax.swing.JFrame {
                                     .addComponent(lbSuranme)
                                     .addComponent(lbDate))
                                 .addGap(18, 18, 18)
-                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(mainPaneLayout.createSequentialGroup()
                                         .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tfMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(tfName)
-                                        .addComponent(tfCif)
-                                        .addComponent(tfAddress)
-                                        .addComponent(tfSurname)
-                                        .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(tfName)
+                                    .addComponent(tfCif)
+                                    .addComponent(tfAddress)
+                                    .addComponent(tfSurname)
+                                    .addComponent(tfPass, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(tfEmail)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPaneLayout.createSequentialGroup()
                                 .addGap(87, 87, 87)
                                 .addComponent(btRegister)
@@ -185,6 +189,7 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(mainPaneLayout.createSequentialGroup()
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
                             .addComponent(cbTaller)
                             .addComponent(jLabel1))
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -203,7 +208,7 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(lbCIFError)
                         .addGap(115, 115, 115)
                         .addComponent(lbDateError)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 49, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21))
                     .addGroup(mainPaneLayout.createSequentialGroup()
@@ -232,7 +237,11 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(tfMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 28, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btRegister)
                             .addComponent(btCancel))
@@ -243,11 +252,11 @@ public class Register extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, 482, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -261,6 +270,7 @@ public class Register extends javax.swing.JFrame {
         String pass=tfPass.getText();
         String surname=null;
         String dob=null;
+        String email=tfEmail.getText();
         boolean correct=true, dateCorrect=true;
 
         lbError.setText("");
@@ -278,7 +288,8 @@ public class Register extends javax.swing.JFrame {
             lbCIFError.setText("No es válido");
             correct=false;
         }
-
+        
+        
         if(!cbTaller.isSelected()) {
             surname=tfSurname.getText();
 
@@ -418,6 +429,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lbCIFError;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbDateError;
@@ -427,6 +439,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField tfAddress;
     private javax.swing.JTextField tfCif;
     private javax.swing.JTextField tfDay;
+    private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfMonth;
     private javax.swing.JTextField tfName;
     private javax.swing.JPasswordField tfPass;
