@@ -9,7 +9,7 @@ package CEN;
 import CAD.RequestCAD;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  *
@@ -29,32 +29,32 @@ public class RequestCEN {
     private boolean finished;
     private boolean expired;
     
-    private static RequestCEN Hashtable2RequesCEN (Hashtable ht){
+    private static RequestCEN HashMap2RequesCEN (HashMap hm){
         RequestCEN request = null;
-        if(!ht.isEmpty()) {
-            request = new RequestCEN((Date)ht.get("deadline"), 
-                                 (String)ht.get("type"), 
-                                 ((Double)ht.get("size") == -1.0)? null : (Double)ht.get("size"), 
-                                 (int)ht.get("sizeUnit"), 
-                                 (((String)ht.get("color")).equals("null"))? null : (String)ht.get("color"), 
-                                 ((Integer)ht.get("amount") == -1)? null : (Integer)ht.get("amount"), 
-                                 ((Double)ht.get("maxPrice") == -1.0)? null : (Double)ht.get("maxPrice"), 
-                                 ClientCEN.getByID((int)ht.get("client")), 
-                                 (boolean)ht.get("autoElect"), 
-                                 (boolean)ht.get("finished"),
-                                 (boolean)ht.get("expired"));
-            request.code=(int)ht.get("code");
+        if(!hm.isEmpty()) {
+            request = new RequestCEN((Date)hm.get("deadline"), 
+                                 (String)hm.get("type"), 
+                                 (Double)hm.get("size"), 
+                                 (Integer)hm.get("sizeUnit"), 
+                                 (String)hm.get("color"), 
+                                 (Integer)hm.get("amount"), 
+                                 (Double)hm.get("maxPrice"), 
+                                 ClientCEN.getByID((int)hm.get("client")), 
+                                 (boolean)hm.get("autoElect"), 
+                                 (boolean)hm.get("finished"),
+                                 (boolean)hm.get("expired"));
+            request.code=(int)hm.get("code");
         }
         
         return request;
     }
     
-    private static ArrayList<RequestCEN> HashtableArray2RequesCENArray (ArrayList<Hashtable> values){
+    private static ArrayList<RequestCEN> HashMapArray2RequesCENArray (ArrayList<HashMap> values){
         ArrayList<RequestCEN> all = null;
         if(!values.isEmpty()) {
             all = new ArrayList<RequestCEN>();            
-            for(Hashtable ht : values){                            
-                all.add(Hashtable2RequesCEN(ht));
+            for(HashMap hm : values){                            
+                all.add(HashMap2RequesCEN(hm));
             }           
         }        
         return all;
@@ -208,33 +208,33 @@ public class RequestCEN {
     
 
     public static RequestCEN getByCode(int code) {
-        Hashtable ht = RequestCAD.getByCode(code); 
-        return Hashtable2RequesCEN(ht);
+        HashMap hm = RequestCAD.getByCode(code); 
+        return HashMap2RequesCEN(hm);
     }
     
     public static ArrayList<RequestCEN> getAllRequests(){
-        ArrayList<Hashtable> values = RequestCAD.getAll();
-        return HashtableArray2RequesCENArray(values);
+        ArrayList<HashMap> values = RequestCAD.getAll();
+        return HashMapArray2RequesCENArray(values);
     }
     
     public static ArrayList<RequestCEN> getAllByNIF(String nif){
-        ArrayList<Hashtable> values = RequestCAD.getAllByNIF(nif);
-        return HashtableArray2RequesCENArray(values);
+        ArrayList<HashMap> values = RequestCAD.getAllByNIF(nif);
+        return HashMapArray2RequesCENArray(values);
     }
     
     public static ArrayList<RequestCEN> getAllFinishedByNIF(String nif){
-        ArrayList<Hashtable> values = RequestCAD.getAllFinishedByNIF(nif);
-        return HashtableArray2RequesCENArray(values);
+        ArrayList<HashMap> values = RequestCAD.getAllFinishedByNIF(nif);
+        return HashMapArray2RequesCENArray(values);
     }
     
     public static ArrayList<RequestCEN> getAllOpenedByNIF(String nif){
-        ArrayList<Hashtable> values = RequestCAD.getAllOpenedByNIF(nif);
-        return HashtableArray2RequesCENArray(values);
+        ArrayList<HashMap> values = RequestCAD.getAllOpenedByNIF(nif);
+        return HashMapArray2RequesCENArray(values);
     }
     
     public static ArrayList<RequestCEN> getAllOpened(){
-        ArrayList<Hashtable> values = RequestCAD.getAllOpened();
-        return HashtableArray2RequesCENArray(values);
+        ArrayList<HashMap> values = RequestCAD.getAllOpened();
+        return HashMapArray2RequesCENArray(values);
     }
     
     public void update(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished, boolean expired) {        

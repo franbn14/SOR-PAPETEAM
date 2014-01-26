@@ -6,7 +6,7 @@ package CEN;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  *
@@ -17,15 +17,22 @@ public class ClientCEN extends UserCEN {
     private String nif;
     private Date DOB;
     
-   /*public ClientCEN(){
-      
-        this.surname = "";
-        this.nif = "";
-        this.DOB = new Date();
+    private static ClientCEN HashMap2ClientCEN(HashMap hm){
+        ClientCEN client = new ClientCEN((String)hm.get("name"), (String)hm.get("surname"), (String)hm.get("password"), (String)hm.get("nif"), (String)hm.get("address"), (Date)hm.get("DOB"), (String)hm.get("email"));        
+        client.id = (int)hm.get("id");
+        return client;
     }
-    */
-    public ClientCEN(String name, String surname, String password, String nif, String address, Date DOB){
-        super(name, password, address);
+    
+    private static ArrayList<ClientCEN> HashMapArray2ClientCENArray(ArrayList<HashMap> array){
+        ArrayList<ClientCEN> clients = new ArrayList<>();
+        for(HashMap hm : array){
+            clients.add(HashMap2ClientCEN(hm));
+        }
+        return clients;
+    }
+    
+    public ClientCEN(String name, String surname, String password, String nif, String address, Date DOB, String email){
+        super(name, password, address, email);
         this.surname = surname;
         this.nif = nif;
         this.DOB = DOB;
@@ -34,47 +41,27 @@ public class ClientCEN extends UserCEN {
     @Override
     public void insert(){
         if(id == -1){
-            this.id = CAD.ClientCAD.create(name, surname, password, nif, address, DOB);
+            this.id = CAD.ClientCAD.create(name, surname, password, nif, address, DOB, email);
         }
     }
     
     public static ClientCEN getByID(int id) {
-        Hashtable ht = CAD.ClientCAD.getById(id);
-        
-        ClientCEN client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), (String)ht.get("nif"), (String)ht.get("address"), (Date)ht.get("DOB"));        
-        client.id=id;
-        
-        return client;
+        HashMap hm = CAD.ClientCAD.getById(id);
+        return HashMap2ClientCEN(hm);
     }
     
     public static ClientCEN getByNIF(String nif){        
-        Hashtable ht = CAD.ClientCAD.getByNIF(nif);
-        ClientCEN client=null;
-        if(!ht.isEmpty())
-        {
-            client = new ClientCEN((String)ht.get("name"), (String)ht.get("surname"), (String)ht.get("password"), nif, (String)ht.get("address"), (Date)ht.get("DOB"));
-            client.id = (int)ht.get("id");
-        }
-        
-        
-        return client;
+        HashMap hm = CAD.ClientCAD.getByNIF(nif);
+        return HashMap2ClientCEN(hm);
     }   
     
    public static ArrayList<ClientCEN> getAllClients(){
-        ArrayList<Hashtable> values = CAD.ClientCAD.getAll();
-        ArrayList<ClientCEN> all =  new ArrayList<>();
-        for(Hashtable ht : values){
-            
-            ClientCEN c = new ClientCEN((String) ht.get("name"), (String) ht.get("surname"), 
-                    (String) ht.get("password"), (String) ht.get("nif"), (String) ht.get("address"), (Date)ht.get("DOB"));
-            c.id = (int) ht.get("id");
-            all.add(c);
-        }
-        return all;
+        ArrayList<HashMap> values = CAD.ClientCAD.getAll();
+        return HashMapArray2ClientCENArray(values);
     }
     
-    public void update(String name, String surname, String password, String nif, String address, Date DOB){
-        update(name, password, address);
+    public void update(String name, String surname, String password, String nif, String address, Date DOB, String email){
+        update(name, password, address, email);
         if(id != -1){
             CAD.ClientCAD.updateNIF(id, nif);
             CAD.ClientCAD.updateSurname(id, surname);
@@ -86,6 +73,7 @@ public class ClientCEN extends UserCEN {
             this.nif = nif;
             this.address = address;
             this.DOB = DOB;
+            this.email = email;
         }
     }
     

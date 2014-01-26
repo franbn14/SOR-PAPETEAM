@@ -283,7 +283,7 @@ class AMQReciver extends Thread implements javax.jms.MessageListener
                     (!json[4].equals(""))?Integer.parseInt(json[4]):null,
                     (!json[5].equals(""))?Double.parseDouble(json[5]):null,
                     RequestCEN.getByCode(Integer.parseInt(json[7])),
-                    ScrapYardCEN.getByID(Integer.parseInt(json[6])), true);
+                    ScrapYardCEN.getByID(Integer.parseInt(json[6])), false);
             insert.insert();
             
         } catch (JMSException ex) {

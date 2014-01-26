@@ -7,6 +7,7 @@ package desguacejava;
 import CEN.OfferCEN;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sun.org.apache.xpath.internal.axes.OneStepIterator;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -35,6 +36,8 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.JScrollPane;
 import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.ListSelectionModel;
@@ -206,6 +209,7 @@ public class MainDesguace extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                
                 rowSelected = tPeticiones.getSelectedRow();
                 boolean enviada = false;
                 if(rowSelected != -1)
@@ -216,22 +220,26 @@ public class MainDesguace extends JFrame {
                     if(!tfPieza.getText().equals(""))
                     {
                        nueva += tfPieza.getText()+",";
+                        Double amt = checkNumber(tfCantidad.getText());
+                        Double prz = checkNumber(tfPrecio.getText());
                        if(tfSize.getText().equals(""))
                        {
-                           nueva += tfSize.getText()+",,"+tfColor.getText()+","+tfCantidad.getText()+","+tfPrecio.getText()+","+cifid+","+oferta.getCode();
+                           nueva += tfSize.getText()+",,";
                        }
                        else
                        {
-                            nueva += tfSize.getText()+","+cbUnidades.getSelectedIndex()
-                                    +","+tfColor.getText()+","+tfCantidad.getText()+","+tfPrecio.getText()+","+cifid+","+oferta.getCode();
+                           Double sz = checkNumber(tfSize.getText());
+                            nueva += ((sz!=-1 && sz!=null)?sz:"")+","+cbUnidades.getSelectedIndex()+",";
                        }
                        
+                       nueva += tfColor.getText()+","+((amt!=-1 && amt!=null)?amt.intValue():"")+","+((prz!=-1 && prz!=null)?prz:"")+","+cifid+","+oferta.getCode();
                         Sender envio = new Sender();
                         envio.setParams("OfferDelivery", cif, "OfferDelivery", "OfferDelivery");
-                        envio.open("localhost", "61616");
+                        envio.open("192.168.43.56", "61616");
                         envio.send(nueva, 60000);
+                        envio.close();
                         enviada = true;
-                    }
+                    }   
                 }
             }
         });
@@ -270,11 +278,11 @@ public class MainDesguace extends JFrame {
         r2.setTable(tPeticiones);
         r3.setTable(tOfertasAceptadas);
         r1.setParams(cif+"p", "servidor", cif+"p", cif+"p");
-        r1.open("localhost", "61616");
+        r1.open("192.168.43.56", "61616");
         r2.setParams("pendientes", "servidor", "pendientes", "pendientes");
-        r2.open("localhost", "61616");
+        r2.open("192.168.43.56", "61616");
         r3.setParams(cif+"f", "servidor", cif+"f", cif+"f");
-        r3.open("localhost", "61616");    
+        r3.open("192.168.43.56", "61616");    
     }
 
     private static int getIdDes(java.lang.String nif) {
@@ -287,6 +295,16 @@ public class MainDesguace extends JFrame {
         servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
         servicios.DarUnidades port = service.getDarUnidadesPort();
         return port.darTodasUnidades();
+    }
+    
+    public Double checkNumber(String number) {
+        if(number!=null && !number.equals("")) {
+            if(!number.matches("[0-9]+([.][0-9]+)?"))
+                return -1.0;
+            else
+                return Double.parseDouble(number);
+        }
+        return null;
     }
     
     }    
@@ -378,10 +396,10 @@ public class MainDesguace extends JFrame {
                 Gson gson = new Gson();
                 java.lang.reflect.Type collectionType = new TypeToken<ArrayList<OfferCEN>>(){}.getType();
                 ArrayList<OfferCEN> ofertas = gson.fromJson(offers, collectionType);
-                
                 if(ofertas != null)
                 {
                     DefaultTableModel tm = ((DefaultTableModel)innerTable.getModel());
+                    tm.setNumRows(ofertas.size());
                     int i = 0;
                     for(OfferCEN of : ofertas)
                     {
