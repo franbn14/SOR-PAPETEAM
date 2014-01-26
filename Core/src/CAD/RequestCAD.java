@@ -24,7 +24,9 @@ public class RequestCAD {
         HashMap request = new HashMap();
         if(rs.next()){
             request.put("code", rs.getInt("codigo"));
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaTope").toString());
+            Date date = null;
+            if(rs.getDate("fechaTope") != null)
+                date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaTope").toString());
             request.put("deadline", date);
             request.put("type", rs.getString("tipo"));
             request.put("size", (Double)rs.getObject("tamaño"));
@@ -46,7 +48,9 @@ public class RequestCAD {
             HashMap hm = new HashMap();
             hm.put("code", rs.getInt("codigo"));
             //Date date = new Date(rs.getDate("fechaTope").getYear(), rs.getDate("fechaTope").getMonth(), rs.getDate("fechaTope").getDate());
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaTope").toString());
+            Date date = null;
+            if(rs.getDate("fechaTope") != null)
+                date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaTope").toString());
             hm.put("deadline", date);
             hm.put("type", rs.getString("tipo"));
             hm.put("size", (Double)rs.getObject("tamaño"));
@@ -180,7 +184,7 @@ public class RequestCAD {
             /*String query = "SELECT s.codigo, s.fechaTope, s.tipo, s.tamaño, s.tamUnidad, s.color, s.cantidad, s.precioMax, s.usuario, s.autoElect, s.finalizado " +
                            "FROM Solicitud s WHERE s.finalizado = 0 AND DATE(s.fechaTope) > DATE(NOW());";*/
             
-            String query = "SELECT * FROM Solicitud WHERE finalizado = 0 AND caducado = 1;";
+            String query = "SELECT * FROM Solicitud WHERE finalizado = 0 AND caducado = 0;";
             
             ResultSet rs = Connector.query(query);
             requests = toHashMapArray(rs);

@@ -35,7 +35,7 @@ public class RequestCEN {
             request = new RequestCEN((Date)hm.get("deadline"), 
                                  (String)hm.get("type"), 
                                  (Double)hm.get("size"), 
-                                 (int)hm.get("sizeUnit"), 
+                                 (Integer)hm.get("sizeUnit"), 
                                  (String)hm.get("color"), 
                                  (Integer)hm.get("amount"), 
                                  (Double)hm.get("maxPrice"), 

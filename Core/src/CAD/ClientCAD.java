@@ -28,7 +28,9 @@ public class ClientCAD extends UserCAD{
             hm.put("password", rs.getString("password"));
             hm.put("address", rs.getString("direccion"));
             //Date date = new Date(rs.getDate("fechaNac").getYear(), rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate());
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaNac").toString());
+            Date date = null;
+            if(rs.getDate("fechaNac") != null)
+                date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaNac").toString());
             hm.put("DOB", date);
             hm.put("email", rs.getString("email"));
         }
@@ -46,7 +48,9 @@ public class ClientCAD extends UserCAD{
             hm.put("password", rs.getString("password"));
             hm.put("address", rs.getString("direccion"));
             //Date date = new Date(rs.getDate("fechaNac").getYear(), rs.getDate("fechaNac").getMonth(), rs.getDate("fechaNac").getDate()); 
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaNac").toString());
+            Date date = null;
+            if(rs.getDate("fechaNac") != null)
+                date = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate("fechaNac").toString());
             hm.put("DOB", date);
             hm.put("email", rs.getString("email"));
             values.add(hm);
