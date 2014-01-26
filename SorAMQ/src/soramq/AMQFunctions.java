@@ -4,25 +4,23 @@
  */
 package soramq;
 
+import AutoSelection.Autoselection;
+import CEN.ClientCEN;
 import CEN.OfferCEN;
 import CEN.RequestCEN;
 import CEN.ScrapYardCEN;
+import Email.Email;
+import Email.EmailFactoria;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-import org.apache.activemq.ActiveMQConnectionFactory;    
-import javax.jms.Connection;
 import javax.jms.JMSException;
-import javax.jms.Session;
-import javax.jms.Destination;
 import javax.jms.Message;
-import javax.jms.MessageConsumer;
 import javax.jms.TextMessage;
 import javax.jms.Topic;
 import javax.jms.TopicConnection;
@@ -33,6 +31,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.swing.JTable;
+
 /**
  *
  * @author Gustavo
@@ -145,9 +144,11 @@ public class AMQFunctions extends Thread{
         Thread t1 = new Thread(new enviarOfertasAceptadasPorDesguace());
         Thread t2 = new Thread(new enviarOfertasPendientesPorDesguace());
         Thread t3 = new Thread(new enviarPeticionesPendientes());
+        Thread t4 = new Thread(new autoselection());
         t1.start();
         t2.start();
         t3.start();
+        //t4.start();
         
     }
     
@@ -193,6 +194,95 @@ public class AMQFunctions extends Thread{
                 Logger.getLogger(AMQFunctions.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    class autoselection implements Runnable
+    {
+        public void run() {
+            while(true)
+            {
+                ArrayList<RequestCEN> requests = RequestCEN.getExpired();
+                for(RequestCEN req : requests)
+                {
+                    if(req.isAutoElect())
+                    {
+                        ArrayList<OfferCEN> offers =  OfferCEN.getByRequest(req.getCode());
+                        AutoSelection.Autoselection auto = new Autoselection(offers, req);
+                        String ids = auto.getBest();
+                        if(ids != null && !ids.equals(""))
+                        {
+                            AceptarOfertasDe(ids);
+                            Email e = EmailFactoria.getEmail(EmailFactoria.tipoEmail.Registro, req.getClient());
+                            e.send();
+                        }
+                        else
+                        {
+                            Email e = EmailFactoria.getEmail(EmailFactoria.tipoEmail.Registro, req.getClient());
+                            e.send();
+                        }
+                    }
+                    else
+                    {
+                        Email e = EmailFactoria.getEmail(EmailFactoria.tipoEmail.Registro, req.getClient());
+                        e.send();
+                    }
+                }
+                
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(AMQFunctions.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        
+        public String AceptarOfertasDe(String idS) {
+        //TODO write your implementation code here:
+        if (idS != "" && idS != null) {
+
+            String ids[] = idS.split("\\s+");
+            RequestCEN request = null;
+
+            for (int i = 0; i < ids.length; i++) {
+                int id = Integer.parseInt(ids[i]);
+
+                OfferCEN o = OfferCEN.getByCode(id);
+                request = o.getRequest();
+                o.update(o.getType(), o.getSize(), o.getSizeUnit(), o.getColor(), o.getAmount(), o.getPrice(), request, o.getScrapyard(), true);
+                Email email = EmailFactoria.getEmail(EmailFactoria.tipoEmail.OfertaAceptada, o);
+                try {
+                    email.send();
+                } catch (Exception ex) {
+                    return "error";
+                }
+            }
+
+            ArrayList<OfferCEN> ofertas = new ArrayList<OfferCEN>();
+            if (request != null) {
+                request.update(request.getdeadline(), request.getType(), request.getSize(), request.getSizeUnit(), request.getColor(),
+                        request.getAmount(), request.getMaxPrice(), (ClientCEN) request.getClient(), request.isAutoElect(), true, request.isExpired());
+                ofertas = OfferCEN.getByRequest(request.getCode());
+            }
+
+            //Ahora vamos hacer una pasada sobre el resto de ofertas de este petición para borrarlas y mandar email de rechazo
+            for (int i = 0; i < ofertas.size(); i++) {
+                if (!ofertas.get(i).isAccepted()) {
+                    //Enviamos el email para notificar de el rechazo de las ofertas
+                    Email email = EmailFactoria.getEmail(EmailFactoria.tipoEmail.OfertaRechazada, ofertas.get(i));
+                    try {
+                        email.send();
+                    } catch (Exception ex) {
+                        return "error";
+                    }
+                    ofertas.get(i).delete();
+                }
+            }
+            return "ok";
+        }
+
+        return "error";
+
+    }
     }
 }
 
