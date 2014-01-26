@@ -332,7 +332,7 @@ public class Register extends javax.swing.JFrame {
             }            
         }
         if(correct && dateCorrect) {
-            String error=registroCli(cif,name,address,pass,surname,dob);
+            String error=registroCli(cif,name,address,pass,surname,dob,email);
 
             if(error.equals("")) {
                 Main main=new Main();
@@ -482,10 +482,13 @@ public class Register extends javax.swing.JFrame {
          return digits.matches("[0-9]{8}");         
     }
 
-    private static String registroCli(java.lang.String nif, java.lang.String nombre, java.lang.String direccion, java.lang.String password, java.lang.String apellidos, java.lang.String fecha) {
+    private static String registroCli(java.lang.String nif, java.lang.String nombre, java.lang.String direccion, java.lang.String password, java.lang.String apellidos, java.lang.String fecha, java.lang.String email) {
         servicios.RegistroCliente_Service service = new servicios.RegistroCliente_Service();
         servicios.RegistroCliente port = service.getRegistroClientePort();
-        return port.registroCli(nif, nombre, direccion, password, apellidos, fecha);
+        return port.registroCli(nif, nombre, direccion, password, apellidos, fecha, email);
     }
+
+    
+    
     
 }

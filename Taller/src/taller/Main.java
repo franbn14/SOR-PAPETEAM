@@ -205,7 +205,7 @@ public class Main extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:       
         Date date=new Date(23,05,2014);
-        RequestCEN request = new RequestCEN(date,"Tornillos",3.0,0,"Rojo",5,25.50,null,true,false);
+        RequestCEN request = new RequestCEN(date,"Tornillos",3.0,0,"Rojo",5,25.50,null,true,false,false);
                 
         ArrayList<OfferCEN> offers = new ArrayList<OfferCEN>();
                 
