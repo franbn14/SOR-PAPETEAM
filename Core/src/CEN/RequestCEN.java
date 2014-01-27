@@ -237,6 +237,11 @@ public class RequestCEN {
         return HashMapArray2RequesCENArray(values);
     }
     
+    public static ArrayList<RequestCEN> getExpired(){
+        ArrayList<HashMap> values = RequestCAD.getExpired();
+        return HashMapArray2RequesCENArray(values);
+    }
+        
     public void update(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished, boolean expired) {        
         setAttributes(deadline, type, size, sizeUnit, color, amount, maxPrice, client, autoElect, finished, expired);
         RequestCAD.update(this.code, deadline, type, size, sizeUnit, color, amount, maxPrice, client.getId(), autoElect, finished, expired);

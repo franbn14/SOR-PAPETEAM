@@ -18,6 +18,7 @@ public class Autoselection {
     ArrayList<OfferCEN> offers;
     int finalAmount;
     double finalPrice;
+    String finalColor;
     
     public Autoselection(ArrayList<OfferCEN> offerList, RequestCEN request) {
         best= new ArrayList<OfferCEN>();
@@ -25,12 +26,13 @@ public class Autoselection {
         
         finalAmount=request.getAmount();
         finalPrice=request.getMaxPrice();
+        finalColor=request.getColor();
         
         Collections.sort(offers);
-        System.out.print("Despues: ");
+        /*System.out.print("Despues: ");
         for(OfferCEN o: offers)
             System.out.print(o.getPrice()+" ");
-        System.out.println("");
+        System.out.println("");*/
     }
     
     public double totalPrice(ArrayList<OfferCEN> list) {
@@ -57,7 +59,18 @@ public class Autoselection {
         return total;
     }
          
-    public void sortOffersByPrice() {
+    public double colorPercentage(ArrayList<OfferCEN> list) {
+        double percentage=0.0;
+        int counter=0;
+        
+        for(OfferCEN offer: list) {
+            if(offer.getColor()!=null && offer.getColor().equals(finalColor))
+                    counter++;
+        }
+        
+        percentage=(counter/list.size())*100.0;
+        
+        return percentage;
         
     }
             
@@ -76,11 +89,19 @@ public class Autoselection {
         if(!inserted) {
             
             int amount=totalAmount(current);
-            double price=totalPrice(current);
+            double price=totalPrice(current);  
+            double color=colorPercentage(current);
             
-            if((amount>=totalAmount(best) && amount<=finalAmount) &&  price<totalPrice(best)) {
+            int bestAmount=totalAmount(best);
+            double bestPrice=totalPrice(best);            
+            
+            if((amount>=bestAmount && amount<=finalAmount) &&  price<bestPrice) 
                 best=current;
-            }
+            else if(amount==bestAmount && price==bestPrice && color>colorPercentage(best))
+                best=current;
+            else if(amount==bestAmount && price==bestPrice && color==colorPercentage(best) && current.size()<best.size())
+                best=current;
+                
         }
             
     }
@@ -90,7 +111,7 @@ public class Autoselection {
         ArrayList<OfferCEN> first=new ArrayList<OfferCEN>();        
         solution(first,-1);
         
-        System.out.println("Mejor: "+best.size()+" ofertas de "+totalAmount(best)+" cantidades y "+totalPrice(best)+" precio");
+        //System.out.println("Mejor: "+best.size()+" ofertas de "+totalAmount(best)+" cantidades y "+totalPrice(best)+" precio");
         for(OfferCEN offer: best)
             accepted+=offer.getCode()+" ";
         

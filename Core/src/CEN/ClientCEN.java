@@ -18,8 +18,11 @@ public class ClientCEN extends UserCEN {
     private Date DOB;
     
     private static ClientCEN HashMap2ClientCEN(HashMap hm){
-        ClientCEN client = new ClientCEN((String)hm.get("name"), (String)hm.get("surname"), (String)hm.get("password"), (String)hm.get("nif"), (String)hm.get("address"), (Date)hm.get("DOB"), (String)hm.get("email"));        
-        client.id = (int)hm.get("id");
+        ClientCEN client = null;
+        if(hm != null && !hm.isEmpty()){
+            client = new ClientCEN((String)hm.get("name"), (String)hm.get("surname"), (String)hm.get("password"), (String)hm.get("nif"), (String)hm.get("address"), (Date)hm.get("DOB"), (String)hm.get("email"));        
+            client.id = (int)hm.get("id");
+        }
         return client;
     }
     

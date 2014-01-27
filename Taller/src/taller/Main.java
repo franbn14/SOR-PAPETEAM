@@ -205,17 +205,18 @@ public class Main extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:       
         Date date=new Date(23,05,2014);
-        RequestCEN request = new RequestCEN(date,"Tornillos",3.0,0,"Rojo",5,25.50,null,true,false);
+        RequestCEN request = new RequestCEN(date,"Tornillos",3.0,0,"Rojo",5,25.50,null,true,false,false);
                 
         ArrayList<OfferCEN> offers = new ArrayList<OfferCEN>();
                 
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 6, 13.0, request, null, false));
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 13.0, request, null, false));
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 11.0, request, null, false));
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 3, 5.0, request, null, false));
-       // offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 3, 13.0, request, null, false));
-        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 2, 10.0, request, null, false));        
-        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 5, 24.0, request, null, false));
+        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 6, 13.0, request, null, false));
+        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 13.0, request, null, false));
+        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 11.0, request, null, false));
+        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 3, 5.0, request, null, false));
+        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 3, 13.0, request, null, false));
+        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 2, 10.0, request, null, false));        
+        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 5, 23.0, request, null, false));
+        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 5.0, request, null, false));
         
         Autoselection auto=new Autoselection(offers, request);
         auto.getBest();

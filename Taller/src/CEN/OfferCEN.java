@@ -6,15 +6,14 @@
 
 package CEN;
 
-
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  *
  * @author alberto
  */
-public class OfferCEN implements Comparable<OfferCEN> {
+public class OfferCEN implements Comparable<OfferCEN>{
     private int code;
     private String type;
     private Double size;
@@ -26,10 +25,18 @@ public class OfferCEN implements Comparable<OfferCEN> {
     private ScrapYardCEN scrapyard;
     private boolean accepted;
 
-    /*public OfferCEN() {
-    }*/
-
-     
+    private void setAttributes(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
+        this.type = type;
+        this.size = size;
+        this.sizeUnit = sizeUnit;
+        this.color = color;
+        this.amount = amount;
+        this.price = price;
+        this.request = request;
+        this.scrapyard = scrapyard;          
+        this.accepted = accepted;
+    }    
+    
     @Override
     public int compareTo(OfferCEN offer) {
        if(price<offer.price) 
@@ -57,19 +64,6 @@ public class OfferCEN implements Comparable<OfferCEN> {
         if(this.color != other.color)
             return false;
         return true;
-    }
-
-    
-    private void setAttributes(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
-        this.type = type;
-        this.size = size;
-        this.sizeUnit = sizeUnit;
-        this.color = color;
-        this.amount = amount;
-        this.price = price;
-        this.request = request;
-        this.scrapyard = scrapyard;          
-        this.accepted = accepted;
     }
     
     public OfferCEN(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
@@ -103,10 +97,6 @@ public class OfferCEN implements Comparable<OfferCEN> {
 
     public Integer getSizeUnit() {
         return sizeUnit;
-    }
-
-    public String getSizeUnitString(){
-        return UnitsCEN.getByID(sizeUnit);
     }
     
     public void setSizeUnit(Integer sizeUnit) {
@@ -163,7 +153,7 @@ public class OfferCEN implements Comparable<OfferCEN> {
        
     @Override
     public String toString() {
-        return ((amount!=null)?amount+" ":"") + type + ((color!=null)?" | "+color:"") + 
+        return ((amount!=null)?amount+" ":"") + request.getType() + ((type!=null)?" | Descripcion: "+type:"") + ((color!=null)?" | "+color:"") + 
                 ((size!=null)?" | "+size+darUnidadId(sizeUnit)+" ":"") + ((price!=null)?" | "+price+"€":"");
     }
 
@@ -172,6 +162,4 @@ public class OfferCEN implements Comparable<OfferCEN> {
         servicios.DarUnidades port = service.getDarUnidadesPort();
         return port.darUnidadId(id);
     }
-    
-    
 }
