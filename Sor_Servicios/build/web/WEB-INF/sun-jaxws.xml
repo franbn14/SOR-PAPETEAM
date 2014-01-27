@@ -16,4 +16,5 @@
   <endpoint implementation="Servicios.DarOfertasRequestOk" name="DarOfertasRequestOk" url-pattern="/DarOfertasRequestOk"/>
   <endpoint implementation="Servicios.DarOfertasSeleccionadas" name="DarOfertasSeleccionadas" url-pattern="/DarOfertasSeleccionadas"/>
   <endpoint implementation="Servicios.AceptarOfertas" name="AceptarOfertas" url-pattern="/AceptarOfertas"/>
+  <endpoint implementation="Servicios.LoginClientes" name="LoginClientes" url-pattern="/LoginClientes"/>
 </endpoints>
