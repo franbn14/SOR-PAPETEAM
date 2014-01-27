@@ -6,10 +6,9 @@
 
 package CEN;
 
-
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  *
@@ -27,8 +26,9 @@ public class RequestCEN {
     private ClientCEN client;
     private boolean autoElect;
     private boolean finished;
-
-    private void setAttributes(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished) {
+    private boolean expired;
+    
+    private void setAttributes(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoElect, boolean finished, boolean expired) {
         this.deadline = deadline;
         this.type = type;
         this.size = size;
@@ -40,6 +40,7 @@ public class RequestCEN {
         this.client= client;
         this.autoElect = autoElect;
         this.finished = finished;
+        this.expired = expired;
         
         if(client == null)
             userError();
@@ -47,9 +48,9 @@ public class RequestCEN {
     
     public RequestCEN() {
     }
-    
-    public RequestCEN(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoSelec, boolean finished) {        
-        setAttributes(deadline, type, size, sizeUnit, color, amount, maxPrice, client, autoSelec, finished);      
+        
+    public RequestCEN(Date deadline, String type, Double size, Integer sizeUnit, String color, Integer amount, Double maxPrice,  ClientCEN client, boolean autoSelec, boolean finished, boolean expired) {        
+        setAttributes(deadline, type, size, sizeUnit, color, amount, maxPrice, client, autoSelec, finished, expired);      
         this.code = -1;
     }
     
@@ -104,11 +105,7 @@ public class RequestCEN {
     public Integer getSizeUnit() {
         return sizeUnit;
     }
-
-    public String getSizeUnitString(){
-        return UnitsCEN.getByID(sizeUnit);
-    }
-    
+   
     public void setSizeUnit(Integer sizeUnit) {
         this.sizeUnit = sizeUnit;
     }
@@ -144,9 +141,27 @@ public class RequestCEN {
     public void setFinished(boolean finished) {
         this.finished = finished;
     }
+
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public boolean isExpired() {
+        return expired;
+    }
+
+    public void setExpired(boolean expired) {
+        this.expired = expired;
+    }    
             
-   
-    
     @Override
     public String toString(){
         return ((amount!=null)?amount+" ":"") + type + ((color!=null)?" | "+color:"") + 
@@ -158,6 +173,4 @@ public class RequestCEN {
         servicios.DarUnidades port = service.getDarUnidadesPort();
         return port.darUnidadId(id);
     }
-    
-    
 }

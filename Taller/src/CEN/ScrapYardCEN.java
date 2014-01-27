@@ -5,7 +5,8 @@
 package CEN;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.HashMap;
 
 /**
  *
@@ -14,16 +15,12 @@ import java.util.Hashtable;
 public class ScrapYardCEN extends UserCEN {
     
     private String cif;
-    private String email;
     
     public ScrapYardCEN(String name, String password, String address, String cif, String email){
-        super(name, password, address);
+        super(name, password, address, email);
         this.cif = cif;
-        this.email = email;
     }
     
-   
-
     public String getCif() {
         return cif;
     }
@@ -32,17 +29,9 @@ public class ScrapYardCEN extends UserCEN {
         this.cif = cif;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     @Override
     public String toString() {
-        return id + " " + cif + " " +  name + " " + password + " " + address;
+        return id + " " + cif + " " +  name + " " + password + " " + address + " " + email;
     }
     
     
