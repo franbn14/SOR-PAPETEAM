@@ -209,13 +209,14 @@ public class Main extends javax.swing.JFrame {
                 
         ArrayList<OfferCEN> offers = new ArrayList<OfferCEN>();
                 
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 6, 13.0, request, null, false));
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 13.0, request, null, false));
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 11.0, request, null, false));
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 3, 5.0, request, null, false));
-       // offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 3, 13.0, request, null, false));
-        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 2, 10.0, request, null, false));        
-        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 5, 24.0, request, null, false));
+        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 6, 13.0, request, null, false));
+        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 13.0, request, null, false));
+        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 11.0, request, null, false));
+        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 3, 5.0, request, null, false));
+        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 3, 13.0, request, null, false));
+        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 2, 10.0, request, null, false));        
+        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 5, 23.0, request, null, false));
+        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 5.0, request, null, false));
         
         Autoselection auto=new Autoselection(offers, request);
         auto.getBest();

@@ -16,21 +16,7 @@ public class ClientCEN extends UserCEN {
     private String surname;
     private String nif;
     private Date DOB;
-    
-    private static ClientCEN HashMap2ClientCEN(HashMap hm){
-        ClientCEN client = new ClientCEN((String)hm.get("name"), (String)hm.get("surname"), (String)hm.get("password"), (String)hm.get("nif"), (String)hm.get("address"), (Date)hm.get("DOB"), (String)hm.get("email"));        
-        client.id = (int)hm.get("id");
-        return client;
-    }
-    
-    private static ArrayList<ClientCEN> HashMapArray2ClientCENArray(ArrayList<HashMap> array){
-        ArrayList<ClientCEN> clients = new ArrayList<>();
-        for(HashMap hm : array){
-            clients.add(HashMap2ClientCEN(hm));
-        }
-        return clients;
-    }
-    
+           
     public ClientCEN(String name, String surname, String password, String nif, String address, Date DOB, String email){
         super(name, password, address, email);
         this.surname = surname;
