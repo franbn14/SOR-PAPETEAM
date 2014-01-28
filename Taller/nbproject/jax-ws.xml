@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8081/Sor_Servicios/RegistroCliente?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/RegistroCliente?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -54,7 +54,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/DarUnidades?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/DarUnidades?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -86,7 +86,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/NewPeticion?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/NewPeticion?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -118,7 +118,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/DarIdClientebyNif?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/DarIdClientebyNif?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -150,7 +150,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/DarPeticionesNifP?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/DarPeticionesNifP?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -182,7 +182,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/DarPeticionesNifF?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/DarPeticionesNifF?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -214,7 +214,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/DarOfertasRequest?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/DarOfertasRequest?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -246,7 +246,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/DarOfertasRequestOk?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/DarOfertasRequestOk?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -278,7 +278,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/DarOfertasSeleccionadas?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/DarOfertasSeleccionadas?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -310,7 +310,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/AceptarOfertas?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/AceptarOfertas?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -342,7 +342,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/BorrarPeticion?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/BorrarPeticion?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -374,7 +374,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/Sor_Servicios/LoginClientes?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.56:8080/Sor_Servicios/LoginClientes?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
