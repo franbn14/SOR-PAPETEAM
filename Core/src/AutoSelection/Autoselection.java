@@ -27,10 +27,10 @@ public class Autoselection {
         finalPrice=request.getMaxPrice();
         
         Collections.sort(offers);
-        /*//System.out.print("Despues: ");
+        /*System.out.print("Despues: ");
         for(OfferCEN o: offers)
-            //System.out.print(o.getPrice()+" ");
-        //System.out.println("");*/
+            System.out.print(o.getPrice()+" ");
+        System.out.println("");*/
     }
     
     public double totalPrice(ArrayList<OfferCEN> list) {

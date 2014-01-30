@@ -4,6 +4,7 @@
  */
 package CAD;
 
+import java.net.UnknownHostException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class ScrapYardCAD {
         try {
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             UserCAD.delete(id);
             System.err.println(e.getMessage());
         }
@@ -65,7 +66,7 @@ public class ScrapYardCAD {
             values = toHashMap(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -80,7 +81,7 @@ public class ScrapYardCAD {
             values = toHashMap(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -95,7 +96,7 @@ public class ScrapYardCAD {
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -106,7 +107,7 @@ public class ScrapYardCAD {
             String query = "UPDATE Desguace SET cif = '" + cif + "' WHERE id = " + id;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }

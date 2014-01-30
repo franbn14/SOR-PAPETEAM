@@ -1,5 +1,6 @@
 package CAD;
 
+import java.net.UnknownHostException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class UserCAD{
         try {
             id = Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return id;
@@ -60,7 +61,7 @@ public class UserCAD{
             String query = "DELETE FROM Usuario WHERE id = " + id;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
@@ -73,7 +74,7 @@ public class UserCAD{
             values = toHashMap(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -87,7 +88,7 @@ public class UserCAD{
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -98,7 +99,7 @@ public class UserCAD{
             String query = "UPDATE Usuario SET nombre = '" + name + "' WHERE id = " + id;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
@@ -108,7 +109,7 @@ public class UserCAD{
             String query = "UPDATE Usuario SET password = '" + password + "' WHERE id = " + id;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
@@ -118,7 +119,7 @@ public class UserCAD{
             String query = "UPDATE Usuario SET direccion = '" + address + "' WHERE id = " + id;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
@@ -128,7 +129,7 @@ public class UserCAD{
             String query = "UPDATE Usuario SET email = '" + email + "' WHERE id = " + id;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }

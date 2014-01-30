@@ -6,6 +6,7 @@
 
 package CAD;
 
+import java.net.UnknownHostException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -80,7 +81,7 @@ public class RequestCAD {
         try {
             code = Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }                
         
@@ -94,7 +95,7 @@ public class RequestCAD {
             ResultSet rs = Connector.query(query);
             request = toHashMap(rs);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return request;
@@ -108,7 +109,7 @@ public class RequestCAD {
             requests = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return requests;
@@ -124,7 +125,7 @@ public class RequestCAD {
                            ", caducado = " + ((expired)?1:0) + " WHERE codigo = " + code +";";
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
@@ -134,7 +135,7 @@ public class RequestCAD {
             String query = "DELETE FROM Solicitud WHERE codigo = " + code;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
@@ -146,7 +147,7 @@ public class RequestCAD {
             ResultSet rs = Connector.query(query);
             requests = toHashMapArray(rs);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return requests;
@@ -159,7 +160,7 @@ public class RequestCAD {
             ResultSet rs = Connector.query(query);
             requests = toHashMapArray(rs);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return requests;
@@ -172,7 +173,7 @@ public class RequestCAD {
             ResultSet rs = Connector.query(query);
             requests = toHashMapArray(rs);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return requests;
@@ -189,7 +190,7 @@ public class RequestCAD {
             ResultSet rs = Connector.query(query);
             requests = toHashMapArray(rs);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return requests;
@@ -203,7 +204,7 @@ public class RequestCAD {
             ResultSet rs = Connector.query(query);
             requests = toHashMapArray(rs);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return requests;
@@ -219,7 +220,7 @@ public class RequestCAD {
             query = "UPDATE Solicitud SET caducado = 1 WHERE DATE(fechaTope) < DATE(NOW());";
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return expired;

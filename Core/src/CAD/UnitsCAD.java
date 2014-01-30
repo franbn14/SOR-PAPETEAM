@@ -4,6 +4,7 @@
  */
 package CAD;
 
+import java.net.UnknownHostException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class UnitsCAD {
             }
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return units;
@@ -42,7 +43,7 @@ public class UnitsCAD {
             }
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return unit;

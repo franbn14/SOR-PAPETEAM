@@ -7,6 +7,7 @@
 package CAD;
 
 import CEN.OfferCEN;
+import java.net.UnknownHostException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class OfferCAD {
         try {
             code = Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }    
         
@@ -79,7 +80,7 @@ public class OfferCAD {
             offer = toHashMap(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return offer;
@@ -94,7 +95,7 @@ public class OfferCAD {
             
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -108,7 +109,7 @@ public class OfferCAD {
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -123,7 +124,7 @@ public class OfferCAD {
             values = toHashMapArray(rs); 
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -137,7 +138,7 @@ public class OfferCAD {
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -151,7 +152,7 @@ public class OfferCAD {
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -165,7 +166,7 @@ public class OfferCAD {
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -180,7 +181,7 @@ public class OfferCAD {
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -195,7 +196,7 @@ public class OfferCAD {
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -210,7 +211,7 @@ public class OfferCAD {
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -240,7 +241,7 @@ public class OfferCAD {
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -253,7 +254,7 @@ public class OfferCAD {
             ResultSet rs = Connector.query(query);
             email = rs.getString("email");
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return email;
@@ -269,7 +270,7 @@ public class OfferCAD {
             System.out.println(query);
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
@@ -279,7 +280,7 @@ public class OfferCAD {
             String query = "DELETE FROM Oferta WHERE codigo = " + code;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
@@ -289,7 +290,7 @@ public class OfferCAD {
             String query = "DELETE FROM Oferta WHERE solicitud = " + request;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }

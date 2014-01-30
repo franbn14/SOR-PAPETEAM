@@ -16,6 +16,10 @@ import javax.mail.internet.MimeMessage;
 import CEN.OfferCEN;
 import CEN.RequestCEN;
 import CEN.UserCEN;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
@@ -24,19 +28,31 @@ import javax.mail.internet.AddressException;
  * @author esteve
  */
 public class Email {
-    protected String remitente = "sorteampape2stopbloqueos@gmail.com";//"sorteampape@gmail.com";
-    protected String remitentePass = "NF8VGUD5";
+    protected String remitente = "papeteam@papeteam.es";//"sorteampape2stopbloqueos@gmail.com";//"sorteampape@gmail.com";
+    protected String remitentePass = "papeteam";//"NF8VGUD5";
     protected ArrayList<String> destinatarios = new ArrayList<>(); 
     protected Properties propiedades; // Propiedades de la conexión
     protected String asunto;
     protected String mensaje;
     
     public Email(){
-        propiedades = new Properties();
-        propiedades.setProperty("mail.smtp.host", "smtp.gmail.com");
-        propiedades.setProperty("mail.smtp.starttls.enable", "true");
-        propiedades.setProperty("mail.smtp.port", "587");
-        propiedades.setProperty("mail.smtp.auth", "true");
+        try {
+            propiedades = new Properties();
+            String hostname = InetAddress.getLocalHost().getHostName();
+            if(hostname.equals("stv")){
+                propiedades.setProperty("mail.smtp.host", "smtp.gmail.com");
+                propiedades.setProperty("mail.smtp.starttls.enable", "true");
+                propiedades.setProperty("mail.smtp.port", "587");
+                remitente = "sorteampape2stopbloqueos@gmail.com";
+                remitentePass = "NF8VGUD5";
+            }
+            else {
+                propiedades.setProperty("mail.smtp.host", "stv");
+                propiedades.setProperty("mail.smtp.auth", "true");
+            }
+        } catch (UnknownHostException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
     
     public void send() throws AddressException, MessagingException{

@@ -4,6 +4,7 @@
  */
 package CAD;
 
+import java.net.UnknownHostException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -65,7 +66,7 @@ public class ClientCAD extends UserCAD{
         try {
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             UserCAD.delete(id);
             System.err.println(e.getMessage());
         }
@@ -81,7 +82,7 @@ public class ClientCAD extends UserCAD{
             values = toHashMap(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -96,7 +97,7 @@ public class ClientCAD extends UserCAD{
             values = toHashMap(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -111,7 +112,7 @@ public class ClientCAD extends UserCAD{
             values = toHashMapArray(rs);
             Connector.close(rs);
         }
-        catch (ClassNotFoundException | SQLException | ParseException e){
+        catch (ClassNotFoundException | SQLException | ParseException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
         return values;
@@ -122,7 +123,7 @@ public class ClientCAD extends UserCAD{
             String query = "UPDATE Cliente SET apellidos = '" + surname + "' WHERE id = " + id;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
@@ -132,7 +133,7 @@ public class ClientCAD extends UserCAD{
             String query = "UPDATE Cliente SET nif = '" + nif + "' WHERE id = " + id;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
@@ -143,7 +144,7 @@ public class ClientCAD extends UserCAD{
             String query = "UPDATE Cliente SET fechaNac = '" + date + "' WHERE id = " + id;
             Connector.updates(query);
         }
-        catch (ClassNotFoundException | SQLException e){
+        catch (ClassNotFoundException | SQLException | UnknownHostException e){
             System.err.println(e.getMessage());
         }
     }
