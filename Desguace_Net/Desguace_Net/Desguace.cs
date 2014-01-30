@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Desguace_Net
 {
-    class Desguace
+    public class Desguace
     {
 
         private String cif;

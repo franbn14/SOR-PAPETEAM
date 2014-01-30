@@ -43,7 +43,7 @@ public class RequestCEN {
         this.expired = expired;
         
         if(client == null)
-            userError();
+           userError();
     }
     
     public RequestCEN() {

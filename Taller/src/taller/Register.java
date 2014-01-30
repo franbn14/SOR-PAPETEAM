@@ -279,8 +279,9 @@ public class Register extends javax.swing.JFrame {
         lbError.setText("");
         lbDateError.setText("");
         lbCIFError.setText("");
+        lbEmailError.setText("");
                 
-        if(name==null || name.equals("") || pass==null || pass.equals("") || address==null || address.equals("")) {
+        if(name==null || name.equals("") || pass==null || pass.equals("") || address==null || address.equals("") || email==null || email.equals("")) {
             lbError.setText("No puede haber vacíos");
             correct=false;
         }
@@ -292,8 +293,8 @@ public class Register extends javax.swing.JFrame {
             correct=false;
         }
         
-        if(email!=null && !email.matches("[a-zA-Z]+\\@[a-z]+\\.[a-z]+")) {
-             lbDateError.setText("Fecha incorrecta");
+        if(email!=null && !email.isEmpty() && !email.matches("[a-zA-Z]+\\@[a-z]+\\.[a-z]+")) {
+             lbEmailError.setText("Formato incorrecto");
              dateCorrect=false;
         }
         

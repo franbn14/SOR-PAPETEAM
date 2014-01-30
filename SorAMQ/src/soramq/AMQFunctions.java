@@ -204,27 +204,32 @@ public class AMQFunctions extends Thread{
                 ArrayList<RequestCEN> requests = RequestCEN.getExpired();
                 for(RequestCEN req : requests)
                 {
-                    if(req.isAutoElect())
-                    {
-                        ArrayList<OfferCEN> offers =  OfferCEN.getByRequest(req.getCode());
-                        AutoSelection.Autoselection auto = new Autoselection(offers, req);
-                        String ids = auto.getBest();
-                        if(ids != null && !ids.equals(""))
+                    try{
+                        if(req.isAutoElect())
                         {
-                            AceptarOfertasDe(ids);
-                            Email e = EmailFactoria.getEmail(EmailFactoria.tipoEmail.Registro, req.getClient());
-                            e.send();
+                            ArrayList<OfferCEN> offers =  OfferCEN.getByRequest(req.getCode());
+                            AutoSelection.Autoselection auto = new Autoselection(offers, req);
+                            String ids = auto.getBest();
+                            if(ids != null || !ids.equals(""))
+                            {
+                                AceptarOfertasDe(ids);
+                                Email e = EmailFactoria.getEmail(EmailFactoria.tipoEmail.CadAceptacion, req);
+                                e.send();
+                            }
+                            else
+                            {
+                                Email e = EmailFactoria.getEmail(EmailFactoria.tipoEmail.CadNoOffertas, req);
+                                e.send();
+                            }
                         }
                         else
                         {
-                            Email e = EmailFactoria.getEmail(EmailFactoria.tipoEmail.Registro, req.getClient());
+                            Email e = EmailFactoria.getEmail(EmailFactoria.tipoEmail.OfertasCad, req);
                             e.send();
                         }
                     }
-                    else
-                    {
-                        Email e = EmailFactoria.getEmail(EmailFactoria.tipoEmail.Registro, req.getClient());
-                        e.send();
+                    catch (Exception e){
+                        System.err.println(e.getMessage());
                     }
                 }
                 

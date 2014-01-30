@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Desguace_Net.DarUnidadTipo;
 using System.Text.RegularExpressions;
+using Desguace_Net;
 
 namespace Desguace_Net
 {
@@ -16,11 +17,14 @@ namespace Desguace_Net
     {
         int IdDes = 0;
         int IdRe = 0;
-        public Hacer_Oferta(int idR,int idDes)
+       private  Request request = new Request();
+
+        public Hacer_Oferta(Request req,int idDes)
         {
             InitializeComponent();
             IdDes = idDes;
-            IdRe = idR;
+            IdRe = req.Code;
+            request = req;
 
 
         }
@@ -39,49 +43,40 @@ namespace Desguace_Net
         {
             DarUnidadesClient c =new DarUnidadesClient();
             dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<String>>(c.DarTodasUnidades());
-            UnidadesCom.Items.AddRange(json.ToArray());
-            UnidadesCom.SelectedIndex = 0;
+            
+            Concepto.Text = "Tipo: " + request.Type;
+            LTam.Text = "Tamaño:" + ((request.Size != null && request.Size != 0.0) ? request.Size.ToString() +c.DarUnidadId(request.SizeUnit) : "");
         }
 
         private void EnviarOferta_Click(object sender, EventArgs e)
         {
             ErrorCantidad.Visible = false;
             ErrorPrecio.Visible = false;
-            Error_Pieza.Visible = false;
-            ErrorTamaño.Visible = false;
+           
+          
             bool correcto = true;
 
-            if (Pieza_Text.Text == "" || Pieza_Text.Text == null)
-            {
-                Error_Pieza.Visible = true;
-                Error_Pieza.Text = "Error este campo no puede estar vacio";
-                correcto = false;
-            }
+          
             if (!checkNumber(Cant_Text.Text))
             {
                 ErrorCantidad.Visible = true;
                 ErrorCantidad.Text = "No es un número";
                 correcto = false;
             }
-            if (!checkNumber(Tamaño_Text.Text))
-            {
-                ErrorTamaño.Visible = true;
-                ErrorTamaño.Text = "No es un número";
-                correcto = false;
-            }
+           
 
 
-            if (!checkNumber(Precio_Text.Text))
+            if (!checkNumber(Precio_Text.Text) || Precio_Text.Text == "" || Precio_Text.Text == null)
             {
                 ErrorPrecio.Visible = true;
-                ErrorPrecio.Text = "Error no es un número";
+                ErrorPrecio.Text = "Error no es un número o no puedo estar vacío";
                 correcto = false;
             }
 
             if (correcto)
             {
-                String oferta = Pieza_Text.Text + "," + Tamaño_Text.Text + "," + UnidadesCom.SelectedIndex + "," + ColorText.Text + "," + Cant_Text.Text + "," + Precio_Text.Text + "," + IdDes + "," + IdRe;
-                Services.TopicPublisher p = new Services.TopicPublisher("OfferDelivery", "tcp://192.168.43.56:61616");
+                String oferta = Pieza_Text.Text + "," + ((request.Size != null) ? request.Size.ToString() : "") + "," + request.SizeUnit + "," + ColorText.Text + "," + Cant_Text.Text + "," + Precio_Text.Text + "," + IdDes + "," + IdRe;
+                Services.TopicPublisher p = new Services.TopicPublisher("OfferDelivery", "tcp://stv:61616");
                 p.SendMessage(oferta);
                 if (MessageBox.Show("Oferta Enviada", "", MessageBoxButtons.OK,
       MessageBoxIcon.Information) == DialogResult.OK)

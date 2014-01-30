@@ -153,7 +153,7 @@ public class OfferCEN implements Comparable<OfferCEN>{
        
     @Override
     public String toString() {
-        return ((amount!=null)?amount+" ":"") + type + ((color!=null)?" | "+color:"") + 
+        return ((amount!=null)?amount+" ":"") + request.getType() + ((type!=null)?" | Descripcion: "+type:"") + ((color!=null)?" | "+color:"") + 
                 ((size!=null)?" | "+size+darUnidadId(sizeUnit)+" ":"") + ((price!=null)?" | "+price+"€":"");
     }
 

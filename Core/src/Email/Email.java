@@ -14,6 +14,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import CEN.OfferCEN;
+import CEN.RequestCEN;
 import CEN.UserCEN;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
@@ -23,7 +24,7 @@ import javax.mail.internet.AddressException;
  * @author esteve
  */
 public class Email {
-    protected String remitente = "sorteampape@gmail.com";
+    protected String remitente = "sorteampape2stopbloqueos@gmail.com";//"sorteampape@gmail.com";
     protected String remitentePass = "NF8VGUD5";
     protected ArrayList<String> destinatarios = new ArrayList<>(); 
     protected Properties propiedades; // Propiedades de la conexión
@@ -134,5 +135,61 @@ class EmailRegistro extends Email {
         mensaje =   "\nEnhorabuena, su registro se ha completado.";
         
         destinatarios.add(user.getEmail());
+    }
+}
+
+class EmailCadAceptacion extends Email {
+    public EmailCadAceptacion(RequestCEN request) {
+        super();       
+     
+        asunto =    "Aceptdado automatico"; 
+        
+        mensaje =   "La peticion: \n" + 
+                    "\tPieza: " + request.getType() + "\n"+
+                    "\tTamaño: " + ((request.getSize() != null)? request.getSize() + " " + request.getSizeUnitString() : "") + "\n" +
+                    "\tColor: " + ((request.getColor() != null)? request.getColor() : "") + "\n" +
+                    "\tCantidad: " + request.getAmount() + "\n" +
+                    "\tPrecio máximo: " + ((request.getMaxPrice() != null)? request.getMaxPrice() : "") + "€\n"+
+                    "\nHa caducado. \n" +
+                    "\nNuestro sistema ha elegido productos por usted, podrá comprobar los productos selecionados en el historial de nuestra web/aplicación.\n";
+        
+        destinatarios.add(request.getClient().getEmail());
+    }
+}
+
+class EmailCadNoOffertas extends Email {
+    public EmailCadNoOffertas(RequestCEN request) {
+        super();       
+     
+        asunto =    "Autoseleción sin resultados"; 
+        
+        mensaje =   "La peticion: \n" + 
+                    "\tPieza: " + request.getType() + "\n"+
+                    "\tTamaño: " + ((request.getSize() != null)? request.getSize() + " " + request.getSizeUnitString() : "") + "\n" +
+                    "\tColor: " + ((request.getColor() != null)? request.getColor() : "") + "\n" +
+                    "\tCantidad: " + request.getAmount() + "\n" +
+                    "\tPrecio máximo: " + ((request.getMaxPrice() != null)? request.getMaxPrice() : "") + "€\n"+
+                    "\nHa caducado. \n" + 
+                    "\nSentimos informale que no se han podido selecionar ninguan oferta.\n";
+        
+        destinatarios.add(request.getClient().getEmail());
+    }
+}
+
+class EmailOfertasCad extends Email {
+    public EmailOfertasCad(RequestCEN request) {
+        super();       
+     
+        asunto =    "Ofertas caducadas"; 
+        
+        mensaje =   "La peticion: \n" + 
+                    "\tPieza: " + request.getType() + "\n"+
+                    "\tTamaño: " + ((request.getSize() != null)? request.getSize() + " " + request.getSizeUnitString() : "") + "\n" +
+                    "\tColor: " + ((request.getColor() != null)? request.getColor() : "") + "\n" +
+                    "\tCantidad: " + request.getAmount() + "\n" +
+                    "\tPrecio máximo: " + ((request.getMaxPrice() != null)? request.getMaxPrice() : "") + "€\n"+
+                    "\nHa caducado. \n";
+        
+        destinatarios.add(request.getClient().getEmail());
     }
 }
