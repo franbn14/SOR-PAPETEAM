@@ -11,11 +11,5 @@ import java.util.ArrayList;
  * @author esteve
  */
 public class UnitsCEN {
-    public static ArrayList<String> getAll(){
-       return null;
-    }
     
-    public static String getByID(int id){
-        return null;
-    }
 }

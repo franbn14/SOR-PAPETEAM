@@ -5,6 +5,7 @@
 package desguacejava;
 
 import CEN.OfferCEN;
+import CEN.RequestCEN;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sun.org.apache.xpath.internal.axes.OneStepIterator;
@@ -36,11 +37,22 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.JScrollPane;
 import java.awt.Font;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Enumeration;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.TableColumnModelEvent;
+import javax.swing.event.TableColumnModelListener;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import servicios.DarUnidadId;
     
        
 /**
@@ -52,16 +64,15 @@ public class MainDesguace extends JFrame {
 	private JTextField tfDescripcion;
         private JTable tOfertas;
         private JTable tOfertasAceptadas;
-        private JTextField tfColor;
         private JTextField tfCantidad;
         private JTextField tfPrecio;
         private int rowSelected = -1;
-        private JTextField tfSize;
-        private JComboBox cbUnidades;
-        private JLabel lblerrSize;
+        private JLabel lblSze;
         private JLabel lblerrAmt;
         private JLabel lblerrPrecio;
         private JLabel lblPieza;
+        private JTextField tfColor;
+        
     public MainDesguace(final String cif) 
     {    
         super("Pantalla Principal del Desguace");
@@ -84,10 +95,19 @@ public class MainDesguace extends JFrame {
         
         SpringLayout sl_panelIzq = new SpringLayout();
         panelIzq.setLayout(sl_panelIzq);
-        
+        lblSze = new JLabel(" ");
         tPeticiones = new JTable(5,1);
         tPeticiones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JTableHeader th = (JTableHeader)tPeticiones.getTableHeader();
+        tPeticiones.addMouseListener(new MouseAdapter() 
+        {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                RequestCEN oferta = (RequestCEN) tPeticiones.getValueAt(tPeticiones.getSelectedRow(), 0);
+                lblPieza.setText(oferta.getType());
+                lblSze.setText(oferta.getSize().toString()+" "+darUnidadId(oferta.getSizeUnit()));
+            }
+        });
         tPeticiones.setAutoscrolls(false);
         tPeticiones.setBackground(new Color(250, 250, 210));
         tPeticiones.setForeground(new Color(100, 149, 237));
@@ -168,48 +188,35 @@ public class MainDesguace extends JFrame {
         sl_panelIzq.putConstraint(SpringLayout.WEST, lblColor, 0, SpringLayout.WEST, lblDescripcion);
         panelIzq.add(lblColor);
         
-        tfColor = new JTextField();
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfColor, 6, SpringLayout.SOUTH, lblColor);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfColor, 20, SpringLayout.WEST, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfColor, -213, SpringLayout.SOUTH, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfColor, -21, SpringLayout.EAST, panelIzq);
-        panelIzq.add(tfColor);
-        tfColor.setColumns(10);
-        
         JLabel lblCantidad = new JLabel("Cantidad");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblCantidad, 12, SpringLayout.SOUTH, tfColor);
         sl_panelIzq.putConstraint(SpringLayout.WEST, lblCantidad, 0, SpringLayout.WEST, lblDescripcion);
         panelIzq.add(lblCantidad);
         
         tfCantidad = new JTextField();
         sl_panelIzq.putConstraint(SpringLayout.NORTH, tfCantidad, 6, SpringLayout.SOUTH, lblCantidad);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfCantidad, 20, SpringLayout.WEST, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfCantidad, -21, SpringLayout.EAST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfCantidad, 0, SpringLayout.WEST, lblDescripcion);
+        //sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfCantidad, -182, SpringLayout.SOUTH, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfCantidad, 0, SpringLayout.EAST, tfDescripcion);
         panelIzq.add(tfCantidad);
         tfCantidad.setColumns(10);
         
         JLabel lblPrecio = new JLabel("Precio");
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, lblPrecio, -112, SpringLayout.SOUTH, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfCantidad, -23, SpringLayout.NORTH, lblPrecio);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblPrecio, 20, SpringLayout.WEST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblPrecio, 0, SpringLayout.WEST, lblDescripcion);
         panelIzq.add(lblPrecio);
         
         tfPrecio = new JTextField();
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfPrecio, 6, SpringLayout.SOUTH, lblPrecio);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfPrecio, 20, SpringLayout.WEST, panelIzq);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfPrecio, 0, SpringLayout.WEST, lblDescripcion);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfPrecio, -76, SpringLayout.EAST, panelIzq);
         panelIzq.add(tfPrecio);
         tfPrecio.setColumns(10);
         
         JLabel lblEuro = new JLabel("\u20AC");
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblEuro, 51, SpringLayout.SOUTH, tfCantidad);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblEuro, 160, SpringLayout.WEST, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfPrecio, -6, SpringLayout.WEST, lblEuro);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblEuro, 6, SpringLayout.EAST, tfPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfPrecio, -6, SpringLayout.NORTH, lblEuro);
         panelIzq.add(lblEuro);
         
         JButton btnHacerOferta = new JButton("Hacer Oferta");
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, tfPrecio, -28, SpringLayout.NORTH, btnHacerOferta);
         sl_panelIzq.putConstraint(SpringLayout.WEST, btnHacerOferta, 0, SpringLayout.WEST, lblDescripcion);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, btnHacerOferta, -21, SpringLayout.SOUTH, panelIzq);
         btnHacerOferta.addActionListener(new ActionListener() {
 
             @Override
@@ -219,32 +226,18 @@ public class MainDesguace extends JFrame {
                 boolean enviada = false,enviar = true;
                 if(rowSelected != -1)
                 {
-                    OfferCEN oferta = (OfferCEN) tPeticiones.getValueAt(rowSelected, 0);
-                    lblPieza.setText(oferta.getType());
+                    RequestCEN oferta = (RequestCEN) tPeticiones.getValueAt(rowSelected, 0);
                     int cifid = getIdDes(cif);
+                    lblPieza.setText(oferta.getType());
                     String nueva = "";
                     if(!tfPrecio.getText().equals(""))
                     {
                        nueva += tfDescripcion.getText()+",";
                         Double amt = checkNumber(tfCantidad.getText());
                         Double prz = checkNumber(tfPrecio.getText());
-                       if(tfSize.getText().equals(""))
-                       {
-                           nueva += tfSize.getText()+",,";
-                       }
-                       else
-                       {
-                           Double sz = checkNumber(tfSize.getText());
-                           if(sz == -1)
-                           {
-                               lblerrSize.setText("El tamaño debe ser un numero");
-                               enviar = false;
-                           }
-                           else
-                                nueva += ((sz!=null)?sz:"")+","+cbUnidades.getSelectedIndex()+",";
-                       }
                        
-                       if(amt == -1)
+                        nueva += ((oferta.getSize()!=null)?oferta.getSize():"")+","+oferta.getSizeUnit()+",";
+                       if(amt != null && amt == -1)
                        {
                            lblerrAmt.setText("La cantidad debe ser un numero");
                            enviar = false;
@@ -252,7 +245,7 @@ public class MainDesguace extends JFrame {
                        else
                            nueva += tfColor.getText()+","+((amt!=null)?amt.intValue():"")+",";
                        
-                       if(prz == -1)
+                       if(prz != null && prz == -1)
                        {
                            lblerrPrecio.setText("El precio debe ser un numero");
                            enviar = false;
@@ -281,39 +274,20 @@ public class MainDesguace extends JFrame {
                         lblPieza.setText(" ");
                         lblerrAmt.setText(" ");
                         lblerrPrecio.setText(" ");
-                        lblerrSize.setText(" ");
+                        lblSze.setText(" ");
                         tfDescripcion.setText("");
                         tfCantidad.setText("");
                         tfColor.setText("");
                         tfPrecio.setText("");
-                        tfSize.setText("");
                     }
                 }
             }
         });
         panelIzq.add(btnHacerOferta);
-        
-        tfSize = new JTextField();
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfSize, 6, SpringLayout.SOUTH, lblSize);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, tfSize, 20, SpringLayout.WEST, panelIzq);
-        panelIzq.add(tfSize);
-        tfSize.setColumns(10);
-        
-        cbUnidades = new JComboBox();
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, cbUnidades, 41, SpringLayout.SOUTH, tfDescripcion);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, tfSize, -6, SpringLayout.WEST, cbUnidades);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, cbUnidades, 128, SpringLayout.WEST, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, cbUnidades, 0, SpringLayout.EAST, tfDescripcion);
         String ud = darTodasUnidades();
         Gson gson = new Gson();
         java.lang.reflect.Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
         ArrayList<String> uds = gson.fromJson(ud, collectionType);
-        for(String u : uds)
-        {
-            cbUnidades.addItem(u);
-        }
-        cbUnidades.setSelectedIndex(0);
-        panelIzq.add(cbUnidades);
         
         JLabel lblConcepto = new JLabel("Concepto:");
         sl_panelIzq.putConstraint(SpringLayout.WEST, lblConcepto, 24, SpringLayout.WEST, panelIzq);
@@ -325,29 +299,37 @@ public class MainDesguace extends JFrame {
         sl_panelIzq.putConstraint(SpringLayout.WEST, lblPieza, 18, SpringLayout.EAST, lblConcepto);
         panelIzq.add(lblPieza);
         
-        lblerrSize = new JLabel(" ");
-        lblerrSize.setForeground(Color.RED);
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblerrSize, 212, SpringLayout.NORTH, panelIzq);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, cbUnidades, -5, SpringLayout.NORTH, lblerrSize);
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblColor, 6, SpringLayout.SOUTH, lblerrSize);
-        sl_panelIzq.putConstraint(SpringLayout.WEST, lblerrSize, 0, SpringLayout.WEST, lblDescripcion);
-        sl_panelIzq.putConstraint(SpringLayout.EAST, lblerrSize, 0, SpringLayout.EAST, tfDescripcion);
-        panelIzq.add(lblerrSize);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblColor, 15, SpringLayout.SOUTH, lblSze);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblSze, 6, SpringLayout.SOUTH, lblSize);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, lblSze, 0, SpringLayout.WEST, lblDescripcion);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, lblSze, 0, SpringLayout.EAST, tfDescripcion);
+        lblSze.setForeground(Color.BLACK);
+        panelIzq.add(lblSze);
         
         lblerrAmt = new JLabel(" ");
-        lblerrAmt.setForeground(Color.RED);
-        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblerrAmt, -22, SpringLayout.NORTH, lblPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblerrAmt, 12, SpringLayout.SOUTH, tfCantidad);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblEuro, 34, SpringLayout.SOUTH, lblerrAmt);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblPrecio, 6, SpringLayout.SOUTH, lblerrAmt);
         sl_panelIzq.putConstraint(SpringLayout.WEST, lblerrAmt, 0, SpringLayout.WEST, lblDescripcion);
-        sl_panelIzq.putConstraint(SpringLayout.SOUTH, lblerrAmt, -6, SpringLayout.NORTH, lblPrecio);
         sl_panelIzq.putConstraint(SpringLayout.EAST, lblerrAmt, 0, SpringLayout.EAST, tfDescripcion);
+        lblerrAmt.setForeground(Color.RED);
         panelIzq.add(lblerrAmt);
         
         lblerrPrecio = new JLabel(" ");
-        lblerrPrecio.setForeground(Color.RED);
         sl_panelIzq.putConstraint(SpringLayout.NORTH, lblerrPrecio, 6, SpringLayout.SOUTH, tfPrecio);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, btnHacerOferta, 6, SpringLayout.SOUTH, lblerrPrecio);
         sl_panelIzq.putConstraint(SpringLayout.WEST, lblerrPrecio, 0, SpringLayout.WEST, lblDescripcion);
         sl_panelIzq.putConstraint(SpringLayout.EAST, lblerrPrecio, 0, SpringLayout.EAST, tfDescripcion);
+        lblerrPrecio.setForeground(Color.RED);
         panelIzq.add(lblerrPrecio);
+        
+        tfColor = new JTextField();
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, lblCantidad, 6, SpringLayout.SOUTH, tfColor);
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, tfColor, 6, SpringLayout.SOUTH, lblColor);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, tfColor, 0, SpringLayout.WEST, lblDescripcion);
+        sl_panelIzq.putConstraint(SpringLayout.EAST, tfColor, 0, SpringLayout.EAST, tfDescripcion);
+        tfColor.setColumns(10);
+        panelIzq.add(tfColor);
                 
         Receiver r1 = new Receiver();
         Receiver r2 = new Receiver();
@@ -386,6 +368,12 @@ public class MainDesguace extends JFrame {
                 return Double.parseDouble(number);
         }
         return null;
+    }
+
+    private static String darUnidadId(int id) {
+        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
+        servicios.DarUnidades port = service.getDarUnidadesPort();
+        return port.darUnidadId(id);
     }
     }    
    class Receiver implements javax.jms.MessageListener
@@ -466,33 +454,64 @@ public class MainDesguace extends JFrame {
        @Override
         public void onMessage(Message message) {
                 TextMessage msg = (TextMessage)message;
-                System.out.println(msg);
                 String offers="";
+                String prop = "";
                 try {
                     offers = msg.getText();
+                    prop = msg.getStringProperty("channel");
                 } catch (JMSException ex) {
                     Logger.getLogger(MainDesguace.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 Gson gson = new Gson();
                 java.lang.reflect.Type collectionType = new TypeToken<ArrayList<OfferCEN>>(){}.getType();
-                ArrayList<OfferCEN> ofertas = gson.fromJson(offers, collectionType);
-                if(ofertas != null)
+                java.lang.reflect.Type collectionType2 = new TypeToken<ArrayList<RequestCEN>>(){}.getType();
+                ArrayList<RequestCEN> peticiones = null;
+                ArrayList<OfferCEN> ofertas = null;
+                
+                if(prop.equals("pendientes"))
                 {
-                    DefaultTableModel tm = ((DefaultTableModel)innerTable.getModel());
-                    tm.setNumRows(ofertas.size());
-                    int i = 0;
-                    for(OfferCEN of : ofertas)
+                    peticiones = gson.fromJson(offers, collectionType2);
+                    if(peticiones != null)
                     {
-                        tm.setValueAt(of, i, 0);
-                        i++;
+                        DefaultTableModel tm = ((DefaultTableModel)innerTable.getModel());
+                        tm.setNumRows(peticiones.size());
+                        int i = 0;
+                        for(RequestCEN of : peticiones)
+                        {
+                            tm.setValueAt(of, i, 0);
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        DefaultTableModel tm = ((DefaultTableModel)innerTable.getModel());
+                        for(int i = 0; i < tm.getRowCount(); i++)
+                        {
+                            tm.setValueAt("", i, 0);
+                        }
                     }
                 }
                 else
                 {
-                    DefaultTableModel tm = ((DefaultTableModel)innerTable.getModel());
-                    for(int i = 0; i < tm.getRowCount(); i++)
+                    ofertas = gson.fromJson(offers, collectionType);  
+                    if(ofertas != null)
                     {
-                        tm.setValueAt("", i, 0);
+                        DefaultTableModel tm = ((DefaultTableModel)innerTable.getModel());
+                        tm.setNumRows(ofertas.size());
+                        int i = 0;
+                        for(OfferCEN of : ofertas)
+                        {
+                            tm.setValueAt(of, i, 0);
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        DefaultTableModel tm = ((DefaultTableModel)innerTable.getModel());
+                        for(int i = 0; i < tm.getRowCount(); i++)
+                        {
+                            tm.setValueAt("", i, 0);
+                        }
                     }
                 }
        }
@@ -581,6 +600,7 @@ class Sender
 	{
         try {
             TextMessage msg = (TextMessage)session_publisher.createTextMessage(obj);
+            System.out.println(msg);
             publisher.publish(msg,javax.jms.DeliveryMode.PERSISTENT, javax.jms.ObjectMessage.DEFAULT_PRIORITY,timespan);
         } catch (JMSException ex) {
             Logger.getLogger(Sender.class.getName()).log(Level.SEVERE, null, ex);
