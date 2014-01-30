@@ -2,6 +2,7 @@ build/
 bin/
 tmp/
 
+*~
 *.tmp
 *.bak
 *.swp
@@ -24,19 +25,10 @@ tmp/
 ehthumbs.db
 Thumbs.db
 
-/Taller/nbproject/private/
 DesguaceJava/build/built-jar.properties
 /Sor_Servicios/dist/
 /DesguaceJava/dist/
-/JavaApplication8/dist/
-/JavaApplication8/nbproject/private/
-/SorAMQ/nbproject/private/
-<<<<<<< HEAD
 /SorAMQ/dist/
 SorAMQ/build/
-=======
 /Taller/dist/
->>>>>>> 77745aba8873573b304986371074292ad3268110
-/AMQFunctions/nbproject/private/
 /Testing/
-/Core/nbproject/private/
