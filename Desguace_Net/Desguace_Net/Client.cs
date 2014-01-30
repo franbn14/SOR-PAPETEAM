@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Desguace_Net
 {
-    class Client
+    public class Client
     {
         private String surname;
 
@@ -57,5 +57,13 @@ namespace Desguace_Net
             get { return address; }
             set { address = value; }
         }
+        private String email;
+
+        public String Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+
     }
 }

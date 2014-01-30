@@ -7,7 +7,7 @@ using Desguace_Net.DarUnidadTipo;
 
 namespace Desguace_Net
 {
-    class Offer
+    public class Offer
     {
         private int code;
 
@@ -60,14 +60,14 @@ namespace Desguace_Net
         }
         private Request request;
 
-        internal Request Request
+        public Request Request
         {
             get { return request; }
             set { request = value; }
         }
         private Desguace scrapyard;
 
-        internal Desguace Scrapyard
+        public  Desguace Scrapyard
         {
             get { return scrapyard; }
             set { scrapyard = value; }
@@ -79,11 +79,13 @@ namespace Desguace_Net
             get { return accepted; }
             set { accepted = value; }
         }
+       
+
         public override String ToString()
         {
             DarUnidadesClient c = new DarUnidadesClient();
 
-            return ((amount != null) ? amount + " " : "") + type + ((color != null) ? " | " + color : "") +
+            return ((amount != null) ? amount + " " : "")+((Request.Type != null) ?  Request.Type + " " : "") + ((type != null) ? " | Descripcion:" + type + " " : "") + ((color != null) ? " | " + color : "") +
                 ((size != null) ? " | " + size + c.DarUnidadId(sizeUnit) : "") + ((Price != null) ? " | " + Price+" €" : "");
         }
     }

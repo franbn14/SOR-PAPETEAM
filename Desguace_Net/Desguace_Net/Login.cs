@@ -38,8 +38,6 @@ namespace Desguace_Net
             String user = textBox1.Text;
             String pass = textBox2.Text;
             LoginDesguaceClient l1 = new LoginDesguaceClient();
-         
-           
             
             try
             {
