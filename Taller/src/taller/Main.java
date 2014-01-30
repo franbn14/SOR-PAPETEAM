@@ -55,7 +55,6 @@ public class Main extends javax.swing.JFrame {
         lbError = new javax.swing.JLabel();
         btRegister = new javax.swing.JButton();
         tfPass = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(208, 76, 76));
@@ -97,13 +96,6 @@ public class Main extends javax.swing.JFrame {
 
         tfPass.setBackground(new java.awt.Color(252, 247, 232));
 
-        jButton1.setText("Ver mejores");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
         mainPaneLayout.setHorizontalGroup(
@@ -124,13 +116,10 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(64, 64, 64)))
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfUser)
+                            .addComponent(tfUser, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                             .addComponent(lbError, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(tfPass)
-                            .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1)))))
+                            .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         mainPaneLayout.setVerticalGroup(
@@ -149,9 +138,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btLogin)
-                    .addComponent(jButton1))
+                .addComponent(btLogin)
                 .addGap(18, 18, 18)
                 .addComponent(lbError))
         );
@@ -201,28 +188,7 @@ public class Main extends javax.swing.JFrame {
         reg.setVisible(true);
     }//GEN-LAST:event_btRegisterActionPerformed
 
-    /* Prueba para el algoritmo */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:       
-        Date date=new Date(23,05,2014);
-        RequestCEN request = new RequestCEN(date,"Tornillos",3.0,0,"Rojo",5,25.50,null,true,false,false);
-                
-        ArrayList<OfferCEN> offers = new ArrayList<OfferCEN>();
-                
-        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 6, 13.0, request, null, false));
-        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 13.0, request, null, false));
-        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 11.0, request, null, false));
-        //offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 3, 5.0, request, null, false));
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 3, 13.0, request, null, false));
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 2, 10.0, request, null, false));        
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 5, 23.0, request, null, false));
-        offers.add(new OfferCEN("Tornillos", 3.0, 0, "Rojo", 4, 5.0, request, null, false));
-        
-        Autoselection auto=new Autoselection(offers, request);
-        auto.getBest();
-        //System.out.println("Total: "+selected.getCode()+" "+offers.size());
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
+   
    
     /**
      * @param args the command line arguments
@@ -265,7 +231,6 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLogin;
     private javax.swing.JButton btRegister;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbError;
