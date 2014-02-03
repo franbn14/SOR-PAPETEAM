@@ -1,8 +1,0 @@
-http://pensaderoisma.wordpress.com/2012/06/06/crear-web-service-en-netbeans/
-
-
-Para descargar juddi:
-http://www.apache.org/dyn/closer.cgi/juddi/juddi/3.1.5/
-Para configurar juddi
-Variables de entorno
-http://www.it.uc3m.es/labttlat/lab5/

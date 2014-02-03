@@ -6,7 +6,7 @@ package CEN;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  *
@@ -16,20 +16,13 @@ public class ClientCEN extends UserCEN {
     private String surname;
     private String nif;
     private Date DOB;
-    
-    /*public ClientCEN(){
-        super();
-        this.surname = "";
-        this.nif = "";
-        this.DOB = new Date();
-    }*/
-    
-    public ClientCEN(String name, String surname, String password, String nif, String address, Date DOB){
-        super(name, password, address);
+           
+    public ClientCEN(String name, String surname, String password, String nif, String address, Date DOB, String email){
+        super(name, password, address, email);
         this.surname = surname;
         this.nif = nif;
         this.DOB = DOB;
-    }
+    }    
 
     public String getSurname() {
         return surname;

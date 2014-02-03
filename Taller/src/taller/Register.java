@@ -46,7 +46,7 @@ public class Register extends javax.swing.JFrame {
         lbSuranme = new javax.swing.JLabel();
         tfPass = new javax.swing.JPasswordField();
         lbDate = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btCancel = new javax.swing.JButton();
         btRegister = new javax.swing.JButton();
         lbError = new javax.swing.JLabel();
         cbTaller = new javax.swing.JCheckBox();
@@ -55,13 +55,25 @@ public class Register extends javax.swing.JFrame {
         tfDay = new javax.swing.JTextField();
         lbCIFError = new javax.swing.JLabel();
         lbDateError = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tfEmail = new javax.swing.JTextField();
+        lbEmailError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        mainPane.setBackground(new java.awt.Color(255, 250, 250));
+        mainPane.setBackground(new java.awt.Color(245, 228, 179));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel1.setText("Registro de nuevo usuario");
+
+        tfName.setBackground(new java.awt.Color(252, 247, 232));
+
+        tfCif.setBackground(new java.awt.Color(252, 247, 232));
+
+        tfAddress.setBackground(new java.awt.Color(252, 247, 232));
+
+        tfSurname.setBackground(new java.awt.Color(252, 247, 232));
 
         jLabel2.setText("NIF/CIF");
 
@@ -73,15 +85,19 @@ public class Register extends javax.swing.JFrame {
 
         lbSuranme.setText("Apellidos");
 
+        tfPass.setBackground(new java.awt.Color(252, 247, 232));
+
         lbDate.setText("Fecha nac.");
 
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btCancel.setBackground(new java.awt.Color(252, 247, 232));
+        btCancel.setText("Cancelar");
+        btCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btCancelActionPerformed(evt);
             }
         });
 
+        btRegister.setBackground(new java.awt.Color(252, 247, 232));
         btRegister.setText("Registrar");
         btRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,17 +114,38 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        tfMonth.setBackground(new java.awt.Color(252, 247, 232));
         tfMonth.setText("mm");
+        tfMonth.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfMonthFocusGained(evt);
+            }
+        });
 
+        tfYear.setBackground(new java.awt.Color(252, 247, 232));
         tfYear.setText("aaaa");
+        tfYear.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfYearFocusGained(evt);
+            }
+        });
 
+        tfDay.setBackground(new java.awt.Color(252, 247, 232));
         tfDay.setText("dd");
+        tfDay.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfDayFocusGained(evt);
+            }
+        });
 
         lbCIFError.setForeground(new java.awt.Color(255, 0, 0));
-        lbCIFError.setText("    ");
 
         lbDateError.setForeground(new java.awt.Color(233, 26, 26));
         lbDateError.setText("  ");
+
+        jLabel6.setText("Email");
+
+        lbEmailError.setForeground(new java.awt.Color(223, 36, 36));
 
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
@@ -118,99 +155,107 @@ public class Register extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPaneLayout.createSequentialGroup()
-                        .addComponent(cbTaller)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(lbSuranme)
+                            .addComponent(lbDate))
+                        .addGap(18, 18, 18)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(mainPaneLayout.createSequentialGroup()
+                                .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfName)
+                            .addComponent(tfCif)
+                            .addComponent(tfAddress)
+                            .addComponent(tfSurname)
+                            .addComponent(tfPass, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(tfEmail)))
                     .addGroup(mainPaneLayout.createSequentialGroup()
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(lbSuranme)
-                                    .addComponent(lbDate))
-                                .addGap(18, 18, 18)
-                                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(mainPaneLayout.createSequentialGroup()
-                                        .addComponent(btRegister)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(jButton1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(mainPaneLayout.createSequentialGroup()
-                                        .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tfMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbDateError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(mainPaneLayout.createSequentialGroup()
-                                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(tfName, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                            .addComponent(tfCif, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                            .addComponent(tfAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                            .addComponent(tfSurname, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                            .addComponent(tfPass, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbCIFError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(mainPaneLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(12, 12, 12))))
+                        .addGap(87, 87, 87)
+                        .addComponent(btRegister)
+                        .addGap(12, 12, 12)
+                        .addComponent(btCancel))
+                    .addComponent(jLabel6)
+                    .addComponent(cbTaller)
+                    .addComponent(jLabel1))
+                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPaneLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbCIFError, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPaneLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbDateError, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbEmailError))
+                        .addGap(68, 68, 68))))
         );
         mainPaneLayout.setVerticalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPaneLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbTaller)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(lbCIFError))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbSuranme))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbDate)
-                    .addComponent(tfMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDateError))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cbTaller)
+                .addGap(14, 14, 14)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btRegister)
-                    .addComponent(jButton1))
-                .addContainerGap())
+                    .addGroup(mainPaneLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))
+                    .addGroup(mainPaneLayout.createSequentialGroup()
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(lbCIFError))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbSuranme))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbDate)
+                            .addComponent(tfMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbDateError))
+                        .addGap(18, 18, 18)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbEmailError))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btRegister)
+                            .addComponent(btCancel))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, 482, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,74 +273,76 @@ public class Register extends javax.swing.JFrame {
         String pass=tfPass.getText();
         String surname=null;
         String dob=null;
+        String email=tfEmail.getText();
         boolean correct=true, dateCorrect=true;
 
         lbError.setText("");
         lbDateError.setText("");
         lbCIFError.setText("");
-
-        
-        if(name!=null && !name.equals("") && pass!=null && !pass.equals("") && address!=null && !address.equals(""))
-        {
-            cif=tfCif.getText();
-
-            if(cif!=null && !cif.isEmpty() && !validateCif(cif,cbTaller.isSelected())) {
-                lbCIFError.setText("No es valido");
-                correct=false;
-            }
-
-            if(!cbTaller.isSelected()) {
-                surname=tfSurname.getText();
-
-                String day=tfDay.getText(), month=tfMonth.getText(), year=tfYear.getText();
-
-                if(!day.matches("[0-3][0-9]")) {
-                    lbDateError.setText("Formato incorrecto");
-                    dateCorrect=false;
-                }
-
-                if(!month.matches("[0-1][0-9]")) {
-                    lbDateError.setText("Formato incorrecto");
-                    dateCorrect=false;
-                }
-
-                if(!year.matches("[0-9]{4}")) {
-                    lbDateError.setText("Formato incorrecto");
-                    dateCorrect=false;
-                }
-
-                if(dateCorrect) {                   
-                    Date date = null;
-                    dob = year+"-"+month+"-"+day;
-                    
-                    try {
-                        DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-                        formatter.setLenient(false);
-                        date = formatter.parse(dob);
-                        
-                    } catch (ParseException e) { 
-                         lbDateError.setText("Formato incorrecto");
-                    }                                                              
-                }
-
-            }
-
-            if(correct && dateCorrect) {
-                String error=registroCli(cif,name,address,pass,surname,dob);
-
-                if(error.equals("")) {
-                    Main main=new Main();
-                    dispose();
-                    main.setVisible(true);
-                }
-                else
-                lbError.setText(error);
-            }/*
-            else
-            lbError.setText("Registro incorrecto");*/
-        }
-        else
+        lbEmailError.setText("");
+                
+        if(name==null || name.equals("") || pass==null || pass.equals("") || address==null || address.equals("") || email==null || email.equals("")) {
             lbError.setText("No puede haber vacíos");
+            correct=false;
+        }
+            
+        cif=tfCif.getText();
+
+        if(cif!=null && !cif.isEmpty() && !validateCif(cif,cbTaller.isSelected())) {
+            lbCIFError.setText("No es válido");
+            correct=false;
+        }
+        
+        if(email!=null && !email.isEmpty() && !email.matches("[a-zA-Z]+\\@[a-z]+\\.[a-z]+")) {
+             lbEmailError.setText("Formato incorrecto");
+             dateCorrect=false;
+        }
+        
+        if(!cbTaller.isSelected()) {
+            surname=tfSurname.getText();
+
+            String day=tfDay.getText(), month=tfMonth.getText(), year=tfYear.getText();
+
+            if(!day.matches("[0-3][0-9]")) {
+                lbDateError.setText("Fecha incorrecta");
+                dateCorrect=false;
+            }
+
+            if(!month.matches("[0-1][0-9]")) {
+                lbDateError.setText("Fecha incorrecta");
+                dateCorrect=false;
+            }
+
+            if(!year.matches("[0-9]{4}")) {
+                lbDateError.setText("Fecha incorrecta");
+                dateCorrect=false;
+            }
+
+            if(dateCorrect) {                   
+                Date date = null;
+                dob = day+"-"+month+"-"+year;
+
+                try {
+                    DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                    formatter.setLenient(false);
+                    date = formatter.parse(dob);
+
+                } catch (ParseException e) { 
+                     lbDateError.setText("Fecha incorrecta");
+                }                                                              
+            }            
+        }
+        if(correct && dateCorrect) {
+            String error=registroCli(cif,name,address,pass,surname,dob,email);
+
+            if(error.equals("")) {
+                Main main=new Main();
+                dispose();
+                main.setVisible(true);
+            }
+            else
+            lbError.setText(error);
+        }                
     }//GEN-LAST:event_btRegisterActionPerformed
 
     private void cbTallerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cbTallerStateChanged
@@ -320,12 +367,30 @@ public class Register extends javax.swing.JFrame {
             
     }//GEN-LAST:event_cbTallerStateChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
         // TODO add your handling code here:
         Main main=new Main();
         dispose();
         main.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btCancelActionPerformed
+
+    private void tfDayFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDayFocusGained
+        // TODO add your handling code here:
+        if(tfDay.getText().equals("dd"))
+            tfDay.setText("");
+    }//GEN-LAST:event_tfDayFocusGained
+
+    private void tfMonthFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfMonthFocusGained
+        // TODO add your handling code here:
+        if(tfMonth.getText().equals("mm"))
+            tfMonth.setText("");        
+    }//GEN-LAST:event_tfMonthFocusGained
+
+    private void tfYearFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfYearFocusGained
+        // TODO add your handling code here:
+        if(tfYear.getText().equals("aaaa"))
+            tfYear.setText("");        
+    }//GEN-LAST:event_tfYearFocusGained
 
     
     /**
@@ -364,23 +429,26 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCancel;
     private javax.swing.JButton btRegister;
     private javax.swing.JCheckBox cbTaller;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lbCIFError;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbDateError;
+    private javax.swing.JLabel lbEmailError;
     private javax.swing.JLabel lbError;
     private javax.swing.JLabel lbSuranme;
     private javax.swing.JPanel mainPane;
     private javax.swing.JTextField tfAddress;
     private javax.swing.JTextField tfCif;
     private javax.swing.JTextField tfDay;
+    private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfMonth;
     private javax.swing.JTextField tfName;
     private javax.swing.JPasswordField tfPass;
@@ -399,12 +467,11 @@ public class Register extends javax.swing.JFrame {
          
          if(isTaller) {
             letter = cif.substring(0,1);        
-            letters = "ABCDEFGHJNPQRSUVW";            
+            letters = "ABCDEFGHKLMNPQS";            
             digits = cif.substring(1);
             
          }
          else {
-             System.out.println("AQUI "+cif);
              letter = cif.substring(8);            
              letters="TRWAGMYFPDXBNJZSQVHLCKE";                          
              digits = cif.substring(0, 8);
@@ -416,10 +483,13 @@ public class Register extends javax.swing.JFrame {
          return digits.matches("[0-9]{8}");         
     }
 
-    private static String registroCli(java.lang.String nif, java.lang.String nombre, java.lang.String direccion, java.lang.String password, java.lang.String apellidos, java.lang.String fecha) {
+    private static String registroCli(java.lang.String nif, java.lang.String nombre, java.lang.String direccion, java.lang.String password, java.lang.String apellidos, java.lang.String fecha, java.lang.String email) {
         servicios.RegistroCliente_Service service = new servicios.RegistroCliente_Service();
         servicios.RegistroCliente port = service.getRegistroClientePort();
-        return port.registroCli(nif, nombre, direccion, password, apellidos, fecha);
+        return port.registroCli(nif, nombre, direccion, password, apellidos, fecha, email);
     }
+
+    
+    
     
 }

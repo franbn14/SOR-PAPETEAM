@@ -6,19 +6,18 @@
 
 package CEN;
 
-
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  *
  * @author alberto
  */
-public class OfferCEN {
+public class OfferCEN implements Comparable<OfferCEN>{
     private int code;
     private String type;
     private Double size;
-    private int sizeUnit;
+    private Integer sizeUnit;
     private String color;
     private Integer amount;
     private Double price;
@@ -26,10 +25,7 @@ public class OfferCEN {
     private ScrapYardCEN scrapyard;
     private boolean accepted;
 
-    /*public OfferCEN() {
-    }*/
-
-    private void setAttributes(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
+    private void setAttributes(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {
         this.type = type;
         this.size = size;
         this.sizeUnit = sizeUnit;
@@ -39,9 +35,38 @@ public class OfferCEN {
         this.request = request;
         this.scrapyard = scrapyard;          
         this.accepted = accepted;
+    }    
+    
+    @Override
+    public int compareTo(OfferCEN offer) {
+       if(price<offer.price) 
+           return -1;
+       else if(price==offer.price)
+           return 0;
+       else
+           return 1;
+    }
+        
+    public boolean equals(OfferCEN offer) {
+        if (offer == null) {
+            return false;
+        }
+        if (getClass() != offer.getClass()) {
+            return false;
+        }
+        final OfferCEN other = (OfferCEN) offer;
+        if (this.price != other.price) {
+            return false;
+        }
+        if (this.amount != other.amount) {                
+            return false;
+        }
+        if(this.color != other.color)
+            return false;
+        return true;
     }
     
-    public OfferCEN(String type, Double size, int sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
+    public OfferCEN(String type, Double size, Integer sizeUnit, String color, Integer amount, Double price, RequestCEN request, ScrapYardCEN scrapyard, boolean accepted) {        
         setAttributes(type, size, sizeUnit, color, amount, price, request, scrapyard, accepted);
         this.code = -1;
     }     
@@ -70,15 +95,11 @@ public class OfferCEN {
         this.size = size;
     }
 
-    public int getSizeUnit() {
+    public Integer getSizeUnit() {
         return sizeUnit;
     }
-
-    public String getSizeUnitString(){
-        return UnitsCEN.getByID(sizeUnit);
-    }
     
-    public void setSizeUnit(int sizeUnit) {
+    public void setSizeUnit(Integer sizeUnit) {
         this.sizeUnit = sizeUnit;
     }
 
@@ -132,8 +153,13 @@ public class OfferCEN {
        
     @Override
     public String toString() {
-        return amount+" "+type;
+        return ((amount!=null)?amount+" ":"") + request.getType() + ((type!=null && !type.equals(""))?" | Descripcion: "+type:"") + ((color!=null)?" | "+color:"") + 
+                ((size!=null)?" | "+size+darUnidadId(sizeUnit)+" ":"") + ((price!=null)?" | "+price+"€":"");
     }
-    
-   
+
+    private static String darUnidadId(int id) {
+        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
+        servicios.DarUnidades port = service.getDarUnidadesPort();
+        return port.darUnidadId(id);
+    }
 }
