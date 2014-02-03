@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/SorServices/RegistroPrueba?wsdl" uri="wsdl/localhost_8080/SorServices/RegistroPrueba.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/LoginClientes?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/LoginClientes.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/LoginDesguace.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/LoginDesguace?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/LoginDesguace.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarUnidades?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/DarUnidades.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarUnidades?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/DarUnidades.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/DarIdDesguacebyCif.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/DarIdDesguacebyCif.xsd_1.xsd"/>
+</catalog>

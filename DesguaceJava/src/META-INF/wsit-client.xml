@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <definitions 
+ xmlns="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="mainclientconfig" 
+ >
+    <import location="LoginDesguace.xml" namespace="http://Servicios/"/>
+    <import location="RegistroDesguace.xml" namespace="http://Servicios/"/>
+    <import location="DarUnidades.xml" namespace="http://Servicios/"/>
+    <import location="DarIdDesguacebyCif.xml" namespace="http://Servicios/"/>
+</definitions>
