@@ -8,8 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
-using Desguace_Net.RegistroDesguace;
 using System.Text.RegularExpressions;
+
+using System.Security.Cryptography;
+using Desguace_Net.RegistroDesguace;
+
 
 namespace Desguace_Net
 {
@@ -19,6 +22,13 @@ namespace Desguace_Net
         {
             InitializeComponent();
         }
+        public static byte[] strToByteArray(string str)
+        {
+            System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
+            return encoding.GetBytes(str);
+
+        }
+
         public static bool IsValidEmail(string strMailAddress)
         {
             // Return true if strIn is in valid e-mail format.
@@ -88,7 +98,11 @@ namespace Desguace_Net
                 try
                 {
                     String error = "";
-                    error = l1.Registro(Cif_Text.Text, Nombre_Text.Text, Pass_Text.Text, Dire_Text.Text,Email_text.Text);
+
+                    SHA512 shaM = new SHA512Managed();
+                   byte [] passCi = shaM.ComputeHash(strToByteArray(Pass_Text.Text));
+                   String passCifrado = Encoding.UTF8.GetString(passCi, 0, passCi.Length);
+                    error = l1.Registro(Cif_Text.Text, Nombre_Text.Text, passCifrado, Dire_Text.Text,Email_text.Text);
 
 
                     if (error == "")

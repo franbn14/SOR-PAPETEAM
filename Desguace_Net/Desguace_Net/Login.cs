@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
 using Desguace_Net.LoginServicio;
+using System.Security.Cryptography;
 using Desguace_Net.DarNombre;
 
 
@@ -20,7 +21,12 @@ namespace Desguace_Net
         {
             InitializeComponent();
         }
-        
+        public static byte[] strToByteArray(string str)
+        {
+            System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
+            return encoding.GetBytes(str);
+
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -41,8 +47,10 @@ namespace Desguace_Net
             
             try
             {
-                
-                String error =l1.Login_Des(pass, user);
+                SHA512 shaM = new SHA512Managed();
+                byte[] passCi = shaM.ComputeHash(strToByteArray(pass));
+                String passCifrado = Encoding.UTF8.GetString(passCi, 0, passCi.Length);
+                String error =l1.Login_Des(passCifrado, user);
                
                 if (error == "")
                 {
