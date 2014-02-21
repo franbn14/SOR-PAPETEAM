@@ -34,6 +34,11 @@ namespace Desguace_Net
             // Return true if strIn is in valid e-mail format.
             return Regex.IsMatch(strMailAddress, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
         }
+        public static bool IsValidPass(string pass)
+        {
+            // Return true if strIn is in valid e-mail format.
+            return Regex.IsMatch(pass, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$");
+        }
         public bool validateCif(string cif)
         {
             if (string.IsNullOrEmpty(cif)) return false;
@@ -70,12 +75,12 @@ namespace Desguace_Net
                 Erro_Cif.Visible = true;
                 Erro_Cif.Text = "CIF en formato incorrecto";
             }
-            if (Pass_Text.Text == "")
+            if (!IsValidPass(Pass_Text.Text))
             {
                 error_Pass.Visible = true;
-                error_Pass.Text = "Este campo no puede estar vacío";
+                error_Pass.Text = "Formato Incorrecto.Longitud mayor o igual a 8.\n Además debe contener al menos 1 miniscula,mayuscula y 1 numero";
             }
-            if (Pass_Text.Text != Pass2.Text)
+            if (Pass_Text.Text != Pass2.Text && IsValidPass(Pass_Text.Text))
             {
                 error_Pass.Visible = true;
                 error_Pass.Text = "Los password no coinciden";
@@ -101,7 +106,7 @@ namespace Desguace_Net
 
                     SHA512 shaM = new SHA512Managed();
                    byte [] passCi = shaM.ComputeHash(strToByteArray(Pass_Text.Text));
-                   String passCifrado = Encoding.UTF8.GetString(passCi, 0, passCi.Length);
+                   String passCifrado = Convert.ToBase64String(passCi);
                     error = l1.Registro(Cif_Text.Text, Nombre_Text.Text, passCifrado, Dire_Text.Text,Email_text.Text);
 
 

@@ -49,7 +49,7 @@ namespace Desguace_Net
             {
                 SHA512 shaM = new SHA512Managed();
                 byte[] passCi = shaM.ComputeHash(strToByteArray(pass));
-                String passCifrado = Encoding.UTF8.GetString(passCi, 0, passCi.Length);
+                String passCifrado = Convert.ToBase64String(passCi);
                 String error =l1.Login_Des(passCifrado, user);
                
                 if (error == "")
