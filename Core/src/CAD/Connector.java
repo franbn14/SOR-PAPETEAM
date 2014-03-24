@@ -27,7 +27,7 @@ public class Connector {
     
     private static Connection getConnection() throws ClassNotFoundException, SQLException, UnknownHostException {
         String hostname = InetAddress.getLocalHost().getHostName();
-        pass = (hostname.equals("stv") && hostname.equals("alberto-PC"))? "root" : (hostname.equals("fran-PC"))? "NF8VGUD5" : "";
+        pass = (hostname.equals("stv") || hostname.equals("alberto-PC"))? "root" : (hostname.equals("fran-PC"))? "NF8VGUD5" : "";
         Class.forName(driver);
         return DriverManager.getConnection(url, usr, pass);
     }
