@@ -164,7 +164,7 @@ public class Main extends javax.swing.JFrame {
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         // TODO add your handling code here:
         String user=tfUser.getText();
-        String pass=tfPass.getText();        
+        String pass=Register.encryptPass(tfPass.getText());        
                 
         if(user!=null && !user.equals("") && pass!=null && !pass.equals("")) {
             String error=login(pass,user);

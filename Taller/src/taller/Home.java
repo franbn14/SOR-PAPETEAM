@@ -13,6 +13,12 @@ import javax.swing.JList;
 import CEN.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+import logger.ClientLogger;
 
 /**
  *
@@ -22,7 +28,9 @@ public class Home extends javax.swing.JFrame {
 
     private ArrayList<RequestCEN> requests;
     private ArrayList<OfferCEN> offers;
-    String user;
+    private String user;
+   
+    private ClientLogger logger;
     /**
      * Creates new form Home
      */
@@ -31,11 +39,14 @@ public class Home extends javax.swing.JFrame {
         user=name;
         
         lbTitle.setText("Bienvenido "+user);
-        
+        System.out.println("Entro login");
+        logger=new ClientLogger();
+        logger.setLogMessage(1,name,"");
+                  
         requests=new ArrayList<RequestCEN>();
         offers=new ArrayList<OfferCEN>();   
         
-        checkRequests();
+        checkRequests();            
     }
 
     /**
@@ -315,13 +326,7 @@ public class Home extends javax.swing.JFrame {
                         Date today=new Date(), requestDate=selected.getdeadline();                    
                         today.setHours(requestDate.getHours());
                         today.setMinutes(requestDate.getMinutes());
-                        today.setSeconds(requestDate.getSeconds());
-
-                        if(!selected.isFinished())                         
-                            if(!requestDate.after(today)) {
-                                
-                            }
-                                
+                        today.setSeconds(requestDate.getSeconds());                       
                     }                    
                                        
                     offers = gson.fromJson(offerString, collectionType);           
@@ -373,7 +378,6 @@ public class Home extends javax.swing.JFrame {
             requestFList.setModel(model2);
         }        
     }
-    
     /**
      * @param args the command line arguments
      */

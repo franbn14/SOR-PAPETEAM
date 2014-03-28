@@ -385,7 +385,7 @@ public class NewRequest extends javax.swing.JFrame {
 
             if(id==-1)
                 lbReqError.setText("Error al crear solicitud");
-            else {                
+            else {                          
                 dispose();
                 Home home=new Home(user);
                 home.setVisible(true);
