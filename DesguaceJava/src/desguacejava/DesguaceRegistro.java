@@ -21,6 +21,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import org.apache.commons.codec.binary.Hex;
 
 /**
  *
@@ -33,6 +36,7 @@ public class DesguaceRegistro extends JFrame{
     JLabel lb1;
     JButton btn;
     private JTextField textField;
+    String password;
     public DesguaceRegistro()
     {
     	setResizable(false);
@@ -142,15 +146,40 @@ public class DesguaceRegistro extends JFrame{
                     if(error.equals(""))
                         error+="los Passwords no pueden ser vacios";
                     else
-                        error+="\n los Passwords no pueden ser vacios";
+                        error+=", los Passwords no pueden ser vacios";
                 }
-                if(!t2.getText().equals(t3.getText()))
+                else if(!t2.getText().equals(t3.getText()))
                 {
                     valido = false;
                     if(error.equals(""))
                         error+="los Passwords no coinciden";
                     else
-                        error+="\n los Passwords no coinciden";
+                        error+=", los Passwords no coinciden";
+                }
+                else
+                {
+                    String pass = t2.getText();
+                    MessageDigest md;
+                    if(!pass.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$"))
+                    {
+                       valido = false;
+                       if(error.equals(""))
+                            error+="formato incorrecto en Passwords";
+                        else
+                            error+=", formato incorrecto en Passwords";
+                    }   
+                    else
+                    {
+                        try {
+                            md = MessageDigest.getInstance("SHA-512");
+                            md.update(pass.getBytes());
+                            byte[] mb = md.digest();
+                            password = String.copyValueOf(Hex.encodeHex(mb));
+                            System.out.println(password);
+                        } catch (NoSuchAlgorithmException ex) {
+                            Logger.getLogger(DesguaceRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                 }
                 
                 if(textField.getText().equals(" "))
@@ -159,7 +188,7 @@ public class DesguaceRegistro extends JFrame{
                     if(error.equals(""))
                         error+="el email no puede ser vacio";
                     else
-                        error+="\n el email no puede ser vacio";
+                        error+=", el email no puede ser vacio";
                 }
                 else
                 {
@@ -169,13 +198,13 @@ public class DesguaceRegistro extends JFrame{
                         if(error.equals(""))
                             error+="formato del email incorrecto. 'ejemplo@ejemplo.com'";
                         else
-                            error+="\n formato del email incorrecto. 'ejemplo@ejemplo.com'";  
+                            error+=", formato del email incorrecto. 'ejemplo@ejemplo.com'";  
                     }
                 }
                 
                 if(valido)
                 {
-                    error = registro(t1.getText(), t4.getText(), t2.getText(), t5.getText(), textField.getText());
+                    error = registro(t1.getText(), t4.getText(), password, t5.getText(), textField.getText());
                     if(error.equals(""))
                     {
                         error = "Registro completado";

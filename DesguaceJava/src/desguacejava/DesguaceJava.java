@@ -13,8 +13,13 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.*;
+import org.apache.commons.codec.binary.Hex;
 
 
 /**
@@ -108,23 +113,33 @@ public class DesguaceJava extends JFrame implements ActionListener{
 		{
 			if("Submit".equals(nameButton))
 			{
-				String user = t1.getText();
-				String pass = t2.getText();
-                                String error=loginDes(pass, user);
-				if(error.equals(""))
-				{
-                                    MainDesguace mdes;
-                                    mdes = new MainDesguace(t1.getText());
-                                    mdes.setVisible(false);
-                                    mdes.setVisible(true);
-                                    mdes.setSize(700,600);
-                                    des.setVisible(false);
-				}
-				else
-				{
-					lblError.setText(error);
-					lblError.setVisible(true);
-				}
+                        try {
+                            String user = t1.getText();
+                            
+                            MessageDigest md;
+                            md = MessageDigest.getInstance("SHA-512");
+                            md.update(t2.getText().getBytes());
+                            byte[] mb = md.digest();
+                            String pass = String.copyValueOf(Hex.encodeHex(mb));
+                            System.out.println(pass);
+                            String error=loginDes(pass, user);
+                            if(error.equals(""))
+                            {
+                                MainDesguace mdes;
+                                mdes = new MainDesguace(t1.getText());
+                                mdes.setVisible(false);
+                                mdes.setVisible(true);
+                                mdes.setSize(700,600);
+                                des.setVisible(false);
+                            }
+                            else
+                            {
+                                    lblError.setText(error);
+                                    lblError.setVisible(true);
+                            }
+                        } catch (NoSuchAlgorithmException ex) {
+                            Logger.getLogger(DesguaceJava.class.getName()).log(Level.SEVERE, null, ex);
+                        }
 			}
 		}
 	}
