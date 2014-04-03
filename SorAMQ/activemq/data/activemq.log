@@ -1,0 +1,57 @@
+2014-02-25 17:58:36,031 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@3b925367: startup date [Tue Feb 25 17:58:35 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | WrapperSimpleAppMain
+2014-02-25 17:58:52,800 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2014-02-25 17:58:52,992 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-02-25 17:58:54,939 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-50536-1393347534419-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-02-25 17:58:54,993 | INFO  | Listening for connections at: tcp://MacBook-Pro-de-Gustavo.local:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-02-25 17:58:55,000 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-02-25 17:58:55,008 | INFO  | Listening for connections at: amqp://MacBook-Pro-de-Gustavo.local:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-02-25 17:58:55,015 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-02-25 17:58:55,025 | INFO  | Listening for connections at: stomp://MacBook-Pro-de-Gustavo.local:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-02-25 17:58:55,029 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-02-25 17:58:55,035 | INFO  | Listening for connections at: mqtt://MacBook-Pro-de-Gustavo.local:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2014-02-25 17:58:55,037 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-02-25 17:58:55,870 | INFO  | Listening for connections at ws://MacBook-Pro-de-Gustavo.local:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2014-02-25 17:58:55,871 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2014-02-25 17:58:55,947 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-50536-1393347534419-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-02-25 17:58:55,949 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2014-02-25 17:58:57,258 | INFO  | Welcome to hawtio 1.2-M23 : http://hawt.io/ : Don't cha wish your console was hawt like me? ;-) | io.hawt.jmx.JmxTreeWatcher | WrapperSimpleAppMain
+2014-02-25 17:58:57,363 | INFO  | Starting hawtio authentication filter, JAAS realm: "activemq" authorized role: "admins" role principal classes: "org.apache.activemq.jaas.GroupPrincipal" | io.hawt.web.AuthenticationFilter | WrapperSimpleAppMain
+2014-02-25 17:58:57,503 | INFO  | Using file upload directory: /var/folders/l9/1thv2d316y7c_rtbghjhdlwh0000gn/T//uploads | io.hawt.web.UploadServlet | WrapperSimpleAppMain
+2014-02-25 17:58:57,566 | INFO  | jolokia-agent: Using access restrictor classpath:/jolokia-access.xml | /hawtio | WrapperSimpleAppMain
+2014-02-25 17:58:58,174 | INFO  | ActiveMQ WebConsole available at http://localhost:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2014-02-25 17:58:58,282 | INFO  | Initializing Spring FrameworkServlet 'dispatcher' | /admin | WrapperSimpleAppMain
+2014-02-25 18:24:20,103 | WARN  | Transport Connection to: tcp://127.0.0.1:58200 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58200@61616
+2014-02-25 18:24:20,103 | WARN  | Transport Connection to: tcp://127.0.0.1:58203 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58203@61616
+2014-02-25 18:24:20,103 | WARN  | Transport Connection to: tcp://127.0.0.1:58202 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58202@61616
+2014-02-25 18:27:23,011 | WARN  | Transport Connection to: tcp://127.0.0.1:56832 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56832@61616
+2014-02-25 18:27:23,013 | WARN  | Transport Connection to: tcp://127.0.0.1:50541 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50541@61616
+2014-02-25 18:27:23,013 | WARN  | Transport Connection to: tcp://127.0.0.1:50566 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50566@61616
+2014-02-25 18:27:23,013 | WARN  | Transport Connection to: tcp://127.0.0.1:50614 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50614@61616
+2014-02-25 18:27:23,013 | WARN  | Transport Connection to: tcp://127.0.0.1:50616 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50616@61616
+2014-02-25 18:27:23,012 | WARN  | Transport Connection to: tcp://127.0.0.1:50543 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50543@61616
+2014-02-25 18:27:23,012 | WARN  | Transport Connection to: tcp://127.0.0.1:50544 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50544@61616
+2014-02-25 18:27:23,012 | WARN  | Transport Connection to: tcp://127.0.0.1:50542 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50542@61616
+2014-02-25 18:27:23,012 | WARN  | Transport Connection to: tcp://127.0.0.1:50618 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50618@61616
+2014-02-25 18:27:23,012 | WARN  | Transport Connection to: tcp://127.0.0.1:50608 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50608@61616
+2014-02-25 18:27:23,012 | WARN  | Transport Connection to: tcp://127.0.0.1:53933 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:53933@61616
+2014-02-25 18:27:23,012 | WARN  | Transport Connection to: tcp://127.0.0.1:50601 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50601@61616
+2014-02-25 18:27:23,012 | WARN  | Transport Connection to: tcp://127.0.0.1:50595 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50595@61616
+2014-02-25 18:27:23,012 | WARN  | Transport Connection to: tcp://127.0.0.1:51408 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:51408@61616
+2014-02-25 18:27:23,011 | WARN  | Transport Connection to: tcp://127.0.0.1:57422 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57422@61616
+2014-02-25 18:27:23,011 | WARN  | Transport Connection to: tcp://127.0.0.1:58132 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58132@61616
+2014-02-25 18:27:23,393 | WARN  | Transport Connection to: tcp://127.0.0.1:50564 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:50564@61616
+2014-02-25 18:28:31,485 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-50536-1393347534419-0:1) is shutting down | org.apache.activemq.broker.BrokerService | Thread-24
+2014-02-25 18:28:32,423 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | Thread-24
+2014-02-25 18:28:32,904 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | Thread-24
+2014-02-25 18:28:34,905 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | Thread-24
+2014-02-25 18:28:36,906 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | Thread-24
+2014-02-25 18:28:37,247 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | Thread-24
+2014-02-25 18:28:37,876 | INFO  | PListStore:[/Users/Gustavo/Documents/SORPAPETEAM/SorAMQ/activemq/bin/macosx/../../data/localhost/tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | Thread-24
+2014-02-25 18:28:37,891 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-24
+2014-02-25 18:28:37,891 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-24
+2014-02-25 18:28:37,905 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | Thread-24
+2014-02-25 18:28:38,173 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-50536-1393347534419-0:1) uptime 29 minutes | org.apache.activemq.broker.BrokerService | Thread-24
+2014-02-25 18:28:38,174 | INFO  | Apache ActiveMQ 5.9.0 (localhost, ID:MacBook-Pro-de-Gustavo.local-50536-1393347534419-0:1) is shutdown | org.apache.activemq.broker.BrokerService | Thread-24
+2014-02-25 18:28:38,176 | INFO  | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@3b925367: startup date [Tue Feb 25 17:58:35 CET 2014]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | Thread-24
+2014-02-25 18:28:38,622 | INFO  | Destroying Spring FrameworkServlet 'dispatcher' | /admin | Thread-24
+2014-02-25 18:28:38,691 | INFO  | Destroying hawtio authentication filter | io.hawt.web.AuthenticationFilter | Thread-24

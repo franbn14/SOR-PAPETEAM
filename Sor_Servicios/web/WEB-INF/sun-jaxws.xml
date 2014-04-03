@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+  <endpoint implementation="Servicios.LoginClientes" name="LoginClientes" url-pattern="/LoginClientes"/>
+  <endpoint implementation="Servicios.LoginDesguace" name="LoginDesguace" url-pattern="/LoginDesguace"/>
+  <endpoint implementation="Servicios.RegistroDesguace" name="RegistroDesguace" url-pattern="/RegistroDesguace"/>
+  <endpoint implementation="Servicios.RegistroCliente" name="RegistroCliente" url-pattern="/RegistroCliente"/>
+  <endpoint implementation="Servicios.DarNombreCliente" name="DarNombreCliente" url-pattern="/DarNombreCliente"/>
+  <endpoint implementation="Servicios.DarIdClientebyNif" name="DarIdClientebyNif" url-pattern="/DarIdClientebyNif"/>
+  <endpoint implementation="Servicios.DarIdDesguacebyCif" name="DarIdDesguacebyCif" url-pattern="/DarIdDesguacebyCif"/>
+  <endpoint implementation="Servicios.NewPeticion" name="NewPeticion" url-pattern="/NewPeticion"/>
+  <endpoint implementation="Servicios.BorrarPeticion" name="BorrarPeticion" url-pattern="/BorrarPeticion"/>
+  <endpoint implementation="Servicios.DarPeticionesNifP" name="DarPeticionesNifP" url-pattern="/DarPeticionesNifP"/>
+  <endpoint implementation="Servicios.DarPeticionesNifF" name="DarPeticionesNifF" url-pattern="/DarPeticionesNifF"/>
+  <endpoint implementation="Servicios.DarUnidades" name="DarUnidades" url-pattern="/DarUnidades"/>
+  <endpoint implementation="Servicios.DarOfertasRequest" name="DarOfertasRequest" url-pattern="/DarOfertasRequest"/>
+  <endpoint implementation="Servicios.DarOfertasRequestOk" name="DarOfertasRequestOk" url-pattern="/DarOfertasRequestOk"/>
+  <endpoint implementation="Servicios.DarOfertasSeleccionadas" name="DarOfertasSeleccionadas" url-pattern="/DarOfertasSeleccionadas"/>
+  <endpoint implementation="Servicios.AceptarOfertas" name="AceptarOfertas" url-pattern="/AceptarOfertas"/>
+  <endpoint implementation="Servicios.LoginClientes" name="LoginClientes" url-pattern="/LoginClientes"/>
+</endpoints>
