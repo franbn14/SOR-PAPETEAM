@@ -35,6 +35,9 @@ public class ClientLogger extends SorLogger {
             case 4: message="Sesión finalizada por "+client;
                 break;
                 
+            case 5: message="Registrado usuario "+client;
+                break;
+                
             case -1: message="Error al iniciar sesión: "+extraInfo+" "+client;
                 break;
         }        
