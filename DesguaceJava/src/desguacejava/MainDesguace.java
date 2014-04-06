@@ -6,6 +6,7 @@ package desguacejava;
 
 import CEN.OfferCEN;
 import CEN.RequestCEN;
+import ScrapYardLogger.SYLogger;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sun.org.apache.xpath.internal.axes.OneStepIterator;
@@ -72,7 +73,7 @@ public class MainDesguace extends JFrame {
         private JLabel lblerrPrecio;
         private JLabel lblPieza;
         private JTextField tfColor;
-        
+        SYLogger logger;
     public MainDesguace(final String cif) 
     {    
         super("Pantalla Principal del Desguace");
@@ -88,6 +89,7 @@ public class MainDesguace extends JFrame {
         spPrincipal.setRightComponent(panelDer);
         panelDer.setLayout(new BorderLayout(0, 0));
         
+        logger = new SYLogger();
         JSplitPane spTablas = new JSplitPane();
         spTablas.setDividerSize(10);
         spTablas.setOrientation(JSplitPane.VERTICAL_SPLIT);
@@ -256,6 +258,7 @@ public class MainDesguace extends JFrame {
                        if(enviar)
                        {
                             Sender envio = new Sender();
+                            logger.setLogMessage(2, cif, nueva);
                             envio.setParams("OfferDelivery", cif, "OfferDelivery", "OfferDelivery");
                             //envio.open("192.168.43.56", "61616");
                             envio.open("localhost", "61616");

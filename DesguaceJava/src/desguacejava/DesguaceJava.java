@@ -5,6 +5,7 @@
 
 package desguacejava;
 
+import ScrapYardLogger.SYLogger;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -34,6 +35,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
 	JPasswordField t2;
         DesguaceRegistro reg;
         static JFrame des;
+        SYLogger logger;
 	public DesguaceJava(String titulo)
 	{
 		super(titulo);
@@ -94,6 +96,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
                 reg = new DesguaceRegistro();
                 reg.setVisible(false);
                 btn.addActionListener(this);
+                logger = new SYLogger();
 	}
 	
 	public static void main(String args[])
@@ -121,11 +124,12 @@ public class DesguaceJava extends JFrame implements ActionListener{
                             md.update(t2.getText().getBytes());
                             byte[] mb = md.digest();
                             String pass = String.copyValueOf(Hex.encodeHex(mb));
-                            System.out.println(pass);
+                            //System.out.println(pass);
                             String error=loginDes(pass, user);
                             if(error.equals(""))
                             {
                                 MainDesguace mdes;
+                                logger.setLogMessage(1, user, "");
                                 mdes = new MainDesguace(t1.getText());
                                 mdes.setVisible(false);
                                 mdes.setVisible(true);
@@ -135,6 +139,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
                             else
                             {
                                     lblError.setText(error);
+                                    logger.setLogMessage(-1, user, error);
                                     lblError.setVisible(true);
                             }
                         } catch (NoSuchAlgorithmException ex) {

@@ -4,6 +4,7 @@
  */
 package desguacejava;
 
+import ScrapYardLogger.SYLogger;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -37,6 +38,7 @@ public class DesguaceRegistro extends JFrame{
     JButton btn;
     private JTextField textField;
     String password;
+    SYLogger logger;
     public DesguaceRegistro()
     {
     	setResizable(false);
@@ -101,6 +103,7 @@ public class DesguaceRegistro extends JFrame{
         sl_p1.putConstraint(SpringLayout.SOUTH, err, -10, SpringLayout.SOUTH, p1);
         sl_p1.putConstraint(SpringLayout.EAST, err, 430, SpringLayout.WEST, p1);
         p1.add(err);
+        logger = new SYLogger();
         lb1 = new JLabel("Formulario de Registro");
         lb1.setFont(new Font("Tahoma",0,30));
         btn = new JButton("Registrar");
@@ -175,7 +178,7 @@ public class DesguaceRegistro extends JFrame{
                             md.update(pass.getBytes());
                             byte[] mb = md.digest();
                             password = String.copyValueOf(Hex.encodeHex(mb));
-                            System.out.println(password);
+                           // System.out.println(password);
                         } catch (NoSuchAlgorithmException ex) {
                             Logger.getLogger(DesguaceRegistro.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -209,6 +212,7 @@ public class DesguaceRegistro extends JFrame{
                     {
                         error = "Registro completado";
                         err.setText(error);
+                        logger.setLogMessage(3, t1.getText(), "");
                         err.setForeground(Color.green);
                         err.setVisible(true);
                         setVisible(false);
@@ -216,6 +220,7 @@ public class DesguaceRegistro extends JFrame{
                     else
                     {
                         err.setText(error);
+                        logger.setLogMessage(-2, t1.getText(), "");
                         err.setForeground(Color.red);
                         err.setVisible(true);
                     }

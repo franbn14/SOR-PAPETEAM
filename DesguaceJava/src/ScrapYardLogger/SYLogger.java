@@ -3,6 +3,8 @@
  * and open the template in the editor.
  */
 package ScrapYardLogger;
+import java.security.Timestamp;
+import java.util.Date;
 import java.util.logging.SimpleFormatter;
 /**
  *
@@ -12,12 +14,11 @@ public class SYLogger extends SorLogger {
     private static String message;
               
     public SYLogger() {
-        super("Log Cliente","logCliente.log");
+        super("Log Cliente","sy-log.log");
     }
                  
     public void setLogMessage(int type, String client, String extraInfo) {
         message="";
-        
         switch(type) {
             case 1: message="Sesión iniciada por "+client;
                 break;
@@ -34,7 +35,7 @@ public class SYLogger extends SorLogger {
             case -1: message="Error al iniciar sesión: "+extraInfo+" "+client;
                 break;
             
-            case -2: message="Error. El usuario ya existe: "+extraInfo+" "+client;
+            case -2: message="Error. El usuario "+ client +" ya existe";
                 break;
                 
             case -3: message="Error. La peticion no se ha podido realizar: "+extraInfo+" "+client;
