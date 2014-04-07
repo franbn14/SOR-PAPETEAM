@@ -27,7 +27,7 @@ public abstract class SorLogger {
         return logger;
     }
     
-    public SorLogger(String type, String fileName) {
+    public static void setLogger(String type, String fileName) {
         try {
             logger=Logger.getLogger(type,null);
             logger.setUseParentHandlers(false);
@@ -44,7 +44,7 @@ public abstract class SorLogger {
         }
     }
     
-    public void writeLog(String message, int type) {                                                      
+    public static void writeLog(String message, int type) {                                                      
         if(type>0)
             logger.info(message);                
         else
