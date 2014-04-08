@@ -13,13 +13,10 @@ import java.util.logging.SimpleFormatter;
  * @author alberto
  */
 public class ClientLogger extends SorLogger {
-    private static String message;
-              
-    public ClientLogger() {
-        super("Log Cliente","logCliente.log");
-    }
+    private static String message;    
                  
-    public void setLogMessage(int type, String client, String extraInfo) {                
+    public static void setLogMessage(int type, String client, String extraInfo) {                        
+        setLogger("Client Log","logCliente.log");
         message="";
         
         switch(type) {
@@ -38,7 +35,13 @@ public class ClientLogger extends SorLogger {
             case 5: message="Registrado usuario "+client;
                 break;
                 
-            case -1: message="Error al iniciar sesión: "+extraInfo+" "+client;
+            case 6: message="Aceptadas ofertas "+extraInfo+" por el cliente "+client;
+                break;
+                                                            
+            case -1: message="Incio de sesión fallido: "+extraInfo+", cliente: "+client;
+                break;
+                
+            case -2: message="Registro de usuario existente: "+client;
                 break;
         }        
         writeLog(message,type);

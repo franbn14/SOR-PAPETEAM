@@ -27,16 +27,15 @@ public abstract class SorLogger {
         return logger;
     }
     
-    public SorLogger(String type, String fileName) {
+    public static void setLogger(String type, String fileName) {
         try {
             logger=Logger.getLogger(type,null);
             logger.setUseParentHandlers(false);
-            handler=new FileHandler("log/"+fileName, true);
+            handler=new FileHandler(fileName, true);
             
             SimpleFormatter formatter = new SimpleFormatter();  
             handler.setFormatter(formatter);
             logger.addHandler(handler);
-            System.out.println("Bien: "+fileName);
         } catch (IOException ex) {
             Logger.getLogger(SorLogger.class.getName()).log(Level.SEVERE, null, ex);            
         } catch (SecurityException ex) {
@@ -44,7 +43,7 @@ public abstract class SorLogger {
         }
     }
     
-    public void writeLog(String message, int type) {                                                      
+    public static void writeLog(String message, int type) {                                                      
         if(type>0)
             logger.info(message);                
         else
