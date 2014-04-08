@@ -34,9 +34,9 @@ public class ClientLogger extends SorLogger {
                 
             case 5: message="Registrado usuario "+client;
                 break;
-                
-            case 6: message="Aceptadas ofertas "+extraInfo+" por el cliente "+client;
-                break;
+                                                            
+          case 6: message="Aceptadas ofertas "+extraInfo+" por el cliente "+client;
+                break;                            
                                                             
             case -1: message="Incio de sesión fallido: "+extraInfo+", cliente: "+client;
                 break;
