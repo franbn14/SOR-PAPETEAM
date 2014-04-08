@@ -14,6 +14,7 @@ import java.util.Date;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import logger.ClientLogger;
 
 /**
  *
@@ -52,6 +53,7 @@ public class NewPeticion {
         ClientCEN cli=ClientCEN.getByID(usuario);
     
         RequestCEN r=new RequestCEN(fecha,tipo,tamanyo,tamUnidad,color,cantidad,precioMax,cli, autoElect, finalizado, caducada);
+        ClientLogger.setLogMessage(2,cli.getNIF(),r.getCode()+"");
         
         return r.insert();
     }

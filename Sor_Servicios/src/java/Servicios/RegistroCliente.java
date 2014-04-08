@@ -15,6 +15,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.mail.MessagingException;
+import logger.ClientLogger;
 
 /**
  *
@@ -30,8 +31,11 @@ public class RegistroCliente {
     public String Registro_Cli(@WebParam(name = "Nif") String Nif, @WebParam(name = "Nombre") String Nombre, @WebParam(name = "Direccion") String Direccion, @WebParam(name = "Password") String Password, @WebParam(name = "Apellidos") String Apellidos, @WebParam(name = "Fecha") String Fecha, @WebParam(name = "Email") String email) {
         String error = "";
         ClientCEN client = ClientCEN.getByNIF(Nif);
+         int type=5;
+         
         if (client != null) {
             error = "Error: NIF ya registrado";
+            type=-2;
         } else {
             SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd-MM-yyyy");
             String strFecha = Fecha;
@@ -53,6 +57,7 @@ public class RegistroCliente {
             }
 
         }
+        ClientLogger.setLogMessage(type,Nif,error);
         return error;
     }
 }

@@ -9,6 +9,7 @@ import CAD.UserCAD;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import logger.ClientLogger;
 
 /**
  *
@@ -33,10 +34,17 @@ public class LoginClientes {
         //TODO write your implementation code here:
         String error="";
         ClientCEN cli=ClientCEN.getByNIF(nif_dni);
-        if(cli==null)
+        int type=1;
+        
+        if(cli==null) {
             error="Login incorrecto";
-        else if(cli!=null && !cli.getPassword().equals(Password))
-            error="Password Incorrecto";
+            type=-1;
+        }
+        else if(cli!=null && !cli.getPassword().equals(Password)) {
+            error="Password Incorrecto";         
+            type=-1;
+        }
+        ClientLogger.setLogMessage(type,nif_dni,error);
             
         return error;
     }

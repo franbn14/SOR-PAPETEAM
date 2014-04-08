@@ -15,6 +15,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.mail.MessagingException;
+import logger.ClientLogger;
 
 /**
  *
@@ -41,6 +42,9 @@ public class AceptarOfertas {
                 OfferCEN o = OfferCEN.getByCode(id);
                 request = o.getRequest();
                 o.update(o.getType(), o.getSize(), o.getSizeUnit(), o.getColor(), o.getAmount(), o.getPrice(), request, o.getScrapyard(), true);
+                
+                ClientLogger.setLogMessage(6,ClientCEN.getByID(request.getClient().getId()).getNIF(),id+"");
+                
                 Email email = EmailFactoria.getEmail(EmailFactoria.tipoEmail.OfertaAceptada, o);
                 try {
                     email.send();
