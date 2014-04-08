@@ -11,6 +11,7 @@ import CEN.ScrapYardCEN;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import logger.SYLogger;
 
 /**
  *
@@ -34,11 +35,20 @@ public class LoginDesguace {
     public String Login_Des(@WebParam(name = "Password") String Password, @WebParam(name = "cif") String cif) {
         String error="";
         ScrapYardCEN scry=ScrapYardCEN.getByCIF(cif);
+        int type=1;
+        
         if(scry==null)
+        {
             error="CIF incorrecto";
+            type = -1;
+        }
         else if(scry!=null && !scry.getPassword().equals(Password))
+        {
             error="Password Incorrecto";
+            type = -1;
+        }
             
+        SYLogger.setLogMessage(type, cif, error);
         return error;
     }
 }
