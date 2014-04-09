@@ -12,6 +12,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.mail.MessagingException;
+import logger.SYLogger;
 
 /**
  *
@@ -26,13 +27,13 @@ public class RegistroDesguace {
     @WebMethod(operationName = "Registro")
     public String Registro(@WebParam(name = "Cif") String Cif, @WebParam(name = "Nombre") String Nombre, @WebParam(name = "Password") String Password, @WebParam(name = "Direccion") String Direccion, @WebParam(name = "Email") String Email) {
         //TODO write your implementation code here:
-
-
         String error = "";
         ScrapYardCEN scry = ScrapYardCEN.getByCIF(Cif);
-
+        int type = 3;
+        
         if (scry != null) {
             error = "Error: CIF ya registrado";
+            type = -2;
         } else {
             scry = new ScrapYardCEN(Nombre, Password, Direccion, Cif, Email);
             scry.insert();
@@ -46,6 +47,8 @@ public class RegistroDesguace {
             }
 
         }
+        
+        SYLogger.setLogMessage(type, Cif, error);
         return error;
     }
 }

@@ -5,6 +5,7 @@
  */
 
 package Servicios;
+import CEN.ClientCEN;
 import CEN.OfferCEN;
 import CEN.RequestCEN;
 import Email.Email;
@@ -14,6 +15,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.mail.MessagingException;
+import logger.ClientLogger;
 
 
 /**
@@ -53,6 +55,7 @@ public class BorrarPeticion {
                 }
             }
         }
+        ClientLogger.setLogMessage(3,ClientCEN.getByID(request.getClient().getId()).getNIF(),id+"");
         request.delete();
     }
 }
