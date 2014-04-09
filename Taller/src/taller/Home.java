@@ -18,8 +18,6 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-import logger.ClientLogger;
-
 /**
  *
  * @author alberto
@@ -29,8 +27,6 @@ public class Home extends javax.swing.JFrame {
     private ArrayList<RequestCEN> requests;
     private ArrayList<OfferCEN> offers;
     private String user;
-   
-    private ClientLogger logger;
     /**
      * Creates new form Home
      */
@@ -39,9 +35,6 @@ public class Home extends javax.swing.JFrame {
         user=name;
         
         lbTitle.setText("Bienvenido "+user);
-        System.out.println("Entro login");
-        logger=new ClientLogger();
-        logger.setLogMessage(1,name,"");
                   
         requests=new ArrayList<RequestCEN>();
         offers=new ArrayList<OfferCEN>();   
