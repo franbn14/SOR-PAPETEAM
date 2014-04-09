@@ -35,7 +35,7 @@ public class LoginClientes {
         String error="";
         ClientCEN cli=ClientCEN.getByNIF(nif_dni);
         int type=1;
-        
+
         if(cli==null) {
             error="Login incorrecto";
             type=-1;
