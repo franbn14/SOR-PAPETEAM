@@ -6,6 +6,7 @@
 
 package logger;
 
+import java.util.Date;
 import java.util.logging.SimpleFormatter;
 
 /**
@@ -15,8 +16,11 @@ import java.util.logging.SimpleFormatter;
 public class ClientLogger extends SorLogger {
     private static String message;    
                  
-    public static void setLogMessage(int type, String client, String extraInfo) {                        
-        setLogger("Client Log","logCliente.log");
+    public static void setLogMessage(int type, String client, String extraInfo) {                                
+        Date today=new Date();
+        String date=today.getDate()+"-"+today.getMonth()+"-"+today.getYear();
+        setLogger("Client Log","logCliente"+date+".log");
+        
         message="";
         
         switch(type) {
