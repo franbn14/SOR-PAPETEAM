@@ -25,6 +25,10 @@
     <system systemId="http://localhost:8081/Sor_Servicios/LoginClientes?xsd=1" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8081/Sor_Servicios/LoginClientes.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Sor_Servicios/LoginClientes?wsdl" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8080/Sor_Servicios/LoginClientes.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/LoginClientes?xsd=1" uri="xml-resources/web-service-references/LoginClientes/wsdl/localhost_8080/Sor_Servicios/LoginClientes.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/InitCom?wsdl" uri="xml-resources/web-service-references/InitCom/wsdl/localhost_8080/Sor_Servicios/InitCom.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/InitCom?xsd=1" uri="xml-resources/web-service-references/InitCom/wsdl/localhost_8080/Sor_Servicios/InitCom.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/FinishCom?wsdl" uri="xml-resources/web-service-references/FinishCom/wsdl/localhost_8080/Sor_Servicios/FinishCom.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/FinishCom?xsd=1" uri="xml-resources/web-service-references/FinishCom/wsdl/localhost_8080/Sor_Servicios/FinishCom.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Sor_Servicios/RegistroCliente?wsdl" uri="xml-resources/web-service-references/RegistroCliente/wsdl/localhost_8080/Sor_Servicios/RegistroCliente.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/RegistroCliente?xsd=1" uri="xml-resources/web-service-references/RegistroCliente/wsdl/localhost_8080/Sor_Servicios/RegistroCliente.xsd_1.xsd"/>
 </catalog>

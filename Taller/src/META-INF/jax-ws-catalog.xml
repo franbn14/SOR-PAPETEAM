@@ -27,4 +27,8 @@
     <system systemId="http://localhost:8081/Sor_Servicios/LoginClientes" uri="wsdl/localhost_8081/Sor_Servicios/LoginClientes.xml"/>
     <system systemId="http://localhost:8081/Sor_Servicios/LoginClientes?wsdl" uri="wsdl/localhost_8081/Sor_Servicios/LoginClientes.wsdl"/>
     <system systemId="http://localhost:8081/Sor_Servicios/LoginClientes?xsd=1" uri="wsdl/localhost_8081/Sor_Servicios/LoginClientes.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/InitCom?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/InitCom.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/InitCom?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/InitCom.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/FinishCom?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/FinishCom.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/FinishCom?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/FinishCom.xsd_1.xsd"/>
 </catalog>

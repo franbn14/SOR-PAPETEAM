@@ -12,6 +12,7 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import security.AES;
 
 /**
  *
@@ -19,6 +20,7 @@ import java.text.SimpleDateFormat;
  */
 public class Register extends javax.swing.JFrame {
 
+    private Comunication _comunication = Comunication.getInstance();
     /**
      * Creates new form Register
      */
@@ -364,8 +366,25 @@ public class Register extends javax.swing.JFrame {
             }            
         }
         if(correct && dateCorrect) {
+            //Pass cifrada en SHA-512
             pass=encryptPass(pass);
-            String error=registroCli(cif,name,address,pass,surname,dob,email);
+            
+            //Se cifran los todos datos
+            try{
+                cif = AES.encrypt(cif, _comunication.getAesKey());
+                name = AES.encrypt(name, _comunication.getAesKey());
+                address = AES.encrypt(address, _comunication.getAesKey());
+                pass = AES.encrypt(pass, _comunication.getAesKey());
+                surname = AES.encrypt(surname, _comunication.getAesKey());
+                dob = AES.encrypt(dob, _comunication.getAesKey());
+                email = AES.encrypt(email, _comunication.getAesKey());
+            }
+            catch(Exception ex){
+                
+            }
+            
+            
+            String error=registroCli(_comunication.getID(), cif,name,address,pass,surname,dob,email);
 
             if(error.equals("")) {
                 Main main=new Main();
@@ -522,10 +541,10 @@ public class Register extends javax.swing.JFrame {
          return pass.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$");
     }
 
-    private static String registroCli(java.lang.String nif, java.lang.String nombre, java.lang.String direccion, java.lang.String password, java.lang.String apellidos, java.lang.String fecha, java.lang.String email) {
+    private static String registroCli(int id, java.lang.String nif, java.lang.String nombre, java.lang.String direccion, java.lang.String password, java.lang.String apellidos, java.lang.String fecha, java.lang.String email) {
         servicios.RegistroCliente_Service service = new servicios.RegistroCliente_Service();
         servicios.RegistroCliente port = service.getRegistroClientePort();
-        return port.registroCli(nif, nombre, direccion, password, apellidos, fecha, email);
+        return port.registroCli(id, nif, nombre, direccion, password, apellidos, fecha, email);
     }
 
      public static String encryptPass(String original) {

@@ -220,5 +220,39 @@
         <delete dir="${build.generated.dir}/jax-wsCache/RegistroCliente"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-DarUnidades, wsimport-client-NewPeticion, wsimport-client-DarIdClientebyNif, wsimport-client-DarPeticionesNifP, wsimport-client-DarPeticionesNifF, wsimport-client-DarOfertasRequest, wsimport-client-DarOfertasRequestOk, wsimport-client-DarOfertasSeleccionadas, wsimport-client-AceptarOfertas, wsimport-client-BorrarPeticion, wsimport-client-LoginClientes, wsimport-client-RegistroCliente"/>
+    <target name="wsimport-client-InitCom" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/InitCom"/>
+        <property name="wsdl-InitCom" location="xml-resources/web-service-references/InitCom/wsdl/localhost_8080/Sor_Servicios/InitCom.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InitCom" destdir="${build.generated.dir}/jax-wsCache/InitCom" wsdl="${wsdl-InitCom}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/InitCom?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-InitCom}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/InitCom"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/InitCom">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-InitCom" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/InitCom"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+    </target>
+    <target name="wsimport-client-FinishCom" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/FinishCom"/>
+        <property name="wsdl-FinishCom" location="xml-resources/web-service-references/FinishCom/wsdl/localhost_8080/Sor_Servicios/FinishCom.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/FinishCom" destdir="${build.generated.dir}/jax-wsCache/FinishCom" wsdl="${wsdl-FinishCom}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/FinishCom?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-FinishCom}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/FinishCom"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/FinishCom">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-FinishCom" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/FinishCom"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-DarUnidades, wsimport-client-NewPeticion, wsimport-client-DarIdClientebyNif, wsimport-client-DarPeticionesNifP, wsimport-client-DarPeticionesNifF, wsimport-client-DarOfertasRequest, wsimport-client-DarOfertasRequestOk, wsimport-client-DarOfertasSeleccionadas, wsimport-client-AceptarOfertas, wsimport-client-BorrarPeticion, wsimport-client-LoginClientes, wsimport-client-RegistroCliente, wsimport-client-InitCom, wsimport-client-FinishCom"/>
 </project>
