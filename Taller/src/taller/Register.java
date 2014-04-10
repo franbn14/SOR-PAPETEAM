@@ -390,6 +390,7 @@ public class Register extends javax.swing.JFrame {
                 Main main=new Main();
                 dispose();
                 main.setVisible(true);
+                _comunication.Finish();
             }
             else
             lbError.setText(error);
