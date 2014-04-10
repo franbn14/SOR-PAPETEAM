@@ -21,6 +21,7 @@ import javax.jws.WebParam;
 import security.KeysManager;
 import security.PubKey;
 import security.RSA;
+import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 /**
@@ -37,8 +38,10 @@ public class InitCom {
         //Asignamos la clave publica del cliente
         int id;
         try{
-            BigInteger mod = new BigInteger(modulus);
-            BigInteger exp = new BigInteger(exponent);
+            BASE64Decoder b64d = new BASE64Decoder();
+            
+            BigInteger mod = new BigInteger(1,b64d.decodeBuffer(modulus));
+            BigInteger exp = new BigInteger(1,b64d.decodeBuffer(exponent));
             RSAPublicKeySpec spec = new RSAPublicKeySpec(mod, exp);
             KeyFactory factory = KeyFactory.getInstance("RSA");
             PublicKey clientPubKey = factory.generatePublic(spec);
