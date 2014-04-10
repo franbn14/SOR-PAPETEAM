@@ -39,7 +39,7 @@ public class Email {
         try {
             propiedades = new Properties();
             String hostname = InetAddress.getLocalHost().getHostName();
-            if(! hostname.equals("stv")){
+            if(!hostname.equals("stv")){
                 propiedades.setProperty("mail.smtp.host", "smtp.gmail.com");
                 propiedades.setProperty("mail.smtp.starttls.enable", "true");
                 propiedades.setProperty("mail.smtp.port", "587");
