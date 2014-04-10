@@ -49,6 +49,12 @@
     <service name="LoginClientes">
       <implementation-class>Servicios.LoginClientes</implementation-class>
     </service>
+    <service name="InitCom">
+      <implementation-class>Servicios.InitCom</implementation-class>
+    </service>
+    <service name="FinishCom">
+      <implementation-class>Servicios.FinishCom</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>

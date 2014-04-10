@@ -14,7 +14,9 @@ public class SYLogger extends SorLogger {
     private static String message;
                  
     public static void setLogMessage(int type, String client, String extraInfo) {
-        setLogger("ScrapYard Log", "sy-log.log");
+        Date today = new Date();
+        String date=today.getDate()+"-"+(today.getMonth()+1)+"-"+(today.getYear()+1900);
+        setLogger("ScrapYard Log", "sy-log-"+date+".log");
         message="";
         switch(type) {
             case 1: message="Sesión iniciada por "+client;

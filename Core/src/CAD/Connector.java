@@ -23,7 +23,7 @@ public class Connector {
     //static final String pass = "NF8VGUD5";
     //static final String pass = "";
     //static final String pass = "root";
-    static  String pass = "";
+    static  String pass = "root";
     
     private static Connection getConnection() throws ClassNotFoundException, SQLException, UnknownHostException {
         String hostname = InetAddress.getLocalHost().getHostName();
