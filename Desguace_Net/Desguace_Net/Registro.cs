@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 
 using System.Security.Cryptography;
 using Desguace_Net.RegistroDesguace;
+using Desguace_Net.FinishCom;
 
 
 namespace Desguace_Net
@@ -99,15 +100,16 @@ namespace Desguace_Net
                 ErrorEmail.Visible = false;
                 RegistroDesguaceClient l1 = new RegistroDesguaceClient();
 
-
+                Comunicacion com = Comunicacion.GetInstance();
                 try
                 {
                     String error = "";
 
                     SHA512 shaM = new SHA512Managed();
                    byte [] passCi = shaM.ComputeHash(strToByteArray(Pass_Text.Text));
-                   String passCifrado = Convert.ToBase64String(passCi);
-                    error = l1.Registro(Cif_Text.Text, Nombre_Text.Text, passCifrado, Dire_Text.Text,Email_text.Text);
+                  String passCifrado = Convert.ToBase64String(passCi);
+
+                  error = l1.Registro(com.getID(), Comunicacion.Encrypt(Cif_Text.Text, com.getAes()), Comunicacion.Encrypt(Nombre_Text.Text, com.getAes()), Comunicacion.Encrypt(passCifrado, com.getAes()), Comunicacion.Encrypt(Dire_Text.Text, com.getAes()), Comunicacion.Encrypt(Email_text.Text, com.getAes()));
 
 
                     if (error == "")
@@ -115,7 +117,10 @@ namespace Desguace_Net
                         if (MessageBox.Show("Registro Correcto. Por Favor para acceder Loguese.", "", MessageBoxButtons.OK,
        MessageBoxIcon.Information) == DialogResult.OK)
                         {
+                            FinishComClient client = new FinishComClient();
+                            client.Finish(com.getID());
                             Close();
+
                         }
                     }
                     else

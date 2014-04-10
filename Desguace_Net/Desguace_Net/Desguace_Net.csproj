@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="Comunicacion.cs" />
     <Compile Include="Desguace.cs" />
     <Compile Include="Hacer_Oferta.cs">
       <SubType>Form</SubType>
@@ -90,6 +91,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\FinishCom\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\LoginServicio\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +112,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\DarUnidadTipo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\InitCom\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -169,6 +180,19 @@
     <None Include="Service References\DarUnidadTipo\Desguace_Net.DarUnidadTipo.DarUnidadIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\FinishCom\Desguace_Net.FinishCom.FinishResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FinishCom\FinishCom.wsdl" />
+    <None Include="Service References\FinishCom\FinishCom.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InitCom\Desguace_Net.InitCom.exchangeKeysResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InitCom\Desguace_Net.InitCom.getAESKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\LoginServicio\Desguace_Net.LoginServicio.helloResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -190,6 +214,10 @@
     <None Include="Service References\DarUnidadTipo\DarUnidades.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\InitCom\InitCom.wsdl" />
+    <None Include="Service References\InitCom\InitCom.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -201,10 +229,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\DarNombre\" />
+    <WCFMetadataStorage Include="Service References\FinishCom\" />
     <WCFMetadataStorage Include="Service References\LoginServicio\" />
     <WCFMetadataStorage Include="Service References\RegistroDesguace\" />
     <WCFMetadataStorage Include="Service References\DarID\" />
     <WCFMetadataStorage Include="Service References\DarUnidadTipo\" />
+    <WCFMetadataStorage Include="Service References\InitCom\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\LoginServicio\configuration91.svcinfo" />
@@ -262,6 +292,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\DarUnidadTipo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\InitCom\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\InitCom\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\InitCom\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FinishCom\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FinishCom\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FinishCom\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

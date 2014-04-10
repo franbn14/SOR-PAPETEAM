@@ -46,25 +46,29 @@ namespace Desguace_Net.RegistroDesguace {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
     public partial class RegistroRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string Cif;
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string Nombre;
+        public string Cif;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string Password;
+        public string Nombre;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string Direccion;
+        public string Password;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string Direccion;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
         public string Email;
         
         public RegistroRequestBody() {
         }
         
-        public RegistroRequestBody(string Cif, string Nombre, string Password, string Direccion, string Email) {
+        public RegistroRequestBody(int id, string Cif, string Nombre, string Password, string Direccion, string Email) {
+            this.id = id;
             this.Cif = Cif;
             this.Nombre = Nombre;
             this.Password = Password;
@@ -139,9 +143,10 @@ namespace Desguace_Net.RegistroDesguace {
             return base.Channel.Registro(request);
         }
         
-        public string Registro(string Cif, string Nombre, string Password, string Direccion, string Email) {
+        public string Registro(int id, string Cif, string Nombre, string Password, string Direccion, string Email) {
             Desguace_Net.RegistroDesguace.RegistroRequest inValue = new Desguace_Net.RegistroDesguace.RegistroRequest();
             inValue.Body = new Desguace_Net.RegistroDesguace.RegistroRequestBody();
+            inValue.Body.id = id;
             inValue.Body.Cif = Cif;
             inValue.Body.Nombre = Nombre;
             inValue.Body.Password = Password;
@@ -156,9 +161,10 @@ namespace Desguace_Net.RegistroDesguace {
             return base.Channel.RegistroAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Desguace_Net.RegistroDesguace.RegistroResponse> RegistroAsync(string Cif, string Nombre, string Password, string Direccion, string Email) {
+        public System.Threading.Tasks.Task<Desguace_Net.RegistroDesguace.RegistroResponse> RegistroAsync(int id, string Cif, string Nombre, string Password, string Direccion, string Email) {
             Desguace_Net.RegistroDesguace.RegistroRequest inValue = new Desguace_Net.RegistroDesguace.RegistroRequest();
             inValue.Body = new Desguace_Net.RegistroDesguace.RegistroRequestBody();
+            inValue.Body.id = id;
             inValue.Body.Cif = Cif;
             inValue.Body.Nombre = Nombre;
             inValue.Body.Password = Password;
