@@ -1,12 +1,10 @@
 package logger;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -33,7 +31,8 @@ public abstract class SorLogger {
         try {
             logger=Logger.getLogger(type,null);
             logger.setUseParentHandlers(false);
-            handler=new FileHandler("../SorLogs/"+fileName, true);
+            handler=new FileHandler(fileName, true);
+            
             SimpleFormatter formatter = new SimpleFormatter();  
             handler.setFormatter(formatter);
             logger.addHandler(handler);
