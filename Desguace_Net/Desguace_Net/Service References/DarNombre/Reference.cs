@@ -15,87 +15,19 @@ namespace Desguace_Net.DarNombre {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://Servicios/", ConfigurationName="DarNombre.DarNombreCliente")]
     public interface DarNombreCliente {
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento cif del espacio de nombres  no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/DarNombreCliente/DarNombreDesguaceRequest", ReplyAction="http://Servicios/DarNombreCliente/DarNombreDesguaceResponse")]
-        Desguace_Net.DarNombre.DarNombreDesguaceResponse DarNombreDesguace(Desguace_Net.DarNombre.DarNombreDesguaceRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/DarNombreCliente/DarNombreDesguaceRequest", ReplyAction="http://Servicios/DarNombreCliente/DarNombreDesguaceResponse")]
-        System.Threading.Tasks.Task<Desguace_Net.DarNombre.DarNombreDesguaceResponse> DarNombreDesguaceAsync(Desguace_Net.DarNombre.DarNombreDesguaceRequest request);
-        
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento name del espacio de nombres  no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/DarNombreCliente/helloRequest", ReplyAction="http://Servicios/DarNombreCliente/helloResponse")]
         Desguace_Net.DarNombre.helloResponse hello(Desguace_Net.DarNombre.helloRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/DarNombreCliente/helloRequest", ReplyAction="http://Servicios/DarNombreCliente/helloResponse")]
         System.Threading.Tasks.Task<Desguace_Net.DarNombre.helloResponse> helloAsync(Desguace_Net.DarNombre.helloRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class DarNombreDesguaceRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="DarNombreDesguace", Namespace="http://Servicios/", Order=0)]
-        public Desguace_Net.DarNombre.DarNombreDesguaceRequestBody Body;
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento cif del espacio de nombres  no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/DarNombreCliente/DarNombreDesguaceRequest", ReplyAction="http://Servicios/DarNombreCliente/DarNombreDesguaceResponse")]
+        Desguace_Net.DarNombre.DarNombreDesguaceResponse DarNombreDesguace(Desguace_Net.DarNombre.DarNombreDesguaceRequest request);
         
-        public DarNombreDesguaceRequest() {
-        }
-        
-        public DarNombreDesguaceRequest(Desguace_Net.DarNombre.DarNombreDesguaceRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class DarNombreDesguaceRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string cif;
-        
-        public DarNombreDesguaceRequestBody() {
-        }
-        
-        public DarNombreDesguaceRequestBody(string cif) {
-            this.cif = cif;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class DarNombreDesguaceResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="DarNombreDesguaceResponse", Namespace="http://Servicios/", Order=0)]
-        public Desguace_Net.DarNombre.DarNombreDesguaceResponseBody Body;
-        
-        public DarNombreDesguaceResponse() {
-        }
-        
-        public DarNombreDesguaceResponse(Desguace_Net.DarNombre.DarNombreDesguaceResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class DarNombreDesguaceResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public DarNombreDesguaceResponseBody() {
-        }
-        
-        public DarNombreDesguaceResponseBody(string @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/DarNombreCliente/DarNombreDesguaceRequest", ReplyAction="http://Servicios/DarNombreCliente/DarNombreDesguaceResponse")]
+        System.Threading.Tasks.Task<Desguace_Net.DarNombre.DarNombreDesguaceResponse> DarNombreDesguaceAsync(Desguace_Net.DarNombre.DarNombreDesguaceRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -166,6 +98,78 @@ namespace Desguace_Net.DarNombre {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DarNombreDesguaceRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DarNombreDesguace", Namespace="http://Servicios/", Order=0)]
+        public Desguace_Net.DarNombre.DarNombreDesguaceRequestBody Body;
+        
+        public DarNombreDesguaceRequest() {
+        }
+        
+        public DarNombreDesguaceRequest(Desguace_Net.DarNombre.DarNombreDesguaceRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class DarNombreDesguaceRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string cif;
+        
+        public DarNombreDesguaceRequestBody() {
+        }
+        
+        public DarNombreDesguaceRequestBody(int id, string cif) {
+            this.id = id;
+            this.cif = cif;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DarNombreDesguaceResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DarNombreDesguaceResponse", Namespace="http://Servicios/", Order=0)]
+        public Desguace_Net.DarNombre.DarNombreDesguaceResponseBody Body;
+        
+        public DarNombreDesguaceResponse() {
+        }
+        
+        public DarNombreDesguaceResponse(Desguace_Net.DarNombre.DarNombreDesguaceResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class DarNombreDesguaceResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public DarNombreDesguaceResponseBody() {
+        }
+        
+        public DarNombreDesguaceResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface DarNombreClienteChannel : Desguace_Net.DarNombre.DarNombreCliente, System.ServiceModel.IClientChannel {
     }
@@ -194,31 +198,6 @@ namespace Desguace_Net.DarNombre {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Desguace_Net.DarNombre.DarNombreDesguaceResponse Desguace_Net.DarNombre.DarNombreCliente.DarNombreDesguace(Desguace_Net.DarNombre.DarNombreDesguaceRequest request) {
-            return base.Channel.DarNombreDesguace(request);
-        }
-        
-        public string DarNombreDesguace(string cif) {
-            Desguace_Net.DarNombre.DarNombreDesguaceRequest inValue = new Desguace_Net.DarNombre.DarNombreDesguaceRequest();
-            inValue.Body = new Desguace_Net.DarNombre.DarNombreDesguaceRequestBody();
-            inValue.Body.cif = cif;
-            Desguace_Net.DarNombre.DarNombreDesguaceResponse retVal = ((Desguace_Net.DarNombre.DarNombreCliente)(this)).DarNombreDesguace(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Desguace_Net.DarNombre.DarNombreDesguaceResponse> Desguace_Net.DarNombre.DarNombreCliente.DarNombreDesguaceAsync(Desguace_Net.DarNombre.DarNombreDesguaceRequest request) {
-            return base.Channel.DarNombreDesguaceAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Desguace_Net.DarNombre.DarNombreDesguaceResponse> DarNombreDesguaceAsync(string cif) {
-            Desguace_Net.DarNombre.DarNombreDesguaceRequest inValue = new Desguace_Net.DarNombre.DarNombreDesguaceRequest();
-            inValue.Body = new Desguace_Net.DarNombre.DarNombreDesguaceRequestBody();
-            inValue.Body.cif = cif;
-            return ((Desguace_Net.DarNombre.DarNombreCliente)(this)).DarNombreDesguaceAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Desguace_Net.DarNombre.helloResponse Desguace_Net.DarNombre.DarNombreCliente.hello(Desguace_Net.DarNombre.helloRequest request) {
             return base.Channel.hello(request);
         }
@@ -241,6 +220,33 @@ namespace Desguace_Net.DarNombre {
             inValue.Body = new Desguace_Net.DarNombre.helloRequestBody();
             inValue.Body.name = name;
             return ((Desguace_Net.DarNombre.DarNombreCliente)(this)).helloAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Desguace_Net.DarNombre.DarNombreDesguaceResponse Desguace_Net.DarNombre.DarNombreCliente.DarNombreDesguace(Desguace_Net.DarNombre.DarNombreDesguaceRequest request) {
+            return base.Channel.DarNombreDesguace(request);
+        }
+        
+        public string DarNombreDesguace(int id, string cif) {
+            Desguace_Net.DarNombre.DarNombreDesguaceRequest inValue = new Desguace_Net.DarNombre.DarNombreDesguaceRequest();
+            inValue.Body = new Desguace_Net.DarNombre.DarNombreDesguaceRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.cif = cif;
+            Desguace_Net.DarNombre.DarNombreDesguaceResponse retVal = ((Desguace_Net.DarNombre.DarNombreCliente)(this)).DarNombreDesguace(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Desguace_Net.DarNombre.DarNombreDesguaceResponse> Desguace_Net.DarNombre.DarNombreCliente.DarNombreDesguaceAsync(Desguace_Net.DarNombre.DarNombreDesguaceRequest request) {
+            return base.Channel.DarNombreDesguaceAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Desguace_Net.DarNombre.DarNombreDesguaceResponse> DarNombreDesguaceAsync(int id, string cif) {
+            Desguace_Net.DarNombre.DarNombreDesguaceRequest inValue = new Desguace_Net.DarNombre.DarNombreDesguaceRequest();
+            inValue.Body = new Desguace_Net.DarNombre.DarNombreDesguaceRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.cif = cif;
+            return ((Desguace_Net.DarNombre.DarNombreCliente)(this)).DarNombreDesguaceAsync(inValue);
         }
     }
 }

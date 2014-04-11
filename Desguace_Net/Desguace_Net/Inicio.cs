@@ -15,7 +15,7 @@ using Desguace_Net.DarID;
 using Apache.NMS.ActiveMQ;
 using Apache.NMS;
 using Desguace_Net;
-
+using Desguace_Net.FinishCom;
 using System.Threading;
 
 namespace Desguace_Net
@@ -31,14 +31,22 @@ namespace Desguace_Net
         List<Request> list;
         List<Offer> listOp;
         List<Offer> listOf;
-        public Inicio(String user)
+        int IDAes;
+        public Inicio(String user,int idAes)
         {
-          DarNombreClienteClient c = new DarNombreClienteClient();
+            IDAes = idAes;
+
+            DarNombreClienteClient c = new DarNombreClienteClient();
             DarIdDesguacebyCifClient id = new DarIdDesguacebyCifClient();
             nif = user;
-            idDes = id.getIdDes(user);
+            Comunicacion com = Comunicacion.GetInstance();
             
-            userName = c.DarNombreDesguace(user);
+            idDes = id.getIdDes(com.getID(),Comunicacion.Encrypt(user,com.getAes()));
+            
+            userName = c.DarNombreDesguace(com.getID(),Comunicacion.Encrypt(user,com.getAes()));
+
+            userName = Comunicacion.Decrypt(userName, com.getAes());
+
             InitializeComponent();
             Text = "Bienvenido " + userName;
 
@@ -155,13 +163,16 @@ namespace Desguace_Net
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            
             Close();
             
         }
 
         private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
         {
+            FinishComClient f = new FinishComClient();
+
+            f.Finish(IDAes);  
             Application.Exit();
         }
         

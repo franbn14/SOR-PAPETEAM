@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/Sor_Servicios/DarNombreCliente?xsd=1" namespace="http://Servicios/" />
     </xsd:schema>
   </types>
-  <message name="DarNombreDesguace">
-    <part name="parameters" element="tns:DarNombreDesguace" />
-  </message>
-  <message name="DarNombreDesguaceResponse">
-    <part name="parameters" element="tns:DarNombreDesguaceResponse" />
-  </message>
   <message name="hello">
     <part name="parameters" element="tns:hello" />
   </message>
   <message name="helloResponse">
     <part name="parameters" element="tns:helloResponse" />
   </message>
+  <message name="DarNombreDesguace">
+    <part name="parameters" element="tns:DarNombreDesguace" />
+  </message>
+  <message name="DarNombreDesguaceResponse">
+    <part name="parameters" element="tns:DarNombreDesguaceResponse" />
+  </message>
   <portType name="DarNombreCliente">
-    <operation name="DarNombreDesguace">
-      <input wsam:Action="http://Servicios/DarNombreCliente/DarNombreDesguaceRequest" message="tns:DarNombreDesguace" />
-      <output wsam:Action="http://Servicios/DarNombreCliente/DarNombreDesguaceResponse" message="tns:DarNombreDesguaceResponse" />
-    </operation>
     <operation name="hello">
       <input wsam:Action="http://Servicios/DarNombreCliente/helloRequest" message="tns:hello" />
       <output wsam:Action="http://Servicios/DarNombreCliente/helloResponse" message="tns:helloResponse" />
     </operation>
+    <operation name="DarNombreDesguace">
+      <input wsam:Action="http://Servicios/DarNombreCliente/DarNombreDesguaceRequest" message="tns:DarNombreDesguace" />
+      <output wsam:Action="http://Servicios/DarNombreCliente/DarNombreDesguaceResponse" message="tns:DarNombreDesguaceResponse" />
+    </operation>
   </portType>
   <binding name="DarNombreClientePortBinding" type="tns:DarNombreCliente">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="DarNombreDesguace">
+    <operation name="hello">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="hello">
+    <operation name="DarNombreDesguace">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

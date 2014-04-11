@@ -57,10 +57,8 @@ namespace Desguace_Net
                
                 if (error == "")
                 {
-                    FinishComClient f = new FinishComClient();
-
-                    f.Finish(com.getID());
-                    Inicio i= new Inicio(user);
+                    
+                    Inicio i= new Inicio(user,com.getID());
                     i.Show();
                     this.Hide();
                 }

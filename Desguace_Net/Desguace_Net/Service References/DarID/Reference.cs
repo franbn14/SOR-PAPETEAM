@@ -53,13 +53,17 @@ namespace Desguace_Net.DarID {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
     public partial class getIdDesRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string nif;
         
         public getIdDesRequestBody() {
         }
         
-        public getIdDesRequestBody(string nif) {
+        public getIdDesRequestBody(int id, string nif) {
+            this.id = id;
             this.nif = nif;
         }
     }
@@ -198,9 +202,10 @@ namespace Desguace_Net.DarID {
             return base.Channel.getIdDes(request);
         }
         
-        public int getIdDes(string nif) {
+        public int getIdDes(int id, string nif) {
             Desguace_Net.DarID.getIdDesRequest inValue = new Desguace_Net.DarID.getIdDesRequest();
             inValue.Body = new Desguace_Net.DarID.getIdDesRequestBody();
+            inValue.Body.id = id;
             inValue.Body.nif = nif;
             Desguace_Net.DarID.getIdDesResponse retVal = ((Desguace_Net.DarID.DarIdDesguacebyCif)(this)).getIdDes(inValue);
             return retVal.Body.@return;
@@ -211,9 +216,10 @@ namespace Desguace_Net.DarID {
             return base.Channel.getIdDesAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Desguace_Net.DarID.getIdDesResponse> getIdDesAsync(string nif) {
+        public System.Threading.Tasks.Task<Desguace_Net.DarID.getIdDesResponse> getIdDesAsync(int id, string nif) {
             Desguace_Net.DarID.getIdDesRequest inValue = new Desguace_Net.DarID.getIdDesRequest();
             inValue.Body = new Desguace_Net.DarID.getIdDesRequestBody();
+            inValue.Body.id = id;
             inValue.Body.nif = nif;
             return ((Desguace_Net.DarID.DarIdDesguacebyCif)(this)).getIdDesAsync(inValue);
         }
