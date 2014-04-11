@@ -16,6 +16,7 @@ import security.GenKeys;
 import security.PubKey;
 import security.RSA;
 import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 /**
  *
@@ -36,7 +37,8 @@ public class Comunication {
             PrivateKey priKey = keys.getPrivate();
             
             //intercambiamos la clave publica con el servidor
-            String json = exchangeKeys(pubKey.getModulus().toString(), pubKey.getPublicExponent().toString());
+            BASE64Encoder b64e = new BASE64Encoder();
+            String json = exchangeKeys(b64e.encode(pubKey.getModulus().toByteArray()), b64e.encode(pubKey.getPublicExponent().toByteArray()));
             
             //Parseamos el json y obtenemos el id, modulo y exponente
             PubKey pk = new PubKey(json);
@@ -57,8 +59,8 @@ public class Comunication {
             
             //Desciframos el mensaje
             String aesKeyString = RSA.decrypt(serverKey, priKey, p.msg, p.sign);
-            BASE64Decoder b64 = new BASE64Decoder();
-            byte[] aesKeyBytes = b64.decodeBuffer(aesKeyString);
+            BASE64Decoder b64d = new BASE64Decoder();
+            byte[] aesKeyBytes = b64d.decodeBuffer(aesKeyString);
             aesKey = new SecretKeySpec(aesKeyBytes, 0, aesKeyBytes.length, "AES");
             
         }
