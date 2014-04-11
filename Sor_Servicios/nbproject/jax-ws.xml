@@ -1,47 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="LoginDesguace">
-      <implementation-class>Servicios.LoginDesguace</implementation-class>
-    </service>
     <service name="RegistroDesguace">
       <implementation-class>Servicios.RegistroDesguace</implementation-class>
     </service>
-    <service name="RegistroCliente">
-      <implementation-class>Servicios.RegistroCliente</implementation-class>
-    </service>
-    <service name="DarNombreCliente">
-      <implementation-class>Servicios.DarNombreCliente</implementation-class>
-    </service>
-    <service name="DarIdClientebyNif">
-      <implementation-class>Servicios.DarIdClientebyNif</implementation-class>
-    </service>
-    <service name="DarIdDesguacebyCif">
-      <implementation-class>Servicios.DarIdDesguacebyCif</implementation-class>
-    </service>
-    <service name="NewPeticion">
-      <implementation-class>Servicios.NewPeticion</implementation-class>
+    <service name="DarOfertasSeleccionadas">
+      <implementation-class>Servicios.DarOfertasSeleccionadas</implementation-class>
     </service>
     <service name="BorrarPeticion">
       <implementation-class>Servicios.BorrarPeticion</implementation-class>
     </service>
-    <service name="DarPeticionesNifP">
-      <implementation-class>Servicios.DarPeticionesNifP</implementation-class>
-    </service>
     <service name="DarOfertasRequestOk">
       <implementation-class>Servicios.DarOfertasRequestOk</implementation-class>
+    </service>
+    <service name="DarIdDesguacebyCif">
+      <implementation-class>Servicios.DarIdDesguacebyCif</implementation-class>
+    </service>
+    <service name="RegistroCliente">
+      <implementation-class>Servicios.RegistroCliente</implementation-class>
     </service>
     <service name="DarOfertasRequest">
       <implementation-class>Servicios.DarOfertasRequest</implementation-class>
     </service>
-    <service name="DarUnidades">
-      <implementation-class>Servicios.DarUnidades</implementation-class>
+    <service name="DarPeticionesNifP">
+      <implementation-class>Servicios.DarPeticionesNifP</implementation-class>
     </service>
-    <service name="DarPeticionesNifF">
-      <implementation-class>Servicios.DarPeticionesNifF</implementation-class>
-    </service>
-    <service name="DarOfertasSeleccionadas">
-      <implementation-class>Servicios.DarOfertasSeleccionadas</implementation-class>
+    <service name="DarIdClientebyNif">
+      <implementation-class>Servicios.DarIdClientebyNif</implementation-class>
     </service>
     <service name="AceptarOfertas">
       <implementation-class>Servicios.AceptarOfertas</implementation-class>
@@ -49,11 +34,26 @@
     <service name="LoginClientes">
       <implementation-class>Servicios.LoginClientes</implementation-class>
     </service>
-    <service name="InitCom">
-      <implementation-class>Servicios.InitCom</implementation-class>
+    <service name="DarNombreCliente">
+      <implementation-class>Servicios.DarNombreCliente</implementation-class>
     </service>
     <service name="FinishCom">
       <implementation-class>Servicios.FinishCom</implementation-class>
+    </service>
+    <service name="NewPeticion">
+      <implementation-class>Servicios.NewPeticion</implementation-class>
+    </service>
+    <service name="DarUnidades">
+      <implementation-class>Servicios.DarUnidades</implementation-class>
+    </service>
+    <service name="DarPeticionesNifF">
+      <implementation-class>Servicios.DarPeticionesNifF</implementation-class>
+    </service>
+    <service name="InitCom">
+      <implementation-class>Servicios.InitCom</implementation-class>
+    </service>
+    <service name="LoginDesguace">
+      <implementation-class>Servicios.LoginDesguace</implementation-class>
     </service>
   </services>
   <clients/>
