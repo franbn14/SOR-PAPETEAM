@@ -5,11 +5,13 @@
 package Servicios;
 
 import CEN.ClientCEN;
-import CAD.UserCAD;
+import javax.crypto.SecretKey;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import logger.ClientLogger;
+import security.AES;
+import security.KeysManager;
 
 /**
  *
@@ -18,34 +20,58 @@ import logger.ClientLogger;
 @WebService(serviceName = "LoginClientes")
 public class LoginClientes {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+    @WebMethod(operationName = "LoginWeb")
+    public String LoginWeb(@WebParam(name = "Password") String Password, @WebParam(name = "nif_dni") String nif_dni) {
+        //TODO write your implementation code here:
+        String error = "";
+        ClientCEN cli = ClientCEN.getByNIF(nif_dni);
+        int type = 1;
+
+        if (cli == null) {
+            error = "Login incorrecto";
+            type = -1;
+        } else if (cli != null && !cli.getPassword().equals(Password)) {
+            error = "Password Incorrecto";
+            type = -1;
+        }
+        ClientLogger.setLogMessage(type, nif_dni, error);
+
+        return error;
     }
-    
-       /**
+
+    /**
      * Web service operation
      */
     @WebMethod(operationName = "Login")
-    public String Login(@WebParam(name = "Password") String Password, @WebParam(name = "nif_dni") String nif_dni) {
-        //TODO write your implementation code here:
-        String error="";
-        ClientCEN cli=ClientCEN.getByNIF(nif_dni);
-        int type=1;
+    public String Login(@WebParam(name = "id") int id, @WebParam(name = "Password") String Password, @WebParam(name = "nif_dni") String nif_dni) {
 
-        if(cli==null) {
-            error="Login incorrecto";
-            type=-1;
+        SecretKey key = (SecretKey) KeysManager.GetInstance().getKey(id);
+        try {
+            Password = AES.decrypt(Password, key);
+            nif_dni = AES.decrypt(nif_dni, key);
+        } catch (Exception ex) {
+            System.err.println(ex);
         }
-        else if(cli!=null && !cli.getPassword().equals(Password)) {
-            error="Password Incorrecto";         
-            type=-1;
+
+
+        String error = "";
+        ClientCEN cli = ClientCEN.getByNIF(nif_dni);
+        int type = 1;
+
+        if (cli == null) {
+            error = "Login incorrecto";
+            type = -1;
+        } else if (cli != null && !cli.getPassword().equals(Password)) {
+            error = "Password Incorrecto";
+            type = -1;
         }
-        ClientLogger.setLogMessage(type,nif_dni,error);
-            
+        ClientLogger.setLogMessage(type, nif_dni, error);
+        try {
+            error = AES.encrypt(error, key);
+        } catch (Exception ex) {
+            System.err.println(ex);
+        }
+
         return error;
     }
 }
