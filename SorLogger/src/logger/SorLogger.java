@@ -31,7 +31,7 @@ public abstract class SorLogger {
         try {
             logger=Logger.getLogger(type,null);
             logger.setUseParentHandlers(false);
-            handler=new FileHandler(fileName, true);
+            handler=new FileHandler("../SorLogs/"+fileName, true);
             
             SimpleFormatter formatter = new SimpleFormatter();  
             handler.setFormatter(formatter);

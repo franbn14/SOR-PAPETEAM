@@ -31,6 +31,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.swing.JTable;
+import logger.SYLogger;
 
 /**
  *
@@ -47,6 +48,7 @@ public class AMQFunctions extends Thread{
     public void enviarOfertasPendientesPorDesguace() throws InterruptedException
     {
         ArrayList<AMQPublisher> conexiones = new ArrayList<AMQPublisher>();
+        
         while(true)
         {
             ArrayList<ScrapYardCEN> desguaces = ScrapYardCEN.getAllScrapYards();
@@ -254,6 +256,7 @@ public class AMQFunctions extends Thread{
                 OfferCEN o = OfferCEN.getByCode(id);
                 request = o.getRequest();
                 o.update(o.getType(), o.getSize(), o.getSizeUnit(), o.getColor(), o.getAmount(), o.getPrice(), request, o.getScrapyard(), true);
+                SYLogger.setLogMessage(2, o.toString(), String.valueOf(id));
                 Email email = EmailFactoria.getEmail(EmailFactoria.tipoEmail.OfertaAceptada, o);
                 try {
                     email.send();
@@ -261,8 +264,8 @@ public class AMQFunctions extends Thread{
                     return "error";
                 }
             }
-
             ArrayList<OfferCEN> ofertas = new ArrayList<OfferCEN>();
+            
             if (request != null) {
                 request.update(request.getdeadline(), request.getType(), request.getSize(), request.getSizeUnit(), request.getColor(),
                         request.getAmount(), request.getMaxPrice(), (ClientCEN) request.getClient(), request.isAutoElect(), true, request.isExpired());
@@ -369,8 +372,9 @@ class AMQReciver extends Thread implements javax.jms.MessageListener
        @Override
         public void onMessage(Message message) {
         try {
-            String oferta = ((TextMessage)message).getText();
+            String oferta = ((TextMessage)message).getText();            
             String[] json = oferta.split(",");
+            SYLogger.setLogMessage(5, oferta, ScrapYardCEN.getByID(Integer.parseInt(json[6])).getCif());
             OfferCEN insert = new OfferCEN(json[0],
                     (!json[1].equals(""))?Double.parseDouble(json[1]):null,
                     (!json[2].equals(""))?Integer.parseInt(json[2]):null,

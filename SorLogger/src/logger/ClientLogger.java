@@ -17,8 +17,8 @@ public class ClientLogger extends SorLogger {
     private static String message;    
                  
     public static void setLogMessage(int type, String client, String extraInfo) {                                
-        Date today=new Date();
-        String date=today.getDate()+"-"+today.getMonth()+"-"+today.getYear();
+        Date today = new Date();
+        String date=today.getDate()+"-"+(today.getMonth()+1)+"-"+(today.getYear()+1900);
         setLogger("Client Log","logCliente"+date+".log");
         
         message="";

@@ -14,13 +14,15 @@ public class SYLogger extends SorLogger {
     private static String message;
                  
     public static void setLogMessage(int type, String client, String extraInfo) {
-        setLogger("ScrapYard Log", "sy-log.log");
+        Date today = new Date();
+        String date=today.getDate()+"-"+(today.getMonth()+1)+"-"+(today.getYear()+1900);
+        setLogger("ScrapYard Log", "sy-log-"+date+".log");
         message="";
         switch(type) {
             case 1: message="Sesión iniciada por "+client;
                 break;
             
-            case 2: message="Creada peticion "+extraInfo+" por "+client;
+            case 2: message="Oferta aceptada: "+extraInfo+" por "+client;
                 break;
                
             case 3: message="Registro completado por "+client;
@@ -28,6 +30,9 @@ public class SYLogger extends SorLogger {
                 
             case 4: message="Sesión finalizada por "+client;
                 break;
+                
+            case 5: message="Oferta enviada: "+extraInfo+" por "+client;
+                break;     
                 
             case -1: message="Error al iniciar sesión: "+extraInfo+" "+client;
                 break;
