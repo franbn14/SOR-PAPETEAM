@@ -27,16 +27,12 @@ public class DarIdDesguacebyCif {
 
 */
      KeysManager _keysManager = KeysManager.GetInstance();
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
 
     /**
      * Web service operation
      */
     @WebMethod(operationName = "getIdDes")
-    public int getID(@WebParam(name = "id") int id,@WebParam(name = "nif") String nif) {
+    public int getID(@WebParam(name = "id") int id, @WebParam(name = "nif") String nif) {
         
         SecretKey key = (SecretKey)_keysManager.getKey(id);
         String error="";
