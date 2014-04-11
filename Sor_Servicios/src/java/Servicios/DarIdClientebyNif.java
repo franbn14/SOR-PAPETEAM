@@ -32,7 +32,7 @@ public class DarIdClientebyNif {
      * Web service operation
      */
     @WebMethod(operationName = "GetID")
-    public int GetID(@WebParam(name = "nif") String nif) {
+    public int GetID(@WebParam(name = "id") int id,@WebParam(name = "nif") String nif) {
         //TODO write your implementation code here:
          ClientCEN cli=ClientCEN.getByNIF(nif);
         if(cli!=null)

@@ -6,8 +6,11 @@
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM_Server/Sor_Servicios/src/java/Servicios/RegistroCliente.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM_Server/Sor_Servicios/src/java/Servicios/InitCom.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM_Server/Sor_Servicios/src/java/Servicios/LoginDesguace.java</file>
+            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM_Server/Sor_Servicios/src/java/Servicios/DarIdDesguacebyCif.java</file>
+            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM_Server/Sor_Servicios/src/java/Servicios/DarIdClientebyNif.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM_Server/Sor_Servicios/src/java/Servicios/RegistroDesguace.java</file>
             <file>file:/C:/Users/fran/Desktop/SORPAPETEAM_Server/Sor_Servicios/src/java/Servicios/LoginClientes.java</file>
+            <file>file:/C:/Users/fran/Desktop/SORPAPETEAM_Server/Sor_Servicios/src/java/Servicios/DarNombreCliente.java</file>
         </group>
     </open-files>
 </project-private>

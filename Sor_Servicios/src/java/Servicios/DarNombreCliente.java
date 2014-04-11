@@ -7,9 +7,13 @@
 package Servicios;
 
 import CEN.ScrapYardCEN;
+import javax.crypto.SecretKey;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import logger.ClientLogger;
+import security.AES;
+import security.KeysManager;
 
 /**
  *
@@ -21,6 +25,8 @@ public class DarNombreCliente {
     /**
      * This is a sample web service operation
      */
+     KeysManager _keysManager = KeysManager.GetInstance();
+     
     @WebMethod(operationName = "hello")
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
@@ -30,11 +36,23 @@ public class DarNombreCliente {
      * Web service operation
      */
     @WebMethod(operationName = "DarNombreDesguace")
-    public String DarNombreDesguace(@WebParam(name = "cif") String cif) {
+    public String DarNombreDesguace(@WebParam(name = "id")int id,@WebParam(name = "cif") String cif) {
         //TODO write your implementation code here:
-        
-        ScrapYardCEN scry=ScrapYardCEN.getByCIF(cif);
-        return scry.getName();
+        SecretKey key = (SecretKey)_keysManager.getKey(id);
+        String error="";
+        try
+        {
+                cif = AES.decrypt(cif, key);
+              ScrapYardCEN scry=ScrapYardCEN.getByCIF(cif);
+              
+                return AES.encrypt(scry.getName(),key);
+        }
+      catch (Exception ex) {
+            error = "Error: No se ha podido descifrar el AES";
+            ClientLogger.setLogMessage(-2,cif,error);
+           
+        }
+        return error;
        
     }
 }
