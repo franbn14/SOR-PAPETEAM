@@ -15,91 +15,19 @@ namespace Desguace_Net.LoginServicio {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://Servicios/", ConfigurationName="LoginServicio.LoginDesguace")]
     public interface LoginDesguace {
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento Password del espacio de nombres  no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/LoginDesguace/Login_DesRequest", ReplyAction="http://Servicios/LoginDesguace/Login_DesResponse")]
-        Desguace_Net.LoginServicio.Login_DesResponse Login_Des(Desguace_Net.LoginServicio.Login_DesRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/LoginDesguace/Login_DesRequest", ReplyAction="http://Servicios/LoginDesguace/Login_DesResponse")]
-        System.Threading.Tasks.Task<Desguace_Net.LoginServicio.Login_DesResponse> Login_DesAsync(Desguace_Net.LoginServicio.Login_DesRequest request);
-        
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento name del espacio de nombres  no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/LoginDesguace/helloRequest", ReplyAction="http://Servicios/LoginDesguace/helloResponse")]
         Desguace_Net.LoginServicio.helloResponse hello(Desguace_Net.LoginServicio.helloRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/LoginDesguace/helloRequest", ReplyAction="http://Servicios/LoginDesguace/helloResponse")]
         System.Threading.Tasks.Task<Desguace_Net.LoginServicio.helloResponse> helloAsync(Desguace_Net.LoginServicio.helloRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class Login_DesRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Login_Des", Namespace="http://Servicios/", Order=0)]
-        public Desguace_Net.LoginServicio.Login_DesRequestBody Body;
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento Password del espacio de nombres  no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/LoginDesguace/Login_DesRequest", ReplyAction="http://Servicios/LoginDesguace/Login_DesResponse")]
+        Desguace_Net.LoginServicio.Login_DesResponse Login_Des(Desguace_Net.LoginServicio.Login_DesRequest request);
         
-        public Login_DesRequest() {
-        }
-        
-        public Login_DesRequest(Desguace_Net.LoginServicio.Login_DesRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class Login_DesRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string Password;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string cif;
-        
-        public Login_DesRequestBody() {
-        }
-        
-        public Login_DesRequestBody(string Password, string cif) {
-            this.Password = Password;
-            this.cif = cif;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class Login_DesResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Login_DesResponse", Namespace="http://Servicios/", Order=0)]
-        public Desguace_Net.LoginServicio.Login_DesResponseBody Body;
-        
-        public Login_DesResponse() {
-        }
-        
-        public Login_DesResponse(Desguace_Net.LoginServicio.Login_DesResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class Login_DesResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public Login_DesResponseBody() {
-        }
-        
-        public Login_DesResponseBody(string @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://Servicios/LoginDesguace/Login_DesRequest", ReplyAction="http://Servicios/LoginDesguace/Login_DesResponse")]
+        System.Threading.Tasks.Task<Desguace_Net.LoginServicio.Login_DesResponse> Login_DesAsync(Desguace_Net.LoginServicio.Login_DesRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -170,6 +98,82 @@ namespace Desguace_Net.LoginServicio {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Login_DesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Login_Des", Namespace="http://Servicios/", Order=0)]
+        public Desguace_Net.LoginServicio.Login_DesRequestBody Body;
+        
+        public Login_DesRequest() {
+        }
+        
+        public Login_DesRequest(Desguace_Net.LoginServicio.Login_DesRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class Login_DesRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string Password;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string cif;
+        
+        public Login_DesRequestBody() {
+        }
+        
+        public Login_DesRequestBody(int id, string Password, string cif) {
+            this.id = id;
+            this.Password = Password;
+            this.cif = cif;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Login_DesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Login_DesResponse", Namespace="http://Servicios/", Order=0)]
+        public Desguace_Net.LoginServicio.Login_DesResponseBody Body;
+        
+        public Login_DesResponse() {
+        }
+        
+        public Login_DesResponse(Desguace_Net.LoginServicio.Login_DesResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class Login_DesResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public Login_DesResponseBody() {
+        }
+        
+        public Login_DesResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface LoginDesguaceChannel : Desguace_Net.LoginServicio.LoginDesguace, System.ServiceModel.IClientChannel {
     }
@@ -198,33 +202,6 @@ namespace Desguace_Net.LoginServicio {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Desguace_Net.LoginServicio.Login_DesResponse Desguace_Net.LoginServicio.LoginDesguace.Login_Des(Desguace_Net.LoginServicio.Login_DesRequest request) {
-            return base.Channel.Login_Des(request);
-        }
-        
-        public string Login_Des(string Password, string cif) {
-            Desguace_Net.LoginServicio.Login_DesRequest inValue = new Desguace_Net.LoginServicio.Login_DesRequest();
-            inValue.Body = new Desguace_Net.LoginServicio.Login_DesRequestBody();
-            inValue.Body.Password = Password;
-            inValue.Body.cif = cif;
-            Desguace_Net.LoginServicio.Login_DesResponse retVal = ((Desguace_Net.LoginServicio.LoginDesguace)(this)).Login_Des(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Desguace_Net.LoginServicio.Login_DesResponse> Desguace_Net.LoginServicio.LoginDesguace.Login_DesAsync(Desguace_Net.LoginServicio.Login_DesRequest request) {
-            return base.Channel.Login_DesAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Desguace_Net.LoginServicio.Login_DesResponse> Login_DesAsync(string Password, string cif) {
-            Desguace_Net.LoginServicio.Login_DesRequest inValue = new Desguace_Net.LoginServicio.Login_DesRequest();
-            inValue.Body = new Desguace_Net.LoginServicio.Login_DesRequestBody();
-            inValue.Body.Password = Password;
-            inValue.Body.cif = cif;
-            return ((Desguace_Net.LoginServicio.LoginDesguace)(this)).Login_DesAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Desguace_Net.LoginServicio.helloResponse Desguace_Net.LoginServicio.LoginDesguace.hello(Desguace_Net.LoginServicio.helloRequest request) {
             return base.Channel.hello(request);
         }
@@ -247,6 +224,35 @@ namespace Desguace_Net.LoginServicio {
             inValue.Body = new Desguace_Net.LoginServicio.helloRequestBody();
             inValue.Body.name = name;
             return ((Desguace_Net.LoginServicio.LoginDesguace)(this)).helloAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Desguace_Net.LoginServicio.Login_DesResponse Desguace_Net.LoginServicio.LoginDesguace.Login_Des(Desguace_Net.LoginServicio.Login_DesRequest request) {
+            return base.Channel.Login_Des(request);
+        }
+        
+        public string Login_Des(int id, string Password, string cif) {
+            Desguace_Net.LoginServicio.Login_DesRequest inValue = new Desguace_Net.LoginServicio.Login_DesRequest();
+            inValue.Body = new Desguace_Net.LoginServicio.Login_DesRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.Password = Password;
+            inValue.Body.cif = cif;
+            Desguace_Net.LoginServicio.Login_DesResponse retVal = ((Desguace_Net.LoginServicio.LoginDesguace)(this)).Login_Des(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Desguace_Net.LoginServicio.Login_DesResponse> Desguace_Net.LoginServicio.LoginDesguace.Login_DesAsync(Desguace_Net.LoginServicio.Login_DesRequest request) {
+            return base.Channel.Login_DesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Desguace_Net.LoginServicio.Login_DesResponse> Login_DesAsync(int id, string Password, string cif) {
+            Desguace_Net.LoginServicio.Login_DesRequest inValue = new Desguace_Net.LoginServicio.Login_DesRequest();
+            inValue.Body = new Desguace_Net.LoginServicio.Login_DesRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.Password = Password;
+            inValue.Body.cif = cif;
+            return ((Desguace_Net.LoginServicio.LoginDesguace)(this)).Login_DesAsync(inValue);
         }
     }
 }

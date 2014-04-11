@@ -15,6 +15,7 @@ using Desguace_Net.DarID;
 using Apache.NMS.ActiveMQ;
 using Apache.NMS;
 using Desguace_Net;
+
 using System.Threading;
 
 namespace Desguace_Net
@@ -154,7 +155,9 @@ namespace Desguace_Net
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
             Close();
+            
         }
 
         private void Inicio_FormClosed(object sender, FormClosedEventArgs e)

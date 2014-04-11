@@ -11,7 +11,7 @@ using System.ServiceModel;
 using Desguace_Net.LoginServicio;
 using System.Security.Cryptography;
 using Desguace_Net.DarNombre;
-
+using Desguace_Net.FinishCom;
 
 namespace Desguace_Net
 {
@@ -50,11 +50,16 @@ namespace Desguace_Net
                 SHA512 shaM = new SHA512Managed();
                 byte[] passCi = shaM.ComputeHash(strToByteArray(pass));
                 String passCifrado = Convert.ToBase64String(passCi);
-                String error =l1.Login_Des(passCifrado, user);
+                Comunicacion com = Comunicacion.GetInstance();
+
+                String error =l1.Login_Des(com.getID(),Comunicacion.Encrypt(passCifrado,com.getAes()),Comunicacion.Encrypt( user,com.getAes()));
+                error = Comunicacion.Decrypt(error, com.getAes());
                
                 if (error == "")
                 {
-                    
+                    FinishComClient f = new FinishComClient();
+
+                    f.Finish(com.getID());
                     Inicio i= new Inicio(user);
                     i.Show();
                     this.Hide();
