@@ -13,11 +13,16 @@ import javax.swing.JList;
 import CEN.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import javax.swing.JOptionPane;
+import security.AES;
+import sun.awt.WindowClosingListener;
 /**
  *
  * @author alberto
@@ -27,19 +32,35 @@ public class Home extends javax.swing.JFrame {
     private ArrayList<RequestCEN> requests;
     private ArrayList<OfferCEN> offers;
     private String user;
+    
+    private Comunication comunication;
     /**
      * Creates new form Home
      */
     public Home(String name) {
-        initComponents();
-        user=name;
-        
-        lbTitle.setText("Bienvenido "+user);
-                  
-        requests=new ArrayList<RequestCEN>();
-        offers=new ArrayList<OfferCEN>();   
-        
-        checkRequests();            
+        try {
+            comunication = Comunication.getInstance();
+            this.addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    int exit=JOptionPane.showConfirmDialog(null, "¿Seguro que quiere salir?", "Salir", JOptionPane.YES_NO_OPTION);
+                    if(exit==JOptionPane.YES_OPTION) {
+                        comunication.Finish();
+                        dispose();
+                    }                        
+                }
+            });
+            initComponents();            
+            user=AES.decrypt(name, comunication.getAesKey());
+            
+            lbTitle.setText("Bienvenido "+user);
+            
+            requests=new ArrayList<RequestCEN>();
+            offers=new ArrayList<OfferCEN>();
+                        
+            checkRequests();
+        } catch (Exception ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -235,30 +256,42 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_requestFListMouseClicked
 
     private void btAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAcceptActionPerformed
-        // TODO add your handling code here:
-        String text="";
-        OfferCEN offer;
-        
-        for(int index: offerList.getSelectedIndices()) {
-            offer=offers.get(index);
-            text+=offer.getCode()+" ";            
-        }        
-        aceptarOfertasDe(text);
-        checkRequests();
+        try {
+            // TODO add your handling code here:
+            String text="";
+            OfferCEN offer;
+            
+            for(int index: offerList.getSelectedIndices()) {
+                offer=offers.get(index);
+                text+=offer.getCode()+" ";
+            }
+            text=AES.encrypt(text, comunication.getAesKey());
+            aceptarOfertasDe(comunication.getID(),text);
+            checkRequests();
+        } catch (Exception ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btAcceptActionPerformed
 
     private void btDeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeclineActionPerformed
         // TODO add your handling code here:
         int index=requestList.getSelectedIndex();
         
-        if(index>-1) {            
-            borrar(((RequestCEN)requestList.getSelectedValue()).getCode());
-            checkRequests();
+        if(index>-1) { 
+            try {
+                int id=((RequestCEN)requestList.getSelectedValue()).getCode();
+                String idString=AES.encrypt(Integer.toString(id), comunication.getAesKey());
+                borrar(comunication.getID(),idString);                
+                checkRequests();
+            } catch (Exception ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }            
         }
     }//GEN-LAST:event_btDeclineActionPerformed
 
     private void btNewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewRequestActionPerformed
         // TODO add your handling code here:
+        comunication.Finish();
         dispose(); 
         NewRequest newRequest = new NewRequest(user);
         newRequest.setVisible(true);
@@ -266,6 +299,7 @@ public class Home extends javax.swing.JFrame {
 
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
         // TODO add your handling code here:
+        comunication.Finish();
         dispose();
         Main main = new Main();
         main.setVisible(true);
@@ -285,7 +319,7 @@ public class Home extends javax.swing.JFrame {
 
     private void checkOffers(javax.swing.JList list, boolean selection) {                
         int index=list.getSelectedIndex();
-        
+        String code;
         if(index>-1) {
             RequestCEN selected=(RequestCEN)list.getSelectedValue();
             offerList.removeAll();         
@@ -297,79 +331,94 @@ public class Home extends javax.swing.JFrame {
                 java.lang.reflect.Type collectionType = new TypeToken<ArrayList<OfferCEN>>(){}.getType();
                                 
                 lbOffers.setText("Ofertas recibidas");
-                if(!selection) {
-                    if(!selected.isFinished()) 
-                        offerString = darOfertasByR(selected.getCode());                        
-                    
-                    else {
-                        offerString = darOfertasByRequestOk(selected.getCode());
-                        lbOffers.setText("Ofertas aceptadas");
+                
+                try {
+                    if(!selection) {
+                        if(!selected.isFinished()) {                        
+                            code=AES.encrypt(Integer.toString(selected.getCode()), comunication.getAesKey());                        
+                            offerString = AES.decrypt(darOfertasByR(comunication.getID(),code),comunication.getAesKey());                                              
+                        }
+                        else {
+                            code=AES.encrypt(Integer.toString(selected.getCode()), comunication.getAesKey());                        
+                            offerString = AES.decrypt(darOfertasByRequestOk(comunication.getID(),code),comunication.getAesKey());
+                            lbOffers.setText("Ofertas aceptadas");
+                        }
                     }
-                }
-                else 
-                    offerString = darOfertasSelection(selected.getCode());                
-                                                
-                if(offerString.equals("null") || offerString.equals("")) {
-                    model.addElement("No hay ofertas");
-                    offerList.setEnabled(false);                                                   
-                }
-                else {
-                    if(selected.isAutoElect())  {
-                        
-                        Date today=new Date(), requestDate=selected.getdeadline();                    
-                        today.setHours(requestDate.getHours());
-                        today.setMinutes(requestDate.getMinutes());
-                        today.setSeconds(requestDate.getSeconds());                       
-                    }                    
-                                       
-                    offers = gson.fromJson(offerString, collectionType);           
+                    else {
+                        code=AES.encrypt(Integer.toString(selected.getCode()), comunication.getAesKey());                        
+                        offerString = AES.decrypt(darOfertasSelection(comunication.getID(),code), comunication.getAesKey());
+                    }
                     
-                    if(offers!=null && !offers.isEmpty())  {                
-                        for(OfferCEN offer: offers) 
-                            model.addElement(offer);                                                                        
-                    }                                                            
-                    offerList.setEnabled(true);                    
-                }                                
-                offerList.setModel(model);
-                offerList.clearSelection();
+                     if(offerString.equals("null") || offerString.equals("")) {
+                        model.addElement("No hay ofertas");
+                        offerList.setEnabled(false);                                                   
+                    }
+                    else {
+                        if(selected.isAutoElect())  {
+
+                            Date today=new Date(), requestDate=selected.getdeadline();                    
+                            today.setHours(requestDate.getHours());
+                            today.setMinutes(requestDate.getMinutes());
+                            today.setSeconds(requestDate.getSeconds());                       
+                        }                    
+
+                        offers = gson.fromJson(offerString, collectionType);           
+
+                        if(offers!=null && !offers.isEmpty())  {                
+                            for(OfferCEN offer: offers) 
+                                model.addElement(offer);                                                                        
+                        }                                                            
+                        offerList.setEnabled(true);                    
+                    }                                
+                    offerList.setModel(model);
+                    offerList.clearSelection();
+                }
+                catch(Exception ex) {
+                    ex.printStackTrace();
+                }               
             }
         }     
     }
     
     private void checkRequests() {
-        requestList.removeAll();                
-        requestFList.removeAll(); 
-        requests.clear();
-                               
-        DefaultListModel model = new DefaultListModel();
-        DefaultListModel model2 = new DefaultListModel();
-        
-        String requestString = darPeticiones(user);
-        String requestString2 = darPeticionesHis(user);
-        
-        Gson gson = new Gson();
-        java.lang.reflect.Type collectionType = new TypeToken<ArrayList<RequestCEN>>(){}.getType();
-        ArrayList<RequestCEN> aux;
-        
-        if(!requestString.equals("null") && !requestString.equals(""))
-            requests = gson.fromJson(requestString, collectionType);                       
-        
-        if(!requestString2.equals("null") && !requestString2.equals("")) {
-            aux=gson.fromJson(requestString2, collectionType);            
+        try {
+            requestList.removeAll();
+            requestFList.removeAll();
+            requests.clear();            
             
-            if(aux!=null)
-                requests.addAll(aux);
-        }
-        if(requests!=null && !requests.isEmpty())  {                                
-            for(RequestCEN req: requests) {                    
-                if(req.isFinished())
-                    model2.addElement(req);
-                else
-                    model.addElement(req);
+            DefaultListModel model = new DefaultListModel();
+            DefaultListModel model2 = new DefaultListModel();
+            user=AES.encrypt(user, comunication.getAesKey());
+            
+            String requestString = AES.decrypt(darPeticiones(comunication.getID(), user),comunication.getAesKey());
+            String requestString2 = AES.decrypt(darPeticionesHis(comunication.getID(),user),comunication.getAesKey());
+            
+            Gson gson = new Gson();
+            java.lang.reflect.Type collectionType = new TypeToken<ArrayList<RequestCEN>>(){}.getType();
+            ArrayList<RequestCEN> aux;
+            
+            if(!requestString.equals("null") && !requestString.equals(""))
+                requests = gson.fromJson(requestString, collectionType);
+            
+            if(!requestString2.equals("null") && !requestString2.equals("")) {
+                aux=gson.fromJson(requestString2, collectionType);
+                
+                if(aux!=null)
+                    requests.addAll(aux);
             }
-            requestList.setModel(model);
-            requestFList.setModel(model2);
-        }        
+            if(requests!=null && !requests.isEmpty())  {
+                for(RequestCEN req: requests) {
+                    if(req.isFinished())        
+                        model2.addElement(req);
+                    else
+                        model.addElement(req);
+                }
+                requestList.setModel(model);
+                requestFList.setModel(model2);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     /**
      * @param args the command line arguments
@@ -426,46 +475,49 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JList requestFList;
     private javax.swing.JList requestList;
     // End of variables declaration//GEN-END:variables
-
-    private static String darPeticiones(java.lang.String nif) {
+            
+    private static String darPeticiones(int id, java.lang.String nif) {
         servicios.DarPeticionesNifP_Service service = new servicios.DarPeticionesNifP_Service();
         servicios.DarPeticionesNifP port = service.getDarPeticionesNifPPort();
-        return port.darPeticiones(nif);
+        return port.darPeticiones(id, nif);
     }
-
-    private static String darPeticionesHis(java.lang.String nif) {
+    
+    private static String darPeticionesHis(int id, java.lang.String nif) {
         servicios.DarPeticionesNifF_Service service = new servicios.DarPeticionesNifF_Service();
         servicios.DarPeticionesNifF port = service.getDarPeticionesNifFPort();
-        return port.darPeticionesHis(nif);
+        return port.darPeticionesHis(id, nif);
     }
-
-    private static void borrar(int id) {
+   
+    private static void borrar(int id, java.lang.String idP) {
         servicios.BorrarPeticion_Service service = new servicios.BorrarPeticion_Service();
         servicios.BorrarPeticion port = service.getBorrarPeticionPort();
-        port.borrar(id);
+        port.borrar(id, idP);
     }
-
-    private static String darOfertasByR(int idR) {
+    
+     private static String darOfertasByR(int id, java.lang.String idR) {
         servicios.DarOfertasRequest_Service service = new servicios.DarOfertasRequest_Service();
         servicios.DarOfertasRequest port = service.getDarOfertasRequestPort();
-        return port.darOfertasByR(idR);
+        return port.darOfertasByR(id, idR);
     }
-
-    private static String darOfertasByRequestOk(int idR) {
+    
+    private static String darOfertasByRequestOk(int id, java.lang.String idR) {
         servicios.DarOfertasRequestOk_Service service = new servicios.DarOfertasRequestOk_Service();
         servicios.DarOfertasRequestOk port = service.getDarOfertasRequestOkPort();
-        return port.darOfertasByRequestOk(idR);
+        return port.darOfertasByRequestOk(id, idR);
     }
 
-    private static String darOfertasSelection(int idR) {
+    private static String darOfertasSelection(int id, java.lang.String idR) {
         servicios.DarOfertasSeleccionadas_Service service = new servicios.DarOfertasSeleccionadas_Service();
         servicios.DarOfertasSeleccionadas port = service.getDarOfertasSeleccionadasPort();
-        return port.darOfertasSelection(idR);
+        return port.darOfertasSelection(id, idR);
     }
 
-    private static String aceptarOfertasDe(java.lang.String idS) {
+    private static String aceptarOfertasDe(int id, java.lang.String idS) {
         servicios.AceptarOfertas_Service service = new servicios.AceptarOfertas_Service();
         servicios.AceptarOfertas port = service.getAceptarOfertasPort();
-        return port.aceptarOfertasDe(idS);
-    }            
+        return port.aceptarOfertasDe(id, idS);
+    }
+
+         
+    
 }

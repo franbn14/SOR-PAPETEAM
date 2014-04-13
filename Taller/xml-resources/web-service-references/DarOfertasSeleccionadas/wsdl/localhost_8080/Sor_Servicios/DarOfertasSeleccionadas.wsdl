@@ -4,6 +4,12 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:8080/Sor_Servicios/DarOfertasSeleccionadas?xsd=1" />
 </xsd:schema>
 </types>
+<message name="DarOfertasSelectionWeb">
+<part name="parameters" element="tns:DarOfertasSelectionWeb" />
+</message>
+<message name="DarOfertasSelectionWebResponse">
+<part name="parameters" element="tns:DarOfertasSelectionWebResponse" />
+</message>
 <message name="DarOfertasSelection">
 <part name="parameters" element="tns:DarOfertasSelection" />
 </message>
@@ -11,6 +17,10 @@
 <part name="parameters" element="tns:DarOfertasSelectionResponse" />
 </message>
 <portType name="DarOfertasSeleccionadas">
+<operation name="DarOfertasSelectionWeb">
+<input wsam:Action="http://Servicios/DarOfertasSeleccionadas/DarOfertasSelectionWebRequest" message="tns:DarOfertasSelectionWeb" />
+<output wsam:Action="http://Servicios/DarOfertasSeleccionadas/DarOfertasSelectionWebResponse" message="tns:DarOfertasSelectionWebResponse" />
+</operation>
 <operation name="DarOfertasSelection">
 <input wsam:Action="http://Servicios/DarOfertasSeleccionadas/DarOfertasSelectionRequest" message="tns:DarOfertasSelection" />
 <output wsam:Action="http://Servicios/DarOfertasSeleccionadas/DarOfertasSelectionResponse" message="tns:DarOfertasSelectionResponse" />
@@ -18,6 +28,15 @@
 </portType>
 <binding name="DarOfertasSeleccionadasPortBinding" type="tns:DarOfertasSeleccionadas">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+<operation name="DarOfertasSelectionWeb">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
 <operation name="DarOfertasSelection">
 <soap:operation soapAction="" />
 <input>

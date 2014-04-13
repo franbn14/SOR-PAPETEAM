@@ -10,26 +10,41 @@ import CEN.RequestCEN;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.SecretKey;
+import javax.swing.JOptionPane;
+import security.AES;
 /**
  *
  * @author alberto
  */
 public class NewRequest extends javax.swing.JFrame {
     String user;
+    private Comunication comunication;
     /**
      * Creates new form NewRequest
      */
     public NewRequest() {
-        initComponents();
+        initComponents();        
     }
     
     public NewRequest(String cif) {
-        initComponents();        
+        comunication = Comunication.getInstance();
+        initComponents();
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {                
+                comunication.Finish();
+                dispose();                                        
+            }
+        });        
         user=cif;        
         String unitString=darTodasUnidades();
         ArrayList<String> units;
@@ -374,20 +389,41 @@ public class NewRequest extends javax.swing.JFrame {
         }
         
         if(unit<=-1)
-            unit=null;
-        
-        if(color.equals(""))
-            color=null;
+            unit=null;        
         
         if(correct) {
-            int id=insert(type, date, size,unit, color, amountInt, price, getID(user), cbSelection.isSelected(), false);
-
-            if(id==-1)
-                lbReqError.setText("Error al crear solicitud");
-            else {                          
-                dispose();
-                Home home=new Home(user);
-                home.setVisible(true);
+            try {
+                SecretKey key=comunication.getAesKey();
+                type=AES.encrypt(type, key);
+                date=AES.encrypt(date, key);
+                String sizeStr=AES.encrypt((size==null?"":Double.toString(size)), key);
+                String unitStr=AES.encrypt((unit==null?"":Integer.toString(unit)), key);
+                String amountIntStr=AES.encrypt((amountInt==null?"":Integer.toString(amountInt)), key);
+                String priceStr=AES.encrypt((price==null?"":Double.toString(price)), key);
+                
+                //user=AES.encrypt(user, key);
+                Integer userId=getID(comunication.getID(),user);
+                String userStr=AES.encrypt(Integer.toString(userId),key);
+                String selectedStr=AES.encrypt(Boolean.toString(cbSelection.isSelected()), key);
+                String finishedStr=AES.encrypt(Boolean.toString(false), key);
+                String expiredStr=AES.encrypt(Boolean.toString(false), key);
+                color=AES.encrypt(color, key);
+                
+                String idString=AES.decrypt(insert(comunication.getID(),type, date, sizeStr,unitStr, color, amountIntStr, priceStr, userStr, selectedStr, finishedStr, expiredStr), key);
+                int id=-1;
+                
+                if(!idString.equals("") || idString!=null)
+                    id=Integer.parseInt(idString);
+                
+                if(id==-1)
+                    lbReqError.setText("Error al crear solicitud");
+                else {
+                    dispose();
+                    Home home=new Home(user);
+                    home.setVisible(true);
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(NewRequest.class.getName()).log(Level.SEVERE, null, ex);
             }
                 
             
@@ -396,6 +432,7 @@ public class NewRequest extends javax.swing.JFrame {
 
     private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
         // TODO add your handling code here:
+        comunication.Finish();
         dispose();
         Home home=new Home(user);
         home.setVisible(true);
@@ -544,18 +581,18 @@ public class NewRequest extends javax.swing.JFrame {
         servicios.DarUnidades port = service.getDarUnidadesPort();
         return port.darUnidadId(id);
     }   
-
-    private static int getID(java.lang.String nif) {
+  
+    private static int getID(int id, java.lang.String nif) {
         servicios.DarIdClientebyNif_Service service = new servicios.DarIdClientebyNif_Service();
         servicios.DarIdClientebyNif port = service.getDarIdClientebyNifPort();
-        return port.getID(nif);
+        return port.getID(id, nif);
     }
 
-    private static int insert(java.lang.String tipo, java.lang.String fechaTope, java.lang.Double tamanyo, java.lang.Integer tamUnidad, java.lang.String color, java.lang.Integer cantidad, java.lang.Double precioMax, int usuario, boolean autoElect, boolean finalizado) {
+    private static String insert(int id, java.lang.String tipo, java.lang.String fechaTope, java.lang.String tamanyo, java.lang.String tamUnidad, java.lang.String color, java.lang.String cantidad, java.lang.String precioMax, java.lang.String usuario, java.lang.String autoElect, java.lang.String finalizado, java.lang.String caducada) {
         servicios.NewPeticion_Service service = new servicios.NewPeticion_Service();
         servicios.NewPeticion port = service.getNewPeticionPort();
-        return port.insert(tipo, fechaTope, tamanyo, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado);
-    }  
+        return port.insert(id, tipo, fechaTope, tamanyo, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado, caducada);
+    }
 }
 
 

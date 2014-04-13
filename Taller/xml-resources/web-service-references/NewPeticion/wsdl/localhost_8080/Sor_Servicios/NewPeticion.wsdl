@@ -4,31 +4,31 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:8080/Sor_Servicios/NewPeticion?xsd=1" />
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello" />
-</message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse" />
-</message>
 <message name="Insert">
 <part name="parameters" element="tns:Insert" />
 </message>
 <message name="InsertResponse">
 <part name="parameters" element="tns:InsertResponse" />
 </message>
+<message name="InsertWeb">
+<part name="parameters" element="tns:InsertWeb" />
+</message>
+<message name="InsertWebResponse">
+<part name="parameters" element="tns:InsertWebResponse" />
+</message>
 <portType name="NewPeticion">
-<operation name="hello">
-<input wsam:Action="http://Servicios/NewPeticion/helloRequest" message="tns:hello" />
-<output wsam:Action="http://Servicios/NewPeticion/helloResponse" message="tns:helloResponse" />
-</operation>
 <operation name="Insert">
 <input wsam:Action="http://Servicios/NewPeticion/InsertRequest" message="tns:Insert" />
 <output wsam:Action="http://Servicios/NewPeticion/InsertResponse" message="tns:InsertResponse" />
 </operation>
+<operation name="InsertWeb">
+<input wsam:Action="http://Servicios/NewPeticion/InsertWebRequest" message="tns:InsertWeb" />
+<output wsam:Action="http://Servicios/NewPeticion/InsertWebResponse" message="tns:InsertWebResponse" />
+</operation>
 </portType>
 <binding name="NewPeticionPortBinding" type="tns:NewPeticion">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
-<operation name="hello">
+<operation name="Insert">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -37,7 +37,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="Insert">
+<operation name="InsertWeb">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

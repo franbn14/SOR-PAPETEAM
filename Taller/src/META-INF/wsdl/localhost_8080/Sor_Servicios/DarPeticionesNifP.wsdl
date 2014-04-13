@@ -4,31 +4,31 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:8080/Sor_Servicios/DarPeticionesNifP?xsd=1" />
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello" />
-</message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse" />
-</message>
 <message name="DarPeticiones">
 <part name="parameters" element="tns:DarPeticiones" />
 </message>
 <message name="DarPeticionesResponse">
 <part name="parameters" element="tns:DarPeticionesResponse" />
 </message>
+<message name="DarPeticionesWeb">
+<part name="parameters" element="tns:DarPeticionesWeb" />
+</message>
+<message name="DarPeticionesWebResponse">
+<part name="parameters" element="tns:DarPeticionesWebResponse" />
+</message>
 <portType name="DarPeticionesNifP">
-<operation name="hello">
-<input wsam:Action="http://Servicios/DarPeticionesNifP/helloRequest" message="tns:hello" />
-<output wsam:Action="http://Servicios/DarPeticionesNifP/helloResponse" message="tns:helloResponse" />
-</operation>
 <operation name="DarPeticiones">
 <input wsam:Action="http://Servicios/DarPeticionesNifP/DarPeticionesRequest" message="tns:DarPeticiones" />
 <output wsam:Action="http://Servicios/DarPeticionesNifP/DarPeticionesResponse" message="tns:DarPeticionesResponse" />
 </operation>
+<operation name="DarPeticionesWeb">
+<input wsam:Action="http://Servicios/DarPeticionesNifP/DarPeticionesWebRequest" message="tns:DarPeticionesWeb" />
+<output wsam:Action="http://Servicios/DarPeticionesNifP/DarPeticionesWebResponse" message="tns:DarPeticionesWebResponse" />
+</operation>
 </portType>
 <binding name="DarPeticionesNifPPortBinding" type="tns:DarPeticionesNifP">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
-<operation name="hello">
+<operation name="DarPeticiones">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -37,7 +37,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="DarPeticiones">
+<operation name="DarPeticionesWeb">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

@@ -20,12 +20,13 @@ import security.AES;
  */
 public class Register extends javax.swing.JFrame {
 
-    private Comunication _comunication = Comunication.getInstance();
+    private Comunication comunication;
     /**
      * Creates new form Register
      */
     public Register() {
         initComponents();
+        comunication = Comunication.getInstance();
     }
 
     /**
@@ -371,29 +372,29 @@ public class Register extends javax.swing.JFrame {
             
             //Se cifran los todos datos
             try{
-                cif = AES.encrypt(cif, _comunication.getAesKey());
-                name = AES.encrypt(name, _comunication.getAesKey());
-                address = AES.encrypt(address, _comunication.getAesKey());
-                pass = AES.encrypt(pass, _comunication.getAesKey());
-                surname = AES.encrypt(surname, _comunication.getAesKey());
-                dob = AES.encrypt(dob, _comunication.getAesKey());
-                email = AES.encrypt(email, _comunication.getAesKey());
+                cif = AES.encrypt(cif, comunication.getAesKey());
+                name = AES.encrypt(name, comunication.getAesKey());
+                address = AES.encrypt(address, comunication.getAesKey());
+                pass = AES.encrypt(pass, comunication.getAesKey());
+                surname = AES.encrypt(surname, comunication.getAesKey());
+                dob = AES.encrypt(dob, comunication.getAesKey());
+                email = AES.encrypt(email, comunication.getAesKey());
             }
             catch(Exception ex){
                 
             }
             
             
-            String error=registroCli(_comunication.getID(), cif,name,address,pass,surname,dob,email);
+            String error=registroCli(comunication.getID(), cif,name,address,pass,surname,dob,email);
 
             if(error.equals("")) {
+                comunication.Finish();
                 Main main=new Main();
                 dispose();
-                main.setVisible(true);
-                _comunication.Finish();
+                main.setVisible(true);                
             }
             else
-            lbError.setText(error);
+                lbError.setText(error);
         }                
     }//GEN-LAST:event_btRegisterActionPerformed
 
@@ -421,6 +422,7 @@ public class Register extends javax.swing.JFrame {
 
     private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
         // TODO add your handling code here:
+        comunication.Finish();
         Main main=new Main();
         dispose();
         main.setVisible(true);

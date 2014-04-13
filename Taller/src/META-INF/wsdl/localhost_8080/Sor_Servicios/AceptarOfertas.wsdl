@@ -4,6 +4,12 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:8080/Sor_Servicios/AceptarOfertas?xsd=1" />
 </xsd:schema>
 </types>
+<message name="AceptarOfertasDeWeb">
+<part name="parameters" element="tns:AceptarOfertasDeWeb" />
+</message>
+<message name="AceptarOfertasDeWebResponse">
+<part name="parameters" element="tns:AceptarOfertasDeWebResponse" />
+</message>
 <message name="AceptarOfertasDe">
 <part name="parameters" element="tns:AceptarOfertasDe" />
 </message>
@@ -11,6 +17,10 @@
 <part name="parameters" element="tns:AceptarOfertasDeResponse" />
 </message>
 <portType name="AceptarOfertas">
+<operation name="AceptarOfertasDeWeb">
+<input wsam:Action="http://Servicios/AceptarOfertas/AceptarOfertasDeWebRequest" message="tns:AceptarOfertasDeWeb" />
+<output wsam:Action="http://Servicios/AceptarOfertas/AceptarOfertasDeWebResponse" message="tns:AceptarOfertasDeWebResponse" />
+</operation>
 <operation name="AceptarOfertasDe">
 <input wsam:Action="http://Servicios/AceptarOfertas/AceptarOfertasDeRequest" message="tns:AceptarOfertasDe" />
 <output wsam:Action="http://Servicios/AceptarOfertas/AceptarOfertasDeResponse" message="tns:AceptarOfertasDeResponse" />
@@ -18,6 +28,15 @@
 </portType>
 <binding name="AceptarOfertasPortBinding" type="tns:AceptarOfertas">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+<operation name="AceptarOfertasDeWeb">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
 <operation name="AceptarOfertasDe">
 <soap:operation soapAction="" />
 <input>

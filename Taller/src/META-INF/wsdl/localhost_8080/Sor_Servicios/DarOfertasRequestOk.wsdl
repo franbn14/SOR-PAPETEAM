@@ -10,15 +10,34 @@
 <message name="DarOfertasByRequestOkResponse">
 <part name="parameters" element="tns:DarOfertasByRequestOkResponse" />
 </message>
+<message name="DarOfertasByRequestOkWeb">
+<part name="parameters" element="tns:DarOfertasByRequestOkWeb" />
+</message>
+<message name="DarOfertasByRequestOkWebResponse">
+<part name="parameters" element="tns:DarOfertasByRequestOkWebResponse" />
+</message>
 <portType name="DarOfertasRequestOk">
 <operation name="DarOfertasByRequestOk">
 <input wsam:Action="http://Servicios/DarOfertasRequestOk/DarOfertasByRequestOkRequest" message="tns:DarOfertasByRequestOk" />
 <output wsam:Action="http://Servicios/DarOfertasRequestOk/DarOfertasByRequestOkResponse" message="tns:DarOfertasByRequestOkResponse" />
 </operation>
+<operation name="DarOfertasByRequestOkWeb">
+<input wsam:Action="http://Servicios/DarOfertasRequestOk/DarOfertasByRequestOkWebRequest" message="tns:DarOfertasByRequestOkWeb" />
+<output wsam:Action="http://Servicios/DarOfertasRequestOk/DarOfertasByRequestOkWebResponse" message="tns:DarOfertasByRequestOkWebResponse" />
+</operation>
 </portType>
 <binding name="DarOfertasRequestOkPortBinding" type="tns:DarOfertasRequestOk">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
 <operation name="DarOfertasByRequestOk">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="DarOfertasByRequestOkWeb">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

@@ -4,11 +4,11 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:8080/Sor_Servicios/BorrarPeticion?xsd=1" />
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello" />
+<message name="BorrarWeb">
+<part name="parameters" element="tns:BorrarWeb" />
 </message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse" />
+<message name="BorrarWebResponse">
+<part name="parameters" element="tns:BorrarWebResponse" />
 </message>
 <message name="Borrar">
 <part name="parameters" element="tns:Borrar" />
@@ -17,9 +17,9 @@
 <part name="parameters" element="tns:BorrarResponse" />
 </message>
 <portType name="BorrarPeticion">
-<operation name="hello">
-<input wsam:Action="http://Servicios/BorrarPeticion/helloRequest" message="tns:hello" />
-<output wsam:Action="http://Servicios/BorrarPeticion/helloResponse" message="tns:helloResponse" />
+<operation name="BorrarWeb">
+<input wsam:Action="http://Servicios/BorrarPeticion/BorrarWebRequest" message="tns:BorrarWeb" />
+<output wsam:Action="http://Servicios/BorrarPeticion/BorrarWebResponse" message="tns:BorrarWebResponse" />
 </operation>
 <operation name="Borrar">
 <input wsam:Action="http://Servicios/BorrarPeticion/BorrarRequest" message="tns:Borrar" />
@@ -28,7 +28,7 @@
 </portType>
 <binding name="BorrarPeticionPortBinding" type="tns:BorrarPeticion">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
-<operation name="hello">
+<operation name="BorrarWeb">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

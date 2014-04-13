@@ -4,6 +4,12 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:8080/Sor_Servicios/DarPeticionesNifF?xsd=1" />
 </xsd:schema>
 </types>
+<message name="DarPeticionesHisWeb">
+<part name="parameters" element="tns:DarPeticionesHisWeb" />
+</message>
+<message name="DarPeticionesHisWebResponse">
+<part name="parameters" element="tns:DarPeticionesHisWebResponse" />
+</message>
 <message name="DarPeticionesHis">
 <part name="parameters" element="tns:DarPeticionesHis" />
 </message>
@@ -11,6 +17,10 @@
 <part name="parameters" element="tns:DarPeticionesHisResponse" />
 </message>
 <portType name="DarPeticionesNifF">
+<operation name="DarPeticionesHisWeb">
+<input wsam:Action="http://Servicios/DarPeticionesNifF/DarPeticionesHisWebRequest" message="tns:DarPeticionesHisWeb" />
+<output wsam:Action="http://Servicios/DarPeticionesNifF/DarPeticionesHisWebResponse" message="tns:DarPeticionesHisWebResponse" />
+</operation>
 <operation name="DarPeticionesHis">
 <input wsam:Action="http://Servicios/DarPeticionesNifF/DarPeticionesHisRequest" message="tns:DarPeticionesHis" />
 <output wsam:Action="http://Servicios/DarPeticionesNifF/DarPeticionesHisResponse" message="tns:DarPeticionesHisResponse" />
@@ -18,6 +28,15 @@
 </portType>
 <binding name="DarPeticionesNifFPortBinding" type="tns:DarPeticionesNifF">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+<operation name="DarPeticionesHisWeb">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
 <operation name="DarPeticionesHis">
 <soap:operation soapAction="" />
 <input>
