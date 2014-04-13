@@ -4,31 +4,31 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:8080/Sor_Servicios/LoginDesguace?xsd=1" />
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello" />
-</message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse" />
-</message>
 <message name="Login_Des">
 <part name="parameters" element="tns:Login_Des" />
 </message>
 <message name="Login_DesResponse">
 <part name="parameters" element="tns:Login_DesResponse" />
 </message>
+<message name="hello">
+<part name="parameters" element="tns:hello" />
+</message>
+<message name="helloResponse">
+<part name="parameters" element="tns:helloResponse" />
+</message>
 <portType name="LoginDesguace">
-<operation name="hello">
-<input wsam:Action="http://Servicios/LoginDesguace/helloRequest" message="tns:hello" />
-<output wsam:Action="http://Servicios/LoginDesguace/helloResponse" message="tns:helloResponse" />
-</operation>
 <operation name="Login_Des">
 <input wsam:Action="http://Servicios/LoginDesguace/Login_DesRequest" message="tns:Login_Des" />
 <output wsam:Action="http://Servicios/LoginDesguace/Login_DesResponse" message="tns:Login_DesResponse" />
 </operation>
+<operation name="hello">
+<input wsam:Action="http://Servicios/LoginDesguace/helloRequest" message="tns:hello" />
+<output wsam:Action="http://Servicios/LoginDesguace/helloResponse" message="tns:helloResponse" />
+</operation>
 </portType>
 <binding name="LoginDesguacePortBinding" type="tns:LoginDesguace">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
-<operation name="hello">
+<operation name="Login_Des">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -37,7 +37,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="Login_Des">
+<operation name="hello">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

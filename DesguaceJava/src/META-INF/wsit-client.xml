@@ -9,4 +9,6 @@
     <import location="RegistroDesguace.xml" namespace="http://Servicios/"/>
     <import location="DarUnidades.xml" namespace="http://Servicios/"/>
     <import location="DarIdDesguacebyCif.xml" namespace="http://Servicios/"/>
+    <import location="InitCom.xml" namespace="http://Servicios/"/>
+    <import location="FinishCom.xml" namespace="http://Servicios/"/>
 </definitions>

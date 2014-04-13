@@ -8,6 +8,10 @@
     <system systemId="http://localhost:8080/Sor_Servicios/LoginDesguace?xsd=1" uri="xml-resources/web-service-references/LoginDesguace/wsdl/localhost_8080/Sor_Servicios/LoginDesguace.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" uri="xml-resources/web-service-references/RegistroDesguace/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/RegistroDesguace?xsd=1" uri="xml-resources/web-service-references/RegistroDesguace/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/InitCom?wsdl" uri="xml-resources/web-service-references/InitCom/wsdl/localhost_8080/Sor_Servicios/InitCom.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/InitCom?xsd=1" uri="xml-resources/web-service-references/InitCom/wsdl/localhost_8080/Sor_Servicios/InitCom.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/FinishCom?wsdl" uri="xml-resources/web-service-references/FinishCom/wsdl/localhost_8080/Sor_Servicios/FinishCom.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/FinishCom?xsd=1" uri="xml-resources/web-service-references/FinishCom/wsdl/localhost_8080/Sor_Servicios/FinishCom.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Sor_Servicios/DarUnidades?wsdl" uri="xml-resources/web-service-references/DarUnidades/wsdl/localhost_8080/Sor_Servicios/DarUnidades.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/DarUnidades?xsd=1" uri="xml-resources/web-service-references/DarUnidades/wsdl/localhost_8080/Sor_Servicios/DarUnidades.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?wsdl" uri="xml-resources/web-service-references/DarIdDesguacebyCif/wsdl/localhost_8080/Sor_Servicios/DarIdDesguacebyCif.wsdl"/>

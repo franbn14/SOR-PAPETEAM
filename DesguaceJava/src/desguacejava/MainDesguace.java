@@ -53,6 +53,7 @@ import javax.swing.event.TableColumnModelEvent;
 import javax.swing.event.TableColumnModelListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+import security.AES;
 import servicios.DarUnidadId;
     
        
@@ -89,7 +90,7 @@ public class MainDesguace extends JFrame {
         spPrincipal.setRightComponent(panelDer);
         panelDer.setLayout(new BorderLayout(0, 0));
         
-        logger = new SYLogger();
+        //logger = new SYLogger();
         JSplitPane spTablas = new JSplitPane();
         spTablas.setDividerSize(10);
         spTablas.setOrientation(JSplitPane.VERTICAL_SPLIT);
@@ -258,10 +259,10 @@ public class MainDesguace extends JFrame {
                        if(enviar)
                        {
                             Sender envio = new Sender();
-                            logger.setLogMessage(2, cif, nueva);
+                            //logger.setLogMessage(2, cif, nueva);
                             envio.setParams("OfferDelivery", cif, "OfferDelivery", "OfferDelivery");
-                            //envio.open("192.168.43.56", "61616");
-                            envio.open("localhost", "61616");
+                            envio.open("25.162.2.139", "61616");
+                            //envio.open("localhost", "61616");
                             envio.send(nueva, 60000);
                             envio.close();
                             enviada = true;
@@ -341,20 +342,27 @@ public class MainDesguace extends JFrame {
         r2.setTable(tPeticiones);
         r3.setTable(tOfertasAceptadas);
         r1.setParams(cif+"p", "servidor", cif+"p", cif+"p");
-        //r1.open("192.168.43.56", "61616");
-        r1.open("localhost", "61616");
+        r1.open("25.162.2.139", "61616");
+        //r1.open("localhost", "61616");
         r2.setParams("pendientes", "servidor", "pendientes", "pendientes");
-        //r2.open("192.168.43.56", "61616");
-        r2.open("localhost", "61616");
+        r2.open("25.162.2.139", "61616");
+        //r2.open("localhost", "61616");
         r3.setParams(cif+"f", "servidor", cif+"f", cif+"f");
-        //r3.open("192.168.43.56", "61616"); 
-        r3.open("localhost", "61616");
+        r3.open("25.162.2.139", "61616");
+        //r3.open("localhost", "61616");
     }
 
     private static int getIdDes(java.lang.String nif) {
-        servicios.DarIdDesguacebyCif_Service service = new servicios.DarIdDesguacebyCif_Service();
-        servicios.DarIdDesguacebyCif port = service.getDarIdDesguacebyCifPort();
-        return port.getIdDes(nif);
+        try {
+            servicios.DarIdDesguacebyCif_Service service = new servicios.DarIdDesguacebyCif_Service();
+            servicios.DarIdDesguacebyCif port = service.getDarIdDesguacebyCifPort();
+            Comunication com = Comunication.getInstance();
+            nif = AES.encrypt(nif, com.getAesKey());
+            return port.getIdDes(com.getID(),nif);
+        } catch (Exception ex) {
+            Logger.getLogger(MainDesguace.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
     private static String darTodasUnidades() {

@@ -14,6 +14,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
@@ -21,6 +23,7 @@ import java.util.logging.Logger;
 
 import javax.swing.*;
 import org.apache.commons.codec.binary.Hex;
+import security.AES;
 
 
 /**
@@ -35,10 +38,12 @@ public class DesguaceJava extends JFrame implements ActionListener{
 	JPasswordField t2;
         DesguaceRegistro reg;
         static JFrame des;
-        SYLogger logger;
+        //SYLogger logger;
+        static Comunication com;
 	public DesguaceJava(String titulo)
 	{
 		super(titulo);
+                com = Comunication.getInstance();
 		setResizable(false);
 		JPanel p1 = new JPanel();
 		SpringLayout sl_p1 = new SpringLayout();
@@ -96,7 +101,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
                 reg = new DesguaceRegistro();
                 reg.setVisible(false);
                 btn.addActionListener(this);
-                logger = new SYLogger();
+                //logger = new SYLogger();
 	}
 	
 	public static void main(String args[])
@@ -129,8 +134,20 @@ public class DesguaceJava extends JFrame implements ActionListener{
                             if(error.equals(""))
                             {
                                 MainDesguace mdes;
-                                logger.setLogMessage(1, user, "");
+                                //logger.setLogMessage(1, user, "");
                                 mdes = new MainDesguace(t1.getText());
+                                mdes.addWindowListener(new WindowAdapter() {
+                                    public void windowClosing(WindowEvent e)
+                                    {
+                                        int exitApp= JOptionPane.showConfirmDialog(null, "Realmente quieres dejar la aplicacion?", "SI/NO", JOptionPane.YES_NO_OPTION);
+                                        if(exitApp == JOptionPane.YES_OPTION)
+                                        {
+                                            Comunication com = Comunication.getInstance();
+                                            com.Finish();
+                                            System.exit(0);
+                                        }
+                                    }
+                                });
                                 mdes.setVisible(false);
                                 mdes.setVisible(true);
                                 mdes.setSize(700,600);
@@ -139,7 +156,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
                             else
                             {
                                     lblError.setText(error);
-                                    logger.setLogMessage(-1, user, error);
+                                    //logger.setLogMessage(-1, user, error);
                                     lblError.setVisible(true);
                             }
                         } catch (NoSuchAlgorithmException ex) {
@@ -150,8 +167,16 @@ public class DesguaceJava extends JFrame implements ActionListener{
 	}
 
     private static String loginDes(java.lang.String password, java.lang.String cif) {
-        servicios.LoginDesguace_Service service = new servicios.LoginDesguace_Service();
-        servicios.LoginDesguace port = service.getLoginDesguacePort();
-        return port.loginDes(password, cif);
+        try {
+            servicios.LoginDesguace_Service service = new servicios.LoginDesguace_Service();
+            servicios.LoginDesguace port = service.getLoginDesguacePort();
+            Comunication com = Comunication.getInstance();
+            password = AES.encrypt(password, com.getAesKey());
+            cif = AES.encrypt(cif, com.getAesKey());
+            return AES.decrypt(port.loginDes(com.getID(),password, cif),com.getAesKey());
+        } catch (Exception ex) {
+            Logger.getLogger(DesguaceJava.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

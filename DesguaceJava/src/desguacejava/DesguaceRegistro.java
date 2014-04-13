@@ -25,6 +25,7 @@ import javax.swing.SwingConstants;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.codec.binary.Hex;
+import security.AES;
 
 /**
  *
@@ -38,10 +39,10 @@ public class DesguaceRegistro extends JFrame{
     JButton btn;
     private JTextField textField;
     String password;
-    SYLogger logger;
+    //SYLogger logger;
     public DesguaceRegistro()
     {
-    	setResizable(false);
+    	setResizable(false);        
         JPanel p1 = new JPanel();
         JPanel p2 = new JPanel();
         JPanel p3 = new JPanel();
@@ -103,7 +104,7 @@ public class DesguaceRegistro extends JFrame{
         sl_p1.putConstraint(SpringLayout.SOUTH, err, -10, SpringLayout.SOUTH, p1);
         sl_p1.putConstraint(SpringLayout.EAST, err, 430, SpringLayout.WEST, p1);
         p1.add(err);
-        logger = new SYLogger();
+        //logger = new SYLogger();
         lb1 = new JLabel("Formulario de Registro");
         lb1.setFont(new Font("Tahoma",0,30));
         btn = new JButton("Registrar");
@@ -212,15 +213,17 @@ public class DesguaceRegistro extends JFrame{
                     {
                         error = "Registro completado";
                         err.setText(error);
-                        logger.setLogMessage(3, t1.getText(), "");
+                        //logger.setLogMessage(3, t1.getText(), "");
                         err.setForeground(Color.green);
                         err.setVisible(true);
                         setVisible(false);
+                        Comunication com = Comunication.getInstance();
+                        com.Finish();
                     }
                     else
                     {
                         err.setText(error);
-                        logger.setLogMessage(-2, t1.getText(), "");
+                        //logger.setLogMessage(-2, t1.getText(), "");
                         err.setForeground(Color.red);
                         err.setVisible(true);
                     }
@@ -244,9 +247,20 @@ public class DesguaceRegistro extends JFrame{
     }
 
     private static String registro(java.lang.String cif, java.lang.String nombre, java.lang.String password, java.lang.String direccion, java.lang.String email) {
-        servicios.RegistroDesguace_Service service = new servicios.RegistroDesguace_Service();
-        servicios.RegistroDesguace port = service.getRegistroDesguacePort();
-        return port.registro(cif, nombre, password, direccion, email);
+        try {
+            servicios.RegistroDesguace_Service service = new servicios.RegistroDesguace_Service();
+            servicios.RegistroDesguace port = service.getRegistroDesguacePort();
+            Comunication com = Comunication.getInstance();
+            cif = AES.encrypt(cif, com.getAesKey());
+            nombre = AES.encrypt(nombre, com.getAesKey());
+            password = AES.encrypt(password, com.getAesKey());
+            direccion = AES.encrypt(direccion, com.getAesKey());
+            email = AES.encrypt(email, com.getAesKey());
+            return port.registro(com.getID(),cif, nombre, password, direccion, email);
+        } catch (Exception ex) {
+            Logger.getLogger(DesguaceRegistro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
 }
