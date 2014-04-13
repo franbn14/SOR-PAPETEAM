@@ -58,10 +58,10 @@ public class NewPeticion {
 
         SecretKey key = (SecretKey) KeysManager.GetInstance().getKey(id);
         
-        Double tamanyoDouble = 0.0;
+        Double tamanyoDouble = null;
         int tamUnidadInt = 0;
-        Integer cantidadInt = 0;
-        Double precioMaxDouble = 0.0;
+        Integer cantidadInt = null;
+        Double precioMaxDouble = null;
         int usuarioInt = -1;
         boolean autoElectBool = false;
         boolean finalizadoBool = false;
@@ -69,17 +69,30 @@ public class NewPeticion {
         try {
             tipo =  AES.decrypt(tipo, key);
             fechaTope = AES.decrypt(fechaTope, key);
-            tamanyo = AES.decrypt(tamanyo, key);
-            tamanyoDouble = Double.parseDouble(tamanyo);
+
+            tamanyo = AES.decrypt(tamanyo, key);                        
+            if(!tamanyo.equals(""))                 
+                tamanyoDouble = Double.parseDouble(tamanyo);
+            
             tamUnidad = AES.decrypt(tamUnidad, key);
-            tamUnidadInt = Integer.parseInt(tamUnidad);
+            if(!tamUnidad.equals(""))
+                tamUnidadInt = Integer.parseInt(tamUnidad);
+               
             color = AES.decrypt(color, key);
+            
             cantidad = AES.decrypt(cantidad, key);
-            cantidadInt = Integer.parseInt(cantidad);
+            if(!cantidad.equals(""))                 
+                cantidadInt = Integer.parseInt(cantidad);            
+            
             precioMax = AES.decrypt(precioMax, key);
-            precioMaxDouble = Double.parseDouble(precioMax);
+            if(!precioMax.equals(""))                 
+                precioMaxDouble = Double.parseDouble(precioMax);            
+            
+            //System.out.println("Encriptado: "+usuario);
             usuario = AES.decrypt(usuario, key);
+            //System.out.println("Desencriptado: "+usuario);
             usuarioInt = Integer.parseInt(usuario);
+            //System.out.println("ID: "+usuarioInt);
             autoElect = AES.decrypt(autoElect, key);
             autoElectBool = Boolean.parseBoolean(autoElect);
             finalizado = AES.decrypt(finalizado, key);

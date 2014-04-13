@@ -44,7 +44,7 @@ public class DarIdClientebyNif {
     public int GetID(@WebParam(name = "id") int id, @WebParam(name = "nif") String nif) {
         SecretKey key = (SecretKey) KeysManager.GetInstance().getKey(id);
         try {
-            nif = AES.encrypt(nif, key);
+            nif = AES.decrypt(nif, key);
         } catch (Exception ex) {
             System.err.println(ex);
         }

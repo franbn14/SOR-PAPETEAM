@@ -50,7 +50,7 @@ public class DarPeticionesNifP {
         String listaJSON = gson.toJson(requests);
         
         try {
-            listaJSON = AES.decrypt(listaJSON, key);
+            listaJSON = AES.encrypt(listaJSON, key);
         } catch (Exception ex) {
             System.err.println(ex);
         }
