@@ -25,9 +25,35 @@ import security.KeysManager;
 @WebService(serviceName = "RegistroDesguace")
 public class RegistroDesguace {
     KeysManager _keysManager = KeysManager.GetInstance();
-    /**
-     * Web service operation
-     */
+    
+    @WebMethod(operationName = "RegistroWeb")
+    public String RegistroWeb(@WebParam(name = "Cif") String Cif, @WebParam(name = "Nombre") String Nombre, @WebParam(name = "Password") String Password, @WebParam(name = "Direccion") String Direccion, @WebParam(name = "Email") String Email) {
+        String error = "";
+        
+        ScrapYardCEN scry = ScrapYardCEN.getByCIF(Cif);
+        int type = 3;
+        
+        if (scry != null) {
+            error = "Error: CIF ya registrado";
+            type = -2;
+        } else {
+            scry = new ScrapYardCEN(Nombre, Password, Direccion, Cif, Email);
+            scry.insert();
+
+            //Enviamos el email para notificar de su registro
+            Email email = EmailFactoria.getEmail(EmailFactoria.tipoEmail.Registro, scry);
+            try {
+                email.send();
+            } catch (MessagingException ex) {
+                System.err.println(ex.getMessage());
+            }
+
+        }
+        
+        SYLogger.setLogMessage(type, Cif, error);
+        return error;
+    }
+    
     @WebMethod(operationName = "Registro")
     public String Registro(@WebParam(name = "id") int id, @WebParam(name = "Cif") String Cif, @WebParam(name = "Nombre") String Nombre, @WebParam(name = "Password") String Password, @WebParam(name = "Direccion") String Direccion, @WebParam(name = "Email") String Email) {
         SecretKey key = (SecretKey)_keysManager.getKey(id);
