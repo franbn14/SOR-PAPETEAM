@@ -108,13 +108,16 @@ namespace Desguace_Net
 
                     SHA512 shaM = new SHA512Managed();
                    byte [] passCi = shaM.ComputeHash(strToByteArray(Pass_Text.Text));
-                  String passCifrado = Convert.ToBase64String(passCi);
+                   StringBuilder hex = new StringBuilder(passCi.Length * 2);
+                   foreach (byte b in passCi)
+                       hex.AppendFormat("{0:x2}", b);
 
-                  error = l1.Registro(com.getID(), Comunicacion.Encrypt(Cif_Text.Text, com.getAes()), Comunicacion.Encrypt(Nombre_Text.Text, com.getAes()), Comunicacion.Encrypt(passCifrado, com.getAes()), Comunicacion.Encrypt(Dire_Text.Text, com.getAes()), Comunicacion.Encrypt(Email_text.Text, com.getAes()));
+                  error = l1.Registro(com.getID(), Comunicacion.Encrypt(Cif_Text.Text, com.getAes()), Comunicacion.Encrypt(Nombre_Text.Text, com.getAes()), Comunicacion.Encrypt(hex.ToString(), com.getAes()), Comunicacion.Encrypt(Dire_Text.Text, com.getAes()), Comunicacion.Encrypt(Email_text.Text, com.getAes()));
 
 
                     if (error == "")
                     {
+
                         if (MessageBox.Show("Registro Correcto. Por Favor para acceder Loguese.", "", MessageBoxButtons.OK,
        MessageBoxIcon.Information) == DialogResult.OK)
                         {

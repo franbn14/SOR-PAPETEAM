@@ -50,9 +50,9 @@ namespace Desguace_Net
             InitializeComponent();
             Text = "Bienvenido " + userName;
 
-            r = new Services.TopicSubscriber("pendientes", "tcp://25.162.2.139:61616", "RecibidorRequest" + nif);
-            op = new Services.TopicSubscriber(nif + "p", "tcp://25.162.2.139:61616", "RecibidorOfertasPen" + nif);
-            of = new Services.TopicSubscriber(nif + "f", "tcp://25.162.2.139:61616", "RecibidorOfertasFin" + nif);
+            r = new Services.TopicSubscriber("pendientes", "tcp://192.168.43.56:61616", "RecibidorRequest" + nif);
+            op = new Services.TopicSubscriber(nif + "p", "tcp://192.168.43.56:61616", "RecibidorOfertasPen" + nif);
+            of = new Services.TopicSubscriber(nif + "f", "tcp://192.168.43.56:61616", "RecibidorOfertasFin" + nif);
             r.OnMessageReceived += r_OnMessageReceived;
             op.OnMessageReceived += op_OnMessageReceived;
             of.OnMessageReceived += of_OnMessageReceived;

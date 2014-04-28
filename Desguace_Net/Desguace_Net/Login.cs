@@ -23,8 +23,10 @@ namespace Desguace_Net
         }
         public static byte[] strToByteArray(string str)
         {
-            System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
-            return encoding.GetBytes(str);
+           System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
+
+
+           return encoding.GetBytes(str);
 
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -49,10 +51,16 @@ namespace Desguace_Net
             {
                 SHA512 shaM = new SHA512Managed();
                 byte[] passCi = shaM.ComputeHash(strToByteArray(pass));
-                String passCifrado = Convert.ToBase64String(passCi);
+                
+                StringBuilder hex = new StringBuilder(passCi.Length * 2);
+                foreach (byte b in passCi)
+                    hex.AppendFormat("{0:x2}", b);
+
+               
+               
                 Comunicacion com = Comunicacion.GetInstance();
 
-                String error =l1.Login_Des(com.getID(),Comunicacion.Encrypt(passCifrado,com.getAes()),Comunicacion.Encrypt( user,com.getAes()));
+                String error =l1.Login_Des(com.getID(),Comunicacion.Encrypt(hex.ToString(),com.getAes()),Comunicacion.Encrypt( user,com.getAes()));
                 error = Comunicacion.Decrypt(error, com.getAes());
                
                 if (error == "")
