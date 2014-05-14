@@ -93,6 +93,11 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>PassManager</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistroDesguace</servlet-name>
         <url-pattern>/RegistroDesguace</url-pattern>
@@ -164,6 +169,10 @@
     <servlet-mapping>
         <servlet-name>LoginDesguace</servlet-name>
         <url-pattern>/LoginDesguace</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PassManager</servlet-name>
+        <url-pattern>/PassManager</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,6 +5,7 @@
 package soramq;
 
 import AutoSelection.Autoselection;
+import CAD.PassManagerCAD;
 import CEN.ClientCEN;
 import CEN.OfferCEN;
 import CEN.RequestCEN;
@@ -32,6 +33,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.swing.JTable;
 import logger.SYLogger;
+import static soramq.AMQFunctions.pr;
 
 /**
  *
@@ -40,6 +42,7 @@ import logger.SYLogger;
 public class AMQFunctions extends Thread{
     static Gson gson;
     static AMQFunctions pr;
+    
     public AMQFunctions()
     {
         gson = new GsonBuilder().setDateFormat("MMM dd, yyyy hh:mm:ss a").create();
@@ -141,16 +144,30 @@ public class AMQFunctions extends Thread{
         }
     }
     
+    public void caducarRecPass()  throws InterruptedException{
+        while(true){
+            try {
+                PassManagerCAD.deleteExpired();
+            } catch (Exception ex) {
+                Logger.getLogger(AMQFunctions.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Thread.sleep(10000);
+        }     
+    }
+    
     public void start()
     {
         Thread t1 = new Thread(new enviarOfertasAceptadasPorDesguace());
         Thread t2 = new Thread(new enviarOfertasPendientesPorDesguace());
         Thread t3 = new Thread(new enviarPeticionesPendientes());
         Thread t4 = new Thread(new autoselection());
+        Thread t5 = new Thread(new RecPass());
+
         t1.start();
         t2.start();
         t3.start();
         t4.start();
+        t5.start();
         
     }
     
@@ -396,4 +413,18 @@ class AMQReciver extends Thread implements javax.jms.MessageListener
            reciver.setParams("OfferDelivery", "server", "OfferDelivery", "OfferDelivery");
            reciver.open("localhost", "61616");
        }
+}
+
+class RecPass implements Runnable {
+            
+    @Override
+    public void run() {
+        pr = new AMQFunctions();
+        try {
+            pr.caducarRecPass();
+        } catch (InterruptedException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ package Email;
 import CEN.OfferCEN;
 import CEN.RequestCEN;
 import CEN.UserCEN;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +15,7 @@ import CEN.UserCEN;
  */
 
 public class EmailFactoria {
-    public static enum tipoEmail {OfertaAceptada, OfertaRechazada, Registro, CadAceptacion, CadNoOffertas, OfertasCad};
+    public static enum tipoEmail {OfertaAceptada, OfertaRechazada, Registro, CadAceptacion, CadNoOffertas, OfertasCad, EmailRecPass};
     
     public static Email getEmail(tipoEmail tipo, Object obj){
         Email email = null;
@@ -25,6 +26,11 @@ public class EmailFactoria {
             case CadAceptacion: email = new EmailCadAceptacion((RequestCEN) obj); break;
             case CadNoOffertas: email = new EmailCadNoOffertas((RequestCEN) obj); break;
             case OfertasCad: email = new EmailOfertasCad((RequestCEN) obj); break;
+            case EmailRecPass: 
+                ArrayList args = (ArrayList) obj;
+                email = new EmailRecPass((UserCEN)args.get(0), (String)args.get(1));
+            break;
+                
         }
         return email;
     }

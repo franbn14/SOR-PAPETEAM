@@ -43,7 +43,7 @@ public class Email {
                 propiedades.setProperty("mail.smtp.host", "smtp.gmail.com");
                 propiedades.setProperty("mail.smtp.starttls.enable", "true");
                 propiedades.setProperty("mail.smtp.port", "587");
-                remitente = "sorteampape2stopbloqueos@gmail.com";
+                remitente = "sorteampape@gmail.com";
                 remitentePass = "NF8VGUD5";
             }
             else {
@@ -207,5 +207,18 @@ class EmailOfertasCad extends Email {
                     "\nHa caducado. \n";
         
         destinatarios.add(request.getClient().getEmail());
+    }
+}
+
+class EmailRecPass extends Email {
+    public EmailRecPass(UserCEN usr, String recordId){
+        super();
+        
+        asunto = "Recuperación contraseña www.papeteam.es";
+        
+        mensaje =   "Para cambiar su contraseña por favor dirijase a la siguiente direccion: " +
+                    "\n\thttps://www.papeteam.es/recoverPass.php?token=" + recordId +
+                    "\nGracias.";
+        destinatarios.add(usr.getEmail());
     }
 }
