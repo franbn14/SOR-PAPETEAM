@@ -261,7 +261,7 @@ public class MainDesguace extends JFrame {
                             Sender envio = new Sender();
                             //logger.setLogMessage(2, cif, nueva);
                             envio.setParams("OfferDelivery", cif, "OfferDelivery", "OfferDelivery");
-                            envio.open("25.162.2.139", "61616");
+                            envio.open("192.168.43.56", "61616");
                             //envio.open("localhost", "61616");
                             envio.send(nueva, 60000);
                             envio.close();
@@ -342,13 +342,13 @@ public class MainDesguace extends JFrame {
         r2.setTable(tPeticiones);
         r3.setTable(tOfertasAceptadas);
         r1.setParams(cif+"p", "servidor", cif+"p", cif+"p");
-        r1.open("25.162.2.139", "61616");
+        r1.open("192.168.43.56", "61616");
         //r1.open("localhost", "61616");
         r2.setParams("pendientes", "servidor", "pendientes", "pendientes");
-        r2.open("25.162.2.139", "61616");
+        r2.open("192.168.43.56", "61616");
         //r2.open("localhost", "61616");
         r3.setParams(cif+"f", "servidor", cif+"f", cif+"f");
-        r3.open("25.162.2.139", "61616");
+        r3.open("192.168.43.56", "61616");
         //r3.open("localhost", "61616");
     }
 

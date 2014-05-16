@@ -5,7 +5,7 @@
 
 package desguacejava;
 
-import ScrapYardLogger.SYLogger;
+//import ScrapYardLogger.SYLogger;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -34,7 +34,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
 
         JButton btn,regbtn;
 	JTextField t1;
-	JLabel img,lblError;
+	JLabel img,lblError,lblErrRecPass;
 	JPasswordField t2;
         DesguaceRegistro reg;
         static JFrame des;
@@ -97,6 +97,43 @@ public class DesguaceJava extends JFrame implements ActionListener{
                 sl_p1.putConstraint(SpringLayout.WEST, lblError, 19, SpringLayout.WEST, p1);
                 sl_p1.putConstraint(SpringLayout.EAST, lblError, 24, SpringLayout.EAST, t1);
                 p1.add(lblError);
+                JButton btnRecPass = new JButton("Recuperar Password");
+                     btnRecPass.addActionListener(new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if(t1.getText().isEmpty())
+                        {
+                            lblErrRecPass.setVisible(true);
+                            lblErrRecPass.setForeground(Color.red);
+                            lblErrRecPass.setText("Introduce tu cif y haz click para reestablecer");
+                        }
+                        else
+                        {
+                            String err2 = forgetPass(t1.getText());
+                            if(err2.isEmpty())
+                            {
+                                lblErrRecPass.setForeground(Color.green);
+                                lblErrRecPass.setText("Password reestablecida");
+                            }
+                            else
+                            {
+                                lblErrRecPass.setForeground(Color.red);
+                                lblErrRecPass.setText("Cif incorrecto");           
+                            }
+                        }
+                    }
+                });
+                sl_p1.putConstraint(SpringLayout.NORTH, btnRecPass, 22, SpringLayout.SOUTH, lblError);
+                sl_p1.putConstraint(SpringLayout.WEST, btnRecPass, 116, SpringLayout.WEST, p1);
+                p1.add(btnRecPass);
+                
+                lblErrRecPass = new JLabel(" ");
+                lblErrRecPass.setEnabled(false);
+                sl_p1.putConstraint(SpringLayout.NORTH, lblErrRecPass, 16, SpringLayout.SOUTH, btnRecPass);
+                sl_p1.putConstraint(SpringLayout.WEST, lblErrRecPass, 53, SpringLayout.WEST, p1);
+                sl_p1.putConstraint(SpringLayout.EAST, lblErrRecPass, -35, SpringLayout.EAST, p1);
+                p1.add(lblErrRecPass);
                 c.add(BorderLayout.SOUTH,p2);
                 reg = new DesguaceRegistro();
                 reg.setVisible(false);
@@ -129,7 +166,6 @@ public class DesguaceJava extends JFrame implements ActionListener{
                             md.update(t2.getText().getBytes());
                             byte[] mb = md.digest();
                             String pass = String.copyValueOf(Hex.encodeHex(mb));
-                            //System.out.println(pass);
                             String error=loginDes(pass, user);
                             if(error.equals(""))
                             {
@@ -164,7 +200,8 @@ public class DesguaceJava extends JFrame implements ActionListener{
                         }
 			}
 		}
-	}
+}
+
 
     private static String loginDes(java.lang.String password, java.lang.String cif) {
         try {
@@ -178,5 +215,11 @@ public class DesguaceJava extends JFrame implements ActionListener{
             Logger.getLogger(DesguaceJava.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    private static String forgetPass(java.lang.String doc) {
+        servicios.PassManager_Service service = new servicios.PassManager_Service();
+        servicios.PassManager port = service.getPassManagerPort();
+        return port.forgetPass(doc);
     }
 }

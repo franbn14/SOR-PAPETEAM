@@ -19,7 +19,7 @@
     <target name="wsimport-client-LoginDesguace" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/LoginDesguace"/>
         <property name="wsdl-LoginDesguace" location="xml-resources/web-service-references/LoginDesguace/wsdl/localhost_8080/Sor_Servicios/LoginDesguace.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginDesguace" destdir="${build.generated.dir}/jax-wsCache/LoginDesguace" wsdl="${wsdl-LoginDesguace}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.162.2.139:8080/Sor_Servicios/LoginDesguace?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginDesguace" destdir="${build.generated.dir}/jax-wsCache/LoginDesguace" wsdl="${wsdl-LoginDesguace}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-LoginDesguace}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/LoginDesguace"/>
         </wsimport>
@@ -36,7 +36,7 @@
     <target name="wsimport-client-RegistroDesguace" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/RegistroDesguace"/>
         <property name="wsdl-RegistroDesguace" location="xml-resources/web-service-references/RegistroDesguace/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegistroDesguace" destdir="${build.generated.dir}/jax-wsCache/RegistroDesguace" wsdl="${wsdl-RegistroDesguace}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.162.2.139:8080/Sor_Servicios/RegistroDesguace?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegistroDesguace" destdir="${build.generated.dir}/jax-wsCache/RegistroDesguace" wsdl="${wsdl-RegistroDesguace}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-RegistroDesguace}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/RegistroDesguace"/>
         </wsimport>
@@ -53,7 +53,7 @@
     <target name="wsimport-client-DarUnidades" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/DarUnidades"/>
         <property name="wsdl-DarUnidades" location="xml-resources/web-service-references/DarUnidades/wsdl/localhost_8080/Sor_Servicios/DarUnidades.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarUnidades" destdir="${build.generated.dir}/jax-wsCache/DarUnidades" wsdl="${wsdl-DarUnidades}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.162.2.139:8080/Sor_Servicios/DarUnidades?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarUnidades" destdir="${build.generated.dir}/jax-wsCache/DarUnidades" wsdl="${wsdl-DarUnidades}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/DarUnidades?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-DarUnidades}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/DarUnidades"/>
         </wsimport>
@@ -67,27 +67,10 @@
         <delete dir="${build.generated.dir}/jax-wsCache/DarUnidades"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
     </target>
-    <target name="wsimport-client-DarIdDesguacebyCif" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif"/>
-        <property name="wsdl-DarIdDesguacebyCif" location="xml-resources/web-service-references/DarIdDesguacebyCif/wsdl/localhost_8080/Sor_Servicios/DarIdDesguacebyCif.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif" destdir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif" wsdl="${wsdl-DarIdDesguacebyCif}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.162.2.139:8080/Sor_Servicios/DarIdDesguacebyCif?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-DarIdDesguacebyCif}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-DarIdDesguacebyCif" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-    </target>
     <target name="wsimport-client-InitCom" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/InitCom"/>
         <property name="wsdl-InitCom" location="xml-resources/web-service-references/InitCom/wsdl/localhost_8080/Sor_Servicios/InitCom.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InitCom" destdir="${build.generated.dir}/jax-wsCache/InitCom" wsdl="${wsdl-InitCom}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.162.2.139:8080/Sor_Servicios/InitCom?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InitCom" destdir="${build.generated.dir}/jax-wsCache/InitCom" wsdl="${wsdl-InitCom}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/InitCom?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-InitCom}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/InitCom"/>
         </wsimport>
@@ -104,7 +87,7 @@
     <target name="wsimport-client-FinishCom" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/FinishCom"/>
         <property name="wsdl-FinishCom" location="xml-resources/web-service-references/FinishCom/wsdl/localhost_8080/Sor_Servicios/FinishCom.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/FinishCom" destdir="${build.generated.dir}/jax-wsCache/FinishCom" wsdl="${wsdl-FinishCom}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.162.2.139:8080/Sor_Servicios/FinishCom?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/FinishCom" destdir="${build.generated.dir}/jax-wsCache/FinishCom" wsdl="${wsdl-FinishCom}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/FinishCom?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-FinishCom}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/FinishCom"/>
         </wsimport>
@@ -118,5 +101,39 @@
         <delete dir="${build.generated.dir}/jax-wsCache/FinishCom"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-LoginDesguace, wsimport-client-RegistroDesguace, wsimport-client-DarUnidades, wsimport-client-DarIdDesguacebyCif, wsimport-client-InitCom, wsimport-client-FinishCom"/>
+    <target name="wsimport-client-DarIdDesguacebyCif" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif"/>
+        <property name="wsdl-DarIdDesguacebyCif" location="xml-resources/web-service-references/DarIdDesguacebyCif/wsdl/25.162.2.139_8080/Sor_Servicios/DarIdDesguacebyCif.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif" destdir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif" wsdl="${wsdl-DarIdDesguacebyCif}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-DarIdDesguacebyCif}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-DarIdDesguacebyCif" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+    </target>
+    <target name="wsimport-client-PassManager" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/PassManager"/>
+        <property name="wsdl-PassManager" location="xml-resources/web-service-references/PassManager/wsdl/localhost_8080/Sor_Servicios/PassManager.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PassManager" destdir="${build.generated.dir}/jax-wsCache/PassManager" wsdl="${wsdl-PassManager}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/PassManager?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-PassManager}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/PassManager"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/PassManager">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-PassManager" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/PassManager"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-LoginDesguace, wsimport-client-RegistroDesguace, wsimport-client-DarUnidades, wsimport-client-InitCom, wsimport-client-FinishCom, wsimport-client-DarIdDesguacebyCif, wsimport-client-PassManager"/>
 </project>
