@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-package javaapplication12;
+package monitor;
 
 import java.net.Inet4Address;
 import java.net.MalformedURLException;
@@ -24,6 +24,8 @@ import java.rmi.RemoteException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.ws.WebServiceException;
+import logger.MonitorLogger;
 
 import org.apache.juddi.api_v3.Publisher;
 import org.apache.juddi.api_v3.PublisherDetail;
@@ -41,6 +43,7 @@ import org.uddi.api_v3.BusinessList;
 import org.uddi.api_v3.BusinessService;
 import org.uddi.api_v3.Description;
 import org.uddi.api_v3.FindBusiness;
+import org.uddi.api_v3.FindQualifiers;
 import org.uddi.api_v3.GetAuthToken;
 import org.uddi.api_v3.Name;
 import org.uddi.api_v3.SaveBusiness;
@@ -52,35 +55,124 @@ import org.uddi.v3_service.UDDISecurityPortType;
 //import audit.AuditLogger;
 
 
-public class ServicePublish {
+public class ServicePublisher {
 
+    private static String[][] services;
     private static UDDISecurityPortType security = null;
-
     private static JUDDIApiPortType juddiApi = null;
     private static UDDIPublicationPortType publish = null;
     private static String uddiUrl;
-    public ServicePublish(){
-    	uddiUrl="http://localhost:8080/juddiv3/services/";
+    private static String ip;
+    private static String port;
+
+    public static String getIp() {
+        return ip;
     }
 
-    public void publish() {
-        String ip = "localhost";
-        try {
-             ip = Inet4Address.getLocalHost().getHostAddress();
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(ServicePublish.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public static void setIp(String ip) {
+        ServicePublisher.ip = ip;
+    }
+
+    public static String getPort() {
+        return port;
+    }
+
+    public static void setPort(String port) {
+        ServicePublisher.port = port;
+    }
         
+    public static void generateServices() {
         //[i][0] = Nombre 
         //[i][1] = Descripcion 
-        //[i][2] = URL del wsdl
-        String[][] services = new String[1][3];
+        //[i][2] = URL del wsdl        
+        String url="http://"+ip+":"+port;                
+        uddiUrl=url+"/juddiv3/services/";
+        
+        url+="/Sor_Servicios";
+        
+        services = new String[19][3];
         services[0][0] = "LoginClientes";
         services[0][1] = "Login de clientes";
-        services[0][2] = "http://" + ip + ":8082/Sor_Servicios/LoginClientes?wsdl";       
-       
-        try {
-            
+        services[0][2] = url+"/LoginClientes?wsdl"; 
+        
+        services[1][0] = "RegistroDesguace";
+        services[1][1] = "Registro de Desguaces";
+        services[1][2] = url+"/RegistroDesguace?wsdl"; 
+        
+        services[2][0] = "DarOfertasSeleccionadas";
+        services[2][1] = "Dar las ofertas seleccionadas";
+        services[2][2] = url+"/DarOfertasSeleccionadas?wsdl"; 
+        
+        services[3][0] = "BorrarPeticion";
+        services[3][1] = "Borra una peticion";
+        services[3][2] = url+"/BorrarPeticion?wsdl"; 
+        
+        services[4][0] = "DarOfertasRequestOk";
+        services[4][1] = "Dar las ofertas aceptadas de una peticion";
+        services[4][2] = url+"/DarOfertasRequestOk?wsdl"; 
+        
+        services[5][0] = "DarIdDesguacebyCif";
+        services[5][1] = "Dar la id de un desguace con su cif";
+        services[5][2] = url+"/DarIdDesguacebyCif?wsdl"; 
+        
+        services[6][0] = "RegistroCliente";
+        services[6][1] = "Registro de un cliente";
+        services[6][2] = url+"/RegistroCliente?wsdl"; 
+        
+        services[7][0] = "DarOfertasRequest";
+        services[7][1] = "Dar ofertas de una request";
+        services[7][2] = url+"/DarOfertasRequest?wsdl"; 
+        
+        services[8][0] = "DarPeticionesNifP"; 
+        services[8][1] = "Dar las peticiones pendientes por nif";
+        services[8][2] = url+"/DarPeticionesNifP?wsdl"; 
+        
+        services[9][0] = "DarIdClientebyNif"; 
+        services[9][1] = "Dar la id de un cliente meidante su nif";
+        services[9][2] = url+"/DarIdClientebyNif?wsdl"; 
+        
+        services[10][0] = "AceptarOfertas?wsdl"; 
+        services[10][1] = "Acepta ofertas";
+        services[10][2] = url+"/AceptarOfertas?wsdl"; 
+        
+        services[11][0] = "DarNombreCliente"; 
+        services[11][1] = "Da el nombre de un cliente";
+        services[11][2] = url+"/DarNombreCliente?wsdl"; 
+        
+        services[12][0] = "FinishCom"; 
+        services[12][1] = "Finaliza la sesion";
+        services[12][2] = url+"/FinishCom?wsdl"; 
+        
+        services[13][0] = "NewPeticion"; 
+        services[13][1] = "Crea una nueva peticion";
+        services[13][2] = url+"/NewPeticion?wsdl"; 
+        
+        services[14][0] = "DarUnidades"; 
+        services[14][1] = "Da las unidades de tamaño";
+        services[14][2] = url+"/DarUnidades?wsdl"; 
+        
+        services[15][0] = "DarPeticionesNifF"; 
+        services[15][1] = "Da las peticiones pendientes por nif";
+        services[15][2] = url+"/DarPeticionesNifF?wsdl"; 
+        
+        services[16][0] = "InitCom"; 
+        services[16][1] = "Inicia la sesion";
+        services[16][2] = url+"/InitCom?wsdl"; 
+        
+        services[17][0] = "LoginDesguace"; 
+        services[17][1] = "Login de un desguace";
+        services[17][2] = url+"/LoginDesguace?wsdl"; 
+        
+        services[18][0] = "PassManager"; 
+        services[18][1] = "Recuperacion de contraseña";
+        services[18][2] = url+"/PassManager?wsdl"; 
+    }
+
+    public static void publish(String _ip, String _port) {                                          
+        try {            
+            ip=_ip;
+            port=_port;
+            generateServices();
             //Credenciales para el authToken
             GetAuthToken getAuthTokenRoot = new GetAuthToken();
             getAuthTokenRoot.setUserID("root");
@@ -106,14 +198,8 @@ public class ServicePublish {
             getAuthTokenMyPub.setUserID("SOR");
             getAuthTokenMyPub.setCred("");
             AuthToken myPubAuthToken = getAuthToken(getAuthTokenMyPub);
-            System.out.println("SOR: AUTHTOKEN = " + myPubAuthToken.getAuthInfo());
+            //System.out.println("SOR: AUTHTOKEN = " + myPubAuthToken.getAuthInfo());
 
-            
-            /*
-            
-             ====== A partir de aquí está lo que deberia hacer para registrar los WS ========
-            
-            */
             
             // Creating the parent business entity that will contain our service.
             BusinessEntity myBusEntity = new BusinessEntity();
@@ -174,13 +260,14 @@ public class ServicePublish {
                 ss.setAuthInfo(myPubAuthToken.getAuthInfo());
                 ServiceDetail sd = saveService(ss);
                 String myServKey = sd.getBusinessService().get(0).getServiceKey();
-                 //Logger.info("jUDDI", "Publicado servicio <" + serv[0] + "> direccion <" + myServKey + ">");
+                //System.out.println("Publicado servicio " + service[0] + " direccion: " + myServKey);
             }
             /*
                 ===== End foreach ==
-            */
-        } catch (Exception e) {
-            e.printStackTrace();            
+            */                   
+            MonitorLogger.setLogMessage(3, ip, "");       
+        } catch (Exception ex) {
+             MonitorLogger.setLogMessage(-3, ip, "");       
         }
     }
     
@@ -193,8 +280,7 @@ public class ServicePublish {
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-        
+		}        
         return null;
     }
     
@@ -212,7 +298,7 @@ public class ServicePublish {
 }
 
     private static ServiceDetail saveService(org.uddi.api_v3.SaveService body) {
-        org.uddi.v3_service.UDDIPublicationService service;
+       org.uddi.v3_service.UDDIPublicationService service;
 		try {
 			service = new org.uddi.v3_service.UDDIPublicationService(new URL(uddiUrl+"publish?wsdl"));
 	        org.uddi.v3_service.UDDIPublicationPortType port = service.getUDDIPublicationImplPort();
@@ -225,7 +311,7 @@ public class ServicePublish {
     }
 
     private static void deleteBusiness(org.uddi.api_v3.DeleteBusiness body) {
-        org.uddi.v3_service.UDDIPublicationService service;
+       org.uddi.v3_service.UDDIPublicationService service;
 		try {
 			service = new org.uddi.v3_service.UDDIPublicationService(new URL(uddiUrl+"publish?wsdl"));
 	        org.uddi.v3_service.UDDIPublicationPortType port = service.getUDDIPublicationImplPort();
@@ -263,3 +349,4 @@ public class ServicePublish {
 		return null;
     }
 }
+
