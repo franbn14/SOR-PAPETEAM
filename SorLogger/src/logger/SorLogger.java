@@ -37,13 +37,13 @@ public abstract class SorLogger {
             handler.setFormatter(formatter);
             logger.addHandler(handler);
         } catch (IOException ex) {
-            Logger.getLogger(SorLogger.class.getName()).log(Level.SEVERE, null, ex);            
+            writeLog("Error al crear el archivo de log", -3);
         } catch (SecurityException ex) {
-            Logger.getLogger(SorLogger.class.getName()).log(Level.SEVERE, null, ex);
+            writeLog("Error al crear el archivo de log", -3);
         }
     }
     
-    public static void writeLog(String message, int type) {                                                      
+    public static void writeLog(String message, int type) {        
         if(type>0)
             logger.info(message);                
         else
