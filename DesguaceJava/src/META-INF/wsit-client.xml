@@ -11,4 +11,6 @@
     <import location="DarIdDesguacebyCif.xml" namespace="http://Servicios/"/>
     <import location="InitCom.xml" namespace="http://Servicios/"/>
     <import location="FinishCom.xml" namespace="http://Servicios/"/>
+    <import location="inquiry.xml" namespace="urn:uddi-org:v3_service"/>
+    <import location="security.xml" namespace="urn:uddi-org:v3_service"/>
 </definitions>

@@ -16,14 +16,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.*;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 import org.apache.commons.codec.binary.Hex;
 import security.AES;
+
 
 
 /**
@@ -205,21 +211,29 @@ public class DesguaceJava extends JFrame implements ActionListener{
 
     private static String loginDes(java.lang.String password, java.lang.String cif) {
         try {
-            servicios.LoginDesguace_Service service = new servicios.LoginDesguace_Service();
-            servicios.LoginDesguace port = service.getLoginDesguacePort();
-            Comunication com = Comunication.getInstance();
-            password = AES.encrypt(password, com.getAesKey());
-            cif = AES.encrypt(cif, com.getAesKey());
-            return AES.decrypt(port.loginDes(com.getID(),password, cif),com.getAesKey());
+                servicios.LoginDesguace_Service service = new servicios.LoginDesguace_Service(new URL(ServiceHandler.getURL("LoginDesguace")));
+                servicios.LoginDesguace port = service.getLoginDesguacePort();
+                Comunication com = Comunication.getInstance();
+                password = AES.encrypt(password, com.getAesKey());
+                cif = AES.encrypt(cif, com.getAesKey());
+                return AES.decrypt(port.loginDes(com.getID(),password, cif),com.getAesKey());
+
         } catch (Exception ex) {
             Logger.getLogger(DesguaceJava.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
+        
         return null;
     }
 
     private static String forgetPass(java.lang.String doc) {
-        servicios.PassManager_Service service = new servicios.PassManager_Service();
-        servicios.PassManager port = service.getPassManagerPort();
-        return port.forgetPass(doc);
+        try {
+            servicios.PassManager_Service service = new servicios.PassManager_Service(new URL(ServiceHandler.getURL("PassManager")));
+            servicios.PassManager port = service.getPassManagerPort();
+            return port.forgetPass(doc);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(DesguaceJava.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
+    
 }

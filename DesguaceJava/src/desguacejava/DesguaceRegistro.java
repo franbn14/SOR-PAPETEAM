@@ -12,6 +12,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -248,7 +249,7 @@ public class DesguaceRegistro extends JFrame{
 
     private static String registro(java.lang.String cif, java.lang.String nombre, java.lang.String password, java.lang.String direccion, java.lang.String email) {
         try {
-            servicios.RegistroDesguace_Service service = new servicios.RegistroDesguace_Service();
+            servicios.RegistroDesguace_Service service = new servicios.RegistroDesguace_Service(new URL(ServiceHandler.getURL("RegistroDesguace")));
             servicios.RegistroDesguace port = service.getRegistroDesguacePort();
             Comunication com = Comunication.getInstance();
             cif = AES.encrypt(cif, com.getAesKey());

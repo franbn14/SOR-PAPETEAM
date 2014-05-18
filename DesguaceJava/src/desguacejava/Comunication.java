@@ -1,11 +1,15 @@
 package desguacejava;
 
 import java.math.BigInteger;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.RSAPublicKeySpec;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import security.GenKeys;
@@ -66,21 +70,35 @@ public class Comunication {
     }
     
     private static String exchangeKeys(java.lang.String modulus, java.lang.String exponent) {
-        servicios.InitCom_Service service = new servicios.InitCom_Service();
-        servicios.InitCom port = service.getInitComPort();
-        return port.exchangeKeys(modulus, exponent);
+        try {
+            servicios.InitCom_Service service = new servicios.InitCom_Service(new URL(ServiceHandler.getURL("InitCom")));
+            servicios.InitCom port = service.getInitComPort();
+            return port.exchangeKeys(modulus, exponent);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Comunication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     private static String getAESKey(int id) {
-        servicios.InitCom_Service service = new servicios.InitCom_Service();
-        servicios.InitCom port = service.getInitComPort();
-        return port.getAESKey(id);
+        try {
+            servicios.InitCom_Service service = new servicios.InitCom_Service(new URL(ServiceHandler.getURL("InitCom")));
+            servicios.InitCom port = service.getInitComPort();
+            return port.getAESKey(id);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Comunication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     private static void finish(int id) {
-        servicios.FinishCom_Service service = new servicios.FinishCom_Service();
-        servicios.FinishCom port = service.getFinishComPort();
-        port.finish(id);
+        try {
+            servicios.FinishCom_Service service = new servicios.FinishCom_Service(new URL(ServiceHandler.getURL("FinishCom")));
+            servicios.FinishCom port = service.getFinishComPort();
+            port.finish(id);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Comunication.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static Comunication getInstance(){

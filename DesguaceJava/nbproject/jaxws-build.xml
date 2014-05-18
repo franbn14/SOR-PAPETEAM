@@ -135,5 +135,56 @@
         <delete dir="${build.generated.dir}/jax-wsCache/PassManager"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-LoginDesguace, wsimport-client-RegistroDesguace, wsimport-client-DarUnidades, wsimport-client-InitCom, wsimport-client-FinishCom, wsimport-client-DarIdDesguacebyCif, wsimport-client-PassManager"/>
+    <target name="wsimport-client-juddi-api" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/juddi-api"/>
+        <property name="wsdl-juddi-api" location="xml-resources/web-service-references/juddi-api/wsdl/localhost_8080/juddiv3/services/juddi-api.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/juddi-api" destdir="${build.generated.dir}/jax-wsCache/juddi-api" wsdl="${wsdl-juddi-api}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/juddiv3/services/juddi-api?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-juddi-api}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/juddi-api"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/juddi-api">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-juddi-api" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/juddi-api"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/juddi-apache-org:v3_service"/>
+    </target>
+    <target name="wsimport-client-security" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/security"/>
+        <property name="wsdl-security" location="xml-resources/web-service-references/security/wsdl/25.162.2.139_8080/juddiv3/services/security.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/security" destdir="${build.generated.dir}/jax-wsCache/security" wsdl="${wsdl-security}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.162.2.139:8080/juddiv3/services/security?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-security}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/security"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/security">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-security" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/security"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/uddi-org:v3_service"/>
+    </target>
+    <target name="wsimport-client-inquiry" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/inquiry"/>
+        <property name="wsdl-inquiry" location="xml-resources/web-service-references/inquiry/wsdl/25.162.2.139_8080/juddiv3/services/inquiry.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/inquiry" destdir="${build.generated.dir}/jax-wsCache/inquiry" wsdl="${wsdl-inquiry}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.162.2.139:8080/juddiv3/services/inquiry?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-inquiry}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/inquiry"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/inquiry">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-inquiry" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/inquiry"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/uddi-org:v3_service"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-LoginDesguace, wsimport-client-RegistroDesguace, wsimport-client-DarUnidades, wsimport-client-InitCom, wsimport-client-FinishCom, wsimport-client-DarIdDesguacebyCif, wsimport-client-PassManager, wsimport-client-juddi-api, wsimport-client-security, wsimport-client-inquiry"/>
 </project>

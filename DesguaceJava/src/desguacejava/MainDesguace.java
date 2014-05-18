@@ -43,6 +43,8 @@ import java.awt.event.ComponentListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Enumeration;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -354,7 +356,7 @@ public class MainDesguace extends JFrame {
 
     private static int getIdDes(java.lang.String nif) {
         try {
-            servicios.DarIdDesguacebyCif_Service service = new servicios.DarIdDesguacebyCif_Service();
+            servicios.DarIdDesguacebyCif_Service service = new servicios.DarIdDesguacebyCif_Service(new URL(ServiceHandler.getURL("DarIdDesguacebyCif")));
             servicios.DarIdDesguacebyCif port = service.getDarIdDesguacebyCifPort();
             Comunication com = Comunication.getInstance();
             nif = AES.encrypt(nif, com.getAesKey());
@@ -366,9 +368,14 @@ public class MainDesguace extends JFrame {
     }
 
     private static String darTodasUnidades() {
-        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
-        servicios.DarUnidades port = service.getDarUnidadesPort();
-        return port.darTodasUnidades();
+        try {
+            servicios.DarUnidades_Service service = new servicios.DarUnidades_Service(new URL(ServiceHandler.getURL("DarUnidades")));
+            servicios.DarUnidades port = service.getDarUnidadesPort();
+            return port.darTodasUnidades();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(MainDesguace.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     public Double checkNumber(String number) {
@@ -382,9 +389,14 @@ public class MainDesguace extends JFrame {
     }
 
     private static String darUnidadId(int id) {
-        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
-        servicios.DarUnidades port = service.getDarUnidadesPort();
-        return port.darUnidadId(id);
+        try {
+            servicios.DarUnidades_Service service = new servicios.DarUnidades_Service(new URL(ServiceHandler.getURL("DarUnidades")));
+            servicios.DarUnidades port = service.getDarUnidadesPort();
+            return port.darUnidadId(id);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(MainDesguace.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     }    
    class Receiver implements javax.jms.MessageListener
