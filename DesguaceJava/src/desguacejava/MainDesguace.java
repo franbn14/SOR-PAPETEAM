@@ -235,7 +235,7 @@ public class MainDesguace extends JFrame {
                     int cifid = getIdDes(cif);
                     lblPieza.setText(oferta.getType());
                     String nueva = "";
-                    if(!tfPrecio.getText().equals(""))
+                    if(!tfPrecio.getText().equals("") && cifid != -1)
                     {
                        nueva += tfDescripcion.getText()+",";
                         Double amt = checkNumber(tfCantidad.getText());
@@ -263,8 +263,8 @@ public class MainDesguace extends JFrame {
                             Sender envio = new Sender();
                             //logger.setLogMessage(2, cif, nueva);
                             envio.setParams("OfferDelivery", cif, "OfferDelivery", "OfferDelivery");
-                            envio.open("192.168.43.56", "61616");
-                            //envio.open("localhost", "61616");
+                            //envio.open("192.168.43.56", "61616");
+                            envio.open("localhost", "61616");
                             envio.send(nueva, 60000);
                             envio.close();
                             enviada = true;
@@ -272,7 +272,10 @@ public class MainDesguace extends JFrame {
                     }
                     else
                     {
-                        lblerrPrecio.setText("El precio no puede estar vacio.");
+                        if(cifid == -1)
+                            lblerrPrecio.setText("Error en la conexion. Intentelo mas tarde.");
+                        else
+                            lblerrPrecio.setText("El precio no puede estar vacio.");
                     }
                     
                     if(enviada)
@@ -344,14 +347,14 @@ public class MainDesguace extends JFrame {
         r2.setTable(tPeticiones);
         r3.setTable(tOfertasAceptadas);
         r1.setParams(cif+"p", "servidor", cif+"p", cif+"p");
-        r1.open("192.168.43.56", "61616");
-        //r1.open("localhost", "61616");
+        //r1.open("192.168.43.56", "61616");
+        r1.open("localhost", "61616");
         r2.setParams("pendientes", "servidor", "pendientes", "pendientes");
-        r2.open("192.168.43.56", "61616");
-        //r2.open("localhost", "61616");
+        //r2.open("192.168.43.56", "61616");
+        r2.open("localhost", "61616");
         r3.setParams(cif+"f", "servidor", cif+"f", cif+"f");
-        r3.open("192.168.43.56", "61616");
-        //r3.open("localhost", "61616");
+        //r3.open("192.168.43.56", "61616");
+        r3.open("localhost", "61616");
     }
 
     private static int getIdDes(java.lang.String nif) {
@@ -362,9 +365,8 @@ public class MainDesguace extends JFrame {
             nif = AES.encrypt(nif, com.getAesKey());
             return port.getIdDes(com.getID(),nif);
         } catch (Exception ex) {
-            Logger.getLogger(MainDesguace.class.getName()).log(Level.SEVERE, null, ex);
+            return -1;
         }
-        return 0;
     }
 
     private static String darTodasUnidades() {
@@ -373,7 +375,7 @@ public class MainDesguace extends JFrame {
             servicios.DarUnidades port = service.getDarUnidadesPort();
             return port.darTodasUnidades();
         } catch (MalformedURLException ex) {
-            Logger.getLogger(MainDesguace.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(MainDesguace.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -394,7 +396,7 @@ public class MainDesguace extends JFrame {
             servicios.DarUnidades port = service.getDarUnidadesPort();
             return port.darUnidadId(id);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(MainDesguace.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(MainDesguace.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

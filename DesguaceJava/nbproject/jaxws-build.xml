@@ -154,8 +154,8 @@
     </target>
     <target name="wsimport-client-security" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/security"/>
-        <property name="wsdl-security" location="xml-resources/web-service-references/security/wsdl/25.162.2.139_8080/juddiv3/services/security.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/security" destdir="${build.generated.dir}/jax-wsCache/security" wsdl="${wsdl-security}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.162.2.139:8080/juddiv3/services/security?wsdl" xnocompile="true" xendorsed="true">
+        <property name="wsdl-security" location="xml-resources/web-service-references/security/wsdl/localhost_8080/juddiv3/services/security.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/security" destdir="${build.generated.dir}/jax-wsCache/security" wsdl="${wsdl-security}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/juddiv3/services/security?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-security}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/security"/>
         </wsimport>
@@ -171,8 +171,8 @@
     </target>
     <target name="wsimport-client-inquiry" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/inquiry"/>
-        <property name="wsdl-inquiry" location="xml-resources/web-service-references/inquiry/wsdl/25.162.2.139_8080/juddiv3/services/inquiry.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/inquiry" destdir="${build.generated.dir}/jax-wsCache/inquiry" wsdl="${wsdl-inquiry}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.162.2.139:8080/juddiv3/services/inquiry?wsdl" xnocompile="true" xendorsed="true">
+        <property name="wsdl-inquiry" location="xml-resources/web-service-references/inquiry/wsdl/localhost_8080/juddiv3/services/inquiry.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/inquiry" destdir="${build.generated.dir}/jax-wsCache/inquiry" wsdl="${wsdl-inquiry}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/juddiv3/services/inquiry?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-inquiry}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/inquiry"/>
         </wsimport>

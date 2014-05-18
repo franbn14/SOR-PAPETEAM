@@ -219,10 +219,8 @@ public class DesguaceJava extends JFrame implements ActionListener{
                 return AES.decrypt(port.loginDes(com.getID(),password, cif),com.getAesKey());
 
         } catch (Exception ex) {
-            Logger.getLogger(DesguaceJava.class.getName()).log(Level.SEVERE, null, ex);
+            return "Error en la conexion. Intentelo de nuevo.";
         } 
-        
-        return null;
     }
 
     private static String forgetPass(java.lang.String doc) {
@@ -231,7 +229,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
             servicios.PassManager port = service.getPassManagerPort();
             return port.forgetPass(doc);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(DesguaceJava.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(DesguaceJava.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
