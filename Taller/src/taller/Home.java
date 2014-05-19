@@ -16,12 +16,25 @@ import com.google.gson.reflect.TypeToken;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.net.URL;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import javax.swing.JOptionPane;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 import security.AES;
+import servicios.AceptarOfertas;
+import servicios.DarOfertasByR;
+import servicios.DarOfertasRequest;
+import servicios.DarOfertasRequestOk;
+import servicios.DarOfertasSeleccionadas;
+import servicios.DarOfertasSelection;
+import servicios.DarPeticionesNifF;
+import servicios.DarPeticionesNifP;
+import servicios.DarPeticionesHis;
+import servicios.BorrarPeticion;
 import sun.awt.WindowClosingListener;
 /**
  *
@@ -266,7 +279,12 @@ public class Home extends javax.swing.JFrame {
                 text+=offer.getCode()+" ";
             }
             text=AES.encrypt(text, comunication.getAesKey());
-            aceptarOfertasDe(comunication.getID(),text);
+            
+            URL url = new URL(ServiceHandler.getURL("AceptarOfertas"));
+            Service lcs = Service.create(url, new QName("http://Servicios/", "AceptarOfertas"));
+            AceptarOfertas accept = lcs.getPort(new QName("http://Servicios/", "AceptarOfertas"), AceptarOfertas.class);  
+            
+            accept.aceptarOfertasDe(comunication.getID(),text);
             checkRequests();
         } catch (Exception ex) {
             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
@@ -281,7 +299,12 @@ public class Home extends javax.swing.JFrame {
             try {
                 int id=((RequestCEN)requestList.getSelectedValue()).getCode();
                 String idString=AES.encrypt(Integer.toString(id), comunication.getAesKey());
-                borrar(comunication.getID(),idString);                
+                
+                URL url = new URL(ServiceHandler.getURL("BorrarPeticion"));
+                Service lcs = Service.create(url, new QName("http://Servicios/", "BorrarPeticion"));
+                BorrarPeticion delete = lcs.getPort(new QName("http://Servicios/", "BorrarPeticion"), BorrarPeticion.class);
+                
+                delete.borrar(comunication.getID(),idString);                
                 checkRequests();
             } catch (Exception ex) {
                 Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
@@ -333,20 +356,39 @@ public class Home extends javax.swing.JFrame {
                 lbOffers.setText("Ofertas recibidas");
                 
                 try {
+                     URL url; 
+                    Service lcs; 
+                    //BorrarPeticion delete = lcs.getPort(new QName("http://Servicios/", "BorrarPeticion"), BorrarPeticion.class);
+                    
                     if(!selection) {
                         if(!selected.isFinished()) {                        
                             code=AES.encrypt(Integer.toString(selected.getCode()), comunication.getAesKey());                        
-                            offerString = AES.decrypt(darOfertasByR(comunication.getID(),code),comunication.getAesKey());                                              
+                            
+                            url = new URL(ServiceHandler.getURL("DarOfertasRequest"));
+                            lcs = Service.create(url, new QName("http://Servicios/", "DarOfertasRequest"));
+                            DarOfertasRequest offers=lcs.getPort(new QName("http://Servicios/", "DarOfertasRequest"), DarOfertasRequest.class);
+                            
+                            offerString = AES.decrypt(offers.darOfertasByR(comunication.getID(),code),comunication.getAesKey());                                              
                         }
                         else {
                             code=AES.encrypt(Integer.toString(selected.getCode()), comunication.getAesKey());                        
-                            offerString = AES.decrypt(darOfertasByRequestOk(comunication.getID(),code),comunication.getAesKey());
+                            
+                            url = new URL(ServiceHandler.getURL("DarOfertasRequestOk"));
+                            lcs = Service.create(url, new QName("http://Servicios/", "DarOfertasRequestOk"));
+                            DarOfertasRequestOk offers=lcs.getPort(new QName("http://Servicios/", "DarOfertasRequestOk"), DarOfertasRequestOk.class);
+                            
+                            offerString = AES.decrypt(offers.darOfertasByRequestOk(comunication.getID(),code),comunication.getAesKey());
                             lbOffers.setText("Ofertas aceptadas");
                         }
                     }
                     else {
                         code=AES.encrypt(Integer.toString(selected.getCode()), comunication.getAesKey());                        
-                        offerString = AES.decrypt(darOfertasSelection(comunication.getID(),code), comunication.getAesKey());
+                        
+                        url = new URL(ServiceHandler.getURL("DarOfertasSeleccionadas"));
+                        lcs = Service.create(url, new QName("http://Servicios/", "DarOfertasSeleccionadas"));
+                        DarOfertasSeleccionadas offers=lcs.getPort(new QName("http://Servicios/", "DarOfertasSeleccionadas"), DarOfertasSeleccionadas.class);
+                        
+                        offerString = AES.decrypt(offers.darOfertasSelection(comunication.getID(),code), comunication.getAesKey());
                     }
                     
                      if(offerString.equals("null") || offerString.equals("")) {
@@ -390,8 +432,17 @@ public class Home extends javax.swing.JFrame {
             DefaultListModel model2 = new DefaultListModel();
             user=AES.encrypt(user, comunication.getAesKey());
             
-            String requestString = AES.decrypt(darPeticiones(comunication.getID(), user),comunication.getAesKey());
-            String requestString2 = AES.decrypt(darPeticionesHis(comunication.getID(),user),comunication.getAesKey());
+            URL url = new URL(ServiceHandler.getURL("DarPeticionesNifP"));
+            Service lcs = Service.create(url, new QName("http://Servicios/", "DarPeticionesNifP"));
+            DarPeticionesNifP requestsP=lcs.getPort(new QName("http://Servicios/", "DarPeticionesNifP"), DarPeticionesNifP.class);
+            
+            String requestString = AES.decrypt(requestsP.darPeticiones(comunication.getID(), user),comunication.getAesKey());
+            
+            url = new URL(ServiceHandler.getURL("DarPeticionesNifF"));                        
+            lcs = Service.create(url, new QName("http://Servicios/", "DarPeticionesNifF"));
+            DarPeticionesNifF requestsF=lcs.getPort(new QName("http://Servicios/", "DarPeticionesNifF"), DarPeticionesNifF.class);
+            
+            String requestString2 = AES.decrypt(requestsF.darPeticionesHis(comunication.getID(),user),comunication.getAesKey());
             
             Gson gson = new Gson();
             java.lang.reflect.Type collectionType = new TypeToken<ArrayList<RequestCEN>>(){}.getType();
@@ -475,7 +526,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JList requestFList;
     private javax.swing.JList requestList;
     // End of variables declaration//GEN-END:variables
-            
+            /*
     private static String darPeticiones(int id, java.lang.String nif) {
         servicios.DarPeticionesNifP_Service service = new servicios.DarPeticionesNifP_Service();
         servicios.DarPeticionesNifP port = service.getDarPeticionesNifPPort();
@@ -518,6 +569,6 @@ public class Home extends javax.swing.JFrame {
         return port.aceptarOfertasDe(id, idS);
     }
 
-         
+         */
     
 }

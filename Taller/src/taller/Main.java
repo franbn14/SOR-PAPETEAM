@@ -18,6 +18,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -28,7 +30,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 import security.AES;
+import servicios.LoginClientes;
 
 /**
  *
@@ -178,21 +183,27 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         String user=tfUser.getText();
         String pass=Register.encryptPass(tfPass.getText());        
-           
+                                
         if(user!=null && !user.equals("") && pass!=null && !pass.equals("")) {
             try {
                 user=AES.encrypt(user, comunication.getAesKey());
                 pass=AES.encrypt(pass, comunication.getAesKey());
-                
-                String error=AES.decrypt(login(comunication.getID(),pass,user), comunication.getAesKey());
-                
+                                                
+                //String error=AES.decrypt(login(comunication.getID(),pass,user), comunication.getAesKey());
+                URL url;
+                String error;               
+                url = new URL(ServiceHandler.getURL("LoginClientes"));
+                Service lcs = Service.create(url, new QName("http://Servicios/", "LoginClientes"));
+                LoginClientes lc = lcs.getPort(new QName("http://Servicios/", "LoginClientesPort"), LoginClientes.class);            
+                error=AES.decrypt(lc.login(comunication.getID(),pass,user), comunication.getAesKey());
+
                 if(error.equals("")) {
                     Home home=new Home(user);
                     dispose();
                     home.setVisible(true);
                 }
                 else
-                    lbError.setText(error);
+                    lbError.setText(error);                    
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -261,10 +272,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPasswordField tfPass;
     private javax.swing.JTextField tfUser;
     // End of variables declaration//GEN-END:variables
-
+/*
     private static String login(int id, java.lang.String password, java.lang.String nifDni) {
         servicios.LoginClientes_Service service = new servicios.LoginClientes_Service();
         servicios.LoginClientes port = service.getLoginClientesPort();
         return port.login(id, password, nifDni);
-    }       
+    }      */ 
 }

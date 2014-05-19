@@ -12,6 +12,8 @@ import com.google.gson.reflect.TypeToken;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,7 +23,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.crypto.SecretKey;
 import javax.swing.JOptionPane;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 import security.AES;
+import servicios.DarUnidades;
+import servicios.NewPeticion;
+import servicios.DarIdClientebyNif;
+import servicios.RegistroCliente;
 /**
  *
  * @author alberto
@@ -37,27 +45,36 @@ public class NewRequest extends javax.swing.JFrame {
     }
     
     public NewRequest(String cif) {
-        comunication = Comunication.getInstance();
-        initComponents();
-        this.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {                
-                comunication.Finish();
-                dispose();                                        
-            }
-        });        
-        user=cif;        
-        String unitString=darTodasUnidades();
-        ArrayList<String> units;
-        
-        Gson gson = new Gson();
-        java.lang.reflect.Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
-        
-        if(unitString!=null && !unitString.equals("")) {
-            units = gson.fromJson(unitString, collectionType);  
+        try {
+            comunication = Comunication.getInstance();
+            initComponents();
+            this.addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    comunication.Finish();
+                    dispose();
+                }
+            });
+            user=cif;  
             
-            for(String unit: units)
-                cbUnit.addItem(unit);
-        }            
+            URL url = new URL(ServiceHandler.getURL("DarUnidades"));
+            Service lcs = Service.create(url, new QName("http://Servicios/", "DarUnidades"));
+            DarUnidades giveUnits = lcs.getPort(new QName("http://Servicios/", "DarUnidades"), DarUnidades.class);            
+            
+            String unitString=giveUnits.darTodasUnidades();
+            ArrayList<String> units;
+            
+            Gson gson = new Gson();
+            java.lang.reflect.Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
+            
+            if(unitString!=null && !unitString.equals("")) {
+                units = gson.fromJson(unitString, collectionType);
+                
+                for(String unit: units)
+                    cbUnit.addItem(unit);
+            }
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NewRequest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -402,14 +419,22 @@ public class NewRequest extends javax.swing.JFrame {
                 String priceStr=AES.encrypt((price==null?"":Double.toString(price)), key);
                 
                 //user=AES.encrypt(user, key);
-                Integer userId=getID(comunication.getID(),user);
+                URL url = new URL(ServiceHandler.getURL("DarIdClientebyNif"));
+                Service lcs = Service.create(url, new QName("http://Servicios/", "DarIdClientebyNif"));
+                DarIdClientebyNif clientId= lcs.getPort(new QName("http://Servicios/", "DarIdClientebyNif"), DarIdClientebyNif.class);  
+                                
+                Integer userId=clientId.getID(comunication.getID(),user);
                 String userStr=AES.encrypt(Integer.toString(userId),key);
                 String selectedStr=AES.encrypt(Boolean.toString(cbSelection.isSelected()), key);
                 String finishedStr=AES.encrypt(Boolean.toString(false), key);
                 String expiredStr=AES.encrypt(Boolean.toString(false), key);
                 color=AES.encrypt(color, key);
                 
-                String idString=AES.decrypt(insert(comunication.getID(),type, date, sizeStr,unitStr, color, amountIntStr, priceStr, userStr, selectedStr, finishedStr, expiredStr), key);
+                url = new URL(ServiceHandler.getURL("NewPeticion"));
+                lcs = Service.create(url, new QName("http://Servicios/", "NewPeticion"));
+                NewPeticion newReq = lcs.getPort(new QName("http://Servicios/", "NewPeticion"), NewPeticion.class);  
+                
+                String idString=AES.decrypt(newReq.insert(comunication.getID(),type, date, sizeStr,unitStr, color, amountIntStr, priceStr, userStr, selectedStr, finishedStr, expiredStr), key);
                 int id=-1;
                 
                 if(!idString.equals("") || idString!=null)
@@ -569,7 +594,7 @@ public class NewRequest extends javax.swing.JFrame {
     private javax.swing.JTextField tfType;
     private javax.swing.JTextField tfYear;
     // End of variables declaration//GEN-END:variables
-    
+    /*
     private static String darTodasUnidades() {
         servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
         servicios.DarUnidades port = service.getDarUnidadesPort();
@@ -592,7 +617,7 @@ public class NewRequest extends javax.swing.JFrame {
         servicios.NewPeticion_Service service = new servicios.NewPeticion_Service();
         servicios.NewPeticion port = service.getNewPeticionPort();
         return port.insert(id, tipo, fechaTope, tamanyo, tamUnidad, color, cantidad, precioMax, usuario, autoElect, finalizado, caducada);
-    }
+    }*/
 }
 
 

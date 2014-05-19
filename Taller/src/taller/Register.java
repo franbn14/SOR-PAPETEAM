@@ -6,14 +6,18 @@
 
 package taller;
 
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 import security.AES;
-
+import servicios.RegistroCli;
+import servicios.RegistroCliente;
 /**
  *
  * @author alberto
@@ -379,22 +383,25 @@ public class Register extends javax.swing.JFrame {
                 surname = AES.encrypt(surname, comunication.getAesKey());
                 dob = AES.encrypt(dob, comunication.getAesKey());
                 email = AES.encrypt(email, comunication.getAesKey());
+                
+                URL url = new URL(ServiceHandler.getURL("RegistroCliente"));
+                Service lcs = Service.create(url, new QName("http://Servicios/", "RegistroCliente"));
+                RegistroCliente rc = lcs.getPort(new QName("http://Servicios/", "RegistroClientePort"), RegistroCliente.class);  
+
+                String error=rc.registroCli(comunication.getID(), cif,name,address,pass,surname,dob,email);
+
+                if(error.equals("")) {
+                    comunication.Finish();
+                    Main main=new Main();
+                    dispose();
+                    main.setVisible(true);                
+                }
+                else
+                    lbError.setText(error);
             }
             catch(Exception ex){
                 
-            }
-            
-            
-            String error=registroCli(comunication.getID(), cif,name,address,pass,surname,dob,email);
-
-            if(error.equals("")) {
-                comunication.Finish();
-                Main main=new Main();
-                dispose();
-                main.setVisible(true);                
-            }
-            else
-                lbError.setText(error);
+            }          
         }                
     }//GEN-LAST:event_btRegisterActionPerformed
 
@@ -544,11 +551,11 @@ public class Register extends javax.swing.JFrame {
          return pass.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$");
     }
 
-    private static String registroCli(int id, java.lang.String nif, java.lang.String nombre, java.lang.String direccion, java.lang.String password, java.lang.String apellidos, java.lang.String fecha, java.lang.String email) {
+   /* private static String registroCli(int id, java.lang.String nif, java.lang.String nombre, java.lang.String direccion, java.lang.String password, java.lang.String apellidos, java.lang.String fecha, java.lang.String email) {
         servicios.RegistroCliente_Service service = new servicios.RegistroCliente_Service();
         servicios.RegistroCliente port = service.getRegistroClientePort();
         return port.registroCli(id, nif, nombre, direccion, password, apellidos, fecha, email);
-    }
+    }*/
 
      public static String encryptPass(String original) {
         String encrypted;
