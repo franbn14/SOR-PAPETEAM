@@ -72,7 +72,7 @@ public class Home extends javax.swing.JFrame {
                         
             checkRequests();
         } catch (Exception ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Error conectando con el servidor.");
         }
     }
 
@@ -287,7 +287,7 @@ public class Home extends javax.swing.JFrame {
             accept.aceptarOfertasDe(comunication.getID(),text);
             checkRequests();
         } catch (Exception ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Error conectando con el servidor.");
         }
     }//GEN-LAST:event_btAcceptActionPerformed
 
@@ -307,14 +307,13 @@ public class Home extends javax.swing.JFrame {
                 delete.borrar(comunication.getID(),idString);                
                 checkRequests();
             } catch (Exception ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println("Error conectando con el servidor.");
             }            
         }
     }//GEN-LAST:event_btDeclineActionPerformed
 
     private void btNewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewRequestActionPerformed
-        // TODO add your handling code here:
-        comunication.Finish();
+        // TODO add your handling code here:        
         dispose(); 
         NewRequest newRequest = new NewRequest(user);
         newRequest.setVisible(true);
@@ -468,7 +467,7 @@ public class Home extends javax.swing.JFrame {
                 requestFList.setModel(model2);
             }
         } catch (Exception ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+           System.err.println("Error conectando con el servidor.");
         }
     }
     /**

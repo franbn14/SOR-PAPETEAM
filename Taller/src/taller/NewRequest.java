@@ -73,7 +73,7 @@ public class NewRequest extends javax.swing.JFrame {
                     cbUnit.addItem(unit);
             }
         } catch (MalformedURLException ex) {
-            Logger.getLogger(NewRequest.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Error conectando con servicios.");
         }
     }
 
@@ -448,8 +448,7 @@ public class NewRequest extends javax.swing.JFrame {
                     home.setVisible(true);
                 }
             } catch (Exception ex) {
-                lbReqError.setText("Error al crear la solicitud"+ex.getMessage());
-                //Logger.getLogger(NewRequest.class.getName()).log(Level.SEVERE, null, ex);
+                lbReqError.setText("Error al crear la solicitud");               
             }
                 
             
