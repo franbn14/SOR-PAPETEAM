@@ -58,7 +58,7 @@ public class NewRequest extends javax.swing.JFrame {
             
             URL url = new URL(ServiceHandler.getURL("DarUnidades"));
             Service lcs = Service.create(url, new QName("http://Servicios/", "DarUnidades"));
-            DarUnidades giveUnits = lcs.getPort(new QName("http://Servicios/", "DarUnidades"), DarUnidades.class);            
+            DarUnidades giveUnits = lcs.getPort(new QName("http://Servicios/", "DarUnidadesPort"), DarUnidades.class);            
             
             String unitString=giveUnits.darTodasUnidades();
             ArrayList<String> units;
@@ -421,7 +421,7 @@ public class NewRequest extends javax.swing.JFrame {
                 //user=AES.encrypt(user, key);
                 URL url = new URL(ServiceHandler.getURL("DarIdClientebyNif"));
                 Service lcs = Service.create(url, new QName("http://Servicios/", "DarIdClientebyNif"));
-                DarIdClientebyNif clientId= lcs.getPort(new QName("http://Servicios/", "DarIdClientebyNif"), DarIdClientebyNif.class);  
+                DarIdClientebyNif clientId= lcs.getPort(new QName("http://Servicios/", "DarIdClientebyNifPort"), DarIdClientebyNif.class);  
                                 
                 Integer userId=clientId.getID(comunication.getID(),user);
                 String userStr=AES.encrypt(Integer.toString(userId),key);
@@ -432,7 +432,7 @@ public class NewRequest extends javax.swing.JFrame {
                 
                 url = new URL(ServiceHandler.getURL("NewPeticion"));
                 lcs = Service.create(url, new QName("http://Servicios/", "NewPeticion"));
-                NewPeticion newReq = lcs.getPort(new QName("http://Servicios/", "NewPeticion"), NewPeticion.class);  
+                NewPeticion newReq = lcs.getPort(new QName("http://Servicios/", "NewPeticionPort"), NewPeticion.class);  
                 
                 String idString=AES.decrypt(newReq.insert(comunication.getID(),type, date, sizeStr,unitStr, color, amountIntStr, priceStr, userStr, selectedStr, finishedStr, expiredStr), key);
                 int id=-1;
@@ -448,7 +448,8 @@ public class NewRequest extends javax.swing.JFrame {
                     home.setVisible(true);
                 }
             } catch (Exception ex) {
-                Logger.getLogger(NewRequest.class.getName()).log(Level.SEVERE, null, ex);
+                lbReqError.setText("Error al crear la solicitud"+ex.getMessage());
+                //Logger.getLogger(NewRequest.class.getName()).log(Level.SEVERE, null, ex);
             }
                 
             

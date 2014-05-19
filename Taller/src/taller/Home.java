@@ -366,7 +366,7 @@ public class Home extends javax.swing.JFrame {
                             
                             url = new URL(ServiceHandler.getURL("DarOfertasRequest"));
                             lcs = Service.create(url, new QName("http://Servicios/", "DarOfertasRequest"));
-                            DarOfertasRequest offers=lcs.getPort(new QName("http://Servicios/", "DarOfertasRequest"), DarOfertasRequest.class);
+                            DarOfertasRequest offers=lcs.getPort(new QName("http://Servicios/", "DarOfertasRequestPort"), DarOfertasRequest.class);
                             
                             offerString = AES.decrypt(offers.darOfertasByR(comunication.getID(),code),comunication.getAesKey());                                              
                         }
@@ -375,7 +375,7 @@ public class Home extends javax.swing.JFrame {
                             
                             url = new URL(ServiceHandler.getURL("DarOfertasRequestOk"));
                             lcs = Service.create(url, new QName("http://Servicios/", "DarOfertasRequestOk"));
-                            DarOfertasRequestOk offers=lcs.getPort(new QName("http://Servicios/", "DarOfertasRequestOk"), DarOfertasRequestOk.class);
+                            DarOfertasRequestOk offers=lcs.getPort(new QName("http://Servicios/", "DarOfertasRequestOkPort"), DarOfertasRequestOk.class);
                             
                             offerString = AES.decrypt(offers.darOfertasByRequestOk(comunication.getID(),code),comunication.getAesKey());
                             lbOffers.setText("Ofertas aceptadas");
@@ -386,7 +386,7 @@ public class Home extends javax.swing.JFrame {
                         
                         url = new URL(ServiceHandler.getURL("DarOfertasSeleccionadas"));
                         lcs = Service.create(url, new QName("http://Servicios/", "DarOfertasSeleccionadas"));
-                        DarOfertasSeleccionadas offers=lcs.getPort(new QName("http://Servicios/", "DarOfertasSeleccionadas"), DarOfertasSeleccionadas.class);
+                        DarOfertasSeleccionadas offers=lcs.getPort(new QName("http://Servicios/", "DarOfertasSeleccionadasPort"), DarOfertasSeleccionadas.class);
                         
                         offerString = AES.decrypt(offers.darOfertasSelection(comunication.getID(),code), comunication.getAesKey());
                     }
@@ -434,13 +434,13 @@ public class Home extends javax.swing.JFrame {
             
             URL url = new URL(ServiceHandler.getURL("DarPeticionesNifP"));
             Service lcs = Service.create(url, new QName("http://Servicios/", "DarPeticionesNifP"));
-            DarPeticionesNifP requestsP=lcs.getPort(new QName("http://Servicios/", "DarPeticionesNifP"), DarPeticionesNifP.class);
+            DarPeticionesNifP requestsP=lcs.getPort(new QName("http://Servicios/", "DarPeticionesNifPPort"), DarPeticionesNifP.class);
             
             String requestString = AES.decrypt(requestsP.darPeticiones(comunication.getID(), user),comunication.getAesKey());
             
             url = new URL(ServiceHandler.getURL("DarPeticionesNifF"));                        
             lcs = Service.create(url, new QName("http://Servicios/", "DarPeticionesNifF"));
-            DarPeticionesNifF requestsF=lcs.getPort(new QName("http://Servicios/", "DarPeticionesNifF"), DarPeticionesNifF.class);
+            DarPeticionesNifF requestsF=lcs.getPort(new QName("http://Servicios/", "DarPeticionesNifFPort"), DarPeticionesNifF.class);
             
             String requestString2 = AES.decrypt(requestsF.darPeticionesHis(comunication.getID(),user),comunication.getAesKey());
             

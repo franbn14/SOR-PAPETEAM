@@ -5,16 +5,24 @@
 package taller;
 
 import java.math.BigInteger;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.RSAPublicKeySpec;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 import security.GenKeys;
 import security.PubKey;
 import security.RSA;
+import servicios.InitCom;
+import servicios.FinishCom;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -38,7 +46,12 @@ public class Comunication {
             
             //intercambiamos la clave publica con el servidor
             BASE64Encoder b64e = new BASE64Encoder();
-            String json = exchangeKeys(b64e.encode(pubKey.getModulus().toByteArray()), b64e.encode(pubKey.getPublicExponent().toByteArray()));
+                                       
+            URL url = new URL(ServiceHandler.getURL("InitCom"));
+            Service lcs = Service.create(url, new QName("http://Servicios/", "InitCom"));
+            InitCom initcom = lcs.getPort(new QName("http://Servicios/", "InitComPort"), InitCom.class);            
+                       
+            String json = initcom.exchangeKeys(b64e.encode(pubKey.getModulus().toByteArray()), b64e.encode(pubKey.getPublicExponent().toByteArray()));
             
             //Parseamos el json y obtenemos el id, modulo y exponente
             PubKey pk = new PubKey(json);
@@ -52,7 +65,7 @@ public class Comunication {
             serverKey = factory.generatePublic(spec);
             
             //Solicitamos clave AES
-            json = getAESKey(ID);
+            json = initcom.getAESKey(ID);
             
             //Parseamos json y obetnemos mensaje y firma
             security.Package p = new security.Package(json);
@@ -68,7 +81,7 @@ public class Comunication {
             System.err.println(ex);
         }
     }
-    
+    /*
     private static String exchangeKeys(java.lang.String modulus, java.lang.String exponent) {
         servicios.InitCom_Service service = new servicios.InitCom_Service();
         servicios.InitCom port = service.getInitComPort();
@@ -86,7 +99,7 @@ public class Comunication {
         servicios.FinishCom port = service.getFinishComPort();
         port.finish(id);
     }
-    
+    */
     public static Comunication getInstance(){
         if(_instance == null){
             _instance = new Comunication();
@@ -95,8 +108,15 @@ public class Comunication {
     }
     
     public void Finish(){
-        finish(ID);
-        _instance = null;
+        try {
+            URL url = new URL(ServiceHandler.getURL("FinishCom"));
+            Service lcs = Service.create(url, new QName("http://Servicios/", "FinishCom"));
+            FinishCom finishcom = lcs.getPort(new QName("http://Servicios/", "FinishComPort"), FinishCom.class);
+            finishcom.finish(ID);
+            _instance = null;
+        } catch (MalformedURLException ex) {
+            System.err.println("Error de conexión");
+        }
     }
 
     public int getID() {

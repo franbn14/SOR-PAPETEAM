@@ -17,4 +17,7 @@
     <import location="DarIdClientebyNif.xml" namespace="http://Servicios/"/>
     <import location="NewPeticion.xml" namespace="http://Servicios/"/>
     <import location="DarUnidades.xml" namespace="http://Servicios/"/>
+    <import location="publish.xml" namespace="urn:uddi-org:v3_service"/>
+    <import location="inquiry.xml" namespace="urn:uddi-org:v3_service"/>
+    <import location="security.xml" namespace="urn:uddi-org:v3_service"/>
 </definitions>

@@ -189,10 +189,9 @@ public class Main extends javax.swing.JFrame {
                 user=AES.encrypt(user, comunication.getAesKey());
                 pass=AES.encrypt(pass, comunication.getAesKey());
                                                 
-                //String error=AES.decrypt(login(comunication.getID(),pass,user), comunication.getAesKey());
-                URL url;
+                //String error=AES.decrypt(login(comunication.getID(),pass,user), comunication.getAesKey());                
                 String error;               
-                url = new URL(ServiceHandler.getURL("LoginClientes"));
+                URL url = new URL(ServiceHandler.getURL("LoginClientes"));
                 Service lcs = Service.create(url, new QName("http://Servicios/", "LoginClientes"));
                 LoginClientes lc = lcs.getPort(new QName("http://Servicios/", "LoginClientesPort"), LoginClientes.class);            
                 error=AES.decrypt(lc.login(comunication.getID(),pass,user), comunication.getAesKey());
@@ -205,7 +204,7 @@ public class Main extends javax.swing.JFrame {
                 else
                     lbError.setText(error);                    
             } catch (Exception ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                lbError.setText("No se ha podido conectar."); 
             }
         }        
         else
