@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Desguace_Net.DarUnidadTipo;
+using WsdlService;
+
 
 namespace Desguace_Net
 {
@@ -95,7 +96,8 @@ namespace Desguace_Net
         }
         public override String ToString()
         {
-            DarUnidadesClient c = new DarUnidadesClient();
+            DarUnidades c = new DarUnidades();
+            c.Url = Uddi.DarUrlWsdl("DarUnidades");
 
             return ((amount != null) ? amount + " " : "") + type + ((color != null) ? " | " + color : "") +
                 ((size != null) ? " | " + size + c.DarUnidadId(sizeUnit) : "") + ((maxPrice != null) ? " | " + maxPrice+" €" : "");

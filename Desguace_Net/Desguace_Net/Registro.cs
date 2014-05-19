@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
-
+using System.Web.Services;
 using System.Security.Cryptography;
-using Desguace_Net.RegistroDesguace;
-using Desguace_Net.FinishCom;
 
+using System.Web.Services.Protocols;
+using System.Diagnostics;
+using System.Xml.Serialization;
+using System;
+using System.Web.Services.Protocols;
+using System.Web.Services;
+using WsdlService;
 
 namespace Desguace_Net
 {
@@ -23,11 +28,12 @@ namespace Desguace_Net
         {
             InitializeComponent();
         }
+
         public static byte[] strToByteArray(string str)
         {
             System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
             return encoding.GetBytes(str);
-
+            
         }
 
         public static bool IsValidEmail(string strMailAddress)
@@ -58,6 +64,7 @@ namespace Desguace_Net
             if (cadena.IndexOf(firstChar) == -1) return false;
             string digits = cif.Substring(1, 8);
             return Regex.IsMatch(digits, @"^[0-9]{8}$");
+            
          
         }
 
@@ -66,7 +73,7 @@ namespace Desguace_Net
             Erro_Cif.Visible = false;
             error_Pass.Visible = false;
             ErrorEmail.Visible = false;
-
+            
             if (Cif_Text.Text == "")
             {
                 Erro_Cif.Visible = true;
@@ -93,19 +100,22 @@ namespace Desguace_Net
                     ErrorEmail.Text="Email debe seguir el formato ejemplo@loquesea.com";
                 
             }
+
             if (Cif_Text.Text != "" && Pass_Text.Text != "" && Pass_Text.Text == Pass2.Text && IsValidEmail(Email_text.Text) && validateCif(Cif_Text.Text))
             {
-                
+               
                 Erro_Cif.Visible = false;
                 error_Pass.Visible = false;
                 ErrorEmail.Visible = false;
-                RegistroDesguaceClient l1 = new RegistroDesguaceClient();
+                
 
-                Comunicacion com = Comunicacion.GetInstance();
+               
                 try
                 {
+                    RegistroDesguace l1 = new RegistroDesguace();
+                    l1.Url = Uddi.DarUrlWsdl("RegistroDesguace");
                     String error = "";
-
+                    Comunicacion com = Comunicacion.GetInstance();
                     SHA512 shaM = new SHA512Managed();
                    byte [] passCi = shaM.ComputeHash(strToByteArray(Pass_Text.Text));
                    StringBuilder hex = new StringBuilder(passCi.Length * 2);
@@ -113,7 +123,7 @@ namespace Desguace_Net
                        hex.AppendFormat("{0:x2}", b);
 
                   error = l1.Registro(com.getID(), Comunicacion.Encrypt(Cif_Text.Text, com.getAes()), Comunicacion.Encrypt(Nombre_Text.Text, com.getAes()), Comunicacion.Encrypt(hex.ToString(), com.getAes()), Comunicacion.Encrypt(Dire_Text.Text, com.getAes()), Comunicacion.Encrypt(Email_text.Text, com.getAes()));
-
+                 
 
                     if (error == "")
                     {
@@ -121,11 +131,11 @@ namespace Desguace_Net
                         if (MessageBox.Show("Registro Correcto. Por Favor para acceder Loguese.", "", MessageBoxButtons.OK,
        MessageBoxIcon.Information) == DialogResult.OK)
                         {
-                            FinishComClient client = new FinishComClient();
+                            FinishCom client = new FinishCom();
+                            client.Url = Uddi.DarUrlWsdl("FinishCom");
                             client.Finish(com.getID());
                             com.setInstanceNull();
                             Close();
-
                         }
                     }
                     else
@@ -135,15 +145,14 @@ namespace Desguace_Net
                     }
 
                 }
-                catch (EndpointNotFoundException ex)
+                catch (Exception ex)
                 {
 
                     Erro_Cif.Visible = true;
-                    Erro_Cif.Text="Se ha caido el servidor";
+                    Erro_Cif.Text="Fallo en el servidor. Intentelo de nuevo";
                     
                 }
             }
-
 
         }
 

@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Desguace_Net.DarUnidadTipo;
+
 using System.Text.RegularExpressions;
 using Desguace_Net;
+using System.ServiceModel;
+using WsdlService;
 
 namespace Desguace_Net
 {
@@ -41,11 +43,22 @@ namespace Desguace_Net
 
         private void Hacer_Oferta_Load(object sender, EventArgs e)
         {
-            DarUnidadesClient c =new DarUnidadesClient();
+            DarUnidades c =new DarUnidades();
+            c.Url = Uddi.DarUrlWsdl("DarUnidades");
+
             dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<String>>(c.DarTodasUnidades());
             
             Concepto.Text = "Tipo: " + request.Type;
-            LTam.Text = "Tamaño:" + ((request.Size != null && request.Size != 0.0) ? request.Size.ToString() +c.DarUnidadId(request.SizeUnit) : "");
+            try
+            {
+                LTam.Text = "Tamaño:" + ((request.Size != null && request.Size != 0.0) ? request.Size.ToString() + c.DarUnidadId(request.SizeUnit) : "");
+            }
+            catch (Exception ex)
+            {
+                 ErrorCantidad.Visible = true;
+                ErrorCantidad.Text = "Fallo en el servidor. Intentelo de nuevo";
+            }
+            
         }
 
         private void EnviarOferta_Click(object sender, EventArgs e)

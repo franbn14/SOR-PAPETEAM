@@ -42,9 +42,12 @@
       <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -86,43 +89,29 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request.cs" />
-    <Compile Include="Service References\DarNombre\Reference.cs">
+    <Compile Include="Service References\Inquiry\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\FinishCom\Reference.cs">
+    <Compile Include="Service References\Juddiapi\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\LoginServicio\Reference.cs">
+    <Compile Include="Service References\Publish\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\RegistroDesguace\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\DarID\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\DarUnidadTipo\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\InitCom\Reference.cs">
+    <Compile Include="Service References\Security\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="TopicPublisher.cs" />
     <Compile Include="TopicSuscriber.cs" />
+    <Compile Include="Uddi.cs" />
     <EmbeddedResource Include="Hacer_Oferta.resx">
       <DependentUpon>Hacer_Oferta.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,7 +133,9 @@
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -154,70 +145,184 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\DarID\DarIdDesguacebyCif.wsdl" />
-    <None Include="Service References\DarID\DarIdDesguacebyCif.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DarID\Desguace_Net.DarID.getIdDesResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.bindingDetail.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DarID\Desguace_Net.DarID.helloResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.businessDetail.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DarNombre\DarNombreCliente.wsdl" />
-    <None Include="Service References\DarNombre\DarNombreCliente.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DarNombre\Desguace_Net.DarNombre.DarNombreDesguaceResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.businessList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DarNombre\Desguace_Net.DarNombre.helloResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.find_bindingResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DarUnidadTipo\Desguace_Net.DarUnidadTipo.DarTodasUnidadesResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.find_businessResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DarUnidadTipo\Desguace_Net.DarUnidadTipo.DarUnidadIdResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.find_relatedBusinessesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FinishCom\Desguace_Net.FinishCom.FinishResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.find_serviceResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FinishCom\FinishCom.wsdl" />
-    <None Include="Service References\FinishCom\FinishCom.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\InitCom\Desguace_Net.InitCom.exchangeKeysResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.find_tModelResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\InitCom\Desguace_Net.InitCom.getAESKeyResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.get_bindingDetailResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\LoginServicio\Desguace_Net.LoginServicio.helloResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.get_businessDetailResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\LoginServicio\Desguace_Net.LoginServicio.Login_DesResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.get_operationalInfoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\LoginServicio\LoginDesguace.wsdl" />
-    <None Include="Service References\LoginServicio\LoginDesguace.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RegistroDesguace\Desguace_Net.RegistroDesguace.RegistroResponse.datasource">
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.get_serviceDetailResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\RegistroDesguace\RegistroDesguace.wsdl" />
-    <None Include="Service References\RegistroDesguace\RegistroDesguace.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.get_tModelDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DarUnidadTipo\DarUnidades.wsdl" />
-    <None Include="Service References\DarUnidadTipo\DarUnidades.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.operationalInfos.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\InitCom\InitCom.wsdl" />
-    <None Include="Service References\InitCom\InitCom.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.relatedBusinessesList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.serviceDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.serviceList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.tModelDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Inquiry\Desguace_Net.Inquiry.tModelList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Inquiry\UDDIInquiryService.wsdl" />
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.adminDelete_tmodelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.clerk.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.clientSubscriptionInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.delete_ClientSubscriptionInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.delete_publisherResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.get_allPublisherDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.get_publisherDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.invoke_SyncSubscriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.node.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.publisherDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.save_ClerkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.save_ClientSubscriptionInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.save_NodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.save_publisherResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\Desguace_Net.Juddiapi.subscriptionResultsList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Juddiapi\JUDDIApiService.wsdl" />
+    <None Include="Service References\Publish\Desguace_Net.Publish.add_publisherAssertionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.assertionStatusItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.bindingDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.businessDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.delete_bindingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.delete_businessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.delete_publisherAssertionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.delete_serviceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.delete_tModelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.get_assertionStatusReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.get_publisherAssertionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.get_registeredInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.publisherAssertion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.registeredInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.save_bindingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.save_businessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.save_serviceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.save_tModelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.serviceDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.set_publisherAssertionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\Desguace_Net.Publish.tModelDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Publish\UDDIPublicationService.wsdl" />
+    <None Include="Service References\Security\Desguace_Net.Security.authToken.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Security\Desguace_Net.Security.discard_authTokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Security\Desguace_Net.Security.get_authTokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Security\UDDISecurityService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -228,97 +333,43 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\DarNombre\" />
-    <WCFMetadataStorage Include="Service References\FinishCom\" />
-    <WCFMetadataStorage Include="Service References\LoginServicio\" />
-    <WCFMetadataStorage Include="Service References\RegistroDesguace\" />
-    <WCFMetadataStorage Include="Service References\DarID\" />
-    <WCFMetadataStorage Include="Service References\DarUnidadTipo\" />
-    <WCFMetadataStorage Include="Service References\InitCom\" />
+    <WCFMetadataStorage Include="Service References\Inquiry\" />
+    <WCFMetadataStorage Include="Service References\Juddiapi\" />
+    <WCFMetadataStorage Include="Service References\Publish\" />
+    <WCFMetadataStorage Include="Service References\Security\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\LoginServicio\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\LoginServicio\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\LoginServicio\Reference.svcmap">
+    <None Include="Service References\Security\configuration91.svcinfo" />
+    <None Include="Service References\Security\configuration.svcinfo" />
+    <None Include="Service References\Security\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DarNombre\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DarNombre\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DarNombre\Reference.svcmap">
+    <None Include="Service References\Publish\configuration91.svcinfo" />
+    <None Include="Service References\Publish\configuration.svcinfo" />
+    <None Include="Service References\Publish\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\RegistroDesguace\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\RegistroDesguace\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\RegistroDesguace\Reference.svcmap">
+    <None Include="Service References\Inquiry\configuration91.svcinfo" />
+    <None Include="Service References\Inquiry\configuration.svcinfo" />
+    <None Include="Service References\Inquiry\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DarID\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DarID\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DarID\Reference.svcmap">
+    <None Include="Service References\Juddiapi\configuration91.svcinfo" />
+    <None Include="Service References\Juddiapi\configuration.svcinfo" />
+    <None Include="Service References\Juddiapi\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="uddi.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DarUnidadTipo\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DarUnidadTipo\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DarUnidadTipo\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\InitCom\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\InitCom\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\InitCom\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FinishCom\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FinishCom\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FinishCom\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\WsdlServices\WsdlServices.csproj">
+      <Project>{2c27a710-4895-45a1-a6ef-271825eb8c66}</Project>
+      <Name>WsdlServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

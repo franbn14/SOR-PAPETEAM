@@ -36,6 +36,7 @@
             this.hacerOferta = new System.Windows.Forms.Button();
             this.OfferPList = new System.Windows.Forms.ListBox();
             this.OfferFList = new System.Windows.Forms.ListBox();
+            this.ErrorConexion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -137,12 +138,23 @@
             this.OfferFList.Size = new System.Drawing.Size(375, 259);
             this.OfferFList.TabIndex = 11;
             // 
+            // ErrorConexion
+            // 
+            this.ErrorConexion.AutoSize = true;
+            this.ErrorConexion.ForeColor = System.Drawing.Color.Red;
+            this.ErrorConexion.Location = new System.Drawing.Point(91, 442);
+            this.ErrorConexion.Name = "ErrorConexion";
+            this.ErrorConexion.Size = new System.Drawing.Size(0, 13);
+            this.ErrorConexion.TabIndex = 12;
+            this.ErrorConexion.Visible = false;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1304, 635);
+            this.Controls.Add(this.ErrorConexion);
             this.Controls.Add(this.OfferFList);
             this.Controls.Add(this.OfferPList);
             this.Controls.Add(this.hacerOferta);
@@ -172,5 +184,6 @@
         private System.Windows.Forms.Button hacerOferta;
         private System.Windows.Forms.ListBox OfferPList;
         private System.Windows.Forms.ListBox OfferFList;
+        private System.Windows.Forms.Label ErrorConexion;
     }
 }

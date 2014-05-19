@@ -9,14 +9,13 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
-using Desguace_Net.LoginServicio;
-using Desguace_Net.DarNombre;
-using Desguace_Net.DarID;
+
 using Apache.NMS.ActiveMQ;
 using Apache.NMS;
 using Desguace_Net;
-using Desguace_Net.FinishCom;
+
 using System.Threading;
+using WsdlService;
 
 namespace Desguace_Net
 {
@@ -35,27 +34,38 @@ namespace Desguace_Net
         public Inicio(String user,int idAes)
         {
             IDAes = idAes;
-
-            DarNombreClienteClient c = new DarNombreClienteClient();
-            DarIdDesguacebyCifClient id = new DarIdDesguacebyCifClient();
+            DarNombreCliente c = new DarNombreCliente();
+            c.Url = Uddi.DarUrlWsdl("DarNombreCliente");
+           
+            DarIdDesguacebyCif id = new DarIdDesguacebyCif();
+            id.Url = Uddi.DarUrlWsdl("DarIdDesguacebyCif");
             nif = user;
-            Comunicacion com = Comunicacion.GetInstance();
+            try
+            {
+                Comunicacion com = Comunicacion.GetInstance();
+
+                idDes = id.getIdDes(com.getID(), Comunicacion.Encrypt(user, com.getAes()));
+
+                userName = c.DarNombreDesguace(com.getID(), Comunicacion.Encrypt(user, com.getAes()));
+
+                userName = Comunicacion.Decrypt(userName, com.getAes());
+
+                InitializeComponent();
+                Text = "Bienvenido " + userName;
+
+                r = new Services.TopicSubscriber("pendientes", "tcp://192.168.43.56:61616", "RecibidorRequest" + nif);
+                op = new Services.TopicSubscriber(nif + "p", "tcp://192.168.43.56:61616", "RecibidorOfertasPen" + nif);
+                of = new Services.TopicSubscriber(nif + "f", "tcp://192.168.43.56:61616", "RecibidorOfertasFin" + nif);
+                r.OnMessageReceived += r_OnMessageReceived;
+                op.OnMessageReceived += op_OnMessageReceived;
+                of.OnMessageReceived += of_OnMessageReceived;
+            }
+            catch (Exception ex)
+            {
+                ErrorConexion.Visible = true;
+                ErrorConexion.Text = "Fallo de conexion";
+            }
             
-            idDes = id.getIdDes(com.getID(),Comunicacion.Encrypt(user,com.getAes()));
-            
-            userName = c.DarNombreDesguace(com.getID(),Comunicacion.Encrypt(user,com.getAes()));
-
-            userName = Comunicacion.Decrypt(userName, com.getAes());
-
-            InitializeComponent();
-            Text = "Bienvenido " + userName;
-
-            r = new Services.TopicSubscriber("pendientes", "tcp://192.168.43.56:61616", "RecibidorRequest" + nif);
-            op = new Services.TopicSubscriber(nif + "p", "tcp://192.168.43.56:61616", "RecibidorOfertasPen" + nif);
-            of = new Services.TopicSubscriber(nif + "f", "tcp://192.168.43.56:61616", "RecibidorOfertasFin" + nif);
-            r.OnMessageReceived += r_OnMessageReceived;
-            op.OnMessageReceived += op_OnMessageReceived;
-            of.OnMessageReceived += of_OnMessageReceived;
 
            
         }
@@ -92,50 +102,71 @@ namespace Desguace_Net
        
         private void cargarRequest(String message)
         {
-
-            dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Request>>(message);
-            ListaRequest.Items.Clear();
-            if (json != null)
+            try
             {
-                list = new List<Request>(json);
+                dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Request>>(message);
+                ListaRequest.Items.Clear();
+                if (json != null)
+                {
+                    list = new List<Request>(json);
 
-                //ListaRequest = new ListBox();
-               
-                ListaRequest.Items.AddRange(list.ToArray());
-            
+                    //ListaRequest = new ListBox();
+
+                    ListaRequest.Items.AddRange(list.ToArray());
+
+                }
             }
-            
+            catch (Exception ex)
+            {
+                ErrorConexion.Visible = true;
+                ErrorConexion.Text = "Fallo de conexion";
+            }
         }
         private void cargarOfferPen(String message)
         {
-
-            dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Offer>>(message);
-            OfferPList.Items.Clear();
-            if (json != null)
+            try
             {
-                listOp = new List<Offer>(json);
+                dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Offer>>(message);
+                OfferPList.Items.Clear();
+
+                if (json != null)
+                {
+                    listOp = new List<Offer>(json);
 
 
-                //ListaRequest = new ListBox();
-                
-                OfferPList.Items.AddRange(listOp.ToArray());
-                
+                    //ListaRequest = new ListBox();
+
+                    OfferPList.Items.AddRange(listOp.ToArray());
+
+                }
             }
-                
+            catch (Exception ex)
+            {
+                ErrorConexion.Visible = true;
+                ErrorConexion.Text = "Fallo de conexion";
+            }
         }
         private void cargarOfferF(String message)
         {
-
-            dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Offer>>(message);
-            OfferFList.Items.Clear();
-            if (json != null)
+            try
             {
-                listOf = new List<Offer>(json);
+                dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Offer>>(message);
+                OfferFList.Items.Clear();
+                if (json != null)
+                {
+                    listOf = new List<Offer>(json);
 
-                //ListaRequest = new ListBox();
-                
-                OfferFList.Items.AddRange(listOf.ToArray());
+                    //ListaRequest = new ListBox();
+
+                    OfferFList.Items.AddRange(listOf.ToArray());
+                }
             }
+            catch (Exception ex)
+            {
+                ErrorConexion.Visible = true;
+                ErrorConexion.Text = "Fallo de conexion";
+            }
+            
             
         }
         private void Inicio_Load(object sender, EventArgs e)
@@ -168,9 +199,19 @@ namespace Desguace_Net
 
         private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FinishComClient f = new FinishComClient();
-            f.Finish(IDAes);  
-            Application.Exit();
+            FinishCom f= new FinishCom();
+            try
+            {
+                f.Url = Uddi.DarUrlWsdl("FinishCom");
+                f.Finish(IDAes);
+                Application.Exit();
+            }
+            catch(Exception ex)
+            {
+                ErrorConexion.Visible = true;
+                ErrorConexion.Text = "Fallo de conexion";
+            }
+          
         }
         
         private void label1_Click(object sender, EventArgs e)

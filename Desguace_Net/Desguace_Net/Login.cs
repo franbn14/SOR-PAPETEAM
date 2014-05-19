@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
-using Desguace_Net.LoginServicio;
 using System.Security.Cryptography;
-using Desguace_Net.DarNombre;
-using Desguace_Net.FinishCom;
+using WsdlService;
+
+
+
 
 namespace Desguace_Net
 {
@@ -45,10 +46,13 @@ namespace Desguace_Net
         {
             String user = textBox1.Text;
             String pass = textBox2.Text;
-            LoginDesguaceClient l1 = new LoginDesguaceClient();
+         
+            
             
             try
             {
+                LoginDesguace l = new LoginDesguace();
+                l.Url = Uddi.DarUrlWsdl("LoginDesguace");
                 SHA512 shaM = new SHA512Managed();
                 byte[] passCi = shaM.ComputeHash(strToByteArray(pass));
                 
@@ -60,7 +64,7 @@ namespace Desguace_Net
                
                 Comunicacion com = Comunicacion.GetInstance();
 
-                String error =l1.Login_Des(com.getID(),Comunicacion.Encrypt(hex.ToString(),com.getAes()),Comunicacion.Encrypt( user,com.getAes()));
+                String error =l.Login_Des(com.getID(),Comunicacion.Encrypt(hex.ToString(),com.getAes()),Comunicacion.Encrypt( user,com.getAes()));
                 error = Comunicacion.Decrypt(error, com.getAes());
                
                 if (error == "")
@@ -77,10 +81,10 @@ namespace Desguace_Net
                 }
 
             }
-            catch (EndpointNotFoundException ex)
+            catch (Exception ex)
             {
                 Error_Pass.Visible = true;
-                Error_Pass.Text = "Se ha caido el servidor";
+                Error_Pass.Text = "Fallo en el servidor. Intentelo de nuevo";
             }
           
         }
@@ -88,6 +92,44 @@ namespace Desguace_Net
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             
+        }
+
+        private void ContrasenaEn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                Error_Pass.Visible = true;
+                Error_Pass.Text = "Debes poner un CIF";
+            }
+            else
+            {
+                try
+                {
+                    PassManager ps = new PassManager();
+                    ps.Url = Uddi.DarUrlWsdl("PassManager");
+                    string error = ps.forgetPass(textBox1.Text);
+                    if (error == "")
+                    {
+                        Error_Pass.Visible = true;
+                        Error_Pass.Text = "Se ha enviado un email";
+                    }
+                    else
+                    {
+                        Error_Pass.Visible = true;
+                        Error_Pass.Text = error;
+                    }
+                }
+                catch (EndpointNotFoundException ex)
+                {
+                    Error_Pass.Visible = true;
+                    Error_Pass.Text = "Fallo en el servidor. Intentelo de nuevo";
+                }
+                catch (Exception ex)
+                {
+                    Error_Pass.Visible = true;
+                    Error_Pass.Text = "No se encuentra el servicio";
+                }
+            }
         }
     }
 }

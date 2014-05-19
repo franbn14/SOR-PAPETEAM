@@ -35,13 +35,14 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.Error_Pass = new System.Windows.Forms.Label();
+            this.ContrasenaEn = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(176, 159);
+            this.button1.Location = new System.Drawing.Point(175, 142);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 36);
             this.button1.TabIndex = 0;
@@ -53,7 +54,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(24, 17);
+            this.label1.Location = new System.Drawing.Point(20, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 13);
             this.label1.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(23, 40);
+            this.textBox1.Location = new System.Drawing.Point(23, 25);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(180, 20);
             this.textBox1.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(28, 82);
+            this.label2.Location = new System.Drawing.Point(20, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 3;
@@ -78,7 +79,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(23, 114);
+            this.textBox2.Location = new System.Drawing.Point(23, 99);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(180, 20);
@@ -87,7 +88,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(197, 222);
+            this.linkLabel1.Location = new System.Drawing.Point(12, 209);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(158, 13);
             this.linkLabel1.TabIndex = 5;
@@ -99,12 +100,23 @@
             // 
             this.Error_Pass.AutoSize = true;
             this.Error_Pass.ForeColor = System.Drawing.Color.Red;
-            this.Error_Pass.Location = new System.Drawing.Point(216, 121);
+            this.Error_Pass.Location = new System.Drawing.Point(209, 106);
             this.Error_Pass.Name = "Error_Pass";
             this.Error_Pass.Size = new System.Drawing.Size(29, 13);
             this.Error_Pass.TabIndex = 7;
             this.Error_Pass.Text = "Error";
             this.Error_Pass.Visible = false;
+            // 
+            // ContrasenaEn
+            // 
+            this.ContrasenaEn.AutoSize = true;
+            this.ContrasenaEn.Location = new System.Drawing.Point(209, 209);
+            this.ContrasenaEn.Name = "ContrasenaEn";
+            this.ContrasenaEn.Size = new System.Drawing.Size(145, 13);
+            this.ContrasenaEn.TabIndex = 8;
+            this.ContrasenaEn.TabStop = true;
+            this.ContrasenaEn.Text = "Has olvidado la  contraseña?";
+            this.ContrasenaEn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ContrasenaEn_LinkClicked);
             // 
             // Login
             // 
@@ -112,6 +124,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(407, 262);
+            this.Controls.Add(this.ContrasenaEn);
             this.Controls.Add(this.Error_Pass);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.textBox2);
@@ -140,6 +153,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label Error_Pass;
+        private System.Windows.Forms.LinkLabel ContrasenaEn;
     }
 }
 
