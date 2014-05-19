@@ -120,7 +120,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
                             if(err2.isEmpty())
                             {
                                 lblErrRecPass.setForeground(Color.green);
-                                lblErrRecPass.setText("Password reestablecida");
+                                lblErrRecPass.setText("Se le ha enviado un email");
                             }
                             else
                             {

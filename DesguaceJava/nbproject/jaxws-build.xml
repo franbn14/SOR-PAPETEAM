@@ -19,7 +19,7 @@
     <target name="wsimport-client-LoginDesguace" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/LoginDesguace"/>
         <property name="wsdl-LoginDesguace" location="xml-resources/web-service-references/LoginDesguace/wsdl/localhost_8080/Sor_Servicios/LoginDesguace.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginDesguace" destdir="${build.generated.dir}/jax-wsCache/LoginDesguace" wsdl="${wsdl-LoginDesguace}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LoginDesguace" destdir="${build.generated.dir}/jax-wsCache/LoginDesguace" wsdl="${wsdl-LoginDesguace}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/LoginDesguace?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-LoginDesguace}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/LoginDesguace"/>
         </wsimport>
@@ -36,7 +36,7 @@
     <target name="wsimport-client-RegistroDesguace" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/RegistroDesguace"/>
         <property name="wsdl-RegistroDesguace" location="xml-resources/web-service-references/RegistroDesguace/wsdl/localhost_8080/Sor_Servicios/RegistroDesguace.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegistroDesguace" destdir="${build.generated.dir}/jax-wsCache/RegistroDesguace" wsdl="${wsdl-RegistroDesguace}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegistroDesguace" destdir="${build.generated.dir}/jax-wsCache/RegistroDesguace" wsdl="${wsdl-RegistroDesguace}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/RegistroDesguace?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-RegistroDesguace}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/RegistroDesguace"/>
         </wsimport>
@@ -53,7 +53,7 @@
     <target name="wsimport-client-DarUnidades" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/DarUnidades"/>
         <property name="wsdl-DarUnidades" location="xml-resources/web-service-references/DarUnidades/wsdl/localhost_8080/Sor_Servicios/DarUnidades.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarUnidades" destdir="${build.generated.dir}/jax-wsCache/DarUnidades" wsdl="${wsdl-DarUnidades}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/DarUnidades?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarUnidades" destdir="${build.generated.dir}/jax-wsCache/DarUnidades" wsdl="${wsdl-DarUnidades}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/DarUnidades?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-DarUnidades}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/DarUnidades"/>
         </wsimport>
@@ -70,7 +70,7 @@
     <target name="wsimport-client-InitCom" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/InitCom"/>
         <property name="wsdl-InitCom" location="xml-resources/web-service-references/InitCom/wsdl/localhost_8080/Sor_Servicios/InitCom.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InitCom" destdir="${build.generated.dir}/jax-wsCache/InitCom" wsdl="${wsdl-InitCom}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/InitCom?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InitCom" destdir="${build.generated.dir}/jax-wsCache/InitCom" wsdl="${wsdl-InitCom}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/InitCom?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-InitCom}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/InitCom"/>
         </wsimport>
@@ -87,7 +87,7 @@
     <target name="wsimport-client-FinishCom" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/FinishCom"/>
         <property name="wsdl-FinishCom" location="xml-resources/web-service-references/FinishCom/wsdl/localhost_8080/Sor_Servicios/FinishCom.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/FinishCom" destdir="${build.generated.dir}/jax-wsCache/FinishCom" wsdl="${wsdl-FinishCom}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/FinishCom?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/FinishCom" destdir="${build.generated.dir}/jax-wsCache/FinishCom" wsdl="${wsdl-FinishCom}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/FinishCom?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-FinishCom}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/FinishCom"/>
         </wsimport>
@@ -104,7 +104,7 @@
     <target name="wsimport-client-DarIdDesguacebyCif" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif"/>
         <property name="wsdl-DarIdDesguacebyCif" location="xml-resources/web-service-references/DarIdDesguacebyCif/wsdl/25.162.2.139_8080/Sor_Servicios/DarIdDesguacebyCif.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif" destdir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif" wsdl="${wsdl-DarIdDesguacebyCif}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif" destdir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif" wsdl="${wsdl-DarIdDesguacebyCif}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/DarIdDesguacebyCif?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-DarIdDesguacebyCif}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/DarIdDesguacebyCif"/>
         </wsimport>
@@ -121,7 +121,7 @@
     <target name="wsimport-client-PassManager" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/PassManager"/>
         <property name="wsdl-PassManager" location="xml-resources/web-service-references/PassManager/wsdl/localhost_8080/Sor_Servicios/PassManager.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PassManager" destdir="${build.generated.dir}/jax-wsCache/PassManager" wsdl="${wsdl-PassManager}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/PassManager?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PassManager" destdir="${build.generated.dir}/jax-wsCache/PassManager" wsdl="${wsdl-PassManager}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Sor_Servicios/PassManager?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-PassManager}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/PassManager"/>
         </wsimport>
@@ -138,7 +138,7 @@
     <target name="wsimport-client-juddi-api" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/juddi-api"/>
         <property name="wsdl-juddi-api" location="xml-resources/web-service-references/juddi-api/wsdl/localhost_8080/juddiv3/services/juddi-api.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/juddi-api" destdir="${build.generated.dir}/jax-wsCache/juddi-api" wsdl="${wsdl-juddi-api}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/juddiv3/services/juddi-api?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/juddi-api" destdir="${build.generated.dir}/jax-wsCache/juddi-api" wsdl="${wsdl-juddi-api}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://192.168.43.56:8080/juddiv3/services/juddi-api?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-juddi-api}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/juddi-api"/>
         </wsimport>
@@ -155,7 +155,7 @@
     <target name="wsimport-client-security" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/security"/>
         <property name="wsdl-security" location="xml-resources/web-service-references/security/wsdl/localhost_8080/juddiv3/services/security.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/security" destdir="${build.generated.dir}/jax-wsCache/security" wsdl="${wsdl-security}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/juddiv3/services/security?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/security" destdir="${build.generated.dir}/jax-wsCache/security" wsdl="${wsdl-security}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://192.168.43.56:8080/juddiv3/services/security?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-security}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/security"/>
         </wsimport>
@@ -172,7 +172,7 @@
     <target name="wsimport-client-inquiry" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/inquiry"/>
         <property name="wsdl-inquiry" location="xml-resources/web-service-references/inquiry/wsdl/localhost_8080/juddiv3/services/inquiry.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/inquiry" destdir="${build.generated.dir}/jax-wsCache/inquiry" wsdl="${wsdl-inquiry}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/juddiv3/services/inquiry?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/inquiry" destdir="${build.generated.dir}/jax-wsCache/inquiry" wsdl="${wsdl-inquiry}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://192.168.43.56:8080/juddiv3/services/inquiry?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-inquiry}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/inquiry"/>
         </wsimport>

@@ -13,4 +13,5 @@
     <import location="FinishCom.xml" namespace="http://Servicios/"/>
     <import location="inquiry.xml" namespace="urn:uddi-org:v3_service"/>
     <import location="security.xml" namespace="urn:uddi-org:v3_service"/>
+    <import location="juddi-api.xml" namespace="urn:juddi-apache-org:v3_service"/>
 </definitions>
