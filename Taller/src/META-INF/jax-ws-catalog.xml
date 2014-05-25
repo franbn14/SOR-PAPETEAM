@@ -34,4 +34,9 @@
     <system systemId="http://192.168.43.56:8080/juddiv3/services/publish?wsdl" uri="wsdl/192.168.43.56_8080/juddiv3/services/publish.wsdl"/>
     <system systemId="http://192.168.43.56:8080/juddiv3/services/inquiry?wsdl" uri="wsdl/192.168.43.56_8080/juddiv3/services/inquiry.wsdl"/>
     <system systemId="http://192.168.43.56:8080/juddiv3/services/security?wsdl" uri="wsdl/192.168.43.56_8080/juddiv3/services/security.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/PassManager?wsdl" uri="wsdl/localhost_8080/Sor_Servicios/PassManager.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/PassManager?xsd=1" uri="wsdl/localhost_8080/Sor_Servicios/PassManager.xsd_1.xsd"/>
+    <system systemId="http://25.162.2.139:8080/juddiv3/services/inquiry?wsdl" uri="wsdl/25.162.2.139_8080/juddiv3/services/inquiry.wsdl"/>
+    <system systemId="http://25.162.2.139:8080/juddiv3/services/publish?wsdl" uri="wsdl/25.162.2.139_8080/juddiv3/services/publish.wsdl"/>
+    <system systemId="http://25.162.2.139:8080/juddiv3/services/security?wsdl" uri="wsdl/25.162.2.139_8080/juddiv3/services/security.wsdl"/>
 </catalog>

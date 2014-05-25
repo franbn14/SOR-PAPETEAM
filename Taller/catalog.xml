@@ -31,4 +31,12 @@
     <system systemId="http://localhost:8080/Sor_Servicios/InitCom?xsd=1" uri="xml-resources/web-service-references/InitCom/wsdl/localhost_8080/Sor_Servicios/InitCom.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Sor_Servicios/FinishCom?wsdl" uri="xml-resources/web-service-references/FinishCom/wsdl/localhost_8080/Sor_Servicios/FinishCom.wsdl"/>
     <system systemId="http://localhost:8080/Sor_Servicios/FinishCom?xsd=1" uri="xml-resources/web-service-references/FinishCom/wsdl/localhost_8080/Sor_Servicios/FinishCom.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/PassManager?wsdl" uri="xml-resources/web-service-references/PassManager/wsdl/localhost_8080/Sor_Servicios/PassManager.wsdl"/>
+    <system systemId="http://localhost:8080/Sor_Servicios/PassManager?xsd=1" uri="xml-resources/web-service-references/PassManager/wsdl/localhost_8080/Sor_Servicios/PassManager.xsd_1.xsd"/>
+    <system systemId="http://25.162.2.139:8080/juddiv3/services/inquiry?wsdl" uri="xml-resources/web-service-references/inquiry/wsdl/25.162.2.139_8080/juddiv3/services/inquiry.wsdl"/>
+    <system systemId="http://25.162.2.139:8080/juddiv3/services/publish?wsdl" uri="xml-resources/web-service-references/publish/wsdl/25.162.2.139_8080/juddiv3/services/publish.wsdl"/>
+    <system systemId="http://25.162.2.139:8080/juddiv3/services/security?wsdl" uri="xml-resources/web-service-references/security/wsdl/25.162.2.139_8080/juddiv3/services/security.wsdl"/>
+    <system systemId="http://25.220.247.17:8080/juddiv3/services/inquiry?wsdl" uri="xml-resources/web-service-references/inquiry_1/wsdl/25.220.247.17_8080/juddiv3/services/inquiry.wsdl"/>
+    <system systemId="http://25.220.247.17:8080/juddiv3/services/publish?wsdl" uri="xml-resources/web-service-references/publish_1/wsdl/25.220.247.17_8080/juddiv3/services/publish.wsdl"/>
+    <system systemId="http://25.220.247.17:8080/juddiv3/services/security?wsdl" uri="xml-resources/web-service-references/security_2/wsdl/25.220.247.17_8080/juddiv3/services/security.wsdl"/>
 </catalog>

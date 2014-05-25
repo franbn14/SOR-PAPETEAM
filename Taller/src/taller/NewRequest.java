@@ -73,7 +73,7 @@ public class NewRequest extends javax.swing.JFrame {
                     cbUnit.addItem(unit);
             }
         } catch (MalformedURLException ex) {
-            System.err.println("Error conectando con servicios.");
+            exit();
         }
     }
 
@@ -448,7 +448,7 @@ public class NewRequest extends javax.swing.JFrame {
                     home.setVisible(true);
                 }
             } catch (Exception ex) {
-                lbReqError.setText("Error al crear la solicitud");               
+                exit();      
             }
                 
             
@@ -457,12 +457,22 @@ public class NewRequest extends javax.swing.JFrame {
 
     private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
         // TODO add your handling code here:
+        exit();
+    }//GEN-LAST:event_btCancelActionPerformed
+
+    public void exit() {
+        lbReqError.setText("Error al conectar con el servidor.");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ex) {
+            lbReqError.setText("Error interno.");
+        }
         comunication.Finish();
         dispose();
         Home home=new Home(user);
         home.setVisible(true);
-    }//GEN-LAST:event_btCancelActionPerformed
-
+    }
+    
     private void tfDayFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDayFocusGained
         // TODO add your handling code here:
         if(tfDay.getText().equals("dd"))

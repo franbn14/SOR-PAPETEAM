@@ -34,6 +34,7 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import security.AES;
 import servicios.LoginClientes;
+import servicios.PassManager;
 
 /**
  *
@@ -73,6 +74,7 @@ public class Main extends javax.swing.JFrame {
         lbError = new javax.swing.JLabel();
         btRegister = new javax.swing.JButton();
         tfPass = new javax.swing.JPasswordField();
+        btRemember = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(208, 76, 76));
@@ -114,6 +116,13 @@ public class Main extends javax.swing.JFrame {
 
         tfPass.setBackground(new java.awt.Color(252, 247, 232));
 
+        btRemember.setText("Recordar");
+        btRemember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRememberActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
         mainPaneLayout.setHorizontalGroup(
@@ -133,11 +142,15 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPaneLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(64, 64, 64)))
-                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfUser, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                            .addComponent(lbError, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tfPass)
-                            .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbError)
+                            .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tfUser, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                                .addComponent(tfPass)
+                                .addGroup(mainPaneLayout.createSequentialGroup()
+                                    .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btRemember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         mainPaneLayout.setVerticalGroup(
@@ -156,9 +169,12 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btLogin)
-                .addGap(18, 18, 18)
-                .addComponent(lbError))
+                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btLogin)
+                    .addComponent(btRemember))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbError)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,7 +220,7 @@ public class Main extends javax.swing.JFrame {
                 else
                     lbError.setText(error);                    
             } catch (Exception ex) {
-                lbError.setText("No se ha podido conectar."); 
+                lbError.setText("Error al conectar con el servidor.");
             }
         }        
         else
@@ -218,6 +234,26 @@ public class Main extends javax.swing.JFrame {
         Register reg=new Register();        
         reg.setVisible(true);
     }//GEN-LAST:event_btRegisterActionPerformed
+
+    private void btRememberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRememberActionPerformed
+        try {
+            String user=tfUser.getText();
+            
+            String error;
+            URL url = new URL(ServiceHandler.getURL("PassManager"));
+            Service lcs = Service.create(url, new QName("http://Servicios/", "PassManager")); 
+            PassManager manager = lcs.getPort(new QName("http://Servicios/", "PassManagerPort"), PassManager.class);
+            
+            error=manager.forgetPass(user);
+            
+            if(error.equals(""))
+                lbError.setText("Se ha enviado un email.");
+            else
+                lbError.setText(error);
+        } catch (Exception ex) {
+              lbError.setText("Error al conectar con el servidor.");
+        }
+    }//GEN-LAST:event_btRememberActionPerformed
 
    
    
@@ -263,6 +299,7 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLogin;
     private javax.swing.JButton btRegister;
+    private javax.swing.JButton btRemember;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbError;

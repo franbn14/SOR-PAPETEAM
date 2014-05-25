@@ -72,7 +72,7 @@ public class Home extends javax.swing.JFrame {
                         
             checkRequests();
         } catch (Exception ex) {
-            System.err.println("Error conectando con el servidor.");
+            exit();
         }
     }
 
@@ -101,6 +101,7 @@ public class Home extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         requestList = new javax.swing.JList();
         btRefresh = new javax.swing.JButton();
+        lbError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -177,6 +178,8 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        lbError.setForeground(new java.awt.Color(231, 32, 32));
+
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
         mainPaneLayout.setHorizontalGroup(
@@ -192,6 +195,8 @@ public class Home extends javax.swing.JFrame {
                         .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(mainPaneLayout.createSequentialGroup()
                                 .addComponent(lbTitle)
+                                .addGap(150, 150, 150)
+                                .addComponent(lbError)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btExit))
                             .addGroup(mainPaneLayout.createSequentialGroup()
@@ -222,7 +227,8 @@ public class Home extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTitle)
-                    .addComponent(btExit))
+                    .addComponent(btExit)
+                    .addComponent(lbError))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btNewRequest)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -282,12 +288,13 @@ public class Home extends javax.swing.JFrame {
             
             URL url = new URL(ServiceHandler.getURL("AceptarOfertas"));
             Service lcs = Service.create(url, new QName("http://Servicios/", "AceptarOfertas"));
-            AceptarOfertas accept = lcs.getPort(new QName("http://Servicios/", "AceptarOfertas"), AceptarOfertas.class);  
+            AceptarOfertas accept = lcs.getPort(new QName("http://Servicios/", "AceptarOfertasPort"), AceptarOfertas.class);  
             
             accept.aceptarOfertasDe(comunication.getID(),text);
             checkRequests();
         } catch (Exception ex) {
-            System.err.println("Error conectando con el servidor.");
+            System.err.println("Aqui: "+ex.getMessage());
+            exit();
         }
     }//GEN-LAST:event_btAcceptActionPerformed
 
@@ -302,12 +309,12 @@ public class Home extends javax.swing.JFrame {
                 
                 URL url = new URL(ServiceHandler.getURL("BorrarPeticion"));
                 Service lcs = Service.create(url, new QName("http://Servicios/", "BorrarPeticion"));
-                BorrarPeticion delete = lcs.getPort(new QName("http://Servicios/", "BorrarPeticion"), BorrarPeticion.class);
+                BorrarPeticion delete = lcs.getPort(new QName("http://Servicios/", "BorrarPeticionPort"), BorrarPeticion.class);
                 
                 delete.borrar(comunication.getID(),idString);                
                 checkRequests();
             } catch (Exception ex) {
-                System.err.println("Error conectando con el servidor.");
+                exit();
             }            
         }
     }//GEN-LAST:event_btDeclineActionPerformed
@@ -321,10 +328,7 @@ public class Home extends javax.swing.JFrame {
 
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
         // TODO add your handling code here:
-        comunication.Finish();
-        dispose();
-        Main main = new Main();
-        main.setVisible(true);
+        exit();
     }//GEN-LAST:event_btExitActionPerformed
 
     private void requestListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestListMouseClicked
@@ -415,7 +419,7 @@ public class Home extends javax.swing.JFrame {
                     offerList.clearSelection();
                 }
                 catch(Exception ex) {
-                    ex.printStackTrace();
+                    exit();
                 }               
             }
         }     
@@ -467,8 +471,21 @@ public class Home extends javax.swing.JFrame {
                 requestFList.setModel(model2);
             }
         } catch (Exception ex) {
-           System.err.println("Error conectando con el servidor.");
+          exit();
         }
+    }
+    
+    public void exit() {
+        lbError.setText("Error conectando con el servidor.");
+        try {            
+            Thread.sleep(2000);            
+        } catch (InterruptedException ex) {
+            lbError.setText("Error interno.");
+        }
+        comunication.Finish();
+        dispose();
+        Main main = new Main();
+        main.setVisible(true);
     }
     /**
      * @param args the command line arguments
@@ -518,6 +535,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lbError;
     private javax.swing.JLabel lbOffers;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JPanel mainPane;

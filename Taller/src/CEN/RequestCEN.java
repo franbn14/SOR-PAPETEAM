@@ -6,9 +6,14 @@
 
 package CEN;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import taller.ServiceHandler;
 
 /**
  *
@@ -164,14 +169,18 @@ public class RequestCEN {
             
     @Override
     public String toString(){
-        
-        return ((amount!=null)?amount+" ":"") + type + ((color!=null)?" | "+color:"") + 
-                ((size!=null)?" | "+size+darUnidadId(sizeUnit)+" ":"") + ((maxPrice!=null)?" | "+maxPrice+"€":"");
+        try {
+            return ((amount!=null)?amount+" ":"") + type + ((color!=null)?" | "+color:"") +
+                    ((size!=null)?" | "+size+darUnidadId(sizeUnit)+" ":"") + ((maxPrice!=null)?" | "+maxPrice+"€":"");
+        } catch (Exception ex) {
+            System.err.println("URL incorrecta");
+            return "";
+        }
     }
 
-    private static String darUnidadId(Integer id) {
-        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service();
+    private static String darUnidadId(Integer id) throws MalformedURLException {
+        servicios.DarUnidades_Service service = new servicios.DarUnidades_Service(new URL(ServiceHandler.getURL("DarUnidades")));
         servicios.DarUnidades port = service.getDarUnidadesPort();
-        return port.darUnidadId(id);
-    }
+        return port.darUnidadId(id);        
+   }
 }

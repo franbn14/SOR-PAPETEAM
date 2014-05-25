@@ -360,7 +360,7 @@ public class Register extends javax.swing.JFrame {
         }
             
         
-        if(email!=null && !email.isEmpty() && !email.matches("[a-zA-Z0-9]+\\@[a-z]+\\.[a-z]+")) {
+        if(email!=null && !email.isEmpty() && !email.matches("[a-zA-Z0-9.-]+\\@[a-z]+\\.[a-z]+")) {
              lbEmailError.setText("Formato incorrecto");
              dateCorrect=false;
         }
@@ -429,7 +429,7 @@ public class Register extends javax.swing.JFrame {
                     lbError.setText(error);
             }
             catch(Exception ex){
-                
+                exit();
             }          
         }                
     }//GEN-LAST:event_btRegisterActionPerformed
@@ -458,12 +458,17 @@ public class Register extends javax.swing.JFrame {
 
     private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
         // TODO add your handling code here:
+        exit();
+    }//GEN-LAST:event_btCancelActionPerformed
+
+    public void exit() {
+        lbError.setText("Error al conectar con el servidor.");
         comunication.Finish();
         Main main=new Main();
         dispose();
         main.setVisible(true);
-    }//GEN-LAST:event_btCancelActionPerformed
-
+    }
+    
     private void tfDayFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDayFocusGained
         // TODO add your handling code here:
         if(tfDay.getText().equals("dd"))
@@ -604,7 +609,7 @@ public class Register extends javax.swing.JFrame {
             return encrypted;
         }   
         catch(NoSuchAlgorithmException ex) {
-            System.err.println("Erro aquí");
+            System.err.println("Error con la contraseña");
         }        
         return null;
     }
