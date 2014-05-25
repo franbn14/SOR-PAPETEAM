@@ -259,6 +259,7 @@ public class DesguaceRegistro extends JFrame{
             email = AES.encrypt(email, com.getAesKey());
             return port.registro(com.getID(),cif, nombre, password, direccion, email);
         } catch (Exception ex) {
+            
             return "Error en la conexion. Intentelo de nuevo.";
         }
     }

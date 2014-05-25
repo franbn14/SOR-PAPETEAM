@@ -23,4 +23,6 @@
     <system systemId="http://localhost:8080/juddiv3/services/security?wsdl" uri="wsdl/localhost_8080/juddiv3/services/security.wsdl"/>
     <system systemId="http://25.162.2.139:8080/juddiv3/services/security?wsdl" uri="wsdl/25.162.2.139_8080/juddiv3/services/security.wsdl"/>
     <system systemId="http://25.162.2.139:8080/juddiv3/services/inquiry?wsdl" uri="wsdl/25.162.2.139_8080/juddiv3/services/inquiry.wsdl"/>
+    <system systemId="http://25.220.247.17:8080/juddiv3/services/security?wsdl" uri="wsdl/25.220.247.17_8080/juddiv3/services/security.wsdl"/>
+    <system systemId="http://25.220.247.17:8080/juddiv3/services/inquiry?wsdl" uri="wsdl/25.220.247.17_8080/juddiv3/services/inquiry.wsdl"/>
 </catalog>

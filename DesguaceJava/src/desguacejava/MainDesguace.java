@@ -77,7 +77,10 @@ public class MainDesguace extends JFrame {
         private JLabel lblPieza;
         private JTextField tfColor;
         SYLogger logger;
-    public MainDesguace(final String cif) 
+        Receiver r1;
+        Receiver r2;
+        Receiver r3;
+    public MainDesguace(final String cif, final DesguaceJava des) 
     {    
         super("Pantalla Principal del Desguace");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,6 +95,9 @@ public class MainDesguace extends JFrame {
         spPrincipal.setRightComponent(panelDer);
         panelDer.setLayout(new BorderLayout(0, 0));
         
+        r1 = new Receiver();
+        r2 = new Receiver();
+        r3 = new Receiver();
         //logger = new SYLogger();
         JSplitPane spTablas = new JSplitPane();
         spTablas.setDividerSize(10);
@@ -113,6 +119,7 @@ public class MainDesguace extends JFrame {
                 lblSze.setText(oferta.getSize().toString()+" "+darUnidadId(oferta.getSizeUnit()));
             }
         });
+        
         tPeticiones.setAutoscrolls(false);
         tPeticiones.setBackground(new Color(250, 250, 210));
         tPeticiones.setForeground(new Color(100, 149, 237));
@@ -263,7 +270,7 @@ public class MainDesguace extends JFrame {
                             Sender envio = new Sender();
                             //logger.setLogMessage(2, cif, nueva);
                             envio.setParams("OfferDelivery", cif, "OfferDelivery", "OfferDelivery");
-                            //envio.open("192.168.43.56", "61616");
+                            //envio.open("25.220.247.17", "61616");
                             envio.open("localhost", "61616");
                             envio.send(nueva, 60000);
                             envio.close();
@@ -273,7 +280,23 @@ public class MainDesguace extends JFrame {
                     else
                     {
                         if(cifid == -1)
-                            lblerrPrecio.setText("Error en la conexion. Intentelo mas tarde.");
+                        {
+                                lblerrPrecio.setText("Error en la conexion. Intentelo mas tarde.");
+                                try
+                                {
+                                   Thread.sleep(2000);
+                                   Comunication com = Comunication.getInstance();
+                                   com.Finish();
+                                }
+                                catch(Exception ex)
+                                {   
+                                }
+                                
+                                r1.close();
+                                r2.close();
+                                MainDesguace.this.dispose();
+                                des.setVisible(true);
+                        }
                         else
                             lblerrPrecio.setText("El precio no puede estar vacio.");
                     }
@@ -340,20 +363,41 @@ public class MainDesguace extends JFrame {
         tfColor.setColumns(10);
         panelIzq.add(tfColor);
                 
-        Receiver r1 = new Receiver();
-        Receiver r2 = new Receiver();
-        Receiver r3 = new Receiver();
+        JButton btnCerrarSesion = new JButton("Cerrar Sesion");
+        btnCerrarSesion.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try
+                {
+                   Comunication com = Comunication.getInstance();
+                   com.Finish();
+                }
+                catch(Exception ex)
+                {   
+                }
+                   r1.close();
+                   r2.close();
+                   r3.close();
+                   MainDesguace.this.dispose();
+                   des.setVisible(true);
+            }
+        });
+        sl_panelIzq.putConstraint(SpringLayout.NORTH, btnCerrarSesion, 2, SpringLayout.SOUTH, btnHacerOferta);
+        sl_panelIzq.putConstraint(SpringLayout.WEST, btnCerrarSesion, 0, SpringLayout.WEST, lblDescripcion);
+        panelIzq.add(btnCerrarSesion);
+        
         r1.setTable(tOfertas);
         r2.setTable(tPeticiones);
         r3.setTable(tOfertasAceptadas);
         r1.setParams(cif+"p", "servidor", cif+"p", cif+"p");
-        //r1.open("192.168.43.56", "61616");
+        //r1.open("25.220.247.17", "61616"); 
         r1.open("localhost", "61616");
         r2.setParams("pendientes", "servidor", "pendientes", "pendientes");
-        //r2.open("192.168.43.56", "61616");
+        //r2.open("25.220.247.17", "61616");
         r2.open("localhost", "61616");
         r3.setParams(cif+"f", "servidor", cif+"f", cif+"f");
-        //r3.open("192.168.43.56", "61616");
+        //r3.open("25.220.247.17", "61616");
         r3.open("localhost", "61616");
     }
 

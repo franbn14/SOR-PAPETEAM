@@ -7,15 +7,15 @@
 <xs:element name="keyValue" type="xs:string"/>
 <xs:element name="validValue" type="tns:validValue"/>
 <xs:element name="validValuesList" type="tns:validValuesList"/>
-<xs:complexType name="validValue">
-    <xs:sequence>
-      <xs:element name="keyValue" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
 <xs:complexType name="validValuesList">
     <xs:sequence>
       <xs:element minOccurs="0" name="chunkToken" type="xs:string"/>
       <xs:element maxOccurs="unbounded" minOccurs="0" name="validValue" nillable="true" type="tns:validValue"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="validValue">
+    <xs:sequence>
+      <xs:element name="keyValue" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType name="get_allValidValues">
@@ -71,24 +71,28 @@
 <xs:element name="subscriptionKey" type="xs:string"/>
 <xs:element name="subscriptionResultsList" type="tns:subscriptionResultsList"/>
 <xs:element name="subscriptions" type="tns:subscriptions"/>
-<xs:complexType name="get_subscriptionResults">
+<xs:complexType name="subscriptionResultsList">
     <xs:sequence>
-      <xs:element minOccurs="0" ref="ns1:authInfo"/>
-      <xs:element name="subscriptionKey" type="xs:string"/>
-      <xs:element name="coveragePeriod" type="tns:coveragePeriod"/>
       <xs:element minOccurs="0" name="chunkToken" type="xs:string"/>
+      <xs:element name="coveragePeriod" type="tns:coveragePeriod"/>
+      <xs:element name="subscription" type="tns:subscription"/>
+      <xs:element minOccurs="0" ref="ns1:bindingDetail"/>
+      <xs:element minOccurs="0" ref="ns1:businessDetail"/>
+      <xs:element minOccurs="0" ref="ns1:serviceDetail"/>
+      <xs:element minOccurs="0" ref="ns1:tModelDetail"/>
+      <xs:element minOccurs="0" ref="ns1:businessList"/>
+      <xs:element minOccurs="0" ref="ns1:relatedBusinessesList"/>
+      <xs:element minOccurs="0" ref="ns1:serviceList"/>
+      <xs:element minOccurs="0" ref="ns1:tModelList"/>
+      <xs:element minOccurs="0" ref="ns1:assertionStatusReport"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="keyBag" nillable="true" type="tns:keyBag"/>
     </xs:sequence>
+    <xs:attribute name="someResultsUnavailable" type="xs:boolean"/>
   </xs:complexType>
 <xs:complexType name="coveragePeriod">
     <xs:sequence>
       <xs:element minOccurs="0" name="startPoint" type="xs:dateTime"/>
       <xs:element minOccurs="0" name="endPoint" type="xs:dateTime"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="save_subscription">
-    <xs:sequence>
-      <xs:element minOccurs="0" ref="ns1:authInfo"/>
-      <xs:element maxOccurs="unbounded" name="subscription" type="tns:subscription"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType name="subscription">
@@ -116,29 +120,6 @@
       <xs:element minOccurs="0" ref="ns1:get_assertionStatusReport"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="subscriptions">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="subscription" nillable="true" type="tns:subscription"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="subscriptionResultsList">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="chunkToken" type="xs:string"/>
-      <xs:element name="coveragePeriod" type="tns:coveragePeriod"/>
-      <xs:element name="subscription" type="tns:subscription"/>
-      <xs:element minOccurs="0" ref="ns1:bindingDetail"/>
-      <xs:element minOccurs="0" ref="ns1:businessDetail"/>
-      <xs:element minOccurs="0" ref="ns1:serviceDetail"/>
-      <xs:element minOccurs="0" ref="ns1:tModelDetail"/>
-      <xs:element minOccurs="0" ref="ns1:businessList"/>
-      <xs:element minOccurs="0" ref="ns1:relatedBusinessesList"/>
-      <xs:element minOccurs="0" ref="ns1:serviceList"/>
-      <xs:element minOccurs="0" ref="ns1:tModelList"/>
-      <xs:element minOccurs="0" ref="ns1:assertionStatusReport"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="keyBag" nillable="true" type="tns:keyBag"/>
-    </xs:sequence>
-    <xs:attribute name="someResultsUnavailable" type="xs:boolean"/>
-  </xs:complexType>
 <xs:complexType name="keyBag">
     <xs:sequence>
       <xs:element name="deleted" type="xs:boolean"/>
@@ -146,6 +127,25 @@
       <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:businessKey"/>
       <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:serviceKey"/>
       <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:bindingKey"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="get_subscriptionResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="ns1:authInfo"/>
+      <xs:element name="subscriptionKey" type="xs:string"/>
+      <xs:element name="coveragePeriod" type="tns:coveragePeriod"/>
+      <xs:element minOccurs="0" name="chunkToken" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="save_subscription">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="ns1:authInfo"/>
+      <xs:element maxOccurs="unbounded" name="subscription" type="tns:subscription"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="subscriptions">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="subscription" nillable="true" type="tns:subscription"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType name="get_subscriptions">
@@ -391,15 +391,15 @@
     </xs:complexType>
   </xs:element>
 <xs:element name="transfer_custody" type="tns:transfer_custody"/>
-<xs:complexType name="highWaterMarkVector_type">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="highWaterMark" nillable="true" type="tns:changeRecordID_type"/>
-    </xs:sequence>
-  </xs:complexType>
 <xs:complexType name="changeRecordID_type">
     <xs:sequence>
       <xs:element name="nodeID" type="xs:string"/>
       <xs:element minOccurs="0" name="originatingUSN" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="highWaterMarkVector_type">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="highWaterMark" nillable="true" type="tns:changeRecordID_type"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType name="transfer_custody">
@@ -489,6 +489,18 @@
 <xs:element name="transferOperationalInfo" type="tns:transferOperationalInfo"/>
 <xs:element name="transferToken" type="tns:transferToken"/>
 <xs:element name="transfer_entities" type="tns:transfer_entities"/>
+<xs:complexType name="transferToken">
+    <xs:sequence>
+      <xs:element ref="ns1:nodeID"/>
+      <xs:element name="expirationTime" type="xs:dateTime"/>
+      <xs:element name="opaqueToken" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="keyBag">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="key" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
 <xs:complexType name="transferOperationalInfo">
     <xs:sequence>
       <xs:element minOccurs="0" ref="ns1:authorizedName"/>
@@ -500,18 +512,6 @@
       <xs:element minOccurs="0" ref="ns1:authInfo"/>
       <xs:element name="transferToken" type="tns:transferToken"/>
       <xs:element name="keyBag" type="tns:keyBag"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="transferToken">
-    <xs:sequence>
-      <xs:element ref="ns1:nodeID"/>
-      <xs:element name="expirationTime" type="xs:dateTime"/>
-      <xs:element name="opaqueToken" type="xs:base64Binary"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="keyBag">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="key" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType name="discard_transferToken">
@@ -1082,32 +1082,6 @@
     </xs:sequence>
     <xs:attribute name="entityKey" type="xs:string" use="required"/>
   </xs:complexType>
-<xs:complexType name="get_assertionStatusReport">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
-      <xs:element minOccurs="0" name="completionStatus" type="tns:completionStatus"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="assertionStatusReport">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="assertionStatusItem" nillable="true" type="tns:assertionStatusItem"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="assertionStatusItem">
-    <xs:sequence>
-      <xs:element name="fromKey" type="xs:string"/>
-      <xs:element name="toKey" type="xs:string"/>
-      <xs:element name="keyedReference" type="tns:keyedReference"/>
-      <xs:element name="keysOwned" type="tns:keysOwned"/>
-    </xs:sequence>
-    <xs:attribute name="completionStatus" type="tns:completionStatus" use="required"/>
-  </xs:complexType>
-<xs:complexType name="keysOwned">
-    <xs:all>
-      <xs:element minOccurs="0" name="fromKey" type="xs:string"/>
-      <xs:element minOccurs="0" name="toKey" type="xs:string"/>
-    </xs:all>
-  </xs:complexType>
 <xs:complexType name="authToken">
     <xs:sequence>
       <xs:element name="authInfo" type="xs:string"/>
@@ -1116,6 +1090,12 @@
 <xs:complexType name="get_publisherAssertions">
     <xs:sequence>
       <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="get_assertionStatusReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+      <xs:element minOccurs="0" name="completionStatus" type="tns:completionStatus"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType name="dispositionReport">
@@ -1166,6 +1146,26 @@
       <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
       <xs:element maxOccurs="unbounded" ref="tns:tModel"/>
     </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assertionStatusReport">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="assertionStatusItem" nillable="true" type="tns:assertionStatusItem"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assertionStatusItem">
+    <xs:sequence>
+      <xs:element name="fromKey" type="xs:string"/>
+      <xs:element name="toKey" type="xs:string"/>
+      <xs:element name="keyedReference" type="tns:keyedReference"/>
+      <xs:element name="keysOwned" type="tns:keysOwned"/>
+    </xs:sequence>
+    <xs:attribute name="completionStatus" type="tns:completionStatus" use="required"/>
+  </xs:complexType>
+<xs:complexType name="keysOwned">
+    <xs:all>
+      <xs:element minOccurs="0" name="fromKey" type="xs:string"/>
+      <xs:element minOccurs="0" name="toKey" type="xs:string"/>
+    </xs:all>
   </xs:complexType>
 <xs:complexType name="save_service">
     <xs:sequence>
@@ -1319,49 +1319,13 @@
     </xs:sequence>
     <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
   </xs:complexType>
-<xs:complexType name="DSAKeyValueType">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="P" type="xs:base64Binary"/>
-      <xs:element minOccurs="0" name="Q" type="xs:base64Binary"/>
-      <xs:element minOccurs="0" name="G" type="xs:base64Binary"/>
-      <xs:element name="Y" type="xs:base64Binary"/>
-      <xs:element minOccurs="0" name="J" type="xs:base64Binary"/>
-      <xs:element minOccurs="0" name="Seed" type="xs:base64Binary"/>
-      <xs:element minOccurs="0" name="PgenCounter" type="xs:base64Binary"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType mixed="true" name="DigestMethodType">
+<xs:complexType mixed="true" name="ObjectType">
     <xs:sequence>
       <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
     </xs:sequence>
-    <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
-  </xs:complexType>
-<xs:complexType name="X509DataType">
-    <xs:sequence>
-      <xs:choice maxOccurs="unbounded" minOccurs="0">
-        <xs:element name="X509Certificate" type="xs:base64Binary"/>
-        <xs:element name="X509SKI" type="xs:base64Binary"/>
-        <xs:element name="X509CRL" type="xs:base64Binary"/>
-        <xs:element name="X509SubjectName" type="xs:string"/>
-        <xs:element name="X509IssuerSerial" type="tns:X509IssuerSerialType"/>
-        <xs:any namespace="##other" processContents="lax"/>
-      </xs:choice>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType mixed="true" name="KeyValueType">
-    <xs:sequence>
-      <xs:choice maxOccurs="unbounded" minOccurs="0">
-        <xs:element ref="tns:DSAKeyValue"/>
-        <xs:element ref="tns:RSAKeyValue"/>
-        <xs:any namespace="##other" processContents="lax"/>
-      </xs:choice>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="ManifestType">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="Reference" type="tns:ReferenceType"/>
-    </xs:sequence>
     <xs:attribute name="Id" type="xs:ID"/>
+    <xs:attribute name="MimeType" type="xs:string"/>
+    <xs:attribute name="Encoding" type="xs:anyURI"/>
   </xs:complexType>
 <xs:complexType name="ReferenceType">
     <xs:sequence>
@@ -1387,32 +1351,19 @@
     </xs:sequence>
     <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
   </xs:complexType>
-<xs:complexType mixed="true" name="ObjectType">
+<xs:complexType mixed="true" name="DigestMethodType">
     <xs:sequence>
       <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
     </xs:sequence>
-    <xs:attribute name="Id" type="xs:ID"/>
-    <xs:attribute name="MimeType" type="xs:string"/>
-    <xs:attribute name="Encoding" type="xs:anyURI"/>
+    <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
   </xs:complexType>
-<xs:complexType name="RSAKeyValueType">
-    <xs:sequence>
-      <xs:element name="Modulus" type="xs:base64Binary"/>
-      <xs:element name="Exponent" type="xs:base64Binary"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="SPKIDataType">
+<xs:complexType mixed="true" name="KeyValueType">
     <xs:sequence>
       <xs:choice maxOccurs="unbounded" minOccurs="0">
-        <xs:element name="SPKISexp" type="xs:base64Binary"/>
+        <xs:element ref="tns:DSAKeyValue"/>
+        <xs:element ref="tns:RSAKeyValue"/>
         <xs:any namespace="##other" processContents="lax"/>
       </xs:choice>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="X509IssuerSerialType">
-    <xs:sequence>
-      <xs:element name="X509IssuerName" type="xs:string"/>
-      <xs:element name="X509SerialNumber" type="xs:integer"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType mixed="true" name="SignatureMethodType">
@@ -1436,6 +1387,55 @@
     </xs:sequence>
     <xs:attribute name="Target" type="xs:anyURI" use="required"/>
     <xs:attribute name="Id" type="xs:ID"/>
+  </xs:complexType>
+<xs:complexType name="DSAKeyValueType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="P" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="Q" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="G" type="xs:base64Binary"/>
+      <xs:element name="Y" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="J" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="Seed" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="PgenCounter" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="X509DataType">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="X509Certificate" type="xs:base64Binary"/>
+        <xs:element name="X509SKI" type="xs:base64Binary"/>
+        <xs:element name="X509CRL" type="xs:base64Binary"/>
+        <xs:element name="X509SubjectName" type="xs:string"/>
+        <xs:element name="X509IssuerSerial" type="tns:X509IssuerSerialType"/>
+        <xs:any namespace="##other" processContents="lax"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="ManifestType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="Reference" type="tns:ReferenceType"/>
+    </xs:sequence>
+    <xs:attribute name="Id" type="xs:ID"/>
+  </xs:complexType>
+<xs:complexType name="RSAKeyValueType">
+    <xs:sequence>
+      <xs:element name="Modulus" type="xs:base64Binary"/>
+      <xs:element name="Exponent" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="SPKIDataType">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="SPKISexp" type="xs:base64Binary"/>
+        <xs:any namespace="##other" processContents="lax"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="X509IssuerSerialType">
+    <xs:sequence>
+      <xs:element name="X509IssuerName" type="xs:string"/>
+      <xs:element name="X509SerialNumber" type="xs:integer"/>
+    </xs:sequence>
   </xs:complexType>
 <xs:complexType name="RetrievalMethodType">
     <xs:sequence>
@@ -1537,12 +1537,12 @@
     <wsdl:part element="ns1:serviceList" name="body">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="get_businessDetail">
-    <wsdl:part element="ns1:get_businessDetail" name="body">
-    </wsdl:part>
-  </wsdl:message>
   <wsdl:message name="get_serviceDetailResponse">
     <wsdl:part element="ns1:serviceDetail" name="body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="get_businessDetail">
+    <wsdl:part element="ns1:get_businessDetail" name="body">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="find_relatedBusinesses">
@@ -1714,7 +1714,7 @@
   </wsdl:binding>
   <wsdl:service name="UDDIInquiryService">
     <wsdl:port binding="tns:UDDIInquiryServiceSoapBinding" name="UDDIInquiryImplPort">
-      <soap:address location="http://localhost:8080/juddiv3/services/inquiry"/>
+      <soap:address location="http://25.220.247.17:8080/juddiv3/services/inquiry"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

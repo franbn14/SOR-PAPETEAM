@@ -177,7 +177,7 @@ public class DesguaceJava extends JFrame implements ActionListener{
                             {
                                 MainDesguace mdes;
                                 //logger.setLogMessage(1, user, "");
-                                mdes = new MainDesguace(t1.getText());
+                                mdes = new MainDesguace(t1.getText(),(DesguaceJava)des);
                                 mdes.addWindowListener(new WindowAdapter() {
                                     public void windowClosing(WindowEvent e)
                                     {
