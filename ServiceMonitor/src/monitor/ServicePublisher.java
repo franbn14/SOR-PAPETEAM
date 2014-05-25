@@ -16,15 +16,10 @@
  */
 package monitor;
 
-import java.net.Inet4Address;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.xml.ws.WebServiceException;
 import logger.MonitorLogger;
 
 import org.apache.juddi.api_v3.Publisher;
@@ -43,13 +38,11 @@ import org.uddi.api_v3.BusinessList;
 import org.uddi.api_v3.BusinessService;
 import org.uddi.api_v3.Description;
 import org.uddi.api_v3.FindBusiness;
-import org.uddi.api_v3.FindQualifiers;
 import org.uddi.api_v3.GetAuthToken;
 import org.uddi.api_v3.Name;
 import org.uddi.api_v3.SaveBusiness;
 import org.uddi.api_v3.SaveService;
 import org.uddi.api_v3.ServiceDetail;
-import org.uddi.v3_service.DispositionReportFaultMessage;
 import org.uddi.v3_service.UDDIPublicationPortType;
 import org.uddi.v3_service.UDDISecurityPortType;
 //import audit.AuditLogger;
@@ -61,7 +54,7 @@ public class ServicePublisher {
     private static UDDISecurityPortType security = null;
     private static JUDDIApiPortType juddiApi = null;
     private static UDDIPublicationPortType publish = null;
-    private static String uddiUrl;
+    private static String uddiUrl = "http://localhost:8080/juddiv3/services/";
     private static String ip;
     private static String port;
 
@@ -86,7 +79,7 @@ public class ServicePublisher {
         //[i][1] = Descripcion 
         //[i][2] = URL del wsdl        
         String url="http://"+ip+":"+port;                
-        uddiUrl=url+"/juddiv3/services/";
+        //uddiUrl=url+"/juddiv3/services/";
         
         url+="/Sor_Servicios";
         
@@ -131,7 +124,7 @@ public class ServicePublisher {
         services[9][1] = "Dar la id de un cliente meidante su nif";
         services[9][2] = url+"/DarIdClientebyNif?wsdl"; 
         
-        services[10][0] = "AceptarOfertas?wsdl"; 
+        services[10][0] = "AceptarOfertas"; 
         services[10][1] = "Acepta ofertas";
         services[10][2] = url+"/AceptarOfertas?wsdl"; 
         

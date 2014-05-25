@@ -29,7 +29,7 @@ public class ServiceMonitor {
         boolean isWindows = System.getProperty("os.name").toLowerCase().contains("win");
         
         running=true;
-        ip="192.168.1.15";  
+        ip = "25.117.217.175";//"192.168.43.151";
         port="8080";
         commands = new ArrayList<String>();
         commands.add("ping");
@@ -39,7 +39,7 @@ public class ServiceMonitor {
     }
     public static boolean doPing() throws IOException, InterruptedException {
         String s = null;
-        System.out.println("Ping to "+commands.get(commands.size()-1));
+        //System.out.println("Ping to "+commands.get(commands.size()-1));
         ProcessBuilder pb = new ProcessBuilder(commands);
         Process process = pb.start();
 
@@ -65,7 +65,7 @@ public class ServiceMonitor {
     }
     
     public static void start() throws InterruptedException, IOException {
-        String newIp="192.168.1.16";
+        String newIp= "25.162.2.139";//"192.168.43.56";
         boolean changed=false;
         
         init();
@@ -80,18 +80,21 @@ public class ServiceMonitor {
                     if(doPing()) { //Si la nueva ip está disponible
                         changed=true;
                         
-                        ServicePublisher.publish(newIp,port);
+                        ServicePublisher.publish(newIp, port);
                         MonitorLogger.setLogMessage(2,newIp,"");
                         commands.set(commands.lastIndexOf(newIp), ip);
+                        System.out.println("cambiamos a :" + newIp);
                     }        
                     else 
                         MonitorLogger.setLogMessage(-2,newIp,"");
                 }                                        
             }
             else if(changed) { //si hemos cambiado la ip
+                
                 ServicePublisher.publish(ip,port);
                 changed=false;
                 MonitorLogger.setLogMessage(2,ip,"");
+                System.out.println("cambiamos a :" + ip);
             }                                            
             Thread.sleep(3000);
         }
