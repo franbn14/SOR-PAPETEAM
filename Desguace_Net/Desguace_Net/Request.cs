@@ -94,13 +94,21 @@ namespace Desguace_Net
             get { return expired; }
             set { expired = value; }
         }
-        public override String ToString()
+        public override String ToString() 
         {
-            DarUnidades c = new DarUnidades();
-            c.Url = Uddi.DarUrlWsdl("DarUnidades");
-
-            return ((amount != null) ? amount + " " : "") + type + ((color != null) ? " | " + color : "") +
-                ((size != null) ? " | " + size + c.DarUnidadId(sizeUnit) : "") + ((maxPrice != null) ? " | " + maxPrice+" €" : "");
+            try
+            {
+                DarUnidades c = new DarUnidades();
+                c.Url = Uddi.DarUrlWsdl("DarUnidades");
+                return ((amount != null) ? amount + " " : "") + type + ((color != null) ? " | " + color : "") +
+               ((size != null) ? " | " + size + c.DarUnidadId(sizeUnit) : "") + ((maxPrice != null) ? " | " + maxPrice + " €" : "");
+            }
+            catch (Exception ex)
+            {
+                return   ((amount != null) ? amount + " " : "") + type + ((color != null) ? " | " + color : "") +
+               ((size != null) ? " | " + size + "" : "") + ((maxPrice != null) ? " | " + maxPrice + " €" : "");
+            }
+           
         }
 
 

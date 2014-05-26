@@ -46,8 +46,8 @@ namespace Desguace_Net
         {
             String user = textBox1.Text;
             String pass = textBox2.Text;
-         
-            
+
+            Error_Pass.Text = "";
             
             try
             {
@@ -69,7 +69,6 @@ namespace Desguace_Net
                
                 if (error == "")
                 {
-                    
                     Inicio i= new Inicio(user,com.getID());
                     i.Show();
                     this.Hide();

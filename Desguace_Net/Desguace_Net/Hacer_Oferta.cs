@@ -44,13 +44,14 @@ namespace Desguace_Net
         private void Hacer_Oferta_Load(object sender, EventArgs e)
         {
             DarUnidades c =new DarUnidades();
-            c.Url = Uddi.DarUrlWsdl("DarUnidades");
+            
 
             dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<String>>(c.DarTodasUnidades());
             
             Concepto.Text = "Tipo: " + request.Type;
             try
             {
+                c.Url = Uddi.DarUrlWsdl("DarUnidades");
                 LTam.Text = "Tamaño:" + ((request.Size != null && request.Size != 0.0) ? request.Size.ToString() + c.DarUnidadId(request.SizeUnit) : "");
             }
             catch (Exception ex)
@@ -68,35 +69,43 @@ namespace Desguace_Net
            
           
             bool correcto = true;
-
-          
-            if (!checkNumber(Cant_Text.Text))
+            try
             {
-                ErrorCantidad.Visible = true;
-                ErrorCantidad.Text = "No es un número";
-                correcto = false;
-            }
-           
-
-
-            if (!checkNumber(Precio_Text.Text) || Precio_Text.Text == "" || Precio_Text.Text == null)
-            {
-                ErrorPrecio.Visible = true;
-                ErrorPrecio.Text = "Error no es un número o no puedo estar vacío";
-                correcto = false;
-            }
-
-            if (correcto)
-            {
-                String oferta = Pieza_Text.Text + "," + ((request.Size != null) ? request.Size.ToString() : "") + "," + request.SizeUnit + "," + ColorText.Text + "," + Cant_Text.Text + "," + Precio_Text.Text + "," + IdDes + "," + IdRe;
-                Services.TopicPublisher p = new Services.TopicPublisher("OfferDelivery", "tcp://192.168.43.56:61616");
-                p.SendMessage(oferta);
-                if (MessageBox.Show("Oferta Enviada", "", MessageBoxButtons.OK,
-      MessageBoxIcon.Information) == DialogResult.OK)
+                if (!checkNumber(Cant_Text.Text))
                 {
-                    Close();
+                    ErrorCantidad.Visible = true;
+                    ErrorCantidad.Text = "No es un número";
+                    correcto = false;
+                }
+
+
+
+                if (!checkNumber(Precio_Text.Text) || Precio_Text.Text == "" || Precio_Text.Text == null)
+                {
+                    ErrorPrecio.Visible = true;
+                    ErrorPrecio.Text = "Error no es un número o no puedo estar vacío";
+                    correcto = false;
+                }
+
+                if (correcto)
+                {
+                    String oferta = Pieza_Text.Text + "," + ((request.Size != null) ? request.Size.ToString() : "") + "," + request.SizeUnit + "," + ColorText.Text + "," + Cant_Text.Text + "," + Precio_Text.Text + "," + IdDes + "," + IdRe;
+                    Services.TopicPublisher p = new Services.TopicPublisher("OfferDelivery", "tcp://192.168.43.56:61616");
+                    p.SendMessage(oferta);
+                    if (MessageBox.Show("Oferta Enviada", "", MessageBoxButtons.OK,MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        Close();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                ErrorCantidad.Visible = true;
+                ErrorCantidad.Text = "Fallo en el servidor. Intentelo de nuevo";
+            }
+
+          
+           
 
         }
         private bool checkNumber(string number)

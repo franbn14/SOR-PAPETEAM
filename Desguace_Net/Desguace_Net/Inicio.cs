@@ -33,15 +33,17 @@ namespace Desguace_Net
         int IDAes;
         public Inicio(String user,int idAes)
         {
-            IDAes = idAes;
-            DarNombreCliente c = new DarNombreCliente();
-            c.Url = Uddi.DarUrlWsdl("DarNombreCliente");
            
-            DarIdDesguacebyCif id = new DarIdDesguacebyCif();
-            id.Url = Uddi.DarUrlWsdl("DarIdDesguacebyCif");
             nif = user;
             try
             {
+                IDAes = idAes;
+                DarNombreCliente c = new DarNombreCliente();
+                c.Url = Uddi.DarUrlWsdl("DarNombreCliente");
+
+                DarIdDesguacebyCif id = new DarIdDesguacebyCif();
+                id.Url = Uddi.DarUrlWsdl("DarIdDesguacebyCif");
+
                 Comunicacion com = Comunicacion.GetInstance();
 
                 idDes = id.getIdDes(com.getID(), Comunicacion.Encrypt(user, com.getAes()));
@@ -71,11 +73,18 @@ namespace Desguace_Net
         }
         private void r_OnMessageReceived(string message)
         {
-            
 
+            try
+            {
+                Invoke(new Action(() => cargarRequest(message)));
+            }
             //req = list.ElementAt(0);       
             //cargarRequest(message);
-            Invoke(new Action(() => cargarRequest(message)));
+            catch (Exception ex)
+            {
+                ErrorConexion.Visible = true;
+                ErrorConexion.Text = "Fallo de conexion";
+            }
             
      
         }
@@ -83,8 +92,15 @@ namespace Desguace_Net
         {
 
 
-            
-            Invoke(new Action(() => cargarOfferPen(message)));
+            try
+            {
+                Invoke(new Action(() => cargarOfferPen(message)));
+            }
+            catch (Exception ex)
+            {
+                ErrorConexion.Visible = true;
+                ErrorConexion.Text = "Fallo de conexion";
+            }
             
 
 
@@ -92,12 +108,16 @@ namespace Desguace_Net
         private void of_OnMessageReceived(string message)
         {
 
-
+            try{
           
             Invoke(new Action(() => cargarOfferF(message)));
 
-
-
+        }
+            catch (Exception ex)
+            {
+                ErrorConexion.Visible = true;
+                ErrorConexion.Text = "Fallo de conexion";
+            }
         }
        
         private void cargarRequest(String message)
@@ -199,9 +219,10 @@ namespace Desguace_Net
 
         private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FinishCom f= new FinishCom();
+           
             try
             {
+                FinishCom f = new FinishCom();
                 f.Url = Uddi.DarUrlWsdl("FinishCom");
                 f.Finish(IDAes);
                 Application.Exit();
@@ -231,15 +252,23 @@ namespace Desguace_Net
 
         private void hacerOferta_Click(object sender, EventArgs e)
         {
-            Request selected = (Request)ListaRequest.SelectedItem;
-
-            if (selected != null)
+            try
             {
-                Hacer_Oferta o = new Hacer_Oferta(selected, idDes);
-                o.Show();
+                Request selected = (Request)ListaRequest.SelectedItem;
+
+                if (selected != null)
+                {
+                    Hacer_Oferta o = new Hacer_Oferta(selected, idDes);
+                    o.Show();
+                }
+                else
+                    Console.WriteLine("No hay seleccionadas");
             }
-            else
-                Console.WriteLine("No hay seleccionadas");
+            catch (Exception ex)
+            {
+                ErrorConexion.Visible = true;
+                ErrorConexion.Text = "Fallo de conexion";
+            }
         }
 
         
