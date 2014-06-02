@@ -1,0 +1,4 @@
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\WsdlServices\bin\Debug\WsdlServices.dll
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\WsdlServices\bin\Debug\WsdlServices.pdb
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\WsdlServices\obj\Debug\WsdlServices.dll
+C:\Users\fran\Desktop\SORPAPETEAM\Desguace_Net\WsdlServices\obj\Debug\WsdlServices.pdb

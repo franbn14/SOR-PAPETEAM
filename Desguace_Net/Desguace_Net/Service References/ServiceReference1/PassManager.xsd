@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Servicios/" targetNamespace="http://Servicios/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Registro" type="tns:Registro" />
+  <xs:element name="RegistroResponse" type="tns:RegistroResponse" />
+  <xs:element name="RegistroWeb" type="tns:RegistroWeb" />
+  <xs:element name="RegistroWebResponse" type="tns:RegistroWebResponse" />
+  <xs:complexType name="RegistroWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cif" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegistroWebResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Registro">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="Cif" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegistroResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://Servicios/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="PassManager" targetNamespace="http://Servicios/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8082/Sor_Servicios/PassManager?xsd=1" namespace="http://Servicios/" />
+    </xsd:schema>
+  </types>
+  <message name="changePass">
+    <part name="parameters" element="tns:changePass" />
+  </message>
+  <message name="changePassResponse">
+    <part name="parameters" element="tns:changePassResponse" />
+  </message>
+  <message name="forgetPass">
+    <part name="parameters" element="tns:forgetPass" />
+  </message>
+  <message name="forgetPassResponse">
+    <part name="parameters" element="tns:forgetPassResponse" />
+  </message>
+  <portType name="PassManager">
+    <operation name="changePass">
+      <input wsam:Action="http://Servicios/PassManager/changePassRequest" message="tns:changePass" />
+      <output wsam:Action="http://Servicios/PassManager/changePassResponse" message="tns:changePassResponse" />
+    </operation>
+    <operation name="forgetPass">
+      <input wsam:Action="http://Servicios/PassManager/forgetPassRequest" message="tns:forgetPass" />
+      <output wsam:Action="http://Servicios/PassManager/forgetPassResponse" message="tns:forgetPassResponse" />
+    </operation>
+  </portType>
+  <binding name="PassManagerPortBinding" type="tns:PassManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="changePass">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="forgetPass">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="PassManager">
+    <port name="PassManagerPort" binding="tns:PassManagerPortBinding">
+      <soap:address location="http://localhost:8082/Sor_Servicios/PassManager" />
+    </port>
+  </service>
+</definitions>
